@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3EB69BE2212C805F0049BA59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EB69BE1212C805F0049BA59 /* Assets.xcassets */; };
+		3EB69BE4212C855E0049BA59 /* TabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EB69BE3212C855E0049BA59 /* TabBarController.storyboard */; };
+		3EC2C90F212CAA98002D7F69 /* AddCustomActivity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC2C90E212CAA98002D7F69 /* AddCustomActivity.storyboard */; };
+		3EC2C911212CAAB9002D7F69 /* ActivityHistory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC2C910212CAAB9002D7F69 /* ActivityHistory.storyboard */; };
+		3EC2C913212CAB5B002D7F69 /* NewActivity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC2C912212CAB5B002D7F69 /* NewActivity.storyboard */; };
+		3EC2C915212CAB81002D7F69 /* MyProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC2C914212CAB81002D7F69 /* MyProfile.storyboard */; };
+		3EC2C917212CAB9D002D7F69 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC2C916212CAB9D002D7F69 /* Settings.storyboard */; };
+		3EC2C954212CB3A7002D7F69 /* ActivityHistoryDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC2C953212CB3A7002D7F69 /* ActivityHistoryDetails.storyboard */; };
+		3EC2C956212CBE57002D7F69 /* NewActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC2C955212CBE57002D7F69 /* NewActivityViewController.swift */; };
+		3EC2C959212CBEC8002D7F69 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC2C958212CBEC8002D7F69 /* TabBarViewController.swift */; };
 		B6C74F9E212B83AB00331D01 /* ActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F77212B83AA00331D01 /* ActivityController.swift */; };
 		B6C74F9F212B83AB00331D01 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F7A212B83AA00331D01 /* LaunchScreenViewController.swift */; };
 		B6C74FA0212B83AB00331D01 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F7C212B83AA00331D01 /* SettingsViewController.swift */; };
@@ -18,27 +28,30 @@
 		B6C74FA6212B83AB00331D01 /* RunHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F86212B83AA00331D01 /* RunHistoryViewController.swift */; };
 		B6C74FA7212B83AB00331D01 /* BikeHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F87212B83AA00331D01 /* BikeHistoryViewController.swift */; };
 		B6C74FA8212B83AB00331D01 /* ActivityHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F88212B83AA00331D01 /* ActivityHistoryViewController.swift */; };
-		B6C74FA9212B83AB00331D01 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F8A212B83AA00331D01 /* MainViewController.swift */; };
 		B6C74FAA212B83AB00331D01 /* MapViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F8D212B83AA00331D01 /* MapViewManager.swift */; };
 		B6C74FAB212B83AB00331D01 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F8E212B83AA00331D01 /* NetworkManager.swift */; };
 		B6C74FAC212B83AB00331D01 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F8F212B83AA00331D01 /* LocationManager.swift */; };
 		B6C74FAD212B83AB00331D01 /* UnitConversion+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F91212B83AA00331D01 /* UnitConversion+Helper.swift */; };
 		B6C74FAE212B83AB00331D01 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F93212B83AB00331D01 /* User.swift */; };
 		B6C74FAF212B83AB00331D01 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F94212B83AB00331D01 /* Activity.swift */; };
-		B6C74FB4212B83B800331D01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6C74FB1212B83B800331D01 /* Assets.xcassets */; };
 		B6C74FB5212B83B800331D01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74FB2212B83B800331D01 /* AppDelegate.swift */; };
-		B6C74FC8212B84F600331D01 /* AddWorkout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6C74FBC212B84F600331D01 /* AddWorkout.storyboard */; };
-		B6C74FC9212B84F600331D01 /* CurrentActivity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6C74FBD212B84F600331D01 /* CurrentActivity.storyboard */; };
-		B6C74FCA212B84F600331D01 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6C74FBE212B84F600331D01 /* Profile.storyboard */; };
-		B6C74FCB212B84F600331D01 /* ActivityHistory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6C74FBF212B84F600331D01 /* ActivityHistory.storyboard */; };
+		B6C74FC9212B84F600331D01 /* CurrentActivityPopOver.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6C74FBD212B84F600331D01 /* CurrentActivityPopOver.storyboard */; };
 		B6C74FCC212B84F600331D01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6C74FC0212B84F600331D01 /* LaunchScreen.storyboard */; };
-		B6C74FCD212B84F600331D01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6C74FC2212B84F600331D01 /* Main.storyboard */; };
-		B6C74FCE212B84F600331D01 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6C74FC4212B84F600331D01 /* Settings.storyboard */; };
 		B6C74FCF212B84F600331D01 /* ActivityHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74FC6212B84F600331D01 /* ActivityHistoryTableViewCell.swift */; };
 		B6C74FD0212B84F600331D01 /* ActivityHistoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74FC7212B84F600331D01 /* ActivityHistoryButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3EB69BE1212C805F0049BA59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3EB69BE3212C855E0049BA59 /* TabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarController.storyboard; sourceTree = "<group>"; };
+		3EC2C90E212CAA98002D7F69 /* AddCustomActivity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddCustomActivity.storyboard; sourceTree = "<group>"; };
+		3EC2C910212CAAB9002D7F69 /* ActivityHistory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ActivityHistory.storyboard; sourceTree = "<group>"; };
+		3EC2C912212CAB5B002D7F69 /* NewActivity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewActivity.storyboard; sourceTree = "<group>"; };
+		3EC2C914212CAB81002D7F69 /* MyProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyProfile.storyboard; sourceTree = "<group>"; };
+		3EC2C916212CAB9D002D7F69 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		3EC2C953212CB3A7002D7F69 /* ActivityHistoryDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ActivityHistoryDetails.storyboard; sourceTree = "<group>"; };
+		3EC2C955212CBE57002D7F69 /* NewActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewActivityViewController.swift; sourceTree = "<group>"; };
+		3EC2C958212CBEC8002D7F69 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		B6C74ECE212B7C3500331D01 /* ADVNTR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADVNTR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6C74F77212B83AA00331D01 /* ActivityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
 		B6C74F7A212B83AA00331D01 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
@@ -51,23 +64,16 @@
 		B6C74F86212B83AA00331D01 /* RunHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunHistoryViewController.swift; sourceTree = "<group>"; };
 		B6C74F87212B83AA00331D01 /* BikeHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BikeHistoryViewController.swift; sourceTree = "<group>"; };
 		B6C74F88212B83AA00331D01 /* ActivityHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityHistoryViewController.swift; sourceTree = "<group>"; };
-		B6C74F8A212B83AA00331D01 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B6C74F8D212B83AA00331D01 /* MapViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewManager.swift; sourceTree = "<group>"; };
 		B6C74F8E212B83AA00331D01 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B6C74F8F212B83AA00331D01 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		B6C74F91212B83AA00331D01 /* UnitConversion+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UnitConversion+Helper.swift"; sourceTree = "<group>"; };
 		B6C74F93212B83AB00331D01 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B6C74F94212B83AB00331D01 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
-		B6C74FB1212B83B800331D01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6C74FB2212B83B800331D01 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6C74FB3212B83B800331D01 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B6C74FBC212B84F600331D01 /* AddWorkout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddWorkout.storyboard; sourceTree = "<group>"; };
-		B6C74FBD212B84F600331D01 /* CurrentActivity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CurrentActivity.storyboard; sourceTree = "<group>"; };
-		B6C74FBE212B84F600331D01 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		B6C74FBF212B84F600331D01 /* ActivityHistory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ActivityHistory.storyboard; sourceTree = "<group>"; };
+		B6C74FBD212B84F600331D01 /* CurrentActivityPopOver.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CurrentActivityPopOver.storyboard; sourceTree = "<group>"; };
 		B6C74FC1212B84F600331D01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B6C74FC3212B84F600331D01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B6C74FC4212B84F600331D01 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		B6C74FC6212B84F600331D01 /* ActivityHistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		B6C74FC7212B84F600331D01 /* ActivityHistoryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityHistoryButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +89,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3EC2C957212CBE75002D7F69 /* NewActivity */ = {
+			isa = PBXGroup;
+			children = (
+				3EC2C955212CBE57002D7F69 /* NewActivityViewController.swift */,
+			);
+			path = NewActivity;
+			sourceTree = "<group>";
+		};
+		3EC2C95A212CBFD3002D7F69 /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				3EC2C958212CBEC8002D7F69 /* TabBarViewController.swift */,
+			);
+			path = TabBarController;
+			sourceTree = "<group>";
+		};
 		B6C74EC5212B7C3500331D01 = {
 			isa = PBXGroup;
 			children = (
@@ -102,11 +124,11 @@
 		B6C74ED0212B7C3500331D01 /* ADVNTR */ = {
 			isa = PBXGroup;
 			children = (
+				B6C74F92212B83AB00331D01 /* Models */,
 				B6C74FBA212B84F600331D01 /* Views */,
 				B6C74F75212B83AA00331D01 /* Controllers */,
 				B6C74F8B212B83AA00331D01 /* Helpers */,
 				B6C74FB0212B83B800331D01 /* Resources */,
-				B6C74F92212B83AB00331D01 /* Models */,
 			);
 			path = ADVNTR;
 			sourceTree = "<group>";
@@ -132,12 +154,13 @@
 			isa = PBXGroup;
 			children = (
 				B6C74F79212B83AA00331D01 /* LaunchScreen */,
-				B6C74F7B212B83AA00331D01 /* Settings */,
+				3EC2C95A212CBFD3002D7F69 /* TabBarController */,
 				B6C74F7D212B83AA00331D01 /* AddWorkout */,
-				B6C74F7F212B83AA00331D01 /* Profile */,
-				B6C74F81212B83AA00331D01 /* CurrentActivity */,
 				B6C74F83212B83AA00331D01 /* ActivityHistory */,
-				B6C74F89212B83AA00331D01 /* Main */,
+				3EC2C957212CBE75002D7F69 /* NewActivity */,
+				B6C74F81212B83AA00331D01 /* CurrentActivity */,
+				B6C74F7F212B83AA00331D01 /* Profile */,
+				B6C74F7B212B83AA00331D01 /* Settings */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -194,14 +217,6 @@
 			path = ActivityHistory;
 			sourceTree = "<group>";
 		};
-		B6C74F89212B83AA00331D01 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				B6C74F8A212B83AA00331D01 /* MainViewController.swift */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
 		B6C74F8B212B83AA00331D01 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,8 +256,8 @@
 		B6C74FB0212B83B800331D01 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B6C74FB1212B83B800331D01 /* Assets.xcassets */,
 				B6C74FB2212B83B800331D01 /* AppDelegate.swift */,
+				3EB69BE1212C805F0049BA59 /* Assets.xcassets */,
 				B6C74FB3212B83B800331D01 /* Info.plist */,
 			);
 			path = Resources;
@@ -261,13 +276,15 @@
 		B6C74FBB212B84F600331D01 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				B6C74FBC212B84F600331D01 /* AddWorkout.storyboard */,
-				B6C74FBD212B84F600331D01 /* CurrentActivity.storyboard */,
-				B6C74FBE212B84F600331D01 /* Profile.storyboard */,
-				B6C74FBF212B84F600331D01 /* ActivityHistory.storyboard */,
 				B6C74FC0212B84F600331D01 /* LaunchScreen.storyboard */,
-				B6C74FC2212B84F600331D01 /* Main.storyboard */,
-				B6C74FC4212B84F600331D01 /* Settings.storyboard */,
+				3EB69BE3212C855E0049BA59 /* TabBarController.storyboard */,
+				3EC2C90E212CAA98002D7F69 /* AddCustomActivity.storyboard */,
+				3EC2C910212CAAB9002D7F69 /* ActivityHistory.storyboard */,
+				3EC2C953212CB3A7002D7F69 /* ActivityHistoryDetails.storyboard */,
+				3EC2C912212CAB5B002D7F69 /* NewActivity.storyboard */,
+				B6C74FBD212B84F600331D01 /* CurrentActivityPopOver.storyboard */,
+				3EC2C914212CAB81002D7F69 /* MyProfile.storyboard */,
+				3EC2C916212CAB9D002D7F69 /* Settings.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -340,14 +357,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6C74FCB212B84F600331D01 /* ActivityHistory.storyboard in Resources */,
-				B6C74FC9212B84F600331D01 /* CurrentActivity.storyboard in Resources */,
-				B6C74FCD212B84F600331D01 /* Main.storyboard in Resources */,
-				B6C74FCA212B84F600331D01 /* Profile.storyboard in Resources */,
+				3EC2C911212CAAB9002D7F69 /* ActivityHistory.storyboard in Resources */,
+				3EB69BE4212C855E0049BA59 /* TabBarController.storyboard in Resources */,
+				3EC2C917212CAB9D002D7F69 /* Settings.storyboard in Resources */,
+				3EC2C954212CB3A7002D7F69 /* ActivityHistoryDetails.storyboard in Resources */,
+				B6C74FC9212B84F600331D01 /* CurrentActivityPopOver.storyboard in Resources */,
 				B6C74FCC212B84F600331D01 /* LaunchScreen.storyboard in Resources */,
-				B6C74FCE212B84F600331D01 /* Settings.storyboard in Resources */,
-				B6C74FB4212B83B800331D01 /* Assets.xcassets in Resources */,
-				B6C74FC8212B84F600331D01 /* AddWorkout.storyboard in Resources */,
+				3EC2C90F212CAA98002D7F69 /* AddCustomActivity.storyboard in Resources */,
+				3EB69BE2212C805F0049BA59 /* Assets.xcassets in Resources */,
+				3EC2C915212CAB81002D7F69 /* MyProfile.storyboard in Resources */,
+				3EC2C913212CAB5B002D7F69 /* NewActivity.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +379,7 @@
 			files = (
 				B6C74FAC212B83AB00331D01 /* LocationManager.swift in Sources */,
 				B6C74F9E212B83AB00331D01 /* ActivityController.swift in Sources */,
+				3EC2C959212CBEC8002D7F69 /* TabBarViewController.swift in Sources */,
 				B6C74FA8212B83AB00331D01 /* ActivityHistoryViewController.swift in Sources */,
 				B6C74FCF212B84F600331D01 /* ActivityHistoryTableViewCell.swift in Sources */,
 				B6C74FA7212B83AB00331D01 /* BikeHistoryViewController.swift in Sources */,
@@ -369,13 +389,13 @@
 				B6C74FA4212B83AB00331D01 /* ActivityDetailViewController.swift in Sources */,
 				B6C74F9F212B83AB00331D01 /* LaunchScreenViewController.swift in Sources */,
 				B6C74FAF212B83AB00331D01 /* Activity.swift in Sources */,
-				B6C74FA9212B83AB00331D01 /* MainViewController.swift in Sources */,
 				B6C74FD0212B84F600331D01 /* ActivityHistoryButton.swift in Sources */,
 				B6C74FA2212B83AB00331D01 /* ProfileViewController.swift in Sources */,
 				B6C74FA5212B83AB00331D01 /* HikeHistoryViewController.swift in Sources */,
 				B6C74FA3212B83AB00331D01 /* CurrentActivityViewController.swift in Sources */,
 				B6C74FA0212B83AB00331D01 /* SettingsViewController.swift in Sources */,
 				B6C74FA6212B83AB00331D01 /* RunHistoryViewController.swift in Sources */,
+				3EC2C956212CBE57002D7F69 /* NewActivityViewController.swift in Sources */,
 				B6C74FB5212B83B800331D01 /* AppDelegate.swift in Sources */,
 				B6C74FAD212B83AB00331D01 /* UnitConversion+Helper.swift in Sources */,
 				B6C74FAE212B83AB00331D01 /* User.swift in Sources */,
@@ -391,14 +411,6 @@
 				B6C74FC1212B84F600331D01 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		B6C74FC2212B84F600331D01 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B6C74FC3212B84F600331D01 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -525,6 +537,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CYZA2EE6W8;
 				INFOPLIST_FILE = "$(SRCROOT)/ADVNTR/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -543,6 +556,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CYZA2EE6W8;
 				INFOPLIST_FILE = "$(SRCROOT)/ADVNTR/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
