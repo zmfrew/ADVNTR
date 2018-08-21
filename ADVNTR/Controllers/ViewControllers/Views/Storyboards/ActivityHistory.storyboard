@@ -1,7 +1,102 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pm5-4h-AlW">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--History-->
+        <scene sceneID="RKv-qw-88Y">
+            <objects>
+                <viewController title="History" id="Pm5-4h-AlW" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G2q-Bg-IGr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GLC-tX-AaQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="lmt-Xs-mKt">
+                                <rect key="frame" x="16" y="169" width="343" height="482"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rOD-md-VRI">
+                                        <rect key="frame" x="0.5" y="0.0" width="342" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="342" id="DB4-PL-J6M"/>
+                                            <constraint firstAttribute="height" constant="150" id="hY0-OJ-gzQ"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="lucas-clara-579404-unsplash"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="lYs-Rg-45t" kind="show" identifier="toHikeDetails" id="PgF-XW-ZIB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fk2-6z-JWf">
+                                        <rect key="frame" x="0.5" y="166" width="342" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="Fad-cb-xT2"/>
+                                            <constraint firstAttribute="width" constant="342" id="ixz-qL-2Je"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="william-hook-58602-unsplash"/>
+                                        <connections>
+                                            <segue destination="lYs-Rg-45t" kind="show" identifier="toBikeDetails" id="YZb-ow-ucd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rj4-DD-FJl">
+                                        <rect key="frame" x="0.5" y="332" width="342" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="342" id="Qhk-oQ-bjp"/>
+                                            <constraint firstAttribute="height" constant="150" id="dBM-QV-mjd"/>
+                                        </constraints>
+                                        <state key="normal" image="massimo-sartirana-562838-unsplash"/>
+                                        <connections>
+                                            <segue destination="lYs-Rg-45t" kind="show" identifier="toRunDetails" id="kaB-5u-tgW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.29019275309999998" green="0.29043999310000002" blue="0.29023104910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="75W-bG-bee" firstAttribute="trailing" secondItem="lmt-Xs-mKt" secondAttribute="trailing" constant="16" id="W8s-5T-3xa"/>
+                            <constraint firstItem="lmt-Xs-mKt" firstAttribute="leading" secondItem="75W-bG-bee" secondAttribute="leading" constant="16" id="eIm-K4-lfs"/>
+                            <constraint firstItem="75W-bG-bee" firstAttribute="bottom" secondItem="lmt-Xs-mKt" secondAttribute="bottom" constant="16" id="oov-l5-5wW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="75W-bG-bee"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="History" image="icons8-tenses" id="tnY-9w-dKu"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pCu-OY-nWu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1474.4000000000001" y="877.51124437781118"/>
+        </scene>
+        <!--ActivityHistoryDetails-->
+        <scene sceneID="ozz-eG-O0S">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ActivityHistoryDetails" id="lYs-Rg-45t" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lhx-bT-lvX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-543" y="873"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icons8-tenses" width="32" height="32"/>
+        <image name="lucas-clara-579404-unsplash" width="5472" height="3648"/>
+        <image name="massimo-sartirana-562838-unsplash" width="5616" height="3744"/>
+        <image name="william-hook-58602-unsplash" width="4000" height="3000"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="PgF-XW-ZIB"/>
+    </inferredMetricsTieBreakers>
 </document>

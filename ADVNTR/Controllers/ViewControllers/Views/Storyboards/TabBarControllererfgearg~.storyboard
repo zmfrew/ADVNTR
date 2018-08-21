@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Item-->
+        <scene sceneID="iin-sv-SHZ">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t0U-ZA-XvG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="YNm-eH-awg" customClass="AddWorkoutViewController" customModule="ADVNTR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JnP-69-QlF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="kdZ-vR-OVy"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="MGN-Kb-hxP"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1292" y="92.203898050974516"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="IaR-nR-vTT">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="3H8-9a-UFn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5VK-tY-a7s">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="YNm-eH-awg" kind="relationship" relationship="viewControllers" id="zrz-az-Yzp"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aM7-8q-YeQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="352.80000000000001" y="92.203898050974516"/>
+        </scene>
+    </scenes>
+</document>
