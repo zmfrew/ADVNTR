@@ -40,6 +40,7 @@
 		B6C74FCC212B84F600331D01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6C74FC0212B84F600331D01 /* LaunchScreen.storyboard */; };
 		B6C74FCF212B84F600331D01 /* ActivityHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74FC6212B84F600331D01 /* ActivityHistoryTableViewCell.swift */; };
 		B6C74FD0212B84F600331D01 /* ActivityHistoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74FC7212B84F600331D01 /* ActivityHistoryButton.swift */; };
+		B6FE8A97212DD8ED0095FC8B /* FormatDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE8A96212DD8ED0095FC8B /* FormatDisplay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		B6C74FC1212B84F600331D01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6C74FC6212B84F600331D01 /* ActivityHistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		B6C74FC7212B84F600331D01 /* ActivityHistoryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityHistoryButton.swift; sourceTree = "<group>"; };
+		B6FE8A96212DD8ED0095FC8B /* FormatDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDisplay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				B6C74F91212B83AA00331D01 /* UnitConversion+Helper.swift */,
+				B6FE8A96212DD8ED0095FC8B /* FormatDisplay.swift */,
 			);
 			path = Formatters;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				B6C74FA5212B83AB00331D01 /* HikeHistoryViewController.swift in Sources */,
 				B6C74FA3212B83AB00331D01 /* CurrentActivityViewController.swift in Sources */,
 				B6C74FA0212B83AB00331D01 /* SettingsViewController.swift in Sources */,
+				B6FE8A97212DD8ED0095FC8B /* FormatDisplay.swift in Sources */,
 				B6C74FA6212B83AB00331D01 /* RunHistoryViewController.swift in Sources */,
 				3EC2C956212CBE57002D7F69 /* NewActivityViewController.swift in Sources */,
 				B6C74FB5212B83B800331D01 /* AppDelegate.swift in Sources */,
@@ -539,9 +543,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CYZA2EE6W8;
+				DEVELOPMENT_TEAM = PKK87S6JNY;
 				INFOPLIST_FILE = "$(SRCROOT)/ADVNTR/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -558,9 +562,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CYZA2EE6W8;
+				DEVELOPMENT_TEAM = PKK87S6JNY;
 				INFOPLIST_FILE = "$(SRCROOT)/ADVNTR/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
