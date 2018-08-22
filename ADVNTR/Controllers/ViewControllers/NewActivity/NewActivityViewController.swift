@@ -25,7 +25,7 @@ class NewActivityViewController: UIViewController {
     var timer: Timer?
     var seconds = 0
     var distance = Measurement(value: 0, unit: UnitLength.meters)
-    var locations: [CLLocation] = []
+    var locationList: [CLLocation] = []
     var totalAltitudeChange = 0.0
     var currentAltitude = 0.0
     
@@ -40,20 +40,23 @@ class NewActivityViewController: UIViewController {
         super.viewWillAppear(animated)
         timer?.invalidate()
         locationManager.stopUpdatingLocation()
+        distance = Measurement(value: 0, unit: UnitLength.meters)
     }
     
     // MARK: - Actions
     @IBAction func startButtonTapped(_ sender: UIButton) {
         locationManager.startUpdatingLocation()
         seconds = 0
-        distance = Measurement(value: 0, unit: UnitLength.meters)
-        locations = []
+//        distance = Measurement(value: 0, unit: UnitLength.meters)
+        locationList = []
         
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .follow
-        
+        locationManager.requestWhenInUseAuthorization()
         let status = CLLocationManager.authorizationStatus()
-        if status == .notDetermined || status == .denied {
+        if status == .notDetermined {
+            locationManager.requestWhenInUseAuthorization()
+        } else if status != .authorizedWhenInUse && status != .authorizedAlways {
             presentLocationAlert()
         }
         
@@ -70,7 +73,7 @@ class NewActivityViewController: UIViewController {
     
     // MARK: - Methods
     func updateViews() {
-        let formattedDistance = FormatDisplay.distance(distance)
+        let formattedDistance = FormatDisplay.distance(distance.value)
         let formattedTime = FormatDisplay.time(seconds)
         let formattedPace = FormatDisplay.pace(distance: distance, seconds: seconds, outputUnit: UnitSpeed.minutesPerMile)
         // TODO: - Implement formatted speed display if it is not a run.
@@ -180,7 +183,7 @@ extension NewActivityViewController: CLLocationManagerDelegate {
         // TODO: - Choose activity type based on the user's selection of the workout.
 //        locationManager.activityType =
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.desiredAccuracy = 10
+        locationManager.distanceFilter = 10
         locationManager.pausesLocationUpdatesAutomatically = true
         locationManager.allowsBackgroundLocationUpdates = true
     }
@@ -192,15 +195,16 @@ extension NewActivityViewController: CLLocationManagerDelegate {
             guard newLocation.horizontalAccuracy < 20 && abs(howRecent) < 10 else { continue }
             currentAltitude = newLocation.altitude
             
-            if let lastLocation = locations.last {
+            if let lastLocation = locationList.last {
                 let distanceTraveled = newLocation.distance(from: lastLocation)
                 distance = distance + Measurement(value: distanceTraveled, unit: UnitLength.meters)
-                self.locations.append(newLocation)
                 totalAltitudeChange += abs(Double(newLocation.altitude))
-                let locationCoordinates = self.locations.compactMap { $0.coordinate }
+                let locationCoordinates = locationList.compactMap { $0.coordinate }
                 let polyline = MKPolyline(coordinates: locationCoordinates, count: locationCoordinates.count)
                 mapView.add(polyline)
             }
+
+            locationList.append(newLocation)
         }
     }
     
@@ -210,6 +214,10 @@ extension NewActivityViewController: CLLocationManagerDelegate {
     
     func locationManagerDidResumeLocationUpdates(_ manager: CLLocationManager) {
         locationManager.startUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("LocationManager failed with error: \(error.localizedDescription).")
     }
     
 }
@@ -227,7 +235,6 @@ extension NewActivityViewController: MKMapViewDelegate {
             let polylineRenderer = MKPolylineRenderer(overlay: overlay)
             polylineRenderer.strokeColor = UIColor.blue
             polylineRenderer.lineWidth = 3
-            polylineRenderer.lineJoin = .bevel
             return polylineRenderer
         }
         
