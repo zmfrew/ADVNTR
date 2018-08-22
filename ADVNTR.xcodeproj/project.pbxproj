@@ -279,7 +279,6 @@
 			isa = PBXGroup;
 			children = (
 				B6C74FC0212B84F600331D01 /* LaunchScreen.storyboard */,
-				3EDC8CFF212CE0F800A7A7DE /* LoginScreen.storyboard */,
 				3EB69BE3212C855E0049BA59 /* TabBarController.storyboard */,
 				3EC2C90E212CAA98002D7F69 /* AddCustomActivity.storyboard */,
 				3EC2C910212CAAB9002D7F69 /* ActivityHistory.storyboard */,
@@ -288,6 +287,7 @@
 				B6C74FBD212B84F600331D01 /* CurrentActivityPopOver.storyboard */,
 				3EC2C914212CAB81002D7F69 /* MyProfile.storyboard */,
 				3EC2C916212CAB9D002D7F69 /* Settings.storyboard */,
+				3EDC8CFF212CE0F800A7A7DE /* LoginScreen.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
