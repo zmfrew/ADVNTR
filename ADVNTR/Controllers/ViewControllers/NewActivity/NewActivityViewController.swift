@@ -19,6 +19,7 @@ class NewActivityViewController: UIViewController {
     @IBOutlet weak var altitudeLabel: UILabel!
     @IBOutlet weak var averageSpeedOrPaceLabel: UILabel!
     @IBOutlet weak var heartRateLabel: UILabel!
+    @IBOutlet weak var activitySnapshotImageView: UIImageView!
     
     // MARK: - Properties
     let locationManager = LocationManager.shared
@@ -26,6 +27,7 @@ class NewActivityViewController: UIViewController {
     var seconds = 0
     var distance = Measurement(value: 0, unit: UnitLength.meters)
     var locationList: [CLLocation] = []
+    var coordinates: [CLLocationCoordinate2D] = []
     var totalAltitudeChange = 0.0
     var currentAltitude = 0.0
     
@@ -47,7 +49,6 @@ class NewActivityViewController: UIViewController {
     @IBAction func startButtonTapped(_ sender: UIButton) {
         locationManager.startUpdatingLocation()
         seconds = 0
-//        distance = Measurement(value: 0, unit: UnitLength.meters)
         locationList = []
         
         mapView.showsUserLocation = true
@@ -78,7 +79,7 @@ class NewActivityViewController: UIViewController {
         let formattedPace = FormatDisplay.pace(distance: distance, seconds: seconds, outputUnit: UnitSpeed.minutesPerMile)
         // TODO: - Implement formatted speed display if it is not a run.
 //        let formattedSpeed =
-        // TODO: - Implement formatted heart rate display if it is not a run.
+        // TODO: - Implement formatted heart rate display.
         
         activityTimeLabel.text = formattedTime
         activityDistanceLabel.text = formattedDistance
@@ -115,54 +116,53 @@ class NewActivityViewController: UIViewController {
     }
         
     // The following two methods are not useful until we have a Stop and Save feature. In addition, we will return a UIImage from takeSnapShot() to pass into the save function, thus saving to the model.
-//    func takeSnapShot() {
-//        let mapSnapShotOptions = MKMapSnapshotOptions()
-//
-//        let coordinates = locations.compactMap { $0.coordinate }
-//        let polyline = MKPolyline(coordinates: coordinates, count: locations.count)
-//        let region = MKCoordinateRegionForMapRect(polyline.boundingMapRect)
-//
-//        mapSnapShotOptions.region = region
-//        mapSnapShotOptions.scale = UIScreen.main.scale
-//        mapSnapShotOptions.size = CGSize(width: 343.0, height: 208.0)
-//        mapSnapShotOptions.showsBuildings = true
-//        mapSnapShotOptions.showsPointsOfInterest = true
-//
-//        let snapShotter = MKMapSnapshotter(options: mapSnapShotOptions)
-//
-//        snapShotter.start { (snapshot, error) in
-//            if let error = error {
-//                print("Error occurred snapshotting mapview: \(error.localizedDescription).")
-//            }
-//
-//            guard let snapshot = snapshot else { return }
-//
-//            self.snapshotImageView.isHidden = false
-//            self.snapshotImageView.image = self.drawLineOnImage(snapshot: snapshot)
-//        }
-//
-//    }
-//
-//    func drawLineOnImage(snapshot: MKMapSnapshot) -> UIImage {
-//        let image = snapshot.image
-//        UIGraphicsBeginImageContextWithOptions(self.snapshotImageView.frame.size, true, 0)
-//        // draw original image into the context
-//        image.draw(at: CGPoint.zero)
-//        let context = UIGraphicsGetCurrentContext()
-//        context!.setLineWidth(2.0)
-//        context!.setStrokeColor(UIColor.blue.cgColor)
-//
-//        context!.move(to: snapshot.point(for: coordinates[0]))
-//        for i in 0...coordinates.count-1 {
-//            context!.addLine(to: snapshot.point(for: coordinates[i]))
-//            context!.move(to: snapshot.point(for: coordinates[i]))
-//        }
-//
-//        context!.strokePath()
-//        let resultImage = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-//        return resultImage!
-//    }
+    func takeSnapShot() {
+        let mapSnapShotOptions = MKMapSnapshotOptions()
+
+        let coordinates = locationList.compactMap { $0.coordinate }
+        let polyline = MKPolyline(coordinates: coordinates, count: locationList.count)
+        let region = MKCoordinateRegionForMapRect(polyline.boundingMapRect)
+
+        mapSnapShotOptions.region = region
+        mapSnapShotOptions.scale = UIScreen.main.scale
+        mapSnapShotOptions.size = CGSize(width: 343.0, height: 208.0)
+        mapSnapShotOptions.showsBuildings = true
+        mapSnapShotOptions.showsPointsOfInterest = true
+
+        let snapShotter = MKMapSnapshotter(options: mapSnapShotOptions)
+
+        snapShotter.start { (snapshot, error) in
+            if let error = error {
+                print("Error occurred snapshotting mapview: \(error.localizedDescription).")
+            }
+
+            guard let snapshot = snapshot else { return }
+
+            self.activitySnapshotImageView.isHidden = false
+            self.activitySnapshotImageView.image = self.drawLineOnImage(snapshot: snapshot)
+        }
+    }
+
+    func drawLineOnImage(snapshot: MKMapSnapshot) -> UIImage {
+        let image = snapshot.image
+        UIGraphicsBeginImageContextWithOptions(self.activitySnapshotImageView.frame.size, true, 0)
+        // draw original image into the context
+        image.draw(at: CGPoint.zero)
+        let context = UIGraphicsGetCurrentContext()
+        context!.setLineWidth(2.0)
+        context!.setStrokeColor(UIColor.blue.cgColor)
+
+        context!.move(to: snapshot.point(for: coordinates[0]))
+        for i in 0...coordinates.count-1 {
+            context!.addLine(to: snapshot.point(for: coordinates[i]))
+            context!.move(to: snapshot.point(for: coordinates[i]))
+        }
+
+        context!.strokePath()
+        let resultImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return resultImage!
+    }
 
     /*
     // MARK: - Navigation
@@ -203,8 +203,9 @@ extension NewActivityViewController: CLLocationManagerDelegate {
                 let polyline = MKPolyline(coordinates: locationCoordinates, count: locationCoordinates.count)
                 mapView.add(polyline)
             }
-
+            
             locationList.append(newLocation)
+            coordinates.append(newLocation.coordinate)
         }
     }
     
