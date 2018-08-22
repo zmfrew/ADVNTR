@@ -7,3 +7,11 @@
 //
 
 import Foundation
+import CoreLocation
+
+class LocationManager {
+    
+    // MARK: - Singleton
+    static let shared = CLLocationManager() ; private init() { }
+    
+}
