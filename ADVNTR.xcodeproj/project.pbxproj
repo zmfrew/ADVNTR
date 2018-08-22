@@ -18,6 +18,7 @@
 		3EC2C956212CBE57002D7F69 /* NewActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC2C955212CBE57002D7F69 /* NewActivityViewController.swift */; };
 		3EC2C959212CBEC8002D7F69 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC2C958212CBEC8002D7F69 /* TabBarViewController.swift */; };
 		3EDC8D00212CE0F800A7A7DE /* LoginScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EDC8CFF212CE0F800A7A7DE /* LoginScreen.storyboard */; };
+		B62687D7212E28FB00FC5D58 /* Double+Rounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62687D6212E28FB00FC5D58 /* Double+Rounding.swift */; };
 		B6C74F9E212B83AB00331D01 /* ActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F77212B83AA00331D01 /* ActivityController.swift */; };
 		B6C74F9F212B83AB00331D01 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F7A212B83AA00331D01 /* LaunchScreenViewController.swift */; };
 		B6C74FA0212B83AB00331D01 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F7C212B83AA00331D01 /* SettingsViewController.swift */; };
@@ -55,6 +56,7 @@
 		3EC2C955212CBE57002D7F69 /* NewActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewActivityViewController.swift; sourceTree = "<group>"; };
 		3EC2C958212CBEC8002D7F69 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3EDC8CFF212CE0F800A7A7DE /* LoginScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginScreen.storyboard; sourceTree = "<group>"; };
+		B62687D6212E28FB00FC5D58 /* Double+Rounding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Rounding.swift"; sourceTree = "<group>"; };
 		B6C74ECE212B7C3500331D01 /* ADVNTR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADVNTR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6C74F77212B83AA00331D01 /* ActivityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
 		B6C74F7A212B83AA00331D01 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 			children = (
 				B6C74F91212B83AA00331D01 /* UnitConversion+Helper.swift */,
 				B6FE8A96212DD8ED0095FC8B /* FormatDisplay.swift */,
+				B62687D6212E28FB00FC5D58 /* Double+Rounding.swift */,
 			);
 			path = Formatters;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				B6C74FA4212B83AB00331D01 /* ActivityDetailViewController.swift in Sources */,
 				B6C74F9F212B83AB00331D01 /* LaunchScreenViewController.swift in Sources */,
 				B6C74FAF212B83AB00331D01 /* Activity.swift in Sources */,
+				B62687D7212E28FB00FC5D58 /* Double+Rounding.swift in Sources */,
 				B6C74FD0212B84F600331D01 /* ActivityHistoryButton.swift in Sources */,
 				B6C74FA2212B83AB00331D01 /* ProfileViewController.swift in Sources */,
 				B6C74FA5212B83AB00331D01 /* HikeHistoryViewController.swift in Sources */,

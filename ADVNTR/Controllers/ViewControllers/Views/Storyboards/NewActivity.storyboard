@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,6 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YtT-tO-9aS">
+                                <rect key="frame" x="16" y="179" width="343" height="308"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultNewActivity" translatesAutoresizingMaskIntoConstraints="NO" id="68w-R7-kST">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
@@ -117,7 +122,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.69999999999999996" contentMode="scaleToFill" mapType="hybridFlyover" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pl0-qX-Jga">
-                                <rect key="frame" x="16" y="179.5" width="343" height="308"/>
+                                <rect key="frame" x="16" y="180" width="343" height="308"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="k83-3y-4Nz"/>
                                     <constraint firstAttribute="height" constant="308" id="tON-Ei-gIB"/>
@@ -165,6 +170,7 @@
                     <tabBarItem key="tabBarItem" title="ADVNTR" image="icons8-mountain_filled" id="rie-bm-y5B"/>
                     <connections>
                         <outlet property="activityDistanceLabel" destination="ZFy-Ey-G59" id="qme-Fc-WBU"/>
+                        <outlet property="activitySnapshotImageView" destination="YtT-tO-9aS" id="2Ne-Ur-OA6"/>
                         <outlet property="activityTimeLabel" destination="jO4-41-duX" id="Id1-tL-hrK"/>
                         <outlet property="activityTypeLabel" destination="h90-Ds-1Pt" id="kCC-lo-Rbs"/>
                         <outlet property="altitudeLabel" destination="Dha-dA-CuR" id="bFL-ey-1jy"/>
