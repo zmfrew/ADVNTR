@@ -40,7 +40,7 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Allow location services to accurately track your workouts!</string>
+	<string>Allow location services to accurately track your workouts.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
