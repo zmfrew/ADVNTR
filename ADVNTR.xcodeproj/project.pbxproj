@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3EA20906212E184500750A5D /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA20905212E184500750A5D /* Settings.storyboard */; };
 		3EB69BE2212C805F0049BA59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EB69BE1212C805F0049BA59 /* Assets.xcassets */; };
 		3EB69BE4212C855E0049BA59 /* TabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EB69BE3212C855E0049BA59 /* TabBarController.storyboard */; };
 		3EC2C90F212CAA98002D7F69 /* AddCustomActivity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC2C90E212CAA98002D7F69 /* AddCustomActivity.storyboard */; };
 		3EC2C911212CAAB9002D7F69 /* ActivityHistory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC2C910212CAAB9002D7F69 /* ActivityHistory.storyboard */; };
 		3EC2C913212CAB5B002D7F69 /* NewActivity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC2C912212CAB5B002D7F69 /* NewActivity.storyboard */; };
 		3EC2C915212CAB81002D7F69 /* MyProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC2C914212CAB81002D7F69 /* MyProfile.storyboard */; };
-		3EC2C917212CAB9D002D7F69 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC2C916212CAB9D002D7F69 /* Settings.storyboard */; };
 		3EC2C954212CB3A7002D7F69 /* ActivityHistoryDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC2C953212CB3A7002D7F69 /* ActivityHistoryDetails.storyboard */; };
 		3EC2C956212CBE57002D7F69 /* NewActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC2C955212CBE57002D7F69 /* NewActivityViewController.swift */; };
 		3EC2C959212CBEC8002D7F69 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC2C958212CBEC8002D7F69 /* TabBarViewController.swift */; };
@@ -43,13 +43,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3EA20905212E184500750A5D /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		3EB69BE1212C805F0049BA59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EB69BE3212C855E0049BA59 /* TabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarController.storyboard; sourceTree = "<group>"; };
 		3EC2C90E212CAA98002D7F69 /* AddCustomActivity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddCustomActivity.storyboard; sourceTree = "<group>"; };
 		3EC2C910212CAAB9002D7F69 /* ActivityHistory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ActivityHistory.storyboard; sourceTree = "<group>"; };
 		3EC2C912212CAB5B002D7F69 /* NewActivity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewActivity.storyboard; sourceTree = "<group>"; };
 		3EC2C914212CAB81002D7F69 /* MyProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyProfile.storyboard; sourceTree = "<group>"; };
-		3EC2C916212CAB9D002D7F69 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		3EC2C953212CB3A7002D7F69 /* ActivityHistoryDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ActivityHistoryDetails.storyboard; sourceTree = "<group>"; };
 		3EC2C955212CBE57002D7F69 /* NewActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewActivityViewController.swift; sourceTree = "<group>"; };
 		3EC2C958212CBEC8002D7F69 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -286,7 +286,7 @@
 				3EC2C912212CAB5B002D7F69 /* NewActivity.storyboard */,
 				B6C74FBD212B84F600331D01 /* CurrentActivityPopOver.storyboard */,
 				3EC2C914212CAB81002D7F69 /* MyProfile.storyboard */,
-				3EC2C916212CAB9D002D7F69 /* Settings.storyboard */,
+				3EA20905212E184500750A5D /* Settings.storyboard */,
 				3EDC8CFF212CE0F800A7A7DE /* LoginScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -362,7 +362,7 @@
 			files = (
 				3EC2C911212CAAB9002D7F69 /* ActivityHistory.storyboard in Resources */,
 				3EB69BE4212C855E0049BA59 /* TabBarController.storyboard in Resources */,
-				3EC2C917212CAB9D002D7F69 /* Settings.storyboard in Resources */,
+				3EA20906212E184500750A5D /* Settings.storyboard in Resources */,
 				3EC2C954212CB3A7002D7F69 /* ActivityHistoryDetails.storyboard in Resources */,
 				B6C74FC9212B84F600331D01 /* CurrentActivityPopOver.storyboard in Resources */,
 				B6C74FCC212B84F600331D01 /* LaunchScreen.storyboard in Resources */,
