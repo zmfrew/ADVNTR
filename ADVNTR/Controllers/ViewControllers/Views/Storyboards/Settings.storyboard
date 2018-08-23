@@ -872,11 +872,11 @@ We hope you enjoy Spotify!
             </objects>
             <point key="canvasLocation" x="3624.8000000000002" y="485.30734632683664"/>
         </scene>
-        <!--Settings-->
+        <!--Navigation Controller-->
         <scene sceneID="BSa-ej-JSr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1l4-rd-SFi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="icons8-settings" id="Ndb-9V-GdT"/>
+                    <tabBarItem key="tabBarItem" title="" image="icons8-settings" selectedImage="icons8-settings" id="Ndb-9V-GdT"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="HpK-IB-JAl">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>

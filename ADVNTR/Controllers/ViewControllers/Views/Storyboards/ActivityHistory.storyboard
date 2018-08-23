@@ -164,11 +164,11 @@
             </objects>
             <point key="canvasLocation" x="396" y="872.56371814092961"/>
         </scene>
-        <!--History-->
+        <!--Navigation Controller-->
         <scene sceneID="QtH-B6-yCz">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SvR-AX-mFV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="History" image="icons8-tenses" id="tnY-9w-dKu"/>
+                    <tabBarItem key="tabBarItem" title="" image="icons8-tenses" selectedImage="icons8-tenses" id="tnY-9w-dKu"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Iud-Bz-jMg">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>

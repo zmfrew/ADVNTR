@@ -51,23 +51,23 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mWu-46-Nvr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-870" y="578"/>
+            <point key="canvasLocation" x="-972" y="578"/>
         </scene>
         <!--NewActivity-->
         <scene sceneID="QBD-lq-Ia2">
             <objects>
                 <viewControllerPlaceholder storyboardName="NewActivity" id="8DD-Ag-X5l" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="icons8-mountain_filled" id="XtL-SK-blx"/>
+                    <tabBarItem key="tabBarItem" title="" image="icons8-mountain_filledBIG" id="XtL-SK-blx"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H0a-AB-WNR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-644" y="578"/>
+            <point key="canvasLocation" x="-745" y="578"/>
         </scene>
         <!--MyProfile-->
         <scene sceneID="FMC-Yd-cqX">
             <objects>
                 <viewControllerPlaceholder storyboardName="MyProfile" id="SIf-a9-8uS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="icons8-nui1_filled" id="FHJ-SL-eTG"/>
+                    <tabBarItem key="tabBarItem" title="" image="icons8-administrator_female" id="FHJ-SL-eTG"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="II9-Rc-JRe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -87,17 +87,17 @@
         <scene sceneID="S35-xT-rTX">
             <objects>
                 <viewControllerPlaceholder storyboardName="AddCustomActivity" id="ZIf-nR-qBn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="xxxx" image="icons8-add" id="JXK-OE-hnP"/>
+                    <tabBarItem key="tabBarItem" title="" image="icons8-add" id="JXK-OE-hnP"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jUZ-p8-y2s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1135" y="578"/>
+            <point key="canvasLocation" x="-1237" y="578"/>
         </scene>
     </scenes>
     <resources>
         <image name="icons8-add" width="32" height="32"/>
-        <image name="icons8-mountain_filled" width="32" height="32"/>
-        <image name="icons8-nui1_filled" width="32" height="32"/>
+        <image name="icons8-administrator_female" width="32" height="32"/>
+        <image name="icons8-mountain_filledBIG" width="100" height="100"/>
         <image name="icons8-settings" width="32" height="32"/>
         <image name="icons8-tenses" width="32" height="32"/>
     </resources>

@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Table View Controller-->
         <scene sceneID="05o-DA-mHC">
             <objects>
                 <tableViewController id="tLO-gv-g6N" sceneMemberID="viewController">
@@ -128,7 +128,7 @@
                             <outlet property="delegate" destination="tLO-gv-g6N" id="QjM-OM-1pW"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="h3T-Of-E6d"/>
+                    <tabBarItem key="tabBarItem" title="" image="icons8-add" selectedImage="icons8-add" id="h3T-Of-E6d"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qnh-zK-snx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -143,4 +143,7 @@
             <point key="canvasLocation" x="-1117" y="753"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icons8-add" width="32" height="32"/>
+    </resources>
 </document>
