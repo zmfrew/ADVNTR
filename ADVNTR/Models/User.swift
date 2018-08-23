@@ -6,4 +6,30 @@
 //  Copyright © 2018 Zachary Frew. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class User {
+    
+    // MARK: - Properties
+    var uid: String?
+    var email: String?
+    var displayName: String
+    var image: UIImage
+    var totalActivityDuration: Int // seconds
+    var totalActivityDistance: Int // meters
+    var totalElevationChange: Int // meters
+    var totalActivityCount: Int
+    
+    // MARK: - Initializers
+    init(uid: String, email: String?, displayName: String, image: UIImage, totalActivityDuration: Int, totalActivityDistance: Int, totalElevationChange: Int, totalActivityCount: Int) {
+        self.uid = uid
+        self.email = email
+        self.displayName = displayName
+        self.image = image
+        self.totalActivityDuration = totalActivityDuration
+        self.totalActivityDistance = totalActivityDistance
+        self.totalElevationChange = totalElevationChange
+        self.totalActivityCount = totalActivityCount
+    }
+    
+}
