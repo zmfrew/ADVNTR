@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E09374B212F1593003BA862 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E09374A212F1593003BA862 /* ContactUsViewController.swift */; };
-		3E09374D212F1C47003BA862 /* CurrentVersionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E09374C212F1C47003BA862 /* CurrentVersionViewController.swift */; };
 		3EA20906212E184500750A5D /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA20905212E184500750A5D /* Settings.storyboard */; };
 		3EA20908212E2EFB00750A5D /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA20907212E2EFB00750A5D /* SettingsTableViewController.swift */; };
 		3EA2090A212E2F6F00750A5D /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA20909212E2F6F00750A5D /* TermsOfServiceViewController.swift */; };
@@ -28,6 +26,7 @@
 		3EDC8D00212CE0F800A7A7DE /* LoginScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EDC8CFF212CE0F800A7A7DE /* LoginScreen.storyboard */; };
 		B62687D7212E28FB00FC5D58 /* Double+Rounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62687D6212E28FB00FC5D58 /* Double+Rounding.swift */; };
 		B62687D9212E56EB00FC5D58 /* UnitConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62687D8212E56EB00FC5D58 /* UnitConverter.swift */; };
+		B69D6721212F417B007A3A92 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D6720212F417B007A3A92 /* DateFormatter.swift */; };
 		B6C74F9E212B83AB00331D01 /* ActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F77212B83AA00331D01 /* ActivityController.swift */; };
 		B6C74F9F212B83AB00331D01 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F7A212B83AA00331D01 /* LaunchScreenViewController.swift */; };
 		B6C74FA1212B83AB00331D01 /* AddWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F7E212B83AA00331D01 /* AddWorkoutViewController.swift */; };
@@ -53,8 +52,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3E09374A212F1593003BA862 /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
-		3E09374C212F1C47003BA862 /* CurrentVersionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentVersionViewController.swift; sourceTree = "<group>"; };
 		3EA20905212E184500750A5D /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		3EA20907212E2EFB00750A5D /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		3EA20909212E2F6F00750A5D /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +71,7 @@
 		3EDC8CFF212CE0F800A7A7DE /* LoginScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginScreen.storyboard; sourceTree = "<group>"; };
 		B62687D6212E28FB00FC5D58 /* Double+Rounding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Rounding.swift"; sourceTree = "<group>"; };
 		B62687D8212E56EB00FC5D58 /* UnitConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConverter.swift; sourceTree = "<group>"; };
+		B69D6720212F417B007A3A92 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		B6C74ECE212B7C3500331D01 /* ADVNTR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADVNTR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6C74F77212B83AA00331D01 /* ActivityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
 		B6C74F7A212B83AA00331D01 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
@@ -198,8 +196,6 @@
 		B6C74F7B212B83AA00331D01 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				3E09374C212F1C47003BA862 /* CurrentVersionViewController.swift */,
-				3E09374A212F1593003BA862 /* ContactUsViewController.swift */,
 				3EA20911212E315900750A5D /* AppVersionDetailsViewController.swift */,
 				3EA20909212E2F6F00750A5D /* TermsOfServiceViewController.swift */,
 				3EA2090B212E2FBC00750A5D /* PrivacyPolicyViewController.swift */,
@@ -272,6 +268,7 @@
 				B6FE8A96212DD8ED0095FC8B /* FormatDisplay.swift */,
 				B62687D6212E28FB00FC5D58 /* Double+Rounding.swift */,
 				B62687D8212E56EB00FC5D58 /* UnitConverter.swift */,
+				B69D6720212F417B007A3A92 /* DateFormatter.swift */,
 			);
 			path = Formatters;
 			sourceTree = "<group>";
@@ -427,16 +424,15 @@
 				B6C74FA4212B83AB00331D01 /* ActivityDetailViewController.swift in Sources */,
 				B6C74F9F212B83AB00331D01 /* LaunchScreenViewController.swift in Sources */,
 				3EA2090E212E2FF100750A5D /* CreditsViewController.swift in Sources */,
-				3E09374B212F1593003BA862 /* ContactUsViewController.swift in Sources */,
 				B6C74FAF212B83AB00331D01 /* Activity.swift in Sources */,
 				B62687D7212E28FB00FC5D58 /* Double+Rounding.swift in Sources */,
 				B62687D9212E56EB00FC5D58 /* UnitConverter.swift in Sources */,
 				B6C74FD0212B84F600331D01 /* ActivityHistoryButton.swift in Sources */,
 				B6C74FA2212B83AB00331D01 /* ProfileViewController.swift in Sources */,
+				B69D6721212F417B007A3A92 /* DateFormatter.swift in Sources */,
 				B6C74FA5212B83AB00331D01 /* HikeHistoryViewController.swift in Sources */,
 				B6C74FA3212B83AB00331D01 /* CurrentActivityViewController.swift in Sources */,
 				B6FE8A97212DD8ED0095FC8B /* FormatDisplay.swift in Sources */,
-				3E09374D212F1C47003BA862 /* CurrentVersionViewController.swift in Sources */,
 				B6C74FA6212B83AB00331D01 /* RunHistoryViewController.swift in Sources */,
 				3EC2C956212CBE57002D7F69 /* NewActivityViewController.swift in Sources */,
 				3EA20908212E2EFB00750A5D /* SettingsTableViewController.swift in Sources */,
