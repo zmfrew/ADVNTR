@@ -46,10 +46,10 @@
         <!--AddCustomActivity-->
         <scene sceneID="Pcw-Kd-QHC">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MJK-5g-NPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="AddCustomActivity" id="39n-qO-Dbq" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Aaa-CU-82H"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MJK-5g-NPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1117" y="578"/>
         </scene>

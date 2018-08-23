@@ -21,8 +21,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fKV-hg-uoh">
                                 <rect key="frame" x="0.0" y="116" width="375" height="532"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="83p-yi-gbu">
-                                        <rect key="frame" x="16" y="32" width="343" height="438"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="83p-yi-gbu">
+                                        <rect key="frame" x="16" y="32" width="343" height="422"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QeY-ap-oUI">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="130"/>
@@ -35,7 +35,7 @@
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="8"/>
+                                                                <integer key="value" value="5"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
@@ -60,7 +60,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gp-em-mk9">
-                                                <rect key="frame" x="0.0" y="154" width="343" height="130"/>
+                                                <rect key="frame" x="0.0" y="146" width="343" height="130"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lucas-clara-579404-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="III-10-0ri">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="130"/>
@@ -70,7 +70,7 @@
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="8"/>
+                                                                <integer key="value" value="5"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
@@ -95,7 +95,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BwF-7b-Kd7">
-                                                <rect key="frame" x="0.0" y="308" width="343" height="130"/>
+                                                <rect key="frame" x="0.0" y="292" width="343" height="130"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="william-hook-58602-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="G9E-vL-B3e">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="130"/>
@@ -105,7 +105,7 @@
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="8"/>
+                                                                <integer key="value" value="5"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>

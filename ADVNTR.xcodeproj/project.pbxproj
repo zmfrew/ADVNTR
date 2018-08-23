@@ -177,7 +177,7 @@
 			children = (
 				B6C74F79212B83AA00331D01 /* LaunchScreen */,
 				3EC2C95A212CBFD3002D7F69 /* TabBarController */,
-				B6C74F7D212B83AA00331D01 /* AddWorkout */,
+				B6C74F7D212B83AA00331D01 /* AddActivity */,
 				B6C74F83212B83AA00331D01 /* ActivityHistory */,
 				3EC2C957212CBE75002D7F69 /* NewActivity */,
 				B6C74F81212B83AA00331D01 /* CurrentActivity */,
@@ -210,12 +210,12 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		B6C74F7D212B83AA00331D01 /* AddWorkout */ = {
+		B6C74F7D212B83AA00331D01 /* AddActivity */ = {
 			isa = PBXGroup;
 			children = (
 				B6C74F7E212B83AA00331D01 /* AddWorkoutViewController.swift */,
 			);
-			path = AddWorkout;
+			path = AddActivity;
 			sourceTree = "<group>";
 		};
 		B6C74F7F212B83AA00331D01 /* Profile */ = {
