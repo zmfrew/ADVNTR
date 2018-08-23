@@ -43,15 +43,4 @@ struct FormatDisplay {
         return "\(speed)"
     }
     
-    static func date(_ timestamp: Date?) -> String {
-        guard let timestamp = timestamp as Date? else { return "" }
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        return formatter.string(from: timestamp)
-    }
-    
-    // TODO: - Heart rate monitoring display formatting.
-    
-    // TODO: - Average speed monitoring display formatting.
-    
 }

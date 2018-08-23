@@ -22,11 +22,15 @@ class ActivityUnitConverter: UnitConverter {
         return kilometers / hours
     }
     
+    // TODO: Fix this function
     static func pacePerMile(seconds: Int, meters: Measurement<UnitLength>) -> String {
         let mph = milesPerHourFromMetersPerSecond(seconds: seconds, meters: meters)
         var secondsRemaining = seconds
         // Get the remainder of 3600 / seconds.
-        let hours = 3600 % secondsRemaining
+        var hours = 0
+        if secondsRemaining != 0 {
+            hours = 3600 % secondsRemaining
+        }
         var hoursPerMile = 0
         // Convert meters to miles.
         let miles = meters.converted(to: UnitLength.miles).value

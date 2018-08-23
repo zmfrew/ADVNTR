@@ -51,6 +51,7 @@ class NewActivityViewController: UIViewController {
         super.viewDidLoad()
         setupMapView()
         setupLocationManager()
+        activityTypeLabel.text = user?.preferredActivityType ?? "Run"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,11 +62,18 @@ class NewActivityViewController: UIViewController {
     }
     
     // MARK: - Actions
+    @IBAction func activitySegmentedControllerDidChange(_ sender: UISegmentedControl) {
+        let activityType = setActivityTypeForActivityCreation(sender.selectedSegmentIndex)
+        activityTypeLabel.text = activityType
+    }
+    
     @IBAction func startButtonTapped(_ sender: UIButton) {
         locationManager.startUpdatingLocation()
         durationInSeconds = 0
         currentDate = Date()
         locationList = []
+        
+        activityTypeSegmentedController.isUserInteractionEnabled = false
         
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .follow
@@ -108,7 +116,7 @@ class NewActivityViewController: UIViewController {
         saveButton.isHidden = false
         locationManager.stopUpdatingLocation()
         stopButton.isHidden = true
-        takeSnapShot()
+//        takeSnapShot()
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
@@ -121,14 +129,18 @@ class NewActivityViewController: UIViewController {
         mapView.showsUserLocation = false
         mapView.userTrackingMode = .none
         
+        activityTypeSegmentedController.isUserInteractionEnabled = true
+        
         // Pass all data forward and create new activity.
         let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedController.selectedSegmentIndex)
         let hour = currentDate?.getHour(from: currentDate!)
         let timeOfDay = currentDate?.getTimeOfDay(from: hour!)
         let name = "\(timeOfDay!) - \(activityType)"
+        let averageSpeed = ActivityUnitConverter.milesPerHourFromMetersPerSecond(seconds: durationInSeconds, meters: distance)
         
-        let newActivity = Activity(uid: "uid", type: activityType, name: name, distance: distance.value, averageSpeed: 8.0, elevationChange: Int(elevationChange.rounded()), averageHeartRate: "Heart rate", pace: 8, timestamp: (currentDate?.stringValue(from: currentDate!))!, duration: durationInSeconds, activitySnapshotImage: activitySnapshotImageView.image!)
+        let newActivity = Activity(uid: "uid", type: activityType, name: name, distance: distance.value, averageSpeed: averageSpeed, elevationChange: Int(elevationChange.rounded()), averageHeartRate: "Heart rate", pace: 8, timestamp: (currentDate?.stringValue(from: currentDate!))!, duration: durationInSeconds, activitySnapshotImage: activitySnapshotImageView.image ?? UIImage())
         // TODO: - Save new activity.
+        resetLocalProperties()
     }
     
     // MARK: - Methods
@@ -139,12 +151,13 @@ class NewActivityViewController: UIViewController {
         // TODO: - Implement formatted speed display if it is not a run.
 //        let formattedSpeed =
         // TODO: - Implement formatted heart rate display.
+        let currentSpeed = ActivityUnitConverter.milesPerHourFromMetersPerSecond(seconds: durationInSeconds, meters: distance)
         
         activityTimeLabel.text = formattedTime
         activityDistanceLabel.text = formattedDistance
         
         altitudeLabel.text = "\(currentAltitude)"
-        averageSpeedOrPaceLabel.text = formattedPace
+        averageSpeedOrPaceLabel.text = "\(currentSpeed.rounded())"
     }
     
     func fireSecond() {
@@ -249,6 +262,18 @@ class NewActivityViewController: UIViewController {
         default:
             return "Run"
         }
+    }
+    
+    func resetLocalProperties() {
+        timer?.invalidate()
+        locationList = []
+        coordinates = []
+        distance = Measurement(value: 0, unit: UnitLength.meters)
+        averageSpeed = 0
+        currentAltitude = 0.0
+        elevationChange = 0.0
+        updateViews()
+        activityTimeLabel.text = "0:00:00"
     }
   
 }
