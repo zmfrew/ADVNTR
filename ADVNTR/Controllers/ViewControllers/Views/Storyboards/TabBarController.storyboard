@@ -32,7 +32,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="39n-qO-Dbq" kind="relationship" relationship="viewControllers" id="iGZ-Zo-BTl"/>
+                        <segue destination="ZIf-nR-qBn" kind="relationship" relationship="viewControllers" id="Rcr-Ey-MlC"/>
                         <segue destination="pAA-FH-8fq" kind="relationship" relationship="viewControllers" id="lDQ-Pj-4CK"/>
                         <segue destination="8DD-Ag-X5l" kind="relationship" relationship="viewControllers" id="gzc-M9-AbB"/>
                         <segue destination="SIf-a9-8uS" kind="relationship" relationship="viewControllers" id="ic2-qO-eoT"/>
@@ -43,21 +43,11 @@
             </objects>
             <point key="canvasLocation" x="-746" y="90"/>
         </scene>
-        <!--AddCustomActivity-->
-        <scene sceneID="Pcw-Kd-QHC">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MJK-5g-NPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewControllerPlaceholder storyboardName="AddCustomActivity" id="39n-qO-Dbq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Aaa-CU-82H"/>
-                </viewControllerPlaceholder>
-            </objects>
-            <point key="canvasLocation" x="-1117" y="578"/>
-        </scene>
         <!--ActivityHistory-->
         <scene sceneID="ldR-ae-8ad">
             <objects>
                 <viewControllerPlaceholder storyboardName="ActivityHistory" id="pAA-FH-8fq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Pon-hB-cBO"/>
+                    <tabBarItem key="tabBarItem" title="" image="icons8-tenses" id="Pon-hB-cBO"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mWu-46-Nvr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -67,7 +57,7 @@
         <scene sceneID="QBD-lq-Ia2">
             <objects>
                 <viewControllerPlaceholder storyboardName="NewActivity" id="8DD-Ag-X5l" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="XtL-SK-blx"/>
+                    <tabBarItem key="tabBarItem" title="" image="icons8-mountain_filled" id="XtL-SK-blx"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H0a-AB-WNR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -77,7 +67,7 @@
         <scene sceneID="FMC-Yd-cqX">
             <objects>
                 <viewControllerPlaceholder storyboardName="MyProfile" id="SIf-a9-8uS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="FHJ-SL-eTG"/>
+                    <tabBarItem key="tabBarItem" title="" image="icons8-nui1_filled" id="FHJ-SL-eTG"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="II9-Rc-JRe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -87,11 +77,28 @@
         <scene sceneID="hjS-U1-70q">
             <objects>
                 <viewControllerPlaceholder storyboardName="Settings" id="H15-dZ-RFP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="omZ-vk-t3G"/>
+                    <tabBarItem key="tabBarItem" title="" image="icons8-settings" id="omZ-vk-t3G"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A37-dh-cml" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-239" y="578"/>
         </scene>
+        <!--AddCustomActivity-->
+        <scene sceneID="S35-xT-rTX">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddCustomActivity" id="ZIf-nR-qBn" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="xxxx" image="icons8-add" id="JXK-OE-hnP"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jUZ-p8-y2s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1135" y="578"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="icons8-add" width="32" height="32"/>
+        <image name="icons8-mountain_filled" width="32" height="32"/>
+        <image name="icons8-nui1_filled" width="32" height="32"/>
+        <image name="icons8-settings" width="32" height="32"/>
+        <image name="icons8-tenses" width="32" height="32"/>
+    </resources>
 </document>

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E09374F212F63B5003BA862 /* AddCustomActivity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E09374E212F63B5003BA862 /* AddCustomActivity.storyboard */; };
+		3E093751212F6B49003BA862 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E093750212F6B49003BA862 /* ForgotPasswordViewController.swift */; };
+		3E093753212F6B7A003BA862 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E093752212F6B7A003BA862 /* SignUpViewController.swift */; };
 		3EA20906212E184500750A5D /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA20905212E184500750A5D /* Settings.storyboard */; };
 		3EA20908212E2EFB00750A5D /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA20907212E2EFB00750A5D /* SettingsTableViewController.swift */; };
 		3EA2090A212E2F6F00750A5D /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA20909212E2F6F00750A5D /* TermsOfServiceViewController.swift */; };
@@ -16,7 +19,6 @@
 		3EA20912212E315900750A5D /* AppVersionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA20911212E315900750A5D /* AppVersionDetailsViewController.swift */; };
 		3EB69BE2212C805F0049BA59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EB69BE1212C805F0049BA59 /* Assets.xcassets */; };
 		3EB69BE4212C855E0049BA59 /* TabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EB69BE3212C855E0049BA59 /* TabBarController.storyboard */; };
-		3EC2C90F212CAA98002D7F69 /* AddCustomActivity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC2C90E212CAA98002D7F69 /* AddCustomActivity.storyboard */; };
 		3EC2C911212CAAB9002D7F69 /* ActivityHistory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC2C910212CAAB9002D7F69 /* ActivityHistory.storyboard */; };
 		3EC2C913212CAB5B002D7F69 /* NewActivity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC2C912212CAB5B002D7F69 /* NewActivity.storyboard */; };
 		3EC2C915212CAB81002D7F69 /* MyProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC2C914212CAB81002D7F69 /* MyProfile.storyboard */; };
@@ -52,6 +54,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E09374E212F63B5003BA862 /* AddCustomActivity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddCustomActivity.storyboard; sourceTree = "<group>"; };
+		3E093750212F6B49003BA862 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		3E093752212F6B7A003BA862 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3EA20905212E184500750A5D /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		3EA20907212E2EFB00750A5D /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		3EA20909212E2F6F00750A5D /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
@@ -61,7 +66,6 @@
 		3EA20911212E315900750A5D /* AppVersionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionDetailsViewController.swift; sourceTree = "<group>"; };
 		3EB69BE1212C805F0049BA59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EB69BE3212C855E0049BA59 /* TabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarController.storyboard; sourceTree = "<group>"; };
-		3EC2C90E212CAA98002D7F69 /* AddCustomActivity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddCustomActivity.storyboard; sourceTree = "<group>"; };
 		3EC2C910212CAAB9002D7F69 /* ActivityHistory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ActivityHistory.storyboard; sourceTree = "<group>"; };
 		3EC2C912212CAB5B002D7F69 /* NewActivity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewActivity.storyboard; sourceTree = "<group>"; };
 		3EC2C914212CAB81002D7F69 /* MyProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyProfile.storyboard; sourceTree = "<group>"; };
@@ -188,6 +192,8 @@
 		B6C74F79212B83AA00331D01 /* LaunchScreen */ = {
 			isa = PBXGroup;
 			children = (
+				3E093750212F6B49003BA862 /* ForgotPasswordViewController.swift */,
+				3E093752212F6B7A003BA862 /* SignUpViewController.swift */,
 				B6C74F7A212B83AA00331D01 /* LaunchScreenViewController.swift */,
 			);
 			path = LaunchScreen;
@@ -307,7 +313,7 @@
 			children = (
 				B6C74FC0212B84F600331D01 /* LaunchScreen.storyboard */,
 				3EB69BE3212C855E0049BA59 /* TabBarController.storyboard */,
-				3EC2C90E212CAA98002D7F69 /* AddCustomActivity.storyboard */,
+				3E09374E212F63B5003BA862 /* AddCustomActivity.storyboard */,
 				3EC2C910212CAAB9002D7F69 /* ActivityHistory.storyboard */,
 				3EC2C953212CB3A7002D7F69 /* ActivityHistoryDetails.storyboard */,
 				3EC2C912212CAB5B002D7F69 /* NewActivity.storyboard */,
@@ -393,11 +399,11 @@
 				3EC2C954212CB3A7002D7F69 /* ActivityHistoryDetails.storyboard in Resources */,
 				B6C74FC9212B84F600331D01 /* CurrentActivityPopOver.storyboard in Resources */,
 				B6C74FCC212B84F600331D01 /* LaunchScreen.storyboard in Resources */,
-				3EC2C90F212CAA98002D7F69 /* AddCustomActivity.storyboard in Resources */,
 				3EDC8D00212CE0F800A7A7DE /* LoginScreen.storyboard in Resources */,
 				3EB69BE2212C805F0049BA59 /* Assets.xcassets in Resources */,
 				3EC2C915212CAB81002D7F69 /* MyProfile.storyboard in Resources */,
 				3EC2C913212CAB5B002D7F69 /* NewActivity.storyboard in Resources */,
+				3E09374F212F63B5003BA862 /* AddCustomActivity.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +414,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E093753212F6B7A003BA862 /* SignUpViewController.swift in Sources */,
+				3E093751212F6B49003BA862 /* ForgotPasswordViewController.swift in Sources */,
 				B6C74FAC212B83AB00331D01 /* LocationManager.swift in Sources */,
 				3EA2090A212E2F6F00750A5D /* TermsOfServiceViewController.swift in Sources */,
 				3EA2090C212E2FBC00750A5D /* PrivacyPolicyViewController.swift in Sources */,
