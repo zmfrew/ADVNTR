@@ -131,11 +131,11 @@
             </objects>
             <point key="canvasLocation" x="1016.8" y="877.51124437781118"/>
         </scene>
-        <!--Profile-->
+        <!--Navigation Controller-->
         <scene sceneID="40Z-6r-5ro">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4Ch-0H-lwo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="icons8-nui1_filled" id="L9t-Mx-3KN"/>
+                    <tabBarItem key="tabBarItem" title="" image="icons8-administrator_female" selectedImage="icons8-administrator_female" id="L9t-Mx-3KN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dMU-dl-A4C">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -158,6 +158,6 @@
     </scenes>
     <resources>
         <image name="SplashScreen" width="4480" height="6720"/>
-        <image name="icons8-nui1_filled" width="32" height="32"/>
+        <image name="icons8-administrator_female" width="32" height="32"/>
     </resources>
 </document>
