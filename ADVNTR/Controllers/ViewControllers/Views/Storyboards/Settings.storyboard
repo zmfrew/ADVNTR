@@ -257,10 +257,10 @@
             </objects>
             <point key="canvasLocation" x="3001" y="159"/>
         </scene>
-        <!--View Controller-->
+        <!--Privacy Policy View Controller-->
         <scene sceneID="yb0-50-9CC">
             <objects>
-                <viewController id="6pG-ND-oxe" sceneMemberID="viewController">
+                <viewController id="6pG-ND-oxe" customClass="PrivacyPolicyViewController" customModule="ADVNTR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="poi-BR-ApI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -274,7 +274,7 @@
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="s6H-ns-ejP">
                                                 <rect key="frame" x="0.0" y="0.0" width="299" height="528"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <mutableString key="text">Effective as of May 25, 2018
+                                                <string key="text">Effective as of May 25, 2018
 
 1 Introduction
 2 About this Policy
@@ -530,7 +530,7 @@ New York, NY 10011
 USA
 
 We hope you enjoy Spotify!
-© Spotify USA Inc.</mutableString>
+© Spotify USA Inc.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -578,10 +578,10 @@ We hope you enjoy Spotify!
             </objects>
             <point key="canvasLocation" x="696.79999999999995" y="1351.5742128935533"/>
         </scene>
-        <!--View Controller-->
+        <!--Terms Of Service View Controller-->
         <scene sceneID="a9p-NG-nOE">
             <objects>
-                <viewController id="tdh-VS-IAa" sceneMemberID="viewController">
+                <viewController id="tdh-VS-IAa" customClass="TermsOfServiceViewController" customModule="ADVNTR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="khi-c3-YkJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -595,7 +595,7 @@ We hope you enjoy Spotify!
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RQK-Hi-ryU">
                                                 <rect key="frame" x="0.0" y="0.0" width="299" height="528"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <mutableString key="text">Effective as of May 25, 2018
+                                                <string key="text">Effective as of May 25, 2018
 
 1 Introduction
 2 About this Policy
@@ -851,7 +851,7 @@ New York, NY 10011
 USA
 
 We hope you enjoy Spotify!
-© Spotify USA Inc.</mutableString>
+© Spotify USA Inc.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -899,10 +899,10 @@ We hope you enjoy Spotify!
             </objects>
             <point key="canvasLocation" x="1343" y="1352"/>
         </scene>
-        <!--View Controller-->
+        <!--Credits View Controller-->
         <scene sceneID="YdR-Le-5eM">
             <objects>
-                <viewController id="sm9-40-hsV" sceneMemberID="viewController">
+                <viewController id="sm9-40-hsV" customClass="CreditsViewController" customModule="ADVNTR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LOL-KJ-dOy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -916,7 +916,7 @@ We hope you enjoy Spotify!
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0w2-yM-je7">
                                                 <rect key="frame" x="0.0" y="0.0" width="299" height="528"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <mutableString key="text">Effective as of May 25, 2018
+                                                <string key="text">Effective as of May 25, 2018
 
 1 Introduction
 2 About this Policy
@@ -1172,7 +1172,7 @@ New York, NY 10011
 USA
 
 We hope you enjoy Spotify!
-© Spotify USA Inc.</mutableString>
+© Spotify USA Inc.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -1235,10 +1235,10 @@ We hope you enjoy Spotify!
             </objects>
             <point key="canvasLocation" x="3001" y="849"/>
         </scene>
-        <!--View Controller-->
+        <!--Feedback View Controller-->
         <scene sceneID="Aag-In-hUB">
             <objects>
-                <viewController id="cyS-vp-c66" sceneMemberID="viewController">
+                <viewController id="cyS-vp-c66" customClass="FeedbackViewController" customModule="ADVNTR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Kd-j9-iUY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
