@@ -17,14 +17,14 @@ class Activity {
     let distance: Double // meters
     let averageSpeed: Double // meters/sec
     let elevationChange: Int // meters
-    let averageHeartRate: Int? // beats per minute
+    let averageHeartRate: String // beats per minute
     let pace: Int // seconds/meter
     let timestamp: String // format to show "MM/DD/YY [MORNING/AFTERNOON/EVENING]"
     let duration: Int // seconds
     let activitySnapshotImage: UIImage // picture of the map with polyline showing the route
     
     // MARK: - Initializers
-    init(uid: String, type: String, name: String, distance: Double, averageSpeed: Double, elevationChange: Int, averageHeartRate: Int, pace: Int, timestamp: String, duration: Int, activitySnapshotImage: UIImage) {
+    init(uid: String, type: String, name: String, distance: Double, averageSpeed: Double, elevationChange: Int, averageHeartRate: String, pace: Int, timestamp: String, duration: Int, activitySnapshotImage: UIImage) {
         self.uid = uid
         self.type = type
         self.name = name
