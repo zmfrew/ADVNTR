@@ -1,23 +1,19 @@
 //
-//  CreditsViewController.swift
+//  CurrentVersionViewController.swift
 //  ADVNTR
 //
-//  Created by Owen Henley on 8/22/18.
+//  Created by Owen Henley on 8/23/18.
 //  Copyright © 2018 Zachary Frew. All rights reserved.
 //
 
 import UIKit
 
-class CreditsViewController: UIViewController {
+class CurrentVersionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
-    
-    @IBAction func backButtonTapped(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
     }
     
 
