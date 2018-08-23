@@ -20,6 +20,11 @@ class NewActivityViewController: UIViewController {
     @IBOutlet weak var altitudeLabel: UILabel!
     @IBOutlet weak var averageSpeedOrPaceLabel: UILabel!
     @IBOutlet weak var heartRateLabel: UILabel!
+    
+    @IBOutlet weak var altitudeNameLabel: UILabel!
+    @IBOutlet weak var averageSpeedOrPaceNameLabel: UILabel!
+    @IBOutlet weak var heartRateNameLabel: UILabel!
+    
     @IBOutlet weak var activitySnapshotImageView: UIImageView!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var resumeButton: UIButton!
@@ -52,6 +57,7 @@ class NewActivityViewController: UIViewController {
         setupMapView()
         setupLocationManager()
         activityTypeLabel.text = user?.preferredActivityType ?? "Run"
+        hideInitialViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,6 +75,7 @@ class NewActivityViewController: UIViewController {
     
     @IBAction func startButtonTapped(_ sender: UIButton) {
         locationManager.startUpdatingLocation()
+        unhideInitialViews()
         durationInSeconds = 0
         currentDate = Date()
         locationList = []
@@ -141,9 +148,32 @@ class NewActivityViewController: UIViewController {
         let newActivity = Activity(uid: "uid", type: activityType, name: name, distance: distance.value, averageSpeed: averageSpeed, elevationChange: Int(elevationChange.rounded()), averageHeartRate: "Heart rate", pace: 8, timestamp: (currentDate?.stringValue(from: currentDate!))!, duration: durationInSeconds, activitySnapshotImage: activitySnapshotImageView.image ?? UIImage())
         // TODO: - Save new activity.
         resetLocalProperties()
+        hideInitialViews()
     }
     
     // MARK: - Methods
+    func hideInitialViews() {
+        activityTimeLabel.isHidden = true
+        altitudeLabel.isHidden = true
+        averageSpeedOrPaceLabel.isHidden = true
+        heartRateLabel.isHidden = true
+        altitudeNameLabel.isHidden = true
+        averageSpeedOrPaceNameLabel.isHidden = true
+        heartRateNameLabel.isHidden = true
+        activityDistanceLabel.isHidden = true
+    }
+    
+    func unhideInitialViews() {
+        activityTimeLabel.isHidden = false
+        altitudeLabel.isHidden = false
+        averageSpeedOrPaceLabel.isHidden = false
+        heartRateLabel.isHidden = false
+        altitudeNameLabel.isHidden = false
+        averageSpeedOrPaceNameLabel.isHidden = false
+        heartRateNameLabel.isHidden = false
+        activityDistanceLabel.isHidden = false
+    }
+    
     func updateViews() {
         let formattedDistance = FormatDisplay.distance(distance.value)
         let formattedTime = FormatDisplay.time(durationInSeconds)
