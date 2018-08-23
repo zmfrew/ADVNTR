@@ -13,7 +13,7 @@
         <!--Add Adventure-->
         <scene sceneID="orP-1H-px2">
             <objects>
-                <viewController title="Add Adventure" id="abM-Bq-0CH" sceneMemberID="viewController">
+                <viewController title="Add Adventure" id="abM-Bq-0CH" customClass="AddWorkoutViewController" customModule="ADVNTR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pXM-dv-vUf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
