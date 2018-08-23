@@ -42,6 +42,9 @@
                                             <segment title="Bike"/>
                                         </segments>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="activitySegmentedControllerDidChange:" destination="gKh-kU-SQ2" eventType="valueChanged" id="jjI-u4-PrB"/>
+                                        </connections>
                                     </segmentedControl>
                                     <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="1cU-Vf-zkw">
                                         <rect key="frame" x="71" y="494" width="234" height="47"/>
