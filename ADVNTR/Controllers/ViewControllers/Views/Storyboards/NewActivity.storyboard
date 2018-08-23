@@ -225,8 +225,11 @@
                         <outlet property="activityTypeLabel" destination="h90-Ds-1Pt" id="kCC-lo-Rbs"/>
                         <outlet property="activityTypeSegmentedController" destination="W1O-He-L7w" id="xpu-kC-f4V"/>
                         <outlet property="altitudeLabel" destination="Dha-dA-CuR" id="bFL-ey-1jy"/>
+                        <outlet property="altitudeNameLabel" destination="T7H-9c-3nF" id="xps-RM-NJP"/>
                         <outlet property="averageSpeedOrPaceLabel" destination="XMP-Lm-4Kg" id="Sx1-rS-zP6"/>
+                        <outlet property="averageSpeedOrPaceNameLabel" destination="kaj-Ou-UEw" id="XiU-ug-8H3"/>
                         <outlet property="heartRateLabel" destination="dgz-BT-rDm" id="zG8-Sf-w03"/>
+                        <outlet property="heartRateNameLabel" destination="HLE-kg-DYM" id="QUe-K0-wTT"/>
                         <outlet property="mapView" destination="pl0-qX-Jga" id="qeR-si-N73"/>
                         <outlet property="pauseButton" destination="ic7-AB-qpm" id="fVs-nx-ReT"/>
                         <outlet property="resumeButton" destination="gGt-F1-dFw" id="39Z-F8-0Ad"/>
