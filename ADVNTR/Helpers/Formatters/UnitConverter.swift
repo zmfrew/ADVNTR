@@ -10,9 +10,9 @@ import Foundation
 
 class ActivityUnitConverter: UnitConverter {
     
-    static func milesPerHourFromMetersPerSecond(seconds: Int, distance: Measurement<UnitLength>) -> Double {
+    static func milesPerHourFromMetersPerSecond(seconds: Int, meters: Measurement<UnitLength>) -> Double {
         let hours = Double(seconds) / 3600
-        let miles = distance.converted(to: .miles)
+        let miles = meters.converted(to: .miles)
         return miles.value / hours
     }
     
@@ -22,14 +22,14 @@ class ActivityUnitConverter: UnitConverter {
         return kilometers / hours
     }
     
-    static func pacePerMile(seconds: Int, distance: Measurement<UnitLength>) -> String {
-        let mph = milesPerHourFromMetersPerSecond(seconds: seconds, distance: distance)
+    static func pacePerMile(seconds: Int, meters: Measurement<UnitLength>) -> String {
+        let mph = milesPerHourFromMetersPerSecond(seconds: seconds, meters: meters)
         var secondsRemaining = seconds
         // Get the remainder of 3600 / seconds.
         let hours = 3600 % secondsRemaining
         var hoursPerMile = 0
         // Convert meters to miles.
-        let miles = distance.converted(to: UnitLength.miles).value
+        let miles = meters.converted(to: UnitLength.miles).value
         // Check if hours is greater than 0, and find hoursPerMile. Decrement secondsRemaining by the hoursPerMile * miles * seconds (hours * 3600).
         if hours > 0 {
             hoursPerMile = Int(miles) % hours
@@ -52,6 +52,9 @@ class ActivityUnitConverter: UnitConverter {
         }
         print(secondsRemaining)
         // Return the pace as a string with format HH:MM:SS.
+        if hoursPerMile == 0 {
+            return "\(minutesPerMile):\(secondsRemaining)"
+        }
         return "\(hoursPerMile):\(minutesPerMile):\(secondsRemaining)"
     }
     

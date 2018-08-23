@@ -19,9 +19,11 @@ class User {
     var totalActivityDistance: Int // meters
     var totalElevationChange: Int // meters
     var totalActivityCount: Int
+    var preferredActivityType: String
+    var defaultUnits: String
     
     // MARK: - Initializers
-    init(uid: String, email: String?, displayName: String, image: UIImage, totalActivityDuration: Int, totalActivityDistance: Int, totalElevationChange: Int, totalActivityCount: Int) {
+    init(uid: String, email: String?, displayName: String, image: UIImage, totalActivityDuration: Int, totalActivityDistance: Int, totalElevationChange: Int, totalActivityCount: Int, preferredActivityType: String, defaultUnits: String) {
         self.uid = uid
         self.email = email
         self.displayName = displayName
@@ -30,6 +32,8 @@ class User {
         self.totalActivityDistance = totalActivityDistance
         self.totalElevationChange = totalElevationChange
         self.totalActivityCount = totalActivityCount
+        self.preferredActivityType = preferredActivityType
+        self.defaultUnits = defaultUnits
     }
     
 }

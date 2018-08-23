@@ -13,6 +13,7 @@ class NewActivityViewController: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var activityTypeLabel: UILabel!
+    @IBOutlet weak var activityTypeSegmentedController: UISegmentedControl!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var activityTimeLabel: UILabel!
     @IBOutlet weak var activityDistanceLabel: UILabel!
@@ -20,16 +21,30 @@ class NewActivityViewController: UIViewController {
     @IBOutlet weak var averageSpeedOrPaceLabel: UILabel!
     @IBOutlet weak var heartRateLabel: UILabel!
     @IBOutlet weak var activitySnapshotImageView: UIImageView!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var resumeButton: UIButton!
+    @IBOutlet weak var pauseButton: UIButton!
+    @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
     
     // MARK: - Properties
+    var user: User?
+    
+    var distance = Measurement(value: 0, unit: UnitLength.meters)
+    var averageSpeed: Double?
+    var currentAltitude = 0.0
+    var elevationChange = 0.0
+    var averageHeartRate: String?
+    var pace: Int?
+    var timestamp: String?
+    var durationInSeconds = 0
+    var activitySnapShotImage: UIImage?
+    
     let locationManager = LocationManager.shared
     var timer: Timer?
-    var seconds = 0
-    var distance = Measurement(value: 0, unit: UnitLength.meters)
+    var currentDate: Date?
     var locationList: [CLLocation] = []
     var coordinates: [CLLocationCoordinate2D] = []
-    var totalAltitudeChange = 0.0
-    var currentAltitude = 0.0
     
     // MARK: - LifeCycle Methods
     override func viewDidLoad() {
@@ -48,7 +63,8 @@ class NewActivityViewController: UIViewController {
     // MARK: - Actions
     @IBAction func startButtonTapped(_ sender: UIButton) {
         locationManager.startUpdatingLocation()
-        seconds = 0
+        durationInSeconds = 0
+        currentDate = Date()
         locationList = []
         
         mapView.showsUserLocation = true
@@ -64,19 +80,62 @@ class NewActivityViewController: UIViewController {
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (_) in
             self.fireSecond()
         })
-        
         updateViews()
+        pauseButton.isHidden = false
+        startButton.isHidden = true
+        mapView.showsUserLocation = true
+        mapView.userTrackingMode = .follow
     }
     
-    // TODO: - Create pause button.
-    // TODO: - Create stop button.
-    // TODO: - Create save button.
+    @IBAction func resumeButtonTapped(_ sender: UIButton) {
+        locationManager.startUpdatingLocation()
+        updateViews()
+        resumeButton.isHidden = true
+        stopButton.isHidden = true
+        pauseButton.isHidden = false
+    }
+    
+    @IBAction func pauseButtonTapped(_ sender: UIButton) {
+        locationManager.stopUpdatingLocation()
+        resumeButton.isHidden = false
+        stopButton.isHidden = false
+        pauseButton.isHidden = true
+    }
+    
+    @IBAction func stopButtonTapped(_ sender: UIButton) {
+        pauseButton.isHidden = true
+        resumeButton.isHidden = true
+        saveButton.isHidden = false
+        locationManager.stopUpdatingLocation()
+        stopButton.isHidden = true
+        takeSnapShot()
+    }
+    
+    @IBAction func saveButtonTapped(_ sender: UIButton) {
+        startButton.isHidden = false
+        resumeButton.isHidden = true
+        pauseButton.isHidden = true
+        stopButton.isHidden = true
+        saveButton.isHidden = true
+        // Stops tracking location
+        mapView.showsUserLocation = false
+        mapView.userTrackingMode = .none
+        
+        // Pass all data forward and create new activity.
+        let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedController.selectedSegmentIndex)
+        let hour = currentDate?.getHour(from: currentDate!)
+        let timeOfDay = currentDate?.getTimeOfDay(from: hour!)
+        let name = "\(timeOfDay!) - \(activityType)"
+        
+        let newActivity = Activity(uid: "uid", type: activityType, name: name, distance: distance.value, averageSpeed: 8.0, elevationChange: Int(elevationChange.rounded()), averageHeartRate: "Heart rate", pace: 8, timestamp: (currentDate?.stringValue(from: currentDate!))!, duration: durationInSeconds, activitySnapshotImage: activitySnapshotImageView.image!)
+        // TODO: - Save new activity.
+    }
     
     // MARK: - Methods
     func updateViews() {
         let formattedDistance = FormatDisplay.distance(distance.value)
-        let formattedTime = FormatDisplay.time(seconds)
-        let formattedPace = FormatDisplay.pace(distance: distance, seconds: seconds, outputUnit: UnitSpeed.minutesPerMile)
+        let formattedTime = FormatDisplay.time(durationInSeconds)
+        let formattedPace = FormatDisplay.pace(distance: distance, seconds: durationInSeconds, outputUnit: UnitSpeed.minutesPerMile)
         // TODO: - Implement formatted speed display if it is not a run.
 //        let formattedSpeed =
         // TODO: - Implement formatted heart rate display.
@@ -89,7 +148,7 @@ class NewActivityViewController: UIViewController {
     }
     
     func fireSecond() {
-        seconds += 1
+        durationInSeconds += 1
         updateViews()
     }
     
@@ -163,17 +222,35 @@ class NewActivityViewController: UIViewController {
         UIGraphicsEndImageContext()
         return resultImage!
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    // Allows for setting the default activityType based on the user's preference.
+    func setActivityTypeSegmentedControllerFor(user: User) -> Int {
+        switch (user.preferredActivityType) {
+        case "Run":
+            return 0
+        case "Hike":
+            return 1
+        case "Bike":
+            return 2
+        default:
+            return 0
+        }
     }
-    */
 
+    // Sets the activityType based on the selected segment in segmented controller.
+    func setActivityTypeForActivityCreation(_ index: Int) -> String {
+        switch (index) {
+        case 0:
+            return "Run"
+        case 1:
+            return "Hike"
+        case 2:
+            return "Bike"
+        default:
+            return "Run"
+        }
+    }
+  
 }
 
 extension NewActivityViewController: CLLocationManagerDelegate {
@@ -198,7 +275,7 @@ extension NewActivityViewController: CLLocationManagerDelegate {
             if let lastLocation = locationList.last {
                 let distanceTraveled = newLocation.distance(from: lastLocation)
                 distance = distance + Measurement(value: distanceTraveled, unit: UnitLength.meters)
-                totalAltitudeChange += abs(Double(newLocation.altitude))
+                elevationChange += abs(Double(newLocation.altitude))
                 let locationCoordinates = locationList.compactMap { $0.coordinate }
                 let polyline = MKPolyline(coordinates: locationCoordinates, count: locationCoordinates.count)
                 mapView.add(polyline)

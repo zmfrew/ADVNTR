@@ -107,17 +107,6 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1c-GN-pmN">
-                                        <rect key="frame" x="143" y="549" width="89" height="53"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="30"/>
-                                        <state key="normal" title="START">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="startButtonTapped:" destination="gKh-kU-SQ2" eventType="touchUpInside" id="Cv3-fo-Xty"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -147,20 +136,78 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="oJ4-HI-LTg">
+                                <rect key="frame" x="0.0" y="614" width="375" height="53"/>
+                                <subviews>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ic7-AB-qpm" userLabel="PAUSE">
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="53"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="30"/>
+                                        <state key="normal" title="PAUSE">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pauseButtonTapped:" destination="gKh-kU-SQ2" eventType="touchUpInside" id="3El-PG-OgE"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fAL-lw-R4m" userLabel="STOP">
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="53"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="30"/>
+                                        <state key="normal" title="STOP">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="stopButtonTapped:" destination="gKh-kU-SQ2" eventType="touchUpInside" id="4et-lK-MjA"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WxM-H5-uKZ" userLabel="SAVE">
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="53"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="30"/>
+                                        <state key="normal" title="SAVE">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveButtonTapped:" destination="gKh-kU-SQ2" eventType="touchUpInside" id="1dy-a0-26w"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGt-F1-dFw">
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="53"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="30"/>
+                                        <state key="normal" title="RESUME">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resumeButtonTapped:" destination="gKh-kU-SQ2" eventType="touchUpInside" id="zZp-vk-TVZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1c-GN-pmN">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="53"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="30"/>
+                                        <state key="normal" title="START">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="startButtonTapped:" destination="gKh-kU-SQ2" eventType="touchUpInside" id="Cv3-fo-Xty"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.29019275309999998" green="0.29043999310000002" blue="0.29023104910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="FpJ-GN-wAJ" firstAttribute="bottom" secondItem="1lX-p0-K5Z" secondAttribute="bottom" constant="60" id="24h-Ar-leY"/>
                             <constraint firstItem="68w-R7-kST" firstAttribute="bottom" secondItem="FpJ-GN-wAJ" secondAttribute="bottom" id="3HF-Ya-0yK"/>
                             <constraint firstItem="DoC-Et-rlb" firstAttribute="bottom" secondItem="FpJ-GN-wAJ" secondAttribute="bottom" id="874-f1-9DM"/>
+                            <constraint firstItem="FpJ-GN-wAJ" firstAttribute="trailing" secondItem="oJ4-HI-LTg" secondAttribute="trailing" id="AJN-E2-NWL"/>
                             <constraint firstItem="1lX-p0-K5Z" firstAttribute="leading" secondItem="FpJ-GN-wAJ" secondAttribute="leading" constant="16" id="GB3-CR-18v"/>
                             <constraint firstItem="1lX-p0-K5Z" firstAttribute="top" secondItem="FpJ-GN-wAJ" secondAttribute="top" id="IFn-3r-RE5"/>
                             <constraint firstItem="DoC-Et-rlb" firstAttribute="leading" secondItem="FpJ-GN-wAJ" secondAttribute="leading" id="RPo-a1-1I8"/>
                             <constraint firstItem="68w-R7-kST" firstAttribute="trailing" secondItem="FpJ-GN-wAJ" secondAttribute="trailing" id="Za4-QU-9EI"/>
                             <constraint firstItem="FpJ-GN-wAJ" firstAttribute="trailing" secondItem="1lX-p0-K5Z" secondAttribute="trailing" constant="16" id="apb-Wo-0BK"/>
+                            <constraint firstItem="oJ4-HI-LTg" firstAttribute="leading" secondItem="FpJ-GN-wAJ" secondAttribute="leading" id="c7b-bc-dSz"/>
                             <constraint firstItem="DoC-Et-rlb" firstAttribute="trailing" secondItem="FpJ-GN-wAJ" secondAttribute="trailing" id="fpG-uR-W1y"/>
                             <constraint firstItem="68w-R7-kST" firstAttribute="leading" secondItem="FpJ-GN-wAJ" secondAttribute="leading" id="iRr-fV-foo"/>
                             <constraint firstItem="pl0-qX-Jga" firstAttribute="centerY" secondItem="qJh-s3-m5G" secondAttribute="centerY" id="ncA-58-RF8"/>
+                            <constraint firstItem="FpJ-GN-wAJ" firstAttribute="bottom" secondItem="oJ4-HI-LTg" secondAttribute="bottom" id="pNK-bz-xsW"/>
                             <constraint firstItem="68w-R7-kST" firstAttribute="top" secondItem="qJh-s3-m5G" secondAttribute="top" id="rmG-5i-6gP"/>
                             <constraint firstItem="DoC-Et-rlb" firstAttribute="top" secondItem="qJh-s3-m5G" secondAttribute="top" id="t9V-ER-2xg"/>
                             <constraint firstItem="pl0-qX-Jga" firstAttribute="centerX" secondItem="qJh-s3-m5G" secondAttribute="centerX" id="wAq-j7-J3M"/>
@@ -173,10 +220,16 @@
                         <outlet property="activitySnapshotImageView" destination="YtT-tO-9aS" id="2Ne-Ur-OA6"/>
                         <outlet property="activityTimeLabel" destination="jO4-41-duX" id="Id1-tL-hrK"/>
                         <outlet property="activityTypeLabel" destination="h90-Ds-1Pt" id="kCC-lo-Rbs"/>
+                        <outlet property="activityTypeSegmentedController" destination="W1O-He-L7w" id="xpu-kC-f4V"/>
                         <outlet property="altitudeLabel" destination="Dha-dA-CuR" id="bFL-ey-1jy"/>
                         <outlet property="averageSpeedOrPaceLabel" destination="XMP-Lm-4Kg" id="Sx1-rS-zP6"/>
                         <outlet property="heartRateLabel" destination="dgz-BT-rDm" id="zG8-Sf-w03"/>
                         <outlet property="mapView" destination="pl0-qX-Jga" id="qeR-si-N73"/>
+                        <outlet property="pauseButton" destination="ic7-AB-qpm" id="fVs-nx-ReT"/>
+                        <outlet property="resumeButton" destination="gGt-F1-dFw" id="39Z-F8-0Ad"/>
+                        <outlet property="saveButton" destination="WxM-H5-uKZ" id="nGg-1P-brJ"/>
+                        <outlet property="startButton" destination="U1c-GN-pmN" id="Hzp-nC-GPb"/>
+                        <outlet property="stopButton" destination="fAL-lw-R4m" id="827-7M-78r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bHa-gu-3lW" userLabel="First Responder" sceneMemberID="firstResponder"/>
