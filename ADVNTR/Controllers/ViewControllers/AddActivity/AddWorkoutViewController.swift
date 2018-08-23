@@ -1,5 +1,5 @@
 //
-//  AddWorkoutViewController.swift
+//  AddActivityViewController.swift
 //  ADVNTR
 //
 //  Created by Zachary Frew on 8/20/18.
@@ -8,20 +8,20 @@
 
 import UIKit
 
-class AddWorkoutViewController: UIViewController {
+class AddActivityViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
+    // MARK: - Actions
+    
+    @IBAction func saveButtonTapped(_ sender: UIButton) {
+    }
+    
+    @IBAction func backTapped(_ sender: UIButton) {
+    }
+    
     /*
     // MARK: - Navigation
 
