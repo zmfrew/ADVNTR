@@ -152,6 +152,14 @@ class NewActivityViewController: UIViewController {
     }
     
     // MARK: - Methods
+    func updateLabelText() {
+        if activityTypeLabel.text == "Run" {
+            averageSpeedOrPaceLabel.text = "Average Pace"
+        } else {
+            averageSpeedOrPaceLabel.text = "Average Speed"
+        }
+    }
+    
     func hideInitialViews() {
         activityTimeLabel.isHidden = true
         altitudeLabel.isHidden = true
