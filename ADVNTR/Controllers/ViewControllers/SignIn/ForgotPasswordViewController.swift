@@ -9,14 +9,26 @@
 import UIKit
 
 class ForgotPasswordViewController: UIViewController {
-
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var emailAddressTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
-
+    // MARK: - Actions
+    
+    @IBAction func resetPasswordButtonTapped(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
