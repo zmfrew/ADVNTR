@@ -132,21 +132,21 @@ class NewActivityViewController: UIViewController {
         pauseButton.isHidden = true
         stopButton.isHidden = true
         saveButton.isHidden = true
-        // Stops tracking location
         mapView.showsUserLocation = false
         mapView.userTrackingMode = .none
         
         activityTypeSegmentedController.isUserInteractionEnabled = true
         
-        // Pass all data forward and create new activity.
         let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedController.selectedSegmentIndex)
         let hour = currentDate?.getHour(from: currentDate!)
         let timeOfDay = currentDate?.getTimeOfDay(from: hour!)
         let name = "\(timeOfDay!) - \(activityType)"
         let averageSpeed = ActivityUnitConverter.milesPerHourFromMetersPerSecond(seconds: durationInSeconds, meters: distance)
+        // TODO: - Get heart rate to pass into Activity initializer.
+        // TODO: - Get UIImage from activitySnapshotImageView, which is a picture of the activity's map with a line depicting the path.
         
         let newActivity = Activity(uid: "uid", type: activityType, name: name, distance: Int(distance.value), averageSpeed: averageSpeed, elevationChange: Int(elevationChange.rounded()), averageHeartRate: "Heart rate", timestamp: (currentDate?.stringValue(from: currentDate!))!, duration: durationInSeconds, activitySnapshotImage: activitySnapshotImageView.image ?? UIImage())
-        // TODO: - Save new activity.
+        // TODO: - Save new activity to firebase.
         resetLocalProperties()
         hideInitialViews()
     }
@@ -183,20 +183,39 @@ class NewActivityViewController: UIViewController {
     }
     
     func updateViews() {
-        let formattedDistance = FormatDisplay.distance(distance.value)
-        let formattedTime = FormatDisplay.time(durationInSeconds)
-        let formattedPace = FormatDisplay.pace(distance: distance, seconds: durationInSeconds, outputUnit: UnitSpeed.minutesPerMile)
-        let
+        let distanceToDisplay = FormatDisplay.distance(distance.value)
+        let timeToDisplay = FormatDisplay.time(durationInSeconds)
+        var outputUnit: UnitSpeed
+        
+        if user?.defaultUnits == "Imperial" {
+            outputUnit = UnitSpeed.milesPerHour
+        } else {
+            outputUnit = UnitSpeed.kilometersPerHour
+        }
+        let pace = ActivityUnitConverter.formatPace(distance: distance, seconds: durationInSeconds, outputUnit: outputUnit)
+        let speed = ActivityUnitConverter.speed(distance: distance, seconds: durationInSeconds).value
+        
+        let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedController.selectedSegmentIndex)
+        
+        if activityType == "Run" {
+            averageSpeedOrPaceLabel.text = pace
+        } else {
+            averageSpeedOrPaceLabel.text = "\(speed.roundTo(places: 2))"
+        }
         // TODO: - Implement formatted speed display if it is not a run.
 //        let formattedSpeed =
         // TODO: - Implement formatted heart rate display.
-        let currentSpeed = ActivityUnitConverter.milesPerHourFromMetersPerSecond(seconds: durationInSeconds, meters: distance)
+//        let currentSpeed = ActivityUnitConverter.milesPerHourFromMetersPerSecond(seconds: durationInSeconds, meters: distance)
         
-        activityTimeLabel.text = formattedTime
-        activityDistanceLabel.text = formattedDistance
+        activityTimeLabel.text = timeToDisplay
+        activityDistanceLabel.text = distanceToDisplay
         
-        altitudeLabel.text = "\(currentAltitude)"
-        averageSpeedOrPaceLabel.text = "\(currentSpeed.rounded())"
+        if currentAltitude == 0 {
+            altitudeLabel.text = "--"
+        } else {
+            altitudeLabel.text = "\(currentAltitude)"
+        }
+    
     }
     
     func fireSecond() {
