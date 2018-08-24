@@ -226,10 +226,10 @@
             </objects>
             <point key="canvasLocation" x="1338.4000000000001" y="486.20689655172418"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Units Of Measure Table View Controller-->
         <scene sceneID="EJB-1G-9Xw">
             <objects>
-                <tableViewController id="LK2-iK-W1H" sceneMemberID="viewController">
+                <tableViewController id="LK2-iK-W1H" customClass="UnitsOfMeasureTableViewController" customModule="ADVNTR" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="47i-rv-Fk5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -242,7 +242,7 @@
                         <sections>
                             <tableViewSection headerTitle="Units of Measure" id="hxV-wz-Bda">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="h8m-tj-9uM">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="h8m-tj-9uM" customClass="UnitsOfMeasureTableViewCell" customModule="ADVNTR" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h8m-tj-9uM" id="7RY-VF-MJH">
@@ -256,15 +256,28 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yqN-TV-ik2">
+                                                    <rect key="frame" x="329" y="6" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="yqN-TV-ik2" secondAttribute="height" multiplier="1:1" id="C2d-wa-aPQ"/>
+                                                        <constraint firstAttribute="width" constant="30" id="P63-By-ycq"/>
+                                                        <constraint firstAttribute="height" constant="30" id="jVU-NM-JYb"/>
+                                                    </constraints>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="yqN-TV-ik2" firstAttribute="top" secondItem="7RY-VF-MJH" secondAttribute="top" constant="6" id="ZjG-Qm-kds"/>
+                                                <constraint firstAttribute="bottom" secondItem="yqN-TV-ik2" secondAttribute="bottom" constant="7.5" id="gHY-II-oOY"/>
+                                                <constraint firstAttribute="trailing" secondItem="yqN-TV-ik2" secondAttribute="trailing" constant="16" id="qDn-30-8Gl"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="M1V-JI-04h">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="M1V-JI-04h" customClass="UnitsOfMeasureTableViewCell" customModule="ADVNTR" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M1V-JI-04h" id="UN0-tA-icG">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M1V-JI-04h" id="UN0-tA-icG">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -275,7 +288,21 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AiQ-m4-fpb">
+                                                    <rect key="frame" x="329" y="4" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="D7D-fn-qmb"/>
+                                                        <constraint firstAttribute="height" constant="30" id="FUw-CV-FNX"/>
+                                                        <constraint firstAttribute="width" secondItem="AiQ-m4-fpb" secondAttribute="height" multiplier="1:1" id="kGj-Ub-Pba"/>
+                                                    </constraints>
+                                                    <state key="normal" image="icons8-checkmark"/>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="AiQ-m4-fpb" secondAttribute="bottom" constant="4.5" id="be1-X3-jSl"/>
+                                                <constraint firstItem="AiQ-m4-fpb" firstAttribute="top" secondItem="UN0-tA-icG" secondAttribute="top" constant="4" id="bpe-dW-F2S"/>
+                                                <constraint firstAttribute="trailing" secondItem="AiQ-m4-fpb" secondAttribute="trailing" constant="16" id="dPv-n0-H7Z"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
@@ -898,6 +925,7 @@ We hope you enjoy Spotify!
         </scene>
     </scenes>
     <resources>
+        <image name="icons8-checkmark" width="75" height="75"/>
         <image name="icons8-settings" width="32" height="32"/>
     </resources>
 </document>

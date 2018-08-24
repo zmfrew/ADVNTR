@@ -13,6 +13,8 @@
 		3E45285F21305C31003E892E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45285E21305C30003E892E /* SignInViewController.swift */; };
 		3E4528612130676C003E892E /* AddCustomActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4528602130676C003E892E /* AddCustomActivityTableViewController.swift */; };
 		3E45286321306F76003E892E /* SelectedActivityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45286221306F76003E892E /* SelectedActivityDetailsViewController.swift */; };
+		3E4528662130B6BC003E892E /* UnitsOfMeasureTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4528652130B6BC003E892E /* UnitsOfMeasureTableViewController.swift */; };
+		3E4528682130B7A0003E892E /* UnitsOfMeasureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4528672130B7A0003E892E /* UnitsOfMeasureTableViewCell.swift */; };
 		3EA20906212E184500750A5D /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA20905212E184500750A5D /* Settings.storyboard */; };
 		3EA20908212E2EFB00750A5D /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA20907212E2EFB00750A5D /* SettingsTableViewController.swift */; };
 		3EA2090A212E2F6F00750A5D /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA20909212E2F6F00750A5D /* TermsOfServiceViewController.swift */; };
@@ -59,6 +61,8 @@
 		3E45285E21305C30003E892E /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		3E4528602130676C003E892E /* AddCustomActivityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomActivityTableViewController.swift; sourceTree = "<group>"; };
 		3E45286221306F76003E892E /* SelectedActivityDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedActivityDetailsViewController.swift; sourceTree = "<group>"; };
+		3E4528652130B6BC003E892E /* UnitsOfMeasureTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsOfMeasureTableViewController.swift; sourceTree = "<group>"; };
+		3E4528672130B7A0003E892E /* UnitsOfMeasureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsOfMeasureTableViewCell.swift; sourceTree = "<group>"; };
 		3EA20905212E184500750A5D /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		3EA20907212E2EFB00750A5D /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		3EA20909212E2F6F00750A5D /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
@@ -209,6 +213,7 @@
 		B6C74F7B212B83AA00331D01 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				3E4528652130B6BC003E892E /* UnitsOfMeasureTableViewController.swift */,
 				3EA20911212E315900750A5D /* AppVersionDetailsViewController.swift */,
 				3EA20909212E2F6F00750A5D /* TermsOfServiceViewController.swift */,
 				3EA2090B212E2FBC00750A5D /* PrivacyPolicyViewController.swift */,
@@ -335,6 +340,7 @@
 			children = (
 				B6C74FC6212B84F600331D01 /* ActivityHistoryTableViewCell.swift */,
 				B6C74FC7212B84F600331D01 /* ActivityHistoryButton.swift */,
+				3E4528672130B7A0003E892E /* UnitsOfMeasureTableViewCell.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -367,7 +373,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 1000;
-				ORGANIZATIONNAME = "Zachary Frew";
+				ORGANIZATIONNAME = ADVNTR;
 				TargetAttributes = {
 					B6C74ECD212B7C3500331D01 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -421,6 +427,7 @@
 				3E093753212F6B7A003BA862 /* SignUpViewController.swift in Sources */,
 				3E093751212F6B49003BA862 /* ForgotPasswordViewController.swift in Sources */,
 				B6C74FAC212B83AB00331D01 /* LocationManager.swift in Sources */,
+				3E4528662130B6BC003E892E /* UnitsOfMeasureTableViewController.swift in Sources */,
 				3EA2090A212E2F6F00750A5D /* TermsOfServiceViewController.swift in Sources */,
 				3EA2090C212E2FBC00750A5D /* PrivacyPolicyViewController.swift in Sources */,
 				B6C74F9E212B83AB00331D01 /* ActivityController.swift in Sources */,
@@ -435,6 +442,7 @@
 				B6C74FA4212B83AB00331D01 /* SelectedActivityListViewController.swift in Sources */,
 				B6C74F9F212B83AB00331D01 /* LaunchScreenViewController.swift in Sources */,
 				3EA2090E212E2FF100750A5D /* CreditsViewController.swift in Sources */,
+				3E4528682130B7A0003E892E /* UnitsOfMeasureTableViewCell.swift in Sources */,
 				3E4528612130676C003E892E /* AddCustomActivityTableViewController.swift in Sources */,
 				B6C74FAF212B83AB00331D01 /* Activity.swift in Sources */,
 				B62687D7212E28FB00FC5D58 /* Double+Rounding.swift in Sources */,
