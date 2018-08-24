@@ -145,13 +145,21 @@ class NewActivityViewController: UIViewController {
         let name = "\(timeOfDay!) - \(activityType)"
         let averageSpeed = ActivityUnitConverter.milesPerHourFromMetersPerSecond(seconds: durationInSeconds, meters: distance)
         
-        let newActivity = Activity(uid: "uid", type: activityType, name: name, distance: distance.value, averageSpeed: averageSpeed, elevationChange: Int(elevationChange.rounded()), averageHeartRate: "Heart rate", pace: 8, timestamp: (currentDate?.stringValue(from: currentDate!))!, duration: durationInSeconds, activitySnapshotImage: activitySnapshotImageView.image ?? UIImage())
+        let newActivity = Activity(uid: "uid", type: activityType, name: name, distance: Int(distance.value), averageSpeed: averageSpeed, elevationChange: Int(elevationChange.rounded()), averageHeartRate: "Heart rate", timestamp: (currentDate?.stringValue(from: currentDate!))!, duration: durationInSeconds, activitySnapshotImage: activitySnapshotImageView.image ?? UIImage())
         // TODO: - Save new activity.
         resetLocalProperties()
         hideInitialViews()
     }
     
     // MARK: - Methods
+    func updateLabelText() {
+        if activityTypeLabel.text == "Run" {
+            averageSpeedOrPaceLabel.text = "Average Pace"
+        } else {
+            averageSpeedOrPaceLabel.text = "Average Speed"
+        }
+    }
+    
     func hideInitialViews() {
         activityTimeLabel.isHidden = true
         altitudeLabel.isHidden = true
@@ -178,6 +186,7 @@ class NewActivityViewController: UIViewController {
         let formattedDistance = FormatDisplay.distance(distance.value)
         let formattedTime = FormatDisplay.time(durationInSeconds)
         let formattedPace = FormatDisplay.pace(distance: distance, seconds: durationInSeconds, outputUnit: UnitSpeed.minutesPerMile)
+        let
         // TODO: - Implement formatted speed display if it is not a run.
 //        let formattedSpeed =
         // TODO: - Implement formatted heart rate display.
