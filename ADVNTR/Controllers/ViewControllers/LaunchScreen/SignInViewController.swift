@@ -10,13 +10,27 @@ import UIKit
 
 class SignInViewController: UIViewController {
 
+    // MARK: - Outlets
+    
+    @IBOutlet weak var emailAddressTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
-
+    // MARK: - Actions
+    
+    @IBAction func signInButtonTapped(_ sender: UIButton) {
+    }
+    
+    @IBAction func signUpButtonTapped(_ sender: UIButton) {
+    }
+    
+    @IBAction func forgotPasswordTapped(_ sender: UIButton) {
+    }
+    
     /*
     // MARK: - Navigation
 

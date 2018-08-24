@@ -18,11 +18,11 @@ class SettingsTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     // Custom Header/Footer Color
-    override func tableView(_ tableView: UITableView, willDisplayHeaderView view:UIView, forSection: Int) {
-        if let tableViewHeaderFooterView = view as? UITableViewHeaderFooterView {
-            tableViewHeaderFooterView.detailTextLabel?.textColor = UIColor.white
-        }
-    }
+//    override func tableView(_ tableView: UITableView, willDisplayHeaderView view:UIView, forSection: Int) {
+//        if let tableViewHeaderFooterView = view as? UITableViewHeaderFooterView {
+//            tableViewHeaderFooterView.detailTextLabel?.textColor = UIColor.white
+//        }
+//    }
 
     /*
     // MARK: - Navigation
