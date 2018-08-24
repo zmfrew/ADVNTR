@@ -9,17 +9,27 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileNameLabel: UILabel!
+    @IBOutlet weak var genderTitleLabel: UILabel!
+    @IBOutlet weak var ageTitleLabel: UILabel!
+    @IBOutlet weak var weightTitleLabel: UILabel!
+    @IBOutlet weak var maxHeartRateTitleLabel: UILabel!
+    @IBOutlet weak var userCalculatedMaxHeartRateLabel: UILabel!
+    @IBOutlet weak var averageHRZoneLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // MARK: - Actions
+    
+    @IBAction func defaultActivitySegmentedController(_ sender: UISegmentedControl) {
     }
+    
     
 
     /*
