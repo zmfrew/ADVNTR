@@ -9,8 +9,6 @@
 import UIKit
 
 class ActivityDetailViewController: UIViewController {
-
-    // MARK: - Outlets
     
     override func viewDidLoad() {
         super.viewDidLoad()
