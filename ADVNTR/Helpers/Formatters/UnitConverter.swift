@@ -22,16 +22,17 @@ class ActivityUnitConverter: UnitConverter {
         return kilometers / hours
     }
     
-    static func speed(distance: Measurement<UnitLength>, seconds: Int, paceUnits: UnitSpeed) -> Measurement<UnitSpeed> {
+    static func speed(distance: Measurement<UnitLength>, seconds: Int) -> Measurement<UnitSpeed> {
         let formatter = MeasurementFormatter()
         formatter.unitOptions = [.providedUnit]
         let speedMagnitude = seconds != 0 ? distance.value / Double(seconds) : 0
         let speed = Measurement(value: speedMagnitude, unit: UnitSpeed.metersPerSecond)
+        print(speed)
         return speed
     }
     
-    static func formatPaceForDisplay(distance: Measurement<UnitLength>, seconds: Int, paceUnits: UnitSpeed, outputUnit: UnitSpeed) -> String  {
-        let currentSpeed = speed(distance: distance, seconds: seconds, paceUnits: paceUnits).converted(to: outputUnit).value
+    static func formatPace(distance: Measurement<UnitLength>, seconds: Int, outputUnit: UnitSpeed) -> String  {
+        let currentSpeed = speed(distance: distance, seconds: seconds).converted(to: outputUnit).value
         let minutes = Int(currentSpeed)
         let seconds = Int((currentSpeed.roundTo(places: 2) - Double(minutes)) * 60)
         return "\(minutes):\(seconds)"
