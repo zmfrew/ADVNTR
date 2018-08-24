@@ -73,6 +73,12 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="activityDateLabel" destination="7HH-KF-GjF" id="FnY-VS-xIU"/>
+                                            <outlet property="activityDistanceLabel" destination="o0i-Az-jOK" id="ZEZ-bG-R37"/>
+                                            <outlet property="activityLengthLabel" destination="XC7-rg-TNN" id="Jmz-vk-Fwn"/>
+                                            <outlet property="activitySnapshotImageView" destination="pn7-lp-9t3" id="XiS-5Z-FjP"/>
+                                            <outlet property="activityTitleLabel" destination="QfD-Bu-Oic" id="9e0-T0-EbA"/>
+                                            <outlet property="averageSpeedLabel" destination="RLx-DV-4ZR" id="eZP-LU-nGF"/>
                                             <segue destination="UdV-pG-hRd" kind="show" id="zWu-ua-F7j"/>
                                         </connections>
                                     </tableViewCell>
@@ -82,14 +88,6 @@
                         <color key="tintColor" red="0.02242623731" green="0.02242623731" blue="0.02242623731" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="S5g-ri-KFb"/>
                     </view>
-                    <connections>
-                        <outlet property="activityDateLabel" destination="7HH-KF-GjF" id="GhM-2I-clp"/>
-                        <outlet property="activityDistanceLabel" destination="o0i-Az-jOK" id="I5S-Nq-1cr"/>
-                        <outlet property="activityLengthLabel" destination="XC7-rg-TNN" id="T5f-qf-TT4"/>
-                        <outlet property="activitySnapshotImageView" destination="pn7-lp-9t3" id="vOj-be-4C2"/>
-                        <outlet property="activityTitleLabel" destination="QfD-Bu-Oic" id="jYi-bu-GpM"/>
-                        <outlet property="averageSpeedLabel" destination="RLx-DV-4ZR" id="EEJ-2N-pUx"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUb-AQ-rwp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
