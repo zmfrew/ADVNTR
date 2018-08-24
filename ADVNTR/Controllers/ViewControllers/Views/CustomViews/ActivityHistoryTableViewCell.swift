@@ -11,7 +11,6 @@ import UIKit
 class ActivityHistoryTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
-    
     @IBOutlet weak var activitySnapshotImageView: UIImageView!
     @IBOutlet weak var activityTitleLabel: UILabel!
     @IBOutlet weak var activityDateLabel: UILabel!
@@ -19,15 +18,32 @@ class ActivityHistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var activityDistanceLabel: UILabel!
     @IBOutlet weak var averageSpeedLabel: UILabel!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    // MARK: - Properties
+    var activity: Activity? {
+        didSet {
+            updateViews()
+        }
     }
+    
+    // MARK: - Methods
+    func updateViews() {
+        guard let activity = activity else { return }
+        
+        activitySnapshotImageView.image = activity.activitySnapshotImage
+        activityTitleLabel.text = activity.name
+        activityDateLabel.text = activity.timestamp
+        activityLengthLabel.text = "\(activity.distance)"
+        // TODO: - Check if user preferences are Imperial or Metric, convert units accordingly, and display unit type to user.
+        activityDistanceLabel.text = "\(activity.distance)"
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        if activity.type == "Run" {
+            // Convert distance, which is an Int, to a measurement in meters to get the correct formatted pace.
+            let distance = Measurement.init(value: Double(activity.distance), unit: UnitLength.meters)
+            let pace = ActivityUnitConverter.formatPace(distance: distance, seconds: activity.duration, outputUnit: UnitSpeed.milesPerHour)
+            averageSpeedLabel.text = "Average pace: \(pace)"
+        } else {
+            averageSpeedLabel.text = "Average speed: \(activity.averageSpeed)"
+        }
     }
-
+    
 }

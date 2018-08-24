@@ -1,5 +1,5 @@
 //
-//  UnitConverter.swift
+//  ActivityUnitConverter.swift
 //  ADVNTR
 //
 //  Created by Zachary Frew on 8/22/18.
@@ -12,12 +12,12 @@ class ActivityUnitConverter: UnitConverter {
     
     static func milesPerHourFromMetersPerSecond(seconds: Int, meters: Measurement<UnitLength>) -> Double {
         let hours = Double(seconds) / 3600
-        let miles = meters.converted(to: .miles)
-        return miles.value / hours
+        let miles = milesFromMeters(distance: meters)
+        return miles / hours
     }
     
     static func kilometersPerHourFrom(seconds: Int, distance: Measurement<UnitLength>) -> Double {
-        let kilometers = distance.value / 100
+        let kilometers = kilometersFromMeters(distance: distance)
         let hours = Double(seconds) / 3600
         return kilometers / hours
     }
@@ -35,6 +35,14 @@ class ActivityUnitConverter: UnitConverter {
         let minutes = Int(currentSpeed)
         let seconds = Int((currentSpeed.roundTo(places: 2) - Double(minutes)) * 60)
         return "\(minutes):\(seconds)"
+    }
+    
+    static func kilometersFromMeters(distance: Measurement<UnitLength>) -> Double {
+        return distance.value / 100
+    }
+    
+    static func milesFromMeters(distance: Measurement<UnitLength>) -> Double {
+        return distance.converted(to: .miles).value
     }
     
 }
