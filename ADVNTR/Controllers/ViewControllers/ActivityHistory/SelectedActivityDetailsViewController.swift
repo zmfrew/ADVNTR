@@ -1,33 +1,27 @@
 //
-//  AddActivityViewController.swift
+//  SelectedActivityDetailsViewController.swift
 //  ADVNTR
 //
-//  Created by Zachary Frew on 8/20/18.
+//  Created by Owen Henley on 8/24/18.
 //  Copyright © 2018 Zachary Frew. All rights reserved.
 //
 
 import UIKit
 
-class AddActivityViewController: UIViewController {
+class SelectedActivityDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
     }
     
-    // MARK: - Actions
-    
-    @IBAction func saveButtonTapped(_ sender: UIButton) {
-    }
-    
-    @IBAction func backTapped(_ sender: UIButton) {
-    }
-    
+
     /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
+        // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
     */

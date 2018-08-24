@@ -2,7 +2,7 @@
 //  ActivityDetailViewController.swift
 //  ADVNTR
 //
-//  Created by Zachary Frew on 8/20/18.
+//  Created by Zachary Frew & Owen Henley on 8/20/18.
 //  Copyright © 2018 Zachary Frew. All rights reserved.
 //
 
@@ -10,15 +10,17 @@ import UIKit
 
 class ActivityDetailViewController: UIViewController {
 
+    // MARK: - Outlets
+    
+    @IBOutlet weak var activitySnapshotImageView: UIImageView!
+    @IBOutlet weak var activityTitleLabel: UILabel!
+    @IBOutlet weak var activityDateLabel: UILabel!
+    @IBOutlet weak var activityLengthLabel: UILabel!
+    @IBOutlet weak var activityDistanceLabel: UILabel!
+    @IBOutlet weak var averageSpeedLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 
