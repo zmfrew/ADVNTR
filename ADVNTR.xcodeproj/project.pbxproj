@@ -111,6 +111,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E4528642130A93B003E892E /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				3E45285E21305C30003E892E /* SignInViewController.swift */,
+				3E093750212F6B49003BA862 /* ForgotPasswordViewController.swift */,
+				3E093752212F6B7A003BA862 /* SignUpViewController.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
 		3EC2C957212CBE75002D7F69 /* NewActivity */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +192,7 @@
 				3EC2C957212CBE75002D7F69 /* NewActivity */,
 				B6C74F81212B83AA00331D01 /* CurrentActivity */,
 				B6C74F7F212B83AA00331D01 /* Profile */,
+				3E4528642130A93B003E892E /* SignIn */,
 				B6C74F7B212B83AA00331D01 /* Settings */,
 			);
 			path = ViewControllers;
@@ -190,10 +201,7 @@
 		B6C74F79212B83AA00331D01 /* LaunchScreen */ = {
 			isa = PBXGroup;
 			children = (
-				3E45285E21305C30003E892E /* SignInViewController.swift */,
 				B6C74F7A212B83AA00331D01 /* LaunchScreenViewController.swift */,
-				3E093750212F6B49003BA862 /* ForgotPasswordViewController.swift */,
-				3E093752212F6B7A003BA862 /* SignUpViewController.swift */,
 			);
 			path = LaunchScreen;
 			sourceTree = "<group>";
