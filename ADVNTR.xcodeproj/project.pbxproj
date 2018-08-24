@@ -41,10 +41,8 @@
 		B6C74FA6212B83AB00331D01 /* RunHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F86212B83AA00331D01 /* RunHistoryViewController.swift */; };
 		B6C74FA7212B83AB00331D01 /* BikeHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F87212B83AA00331D01 /* BikeHistoryViewController.swift */; };
 		B6C74FA8212B83AB00331D01 /* ActivityHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F88212B83AA00331D01 /* ActivityHistoryViewController.swift */; };
-		B6C74FAA212B83AB00331D01 /* MapViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F8D212B83AA00331D01 /* MapViewManager.swift */; };
 		B6C74FAB212B83AB00331D01 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F8E212B83AA00331D01 /* NetworkManager.swift */; };
 		B6C74FAC212B83AB00331D01 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F8F212B83AA00331D01 /* LocationManager.swift */; };
-		B6C74FAD212B83AB00331D01 /* UnitConversion+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F91212B83AA00331D01 /* UnitConversion+Helper.swift */; };
 		B6C74FAE212B83AB00331D01 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F93212B83AB00331D01 /* User.swift */; };
 		B6C74FAF212B83AB00331D01 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F94212B83AB00331D01 /* Activity.swift */; };
 		B6C74FB5212B83B800331D01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74FB2212B83B800331D01 /* AppDelegate.swift */; };
@@ -90,10 +88,8 @@
 		B6C74F86212B83AA00331D01 /* RunHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunHistoryViewController.swift; sourceTree = "<group>"; };
 		B6C74F87212B83AA00331D01 /* BikeHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BikeHistoryViewController.swift; sourceTree = "<group>"; };
 		B6C74F88212B83AA00331D01 /* ActivityHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityHistoryViewController.swift; sourceTree = "<group>"; };
-		B6C74F8D212B83AA00331D01 /* MapViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewManager.swift; sourceTree = "<group>"; };
 		B6C74F8E212B83AA00331D01 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B6C74F8F212B83AA00331D01 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		B6C74F91212B83AA00331D01 /* UnitConversion+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UnitConversion+Helper.swift"; sourceTree = "<group>"; };
 		B6C74F93212B83AB00331D01 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B6C74F94212B83AB00331D01 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		B6C74FB2212B83B800331D01 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -264,7 +260,6 @@
 		B6C74F8C212B83AA00331D01 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				B6C74F8D212B83AA00331D01 /* MapViewManager.swift */,
 				B6C74F8E212B83AA00331D01 /* NetworkManager.swift */,
 				B6C74F8F212B83AA00331D01 /* LocationManager.swift */,
 			);
@@ -274,7 +269,6 @@
 		B6C74F90212B83AA00331D01 /* Formatters */ = {
 			isa = PBXGroup;
 			children = (
-				B6C74F91212B83AA00331D01 /* UnitConversion+Helper.swift */,
 				B6FE8A96212DD8ED0095FC8B /* FormatDisplay.swift */,
 				B62687D6212E28FB00FC5D58 /* Double+Rounding.swift */,
 				B62687D8212E56EB00FC5D58 /* UnitConverter.swift */,
@@ -429,7 +423,6 @@
 				B6C74FA7212B83AB00331D01 /* BikeHistoryViewController.swift in Sources */,
 				3E45286321306F76003E892E /* SelectedActivityDetailsViewController.swift in Sources */,
 				B6C74FAB212B83AB00331D01 /* NetworkManager.swift in Sources */,
-				B6C74FAA212B83AB00331D01 /* MapViewManager.swift in Sources */,
 				3EA20912212E315900750A5D /* AppVersionDetailsViewController.swift in Sources */,
 				B6C74FA4212B83AB00331D01 /* ActivityDetailViewController.swift in Sources */,
 				B6C74F9F212B83AB00331D01 /* LaunchScreenViewController.swift in Sources */,
@@ -449,7 +442,6 @@
 				3EC2C956212CBE57002D7F69 /* NewActivityViewController.swift in Sources */,
 				3EA20908212E2EFB00750A5D /* SettingsTableViewController.swift in Sources */,
 				B6C74FB5212B83B800331D01 /* AppDelegate.swift in Sources */,
-				B6C74FAD212B83AB00331D01 /* UnitConversion+Helper.swift in Sources */,
 				B6C74FAE212B83AB00331D01 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
