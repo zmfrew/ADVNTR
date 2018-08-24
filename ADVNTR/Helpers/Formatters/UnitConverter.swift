@@ -22,48 +22,19 @@ class ActivityUnitConverter: UnitConverter {
         return kilometers / hours
     }
     
-    // TODO: Fix this function
-    static func pacePerMile(seconds: Int, meters: Measurement<UnitLength>) -> String {
-        let mph = milesPerHourFromMetersPerSecond(seconds: seconds, meters: meters)
-        var secondsRemaining = seconds
-        // Get the remainder of 3600 / seconds.
-        var hours = 0
-        if secondsRemaining != 0 {
-            hours = 3600 % secondsRemaining
-        }
-        var hoursPerMile = 0
-        // Convert meters to miles.
-        let miles = meters.converted(to: UnitLength.miles).value
-        // Check if hours is greater than 0, and find hoursPerMile. Decrement secondsRemaining by the hoursPerMile * miles * seconds (hours * 3600).
-        if hours > 0 {
-            hoursPerMile = Int(miles) % hours
-            secondsRemaining = secondsRemaining - hoursPerMile * Int(miles) * 3600
-        }
-        
-        // Repeat the above steps for minutes.
-        let minutes = secondsRemaining / 60
-        var minutesPerMile = 0
-        if minutes > 0 {
-            minutesPerMile = Int(miles) % minutes
-            secondsRemaining = secondsRemaining - minutesPerMile * Int(miles) * 60
-        }
-        
-        // Check if seconds remaining is greater than 0. If it is, decrement secondsRemaining by the distance traveled * seconds. Finally, divide the secondsRemaining by the speed the user was traveling and round to nearest whole number.
-        if secondsRemaining > 0 {
-            secondsRemaining = secondsRemaining - Int(miles) * 60
-            secondsRemaining =  secondsRemaining / Int(mph.rounded())
-            print(secondsRemaining)
-        }
-        print(secondsRemaining)
-        // Return the pace as a string with format HH:MM:SS.
-        if hoursPerMile == 0 {
-            return "\(minutesPerMile):\(secondsRemaining)"
-        }
-        return "\(hoursPerMile):\(minutesPerMile):\(secondsRemaining)"
+    static func speed(distance: Measurement<UnitLength>, seconds: Int, paceUnits: UnitSpeed) -> Measurement<UnitSpeed> {
+        let formatter = MeasurementFormatter()
+        formatter.unitOptions = [.providedUnit]
+        let speedMagnitude = seconds != 0 ? distance.value / Double(seconds) : 0
+        let speed = Measurement(value: speedMagnitude, unit: UnitSpeed.metersPerSecond)
+        return speed
     }
     
-    static func pacePerKilometer() {
-        
+    static func formatPaceForDisplay(distance: Measurement<UnitLength>, seconds: Int, paceUnits: UnitSpeed, outputUnit: UnitSpeed) -> String  {
+        let currentSpeed = speed(distance: distance, seconds: seconds, paceUnits: paceUnits).converted(to: outputUnit).value
+        let minutes = Int(currentSpeed)
+        let seconds = Int((currentSpeed.roundTo(places: 2) - Double(minutes)) * 60)
+        return "\(minutes):\(seconds)"
     }
     
 }
