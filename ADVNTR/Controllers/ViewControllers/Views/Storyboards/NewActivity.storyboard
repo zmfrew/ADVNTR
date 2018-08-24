@@ -137,7 +137,7 @@
                                     <constraint firstAttribute="trailing" secondItem="W1O-He-L7w" secondAttribute="trailing" constant="16" id="ksw-Ow-Vqt"/>
                                 </constraints>
                             </view>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.69999999999999996" contentMode="scaleToFill" mapType="hybridFlyover" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pl0-qX-Jga">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybridFlyover" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pl0-qX-Jga">
                                 <rect key="frame" x="16" y="179.5" width="343" height="308"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="k83-3y-4Nz"/>
@@ -145,7 +145,7 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="8"/>
+                                        <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </mapView>

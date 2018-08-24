@@ -50,3 +50,13 @@ class AddCustomActivityTableViewController: UITableViewController {
     */
 
 }
+
+// MARK: Successful Sign Up Alert
+extension AddCustomActivityTableViewController {
+    
+}
+
+// MARK: Error Signing Up Alert (Boring iOS SDK AlertController)
+extension AddCustomActivityTableViewController {
+    
+}
