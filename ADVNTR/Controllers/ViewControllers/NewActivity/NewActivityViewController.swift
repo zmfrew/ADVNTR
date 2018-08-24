@@ -56,7 +56,13 @@ class NewActivityViewController: UIViewController {
         super.viewDidLoad()
         setupMapView()
         setupLocationManager()
+        
         activityTypeLabel.text = user?.preferredActivityType ?? "Run"
+        
+        if let user = user {
+            activityTypeSegmentedController.selectedSegmentIndex = setActivityTypeSegmentedControllerFor(user: user)
+        }
+        
         hideInitialViews()
     }
     
@@ -124,7 +130,7 @@ class NewActivityViewController: UIViewController {
         saveButton.isHidden = false
         locationManager.stopUpdatingLocation()
         stopButton.isHidden = true
-//        takeSnapShot()
+        // TODO: - takeSnapShot of map with polyline showing user's path.
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
@@ -186,13 +192,14 @@ class NewActivityViewController: UIViewController {
     func updateViews() {
         let distanceToDisplay = FormatDisplay.distance(distance.value)
         let timeToDisplay = FormatDisplay.time(durationInSeconds)
-        var outputUnit: UnitSpeed
         
+        var outputUnit: UnitSpeed
         if user?.defaultUnits == "Imperial" {
             outputUnit = UnitSpeed.milesPerHour
         } else {
             outputUnit = UnitSpeed.kilometersPerHour
         }
+        
         let pace = ActivityUnitConverter.formatPace(distance: distance, seconds: durationInSeconds, outputUnit: outputUnit)
         let speed = ActivityUnitConverter.speed(distance: distance, seconds: durationInSeconds).value
         
@@ -203,10 +210,6 @@ class NewActivityViewController: UIViewController {
         } else {
             averageSpeedOrPaceLabel.text = "\(speed.roundTo(places: 2))"
         }
-        // TODO: - Implement formatted speed display if it is not a run.
-//        let formattedSpeed =
-        // TODO: - Implement formatted heart rate display.
-//        let currentSpeed = ActivityUnitConverter.milesPerHourFromMetersPerSecond(seconds: durationInSeconds, meters: distance)
         
         activityTimeLabel.text = timeToDisplay
         activityDistanceLabel.text = distanceToDisplay
