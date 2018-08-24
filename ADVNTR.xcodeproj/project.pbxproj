@@ -10,6 +10,9 @@
 		3E09374F212F63B5003BA862 /* AddCustomActivity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E09374E212F63B5003BA862 /* AddCustomActivity.storyboard */; };
 		3E093751212F6B49003BA862 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E093750212F6B49003BA862 /* ForgotPasswordViewController.swift */; };
 		3E093753212F6B7A003BA862 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E093752212F6B7A003BA862 /* SignUpViewController.swift */; };
+		3E45285F21305C31003E892E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45285E21305C30003E892E /* SignInViewController.swift */; };
+		3E4528612130676C003E892E /* AddCustomActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4528602130676C003E892E /* AddCustomActivityTableViewController.swift */; };
+		3E45286321306F76003E892E /* SelectedActivityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45286221306F76003E892E /* SelectedActivityDetailsViewController.swift */; };
 		3EA20906212E184500750A5D /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA20905212E184500750A5D /* Settings.storyboard */; };
 		3EA20908212E2EFB00750A5D /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA20907212E2EFB00750A5D /* SettingsTableViewController.swift */; };
 		3EA2090A212E2F6F00750A5D /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA20909212E2F6F00750A5D /* TermsOfServiceViewController.swift */; };
@@ -31,7 +34,6 @@
 		B69D6721212F417B007A3A92 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D6720212F417B007A3A92 /* DateFormatter.swift */; };
 		B6C74F9E212B83AB00331D01 /* ActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F77212B83AA00331D01 /* ActivityController.swift */; };
 		B6C74F9F212B83AB00331D01 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F7A212B83AA00331D01 /* LaunchScreenViewController.swift */; };
-		B6C74FA1212B83AB00331D01 /* AddWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F7E212B83AA00331D01 /* AddWorkoutViewController.swift */; };
 		B6C74FA2212B83AB00331D01 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F80212B83AA00331D01 /* ProfileViewController.swift */; };
 		B6C74FA3212B83AB00331D01 /* CurrentActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F82212B83AA00331D01 /* CurrentActivityViewController.swift */; };
 		B6C74FA4212B83AB00331D01 /* ActivityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F84212B83AA00331D01 /* ActivityDetailViewController.swift */; };
@@ -46,7 +48,6 @@
 		B6C74FAE212B83AB00331D01 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F93212B83AB00331D01 /* User.swift */; };
 		B6C74FAF212B83AB00331D01 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F94212B83AB00331D01 /* Activity.swift */; };
 		B6C74FB5212B83B800331D01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74FB2212B83B800331D01 /* AppDelegate.swift */; };
-		B6C74FC9212B84F600331D01 /* CurrentActivityPopOver.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6C74FBD212B84F600331D01 /* CurrentActivityPopOver.storyboard */; };
 		B6C74FCC212B84F600331D01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6C74FC0212B84F600331D01 /* LaunchScreen.storyboard */; };
 		B6C74FCF212B84F600331D01 /* ActivityHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74FC6212B84F600331D01 /* ActivityHistoryTableViewCell.swift */; };
 		B6C74FD0212B84F600331D01 /* ActivityHistoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74FC7212B84F600331D01 /* ActivityHistoryButton.swift */; };
@@ -57,6 +58,9 @@
 		3E09374E212F63B5003BA862 /* AddCustomActivity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddCustomActivity.storyboard; sourceTree = "<group>"; };
 		3E093750212F6B49003BA862 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		3E093752212F6B7A003BA862 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		3E45285E21305C30003E892E /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		3E4528602130676C003E892E /* AddCustomActivityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomActivityTableViewController.swift; sourceTree = "<group>"; };
+		3E45286221306F76003E892E /* SelectedActivityDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedActivityDetailsViewController.swift; sourceTree = "<group>"; };
 		3EA20905212E184500750A5D /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		3EA20907212E2EFB00750A5D /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		3EA20909212E2F6F00750A5D /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
@@ -79,7 +83,6 @@
 		B6C74ECE212B7C3500331D01 /* ADVNTR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADVNTR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6C74F77212B83AA00331D01 /* ActivityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
 		B6C74F7A212B83AA00331D01 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
-		B6C74F7E212B83AA00331D01 /* AddWorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWorkoutViewController.swift; sourceTree = "<group>"; };
 		B6C74F80212B83AA00331D01 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B6C74F82212B83AA00331D01 /* CurrentActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentActivityViewController.swift; sourceTree = "<group>"; };
 		B6C74F84212B83AA00331D01 /* ActivityDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityDetailViewController.swift; sourceTree = "<group>"; };
@@ -95,7 +98,6 @@
 		B6C74F94212B83AB00331D01 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		B6C74FB2212B83B800331D01 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6C74FB3212B83B800331D01 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B6C74FBD212B84F600331D01 /* CurrentActivityPopOver.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CurrentActivityPopOver.storyboard; sourceTree = "<group>"; };
 		B6C74FC1212B84F600331D01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6C74FC6212B84F600331D01 /* ActivityHistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		B6C74FC7212B84F600331D01 /* ActivityHistoryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityHistoryButton.swift; sourceTree = "<group>"; };
@@ -192,9 +194,10 @@
 		B6C74F79212B83AA00331D01 /* LaunchScreen */ = {
 			isa = PBXGroup;
 			children = (
+				3E45285E21305C30003E892E /* SignInViewController.swift */,
+				B6C74F7A212B83AA00331D01 /* LaunchScreenViewController.swift */,
 				3E093750212F6B49003BA862 /* ForgotPasswordViewController.swift */,
 				3E093752212F6B7A003BA862 /* SignUpViewController.swift */,
-				B6C74F7A212B83AA00331D01 /* LaunchScreenViewController.swift */,
 			);
 			path = LaunchScreen;
 			sourceTree = "<group>";
@@ -215,7 +218,7 @@
 		B6C74F7D212B83AA00331D01 /* AddActivity */ = {
 			isa = PBXGroup;
 			children = (
-				B6C74F7E212B83AA00331D01 /* AddWorkoutViewController.swift */,
+				3E4528602130676C003E892E /* AddCustomActivityTableViewController.swift */,
 			);
 			path = AddActivity;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 		B6C74F83212B83AA00331D01 /* ActivityHistory */ = {
 			isa = PBXGroup;
 			children = (
+				3E45286221306F76003E892E /* SelectedActivityDetailsViewController.swift */,
 				B6C74F84212B83AA00331D01 /* ActivityDetailViewController.swift */,
 				B6C74F85212B83AA00331D01 /* HikeHistoryViewController.swift */,
 				B6C74F86212B83AA00331D01 /* RunHistoryViewController.swift */,
@@ -317,7 +321,6 @@
 				3EC2C910212CAAB9002D7F69 /* ActivityHistory.storyboard */,
 				3EC2C953212CB3A7002D7F69 /* ActivityHistoryDetails.storyboard */,
 				3EC2C912212CAB5B002D7F69 /* NewActivity.storyboard */,
-				B6C74FBD212B84F600331D01 /* CurrentActivityPopOver.storyboard */,
 				3EC2C914212CAB81002D7F69 /* MyProfile.storyboard */,
 				3EA20905212E184500750A5D /* Settings.storyboard */,
 				3EDC8CFF212CE0F800A7A7DE /* LoginScreen.storyboard */,
@@ -397,7 +400,6 @@
 				3EB69BE4212C855E0049BA59 /* TabBarController.storyboard in Resources */,
 				3EA20906212E184500750A5D /* Settings.storyboard in Resources */,
 				3EC2C954212CB3A7002D7F69 /* ActivityHistoryDetails.storyboard in Resources */,
-				B6C74FC9212B84F600331D01 /* CurrentActivityPopOver.storyboard in Resources */,
 				B6C74FCC212B84F600331D01 /* LaunchScreen.storyboard in Resources */,
 				3EDC8D00212CE0F800A7A7DE /* LoginScreen.storyboard in Resources */,
 				3EB69BE2212C805F0049BA59 /* Assets.xcassets in Resources */,
@@ -425,19 +427,21 @@
 				B6C74FCF212B84F600331D01 /* ActivityHistoryTableViewCell.swift in Sources */,
 				3EA20910212E309C00750A5D /* FeedbackViewController.swift in Sources */,
 				B6C74FA7212B83AB00331D01 /* BikeHistoryViewController.swift in Sources */,
+				3E45286321306F76003E892E /* SelectedActivityDetailsViewController.swift in Sources */,
 				B6C74FAB212B83AB00331D01 /* NetworkManager.swift in Sources */,
-				B6C74FA1212B83AB00331D01 /* AddWorkoutViewController.swift in Sources */,
 				B6C74FAA212B83AB00331D01 /* MapViewManager.swift in Sources */,
 				3EA20912212E315900750A5D /* AppVersionDetailsViewController.swift in Sources */,
 				B6C74FA4212B83AB00331D01 /* ActivityDetailViewController.swift in Sources */,
 				B6C74F9F212B83AB00331D01 /* LaunchScreenViewController.swift in Sources */,
 				3EA2090E212E2FF100750A5D /* CreditsViewController.swift in Sources */,
+				3E4528612130676C003E892E /* AddCustomActivityTableViewController.swift in Sources */,
 				B6C74FAF212B83AB00331D01 /* Activity.swift in Sources */,
 				B62687D7212E28FB00FC5D58 /* Double+Rounding.swift in Sources */,
 				B62687D9212E56EB00FC5D58 /* UnitConverter.swift in Sources */,
 				B6C74FD0212B84F600331D01 /* ActivityHistoryButton.swift in Sources */,
 				B6C74FA2212B83AB00331D01 /* ProfileViewController.swift in Sources */,
 				B69D6721212F417B007A3A92 /* DateFormatter.swift in Sources */,
+				3E45285F21305C31003E892E /* SignInViewController.swift in Sources */,
 				B6C74FA5212B83AB00331D01 /* HikeHistoryViewController.swift in Sources */,
 				B6C74FA3212B83AB00331D01 /* CurrentActivityViewController.swift in Sources */,
 				B6FE8A97212DD8ED0095FC8B /* FormatDisplay.swift in Sources */,
