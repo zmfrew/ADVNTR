@@ -247,6 +247,7 @@ class NewActivityViewController: UIViewController {
     }
         
     // The following two methods are not useful until we have a Stop and Save feature. In addition, we will return a UIImage from takeSnapShot() to pass into the save function, thus saving to the model.
+    // Takes a snapshot of the mapview from the user's activity.
     func takeSnapShot() {
         let mapSnapShotOptions = MKMapSnapshotOptions()
 
@@ -274,10 +275,11 @@ class NewActivityViewController: UIViewController {
         }
     }
 
+    // Draws the polyline from the user's path onto the snapshot taken of the mapview.
     func drawLineOnImage(snapshot: MKMapSnapshot) -> UIImage {
         let image = snapshot.image
         UIGraphicsBeginImageContextWithOptions(self.activitySnapshotImageView.frame.size, true, 0)
-        // draw original image into the context
+
         image.draw(at: CGPoint.zero)
         let context = UIGraphicsGetCurrentContext()
         context!.setLineWidth(2.0)
@@ -323,6 +325,7 @@ class NewActivityViewController: UIViewController {
         }
     }
     
+    // Clears out local properties to allow user to complete multiple activities without closing the app.
     func resetLocalProperties() {
         timer?.invalidate()
         locationList = []
@@ -341,9 +344,8 @@ extension NewActivityViewController: CLLocationManagerDelegate {
     
     func setupLocationManager() {
         locationManager.delegate = self
-        // TODO: - Choose activity type based on the user's selection of the workout.
-//        locationManager.activityType =
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.activityType = .fitness
         locationManager.distanceFilter = 10
         locationManager.pausesLocationUpdatesAutomatically = true
         locationManager.allowsBackgroundLocationUpdates = true
