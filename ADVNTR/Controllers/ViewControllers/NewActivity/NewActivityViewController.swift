@@ -95,6 +95,7 @@ class NewActivityViewController: UIViewController {
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (_) in
             self.fireSecond()
         })
+        updateAverageSpeedOrPaceLabelText()
         updateViews()
         pauseButton.isHidden = false
         startButton.isHidden = true
@@ -152,11 +153,11 @@ class NewActivityViewController: UIViewController {
     }
     
     // MARK: - Methods
-    func updateLabelText() {
-        if activityTypeLabel.text == "Run" {
-            averageSpeedOrPaceLabel.text = "Average Pace"
+    func updateAverageSpeedOrPaceLabelText() {
+        if activityTypeSegmentedController.selectedSegmentIndex == 0 {
+            averageSpeedOrPaceNameLabel.text = "Pace"
         } else {
-            averageSpeedOrPaceLabel.text = "Average Speed"
+            averageSpeedOrPaceNameLabel.text = "Speed"
         }
     }
     

@@ -27,7 +27,6 @@ class ActivityUnitConverter: UnitConverter {
         formatter.unitOptions = [.providedUnit]
         let speedMagnitude = seconds != 0 ? distance.value / Double(seconds) : 0
         let speed = Measurement(value: speedMagnitude, unit: UnitSpeed.metersPerSecond)
-        print(speed)
         return speed
     }
     

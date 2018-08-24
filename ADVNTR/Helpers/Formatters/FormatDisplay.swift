@@ -27,20 +27,4 @@ struct FormatDisplay {
         return formatter.string(from: TimeInterval(seconds))!
     }
     
-    static func pace(distance: Measurement<UnitLength>, seconds: Int, outputUnit: UnitSpeed) -> String {
-        let formatter = MeasurementFormatter()
-        formatter.unitOptions = [.providedUnit]
-        let speedMagnitude = seconds != 0 ? distance.value / Double(seconds) : 0
-        let speed = Measurement(value: speedMagnitude, unit: UnitSpeed.metersPerSecond)
-        return formatter.string(from: speed.converted(to: outputUnit))
-    }
-    
-    static func speed(distance: Measurement<UnitLength>, seconds: Int, outputUnit: UnitSpeed) -> String {
-        let formatter = MeasurementFormatter()
-        formatter.unitOptions = [.providedUnit]
-        let speedMagnitude = seconds != 0 ? distance.value / Double(seconds) : 0
-        let speed = Measurement(value: speedMagnitude, unit: UnitSpeed.metersPerSecond)
-        return "\(speed)"
-    }
-    
 }
