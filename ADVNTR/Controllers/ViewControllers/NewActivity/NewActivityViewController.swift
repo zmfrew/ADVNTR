@@ -149,10 +149,9 @@ class NewActivityViewController: UIViewController {
         let timeOfDay = currentDate?.getTimeOfDay(from: hour!)
         let name = "\(timeOfDay!) - \(activityType)"
         let averageSpeed = ActivityUnitConverter.milesPerHourFromMetersPerSecond(seconds: durationInSeconds, meters: distance)
-        // TODO: - Get heart rate to pass into Activity initializer.
-        // TODO: - Get UIImage from activitySnapshotImageView, which is a picture of the activity's map with a line depicting the path.
+        let activitySnapshotImage = activitySnapshotImageView.image ?? UIImage()
         
-        let newActivity = Activity(uid: "uid", type: activityType, name: name, distance: Int(distance.value), averageSpeed: averageSpeed, elevationChange: Int(elevationChange.rounded()), averageHeartRate: "Heart rate", timestamp: (currentDate?.stringValue(from: currentDate!))!, duration: durationInSeconds, activitySnapshotImage: activitySnapshotImageView.image ?? UIImage())
+        let newActivity = Activity(uid: "uid", type: activityType, name: name, distance: Int(distance.value), averageSpeed: averageSpeed, elevationChange: Int(elevationChange.rounded()), averageHeartRate: "Heart rate", timestamp: (currentDate?.stringValue(from: currentDate!))!, duration: durationInSeconds, activitySnapshotImage: activitySnapshotImage)
         // TODO: - Save new activity to firebase.
         resetLocalProperties()
         hideInitialViews()
@@ -231,9 +230,9 @@ class NewActivityViewController: UIViewController {
         let alert = UIAlertController(title: "Your location services are disabled for this application.", message: "Please go to settings and enable location services to track your activities.", preferredStyle: .alert)
         let enableAction = UIAlertAction(title: "Go to Settings", style: .default) { (_) in
             if !CLLocationManager.locationServicesEnabled() {
-                guard let url = URL(string: UIApplicationOpenSettingsURLString) else { return }
-                    // If general location settings are disabled then open general location settings
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                if let appSettings = URL(string: UIApplicationOpenSettingsURLString) {
+                    UIApplication.shared.open(appSettings, options: [:], completionHandler: nil)
+                }
             }
         }
         
@@ -267,7 +266,6 @@ class NewActivityViewController: UIViewController {
 
             guard let snapshot = snapshot else { return }
 
-            self.activitySnapshotImageView.isHidden = false
             self.activitySnapshotImageView.image = self.drawLineOnImage(snapshot: snapshot)
         }
     }
