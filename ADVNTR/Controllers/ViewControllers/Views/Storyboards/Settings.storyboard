@@ -147,7 +147,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle=" " footerTitle="Made with ❤ by Owen Henley, Peter Gow &amp; Zach Frew." id="tbV-hn-ytm">
+                            <tableViewSection headerTitle=" " footerTitle="Crafted with ❤ by Owen Henley, Peter Gow &amp; Zach Frew." id="tbV-hn-ytm">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="s5F-rz-sAQ">
                                         <rect key="frame" x="0.0" y="439" width="375" height="44"/>
@@ -327,11 +327,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="0Zj-sY-hLQ">
-                                <rect key="frame" x="67" y="148" width="241" height="249"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="0Zj-sY-hLQ">
+                                <rect key="frame" x="16" y="132" width="343" height="503"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="fI1-6Z-TYh">
-                                        <rect key="frame" x="0.0" y="0.0" width="178" height="20.5"/>
+                                        <rect key="frame" x="82.5" y="0.0" width="178" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Version: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3d-oY-Q2l">
                                                 <rect key="frame" x="0.0" y="0.0" width="128.5" height="20.5"/>
@@ -347,10 +347,9 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WKd-sm-kmx">
-                                        <rect key="frame" x="0.0" y="120.5" width="240" height="128.5"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Update: x.x" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WKd-sm-kmx">
+                                        <rect key="frame" x="35.5" y="120.5" width="272" height="382.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -359,17 +358,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="0Zj-sY-hLQ" firstAttribute="centerX" secondItem="tOe-3N-8wV" secondAttribute="centerX" id="2bb-2M-85M"/>
-                            <constraint firstItem="oOg-q6-pgK" firstAttribute="bottom" secondItem="0Zj-sY-hLQ" secondAttribute="bottom" constant="270" id="Gv5-10-r6d"/>
-                            <constraint firstItem="0Zj-sY-hLQ" firstAttribute="leading" secondItem="oOg-q6-pgK" secondAttribute="leading" constant="67" id="HVs-PL-uaT"/>
-                            <constraint firstItem="0Zj-sY-hLQ" firstAttribute="top" secondItem="oOg-q6-pgK" secondAttribute="top" constant="32" id="gHx-Ea-mtO"/>
+                            <constraint firstItem="oOg-q6-pgK" firstAttribute="trailing" secondItem="0Zj-sY-hLQ" secondAttribute="trailing" constant="16" id="a3T-Fc-vSq"/>
+                            <constraint firstItem="oOg-q6-pgK" firstAttribute="bottom" secondItem="0Zj-sY-hLQ" secondAttribute="bottom" constant="32" id="iEJ-Lp-LX4"/>
+                            <constraint firstItem="0Zj-sY-hLQ" firstAttribute="leading" secondItem="oOg-q6-pgK" secondAttribute="leading" constant="16" id="jir-V1-SVU"/>
+                            <constraint firstItem="0Zj-sY-hLQ" firstAttribute="top" secondItem="oOg-q6-pgK" secondAttribute="top" constant="16" id="uIo-hg-37l"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oOg-q6-pgK"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JlB-ge-J4x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3001" y="159"/>
+            <point key="canvasLocation" x="2925.5999999999999" y="179.46026986506749"/>
         </scene>
         <!--Privacy Policy View Controller-->
         <scene sceneID="yb0-50-9CC">
@@ -776,27 +775,66 @@ We hope you enjoy Spotify!
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="TQJ-Uw-XM6">
                                         <rect key="frame" x="8" y="8" width="299" height="593"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0w2-yM-je7">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0w2-yM-je7">
                                                 <rect key="frame" x="0.0" y="0.0" width="299" height="528"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <attributedString key="attributedText">
-                                                    <fragment content="Made with ">
+                                                    <fragment content="Credits">
                                                         <attributes>
-                                                            <font key="NSFont" metaFont="system" size="14"/>
+                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" size="24" name="AvenirNext-DemiBold"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment>
+                                                        <string key="content">
+
+Crafted with </string>
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" size="14" name="AvenirNext-Regular"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
                                                     <fragment content="❤️">
                                                         <attributes>
-                                                            <font key="NSFont" size="14" name=".AppleColorEmojiUI"/>
+                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" size="14" name="AppleColorEmoji"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
-                                                    <fragment content=" by Owen Henley, Peter Gow and Zach Frew.">
+                                                    <fragment>
+                                                        <string key="content"> by
+Owen Henley, Peter Gow and Zach Frew. 
+
+Images Supplied by </string>
                                                         <attributes>
-                                                            <font key="NSFont" metaFont="system" size="14"/>
+                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" size="14" name="AvenirNext-Regular"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content="Unsplash.com">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" size="14" name="AvenirNext-Regular"/>
+                                                            <url key="NSLink" string="http://Unsplash.com"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment>
+                                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" size="14" name="AvenirNext-Regular"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
                                                 </attributedString>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9RG-jO-pIW">
                                                 <rect key="frame" x="124.5" y="551" width="50" height="42"/>
@@ -858,7 +896,7 @@ We hope you enjoy Spotify!
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IdA-4I-glV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3001" y="849"/>
+            <point key="canvasLocation" x="2927" y="870"/>
         </scene>
         <!--Feedback View Controller-->
         <scene sceneID="Aag-In-hUB">
@@ -869,21 +907,47 @@ We hope you enjoy Spotify!
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l6r-9x-Cr2">
-                                <rect key="frame" x="29" y="153" width="76" height="21"/>
+                                <rect key="frame" x="16" y="186" width="76" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tcV-Cq-jqJ">
+                                <rect key="frame" x="16" y="126" width="343" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Open an issue on GitHub:
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="14" name="AvenirNext-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="https://github.com/zmfrew/ADVNTR/issues">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="14" name="AvenirNext-Regular"/>
+                                            <url key="NSLink" string="https://github.com/zmfrew/ADVNTR/issues"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cgA-41-pHX">
-                                <rect key="frame" x="16" y="182" width="343" height="30"/>
+                                <rect key="frame" x="16" y="215" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HTW-pf-yDJ">
-                                <rect key="frame" x="16" y="227" width="343" height="325"/>
+                                <rect key="frame" x="16" y="260" width="343" height="325"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -897,7 +961,7 @@ We hope you enjoy Spotify!
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AKE-V2-Iys" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3624.8000000000002" y="485.30734632683664"/>
+            <point key="canvasLocation" x="3551" y="507"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BSa-ej-JSr">
