@@ -228,18 +228,12 @@ class NewActivityViewController: UIViewController {
     }
     
     func presentLocationAlert() {
-        let alert = UIAlertController(title: "Your location services are disabled for this application.", message: "Please enable location services to track your activity.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Your location services are disabled for this application.", message: "Please go to settings and enable location services to track your activities.", preferredStyle: .alert)
         let enableAction = UIAlertAction(title: "Go to Settings", style: .default) { (_) in
             if !CLLocationManager.locationServicesEnabled() {
-                if let url = URL(string: "App-Prefs:root=Privacy&path=LOCATION") {
+                guard let url = URL(string: UIApplicationOpenSettingsURLString) else { return }
                     // If general location settings are disabled then open general location settings
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                }
-            } else {
-                if let url = URL(string: UIApplicationOpenSettingsURLString) {
-                    // If general location settings are enabled then open location settings for the app
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                }
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
         }
         
