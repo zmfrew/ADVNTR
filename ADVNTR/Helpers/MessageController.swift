@@ -81,5 +81,16 @@ class MessageController {
         
         return (contentView, attributes)
     }
+    
+    // MARK: Empty Sign Up Fields Alert Extension
+    // Called when the user hasn't entered text in either or both of the sign up/in text fields
+    
+    func createEmptyFieldAlert() -> UIAlertController {
+        let alertController = UIAlertController(title: "Error", message: "Please enter an email and password.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)
+        alertController.addAction(okAction)
+        return alertController
+    }
+    
 }
 

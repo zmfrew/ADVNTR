@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class User {
     
@@ -126,4 +127,18 @@ class User {
         self.totalBikeTime = totalBikeTime
         self.totalBikeElevationChange = totalBikeElevationChange
     }
+    
+    init?(result: AuthDataResult) {
+        self.uid = result.user.uid
+        self.email = result.user.email
+        
+    }
 }
+
+
+
+
+
+
+
+

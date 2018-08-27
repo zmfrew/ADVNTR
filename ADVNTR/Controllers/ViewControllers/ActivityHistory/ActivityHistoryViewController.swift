@@ -26,15 +26,18 @@ class ActivityHistoryViewController: UIViewController {
     }
     
     
-
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // Set the current activity type for the selected activity table view.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        guard let destinationVC = segue.destination as? SelectedActivityListViewController else { return }
+        
+        if segue.identifier == "toHikeDetails" {
+            destinationVC.activityType = "hike"
+        } else if segue.identifier == "toBikeDetails" {
+            destinationVC.activityType = "bike"
+        } else {
+            destinationVC.activityType = "bike"
+        }
     }
-    */
-
 }

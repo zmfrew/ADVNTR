@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RG6-NH-xt0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RG6-NH-xt0">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -74,7 +74,7 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="signInButtonTapped:" destination="RG6-NH-xt0" eventType="touchUpInside" id="hgk-UJ-V5m"/>
-                                                    <segue destination="38y-0A-ftw" kind="show" id="WZO-7j-3mb"/>
+                                                    <segue destination="38y-0A-ftw" kind="show" identifier="successfulSignIn" id="WZO-7j-3mb"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TaX-UV-6Z7">
@@ -86,7 +86,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="signUpButtonTapped:" destination="RG6-NH-xt0" eventType="touchUpInside" id="nAS-ec-84B"/>
-                                                    <segue destination="l7B-nu-oFZ" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="Rn9-PX-KcD"/>
+                                                    <segue destination="l7B-nu-oFZ" kind="presentation" identifier="toSignUp" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="Rn9-PX-KcD"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8P-SH-Obi">
@@ -98,7 +98,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="forgotPasswordTapped:" destination="RG6-NH-xt0" eventType="touchUpInside" id="45s-zB-bKx"/>
-                                                    <segue destination="p22-lm-GdG" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="vIL-Dl-bxj"/>
+                                                    <segue destination="p22-lm-GdG" kind="presentation" identifier="toForgotPassword" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="vIL-Dl-bxj"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -201,7 +201,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="backButtonTapped:" destination="p22-lm-GdG" eventType="touchUpInside" id="nry-h5-gh1"/>
+                                    <segue destination="xVm-Px-2m9" kind="unwind" unwindAction="unwindFromSignUpVC:" id="Vsd-e5-k9E"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -217,13 +217,14 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BcC-v6-RRg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="xVm-Px-2m9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-567.20000000000005" y="841.52923538230891"/>
         </scene>
-        <!--TabBarController-->
+        <!--SelectedActivityListDetails-->
         <scene sceneID="m7T-5d-2jz">
             <objects>
-                <viewControllerPlaceholder storyboardName="TabBarController" id="38y-0A-ftw" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="SelectedActivityListDetails" id="38y-0A-ftw" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uSA-lK-3Uu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="45" y="575"/>
@@ -333,7 +334,7 @@
                                         </state>
                                         <connections>
                                             <action selector="backButtonTapped:" destination="l7B-nu-oFZ" eventType="touchUpInside" id="iJa-En-QBo"/>
-                                            <segue destination="RG6-NH-xt0" kind="show" id="JOa-eU-B3K"/>
+                                            <segue destination="4nj-5a-xuP" kind="unwind" unwindAction="unwindFromSignUpVC:" id="6ui-Nm-XiM"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -369,11 +370,21 @@
                         <outlet property="displayNameTextField" destination="zZH-M1-bqw" id="pVR-b4-C2l"/>
                         <outlet property="emailAddressTextField" destination="E1W-bh-hM7" id="ryb-cQ-vbT"/>
                         <outlet property="passwordTextField" destination="gwJ-vo-fpF" id="aj8-Ed-hxj"/>
+                        <segue destination="PNY-cO-fKO" kind="show" identifier="successfulSignUp" id="UM1-Y2-YBg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E31-5y-yNo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4nj-5a-xuP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="640.79999999999995" y="841.52923538230891"/>
+        </scene>
+        <!--SelectedActivityListDetails-->
+        <scene sceneID="r2e-DY-Xrd">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SelectedActivityListDetails" id="PNY-cO-fKO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="avw-B2-vNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1404" y="1115"/>
         </scene>
     </scenes>
     <resources>
