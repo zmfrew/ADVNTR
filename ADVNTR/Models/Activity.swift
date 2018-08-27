@@ -22,7 +22,6 @@ struct Activity {
     let distance: Int //metres
     let averageSpeed: Double //metres/sec
     let elevationChange: Int //metres
-    var averageHeartRate: String //bpm
     let timestamp: String
     let duration: Int //seconds
     let imageURL: String
@@ -34,12 +33,11 @@ struct Activity {
     fileprivate let distanceKey = "distance"
     fileprivate let averageSpeedKey = "averageSpeed"
     fileprivate let elevationChangeKey = "elevationChange"
-    fileprivate let averageHeartRateKey = "averageHeartRate"
     fileprivate let timestampKey = "timestamp"
     fileprivate let durationKey = "duration"
     fileprivate let imageURLKey = "imageURL"
     
-    init(type: String, name: String, distance: Int, key: String = "", uid: String = "", averageSpeed: Double, elevationChange: Int, averageHeartRate: String, timestamp: String, duration: Int, imageURL: String) {
+    init(type: String, name: String, distance: Int, key: String = "", uid: String = "", averageSpeed: Double, elevationChange: Int,timestamp: String, duration: Int, imageURL: String) {
         self.reference = nil
         self.type = type
         self.name = name
@@ -48,7 +46,6 @@ struct Activity {
         self.uid = uid
         self.averageSpeed = averageSpeed
         self.elevationChange = elevationChange
-        self.averageHeartRate = averageHeartRate
         self.timestamp = timestamp
         self.duration = duration
         self.imageURL = imageURL
@@ -62,7 +59,6 @@ struct Activity {
             let distance = value[distanceKey] as? Int,
             let averageSpeed = value[averageSpeedKey] as? Double,
             let elevationChange = value[elevationChangeKey] as? Int,
-            let averageHeartRate = value[averageHeartRateKey] as? String,
             let timestamp = value[timestampKey] as? String,
             let duration = value[durationKey] as? Int,
             let imageURL = value[imageURLKey] as? String
@@ -79,7 +75,6 @@ struct Activity {
         self.uid = uid
         self.averageSpeed = averageSpeed
         self.elevationChange = elevationChange
-        self.averageHeartRate = averageHeartRate
         self.timestamp = timestamp
         self.duration = duration
         self.imageURL = imageURL
@@ -93,7 +88,6 @@ struct Activity {
             uidKey: uid,
             averageSpeedKey: averageSpeed,
             elevationChangeKey: elevationChange,
-            averageHeartRateKey: averageHeartRate,
             timestampKey: timestamp,
             durationKey: duration,
             imageURLKey: imageURL

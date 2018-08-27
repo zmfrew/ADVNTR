@@ -21,11 +21,9 @@ class NewActivityViewController: UIViewController {
     @IBOutlet weak var activityDistanceLabel: UILabel!
     @IBOutlet weak var altitudeLabel: UILabel!
     @IBOutlet weak var averageSpeedOrPaceLabel: UILabel!
-    @IBOutlet weak var heartRateLabel: UILabel!
     
     @IBOutlet weak var altitudeNameLabel: UILabel!
     @IBOutlet weak var averageSpeedOrPaceNameLabel: UILabel!
-    @IBOutlet weak var heartRateNameLabel: UILabel!
     
     @IBOutlet weak var activitySnapshotImageView: UIImageView!
     @IBOutlet weak var startButton: UIButton!
@@ -41,14 +39,15 @@ class NewActivityViewController: UIViewController {
     var averageSpeed: Double?
     var currentAltitude = 0.0
     var elevationChange = 0.0
-    var averageHeartRate: String?
     var pace: Int?
     var timestamp: String?
     var durationInSeconds = 0
     var activitySnapShotImage: UIImage?
     
     let locationManager = LocationManager.shared
-    var timer: Timer?
+    var secondsTimer: Timer?
+    var distanceTimer: Timer?
+    var altitudeAndPaceOrSpeedTimer: Timer?
     var currentDate: Date?
     var locationList: [CLLocation] = []
     var coordinates: [CLLocationCoordinate2D] = []
@@ -59,7 +58,7 @@ class NewActivityViewController: UIViewController {
         setupMapView()
         setupLocationManager()
         
-        activityTypeLabel.text = user?.preferredActivityType ?? "run"
+        activityTypeLabel.text = user?.preferredActivityType ?? "Run"
         
         if let user = user {
             activityTypeSegmentedController.selectedSegmentIndex = setActivityTypeSegmentedControllerFor(user: user)
@@ -70,7 +69,8 @@ class NewActivityViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        timer?.invalidate()
+        secondsTimer?.invalidate()
+        altitudeAndPaceOrSpeedTimer?.invalidate()
         locationManager.stopUpdatingLocation()
         distance = Measurement(value: 0, unit: UnitLength.meters)
     }
@@ -100,11 +100,17 @@ class NewActivityViewController: UIViewController {
             presentLocationAlert()
         }
         
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (_) in
+        secondsTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (_) in
             self.fireSecond()
         })
+        altitudeAndPaceOrSpeedTimer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true, block: { (_) in
+            self.updateAltitudeAndPaceOrSpeedViews()
+        })
+        distanceTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true, block: { (_) in
+            self.updateDistanceView()
+        })
         updateAverageSpeedOrPaceLabelText()
-        updateViews()
+        updateAltitudeAndPaceOrSpeedViews()
         pauseButton.isHidden = false
         startButton.isHidden = true
         mapView.showsUserLocation = true
@@ -113,7 +119,7 @@ class NewActivityViewController: UIViewController {
     
     @IBAction func resumeButtonTapped(_ sender: UIButton) {
         locationManager.startUpdatingLocation()
-        updateViews()
+        updateAltitudeAndPaceOrSpeedViews()
         resumeButton.isHidden = true
         stopButton.isHidden = true
         pauseButton.isHidden = false
@@ -146,14 +152,14 @@ class NewActivityViewController: UIViewController {
         
         activityTypeSegmentedController.isUserInteractionEnabled = true
         
-        let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedController.selectedSegmentIndex)
+        let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedController.selectedSegmentIndex).lowercased()
         let hour = currentDate?.getHour(from: currentDate!)
         let timeOfDay = currentDate?.getTimeOfDay(from: hour!)
         let name = "\(timeOfDay!) - \(activityType)"
         let averageSpeed = ActivityUnitConverter.milesPerHourFromMetersPerSecond(seconds: durationInSeconds, meters: distance)
-        let activitySnapshotImage = activitySnapshotImageView.image ?? UIImage()
+        let activitySnapshotImage = activitySnapshotImageView.image ?? UIImage(named: "trail-776795-unsplash")!
         
-        ActivityController.shared.saveActivity(type: activityType, name: name, distance: Int(distance.value), averageSpeed: averageSpeed, elevationChange: Int(elevationChange.rounded()), averageHeartRate: "Heart rate", timestamp: (currentDate?.stringValue(from: currentDate!))!, duration: durationInSeconds, image: activitySnapshotImage) { (success) in
+        ActivityController.shared.saveActivity(type: activityType, name: name, distance: Int(distance.value), averageSpeed: averageSpeed, elevationChange: Int(elevationChange.rounded()), timestamp: (currentDate?.stringValue(from: currentDate!))!, duration: durationInSeconds, image: activitySnapshotImage) { (success) in
             
             if success {
                 self.resetLocalProperties()
@@ -200,28 +206,31 @@ class NewActivityViewController: UIViewController {
         activityTimeLabel.isHidden = true
         altitudeLabel.isHidden = true
         averageSpeedOrPaceLabel.isHidden = true
-        heartRateLabel.isHidden = true
         altitudeNameLabel.isHidden = true
         averageSpeedOrPaceNameLabel.isHidden = true
-        heartRateNameLabel.isHidden = true
         activityDistanceLabel.isHidden = true
     }
     
     func unhideInitialViews() {
         activityTimeLabel.isHidden = false
-        altitudeLabel.isHidden = false
-        averageSpeedOrPaceLabel.isHidden = false
-        heartRateLabel.isHidden = false
-        altitudeNameLabel.isHidden = false
-        averageSpeedOrPaceNameLabel.isHidden = false
-        heartRateNameLabel.isHidden = false
         activityDistanceLabel.isHidden = false
+        altitudeLabel.isHidden = false
+        altitudeNameLabel.isHidden = false
+        averageSpeedOrPaceLabel.isHidden = false
+        averageSpeedOrPaceNameLabel.isHidden = false
     }
     
-    func updateViews() {
-        let distanceToDisplay = FormatDisplay.distance(distance.value)
+    func updateTimerView() {
         let timeToDisplay = FormatDisplay.time(durationInSeconds)
-        
+        activityTimeLabel.text = timeToDisplay
+    }
+    
+    func updateDistanceView() {
+         let distanceToDisplay = FormatDisplay.distance(distance.value)
+        activityDistanceLabel.text = distanceToDisplay
+    }
+    
+    func updateAltitudeAndPaceOrSpeedViews() {
         var outputUnit: UnitSpeed
         if user?.defaultUnits == "imperial" {
             outputUnit = UnitSpeed.milesPerHour
@@ -234,26 +243,22 @@ class NewActivityViewController: UIViewController {
         
         let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedController.selectedSegmentIndex)
         
-        if activityType == "run" {
+        if activityType == "Run" {
             averageSpeedOrPaceLabel.text = pace
         } else {
             averageSpeedOrPaceLabel.text = "\(speed.roundTo(places: 2))"
         }
-        
-        activityTimeLabel.text = timeToDisplay
-        activityDistanceLabel.text = distanceToDisplay
         
         if currentAltitude == 0 {
             altitudeLabel.text = "--"
         } else {
             altitudeLabel.text = "\(currentAltitude)"
         }
-    
     }
     
     func fireSecond() {
         durationInSeconds += 1
-        updateViews()
+        updateTimerView()
     }
     
     func presentLocationAlert() {
@@ -340,26 +345,28 @@ class NewActivityViewController: UIViewController {
     func setActivityTypeForActivityCreation(_ index: Int) -> String {
         switch (index) {
         case 0:
-            return "run"
+            return "Run"
         case 1:
-            return "hike"
+            return "Hike"
         case 2:
-            return "bike"
+            return "Bike"
         default:
-            return "run"
+            return "Run"
         }
     }
     
     // Clears out local properties to allow user to complete multiple activities without closing the app.
     func resetLocalProperties() {
-        timer?.invalidate()
+        secondsTimer?.invalidate()
+        altitudeAndPaceOrSpeedTimer?.invalidate()
         locationList = []
         coordinates = []
         distance = Measurement(value: 0, unit: UnitLength.meters)
         averageSpeed = 0
         currentAltitude = 0.0
         elevationChange = 0.0
-        updateViews()
+        updateAltitudeAndPaceOrSpeedViews()
+        durationInSeconds = 0
         activityTimeLabel.text = "0:00:00"
     }
   

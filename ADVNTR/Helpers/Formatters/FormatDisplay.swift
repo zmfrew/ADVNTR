@@ -16,6 +16,9 @@ struct FormatDisplay {
     
     static func distance(_ distance: Measurement<UnitLength>) -> String {
         let formatter = MeasurementFormatter()
+        let numberFormatter = NumberFormatter()
+        numberFormatter.maximumFractionDigits = 2
+        formatter.numberFormatter = numberFormatter
         return formatter.string(from: distance)
     }
     

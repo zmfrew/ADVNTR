@@ -34,7 +34,8 @@ class ActivityUnitConverter: UnitConverter {
         let currentSpeed = speed(distance: distance, seconds: seconds).converted(to: outputUnit).value
         let minutes = Int(currentSpeed)
         let seconds = Int((currentSpeed.roundTo(places: 2) - Double(minutes)) * 60)
-        return "\(minutes):\(seconds)"
+        let displaySeconds = String(format: "%02d", seconds)
+        return "\(minutes):\(displaySeconds)"
     }
     
     static func kilometersFromMeters(distance: Measurement<UnitLength>) -> Double {
