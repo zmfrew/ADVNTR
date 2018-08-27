@@ -62,11 +62,14 @@ class AddCustomActivityTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       distancePickerView.delegate = self
-       durationPickerView.delegate = self
         
-       distancePickerView.dataSource = self
-       durationPickerView.dataSource = self
+        tableView.backgroundView = UIImageView(image: UIImage(named: "DefaultNewActivity"))
+        
+        distancePickerView.delegate = self
+        durationPickerView.delegate = self
+        
+        distancePickerView.dataSource = self
+        durationPickerView.dataSource = self
     }
     
     // MARK: - Actions
@@ -85,18 +88,18 @@ class AddCustomActivityTableViewController: UITableViewController {
             tableViewHeaderFooterView.textLabel?.textColor = UIColor.white
         }
     }
-
- 
+    
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 // MARK: - PickerView Delegte
