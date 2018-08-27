@@ -28,7 +28,7 @@ class UserController {
     
     // Fetch current user data if previously signed up and authenticated with Firebase
     func fetchCurrentUserData(completion: @escaping (Bool) -> Void) {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let uid = self.user.uid else { return }
         userReference.child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
             guard let user = User(snapshot: snapshot) else { return }
             self.user = user
@@ -67,6 +67,34 @@ class UserController {
                 self.userReference.child("\(user.uid)/totalBikeTime").setValue(0)
                 self.userReference.child("\(user.uid)/totalBikeElevationChange").setValue(0)
             }
+        }
+    }
+    
+    // Sign in an existing Firebase User using email and password.
+    func signInAuthenticatedUserWith(email: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            if let error = error {
+                print("Error signing in user with Firebase: \(error)")
+                completion(false, error)
+                return
+            }
+            
+            guard let result = user else {
+                print("Error retrieving authenticated user from Firebase.")
+                completion(false, nil)
+                return
+            }
+            
+            UserController.shared.user.uid = result.user.uid
+            UserController.shared.fetchCurrentUserData(completion: { (success) in
+                if success {
+                    print("Successfully signed in existing Firebase user.")
+                    completion(true, nil)
+                } else {
+                    print("Error fetching data for newly signed-in user.")
+                }
+            })
         }
     }
     

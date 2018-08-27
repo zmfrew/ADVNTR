@@ -8,6 +8,8 @@
 
 import UIKit
 import MapKit
+import FirebaseAuth
+import SwiftEntryKit
 
 class NewActivityViewController: UIViewController {
 
@@ -57,7 +59,7 @@ class NewActivityViewController: UIViewController {
         setupMapView()
         setupLocationManager()
         
-        activityTypeLabel.text = user?.preferredActivityType ?? "Run"
+        activityTypeLabel.text = user?.preferredActivityType ?? "run"
         
         if let user = user {
             activityTypeSegmentedController.selectedSegmentIndex = setActivityTypeSegmentedControllerFor(user: user)
@@ -151,10 +153,38 @@ class NewActivityViewController: UIViewController {
         let averageSpeed = ActivityUnitConverter.milesPerHourFromMetersPerSecond(seconds: durationInSeconds, meters: distance)
         let activitySnapshotImage = activitySnapshotImageView.image ?? UIImage()
         
-        let newActivity = Activity(uid: "uid", type: activityType, name: name, distance: Int(distance.value), averageSpeed: averageSpeed, elevationChange: Int(elevationChange.rounded()), averageHeartRate: "Heart rate", timestamp: (currentDate?.stringValue(from: currentDate!))!, duration: durationInSeconds, activitySnapshotImage: activitySnapshotImage)
-        // TODO: - Save new activity to firebase.
-        resetLocalProperties()
-        hideInitialViews()
+        ActivityController.shared.saveActivity(type: activityType, name: name, distance: Int(distance.value), averageSpeed: averageSpeed, elevationChange: Int(elevationChange.rounded()), averageHeartRate: "Heart rate", timestamp: (currentDate?.stringValue(from: currentDate!))!, duration: durationInSeconds, image: activitySnapshotImage) { (success) in
+            
+            if success {
+                self.resetLocalProperties()
+                self.hideInitialViews()
+                
+                guard let isAnonymousUser = Auth.auth().currentUser?.isAnonymous else { return }
+                
+                if !isAnonymousUser {
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "toSelectedActivityListDetails", sender: self)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "toLoginScreen", sender: self)
+                    }
+                }
+            }
+        }
+    }
+    
+    // MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedController.selectedSegmentIndex)
+        if segue.identifier == "toSelectedActivityListDetails" {
+            let destinationVC = segue.destination as? SelectedActivityListViewController
+            destinationVC?.activityType = activityType
+        }
+        if segue.identifier == "toLoginScreen" {
+            let destinationVC = segue.destination as? SelectedActivityListViewController
+            destinationVC?.activityType = activityType
+        }
     }
     
     // MARK: - Methods
@@ -193,7 +223,7 @@ class NewActivityViewController: UIViewController {
         let timeToDisplay = FormatDisplay.time(durationInSeconds)
         
         var outputUnit: UnitSpeed
-        if user?.defaultUnits == "Imperial" {
+        if user?.defaultUnits == "imperial" {
             outputUnit = UnitSpeed.milesPerHour
         } else {
             outputUnit = UnitSpeed.kilometersPerHour
@@ -204,7 +234,7 @@ class NewActivityViewController: UIViewController {
         
         let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedController.selectedSegmentIndex)
         
-        if activityType == "Run" {
+        if activityType == "run" {
             averageSpeedOrPaceLabel.text = pace
         } else {
             averageSpeedOrPaceLabel.text = "\(speed.roundTo(places: 2))"
@@ -295,11 +325,11 @@ class NewActivityViewController: UIViewController {
     // Allows for setting the default activityType based on the user's preference.
     func setActivityTypeSegmentedControllerFor(user: User) -> Int {
         switch (user.preferredActivityType) {
-        case "Run":
+        case "run":
             return 0
-        case "Hike":
+        case "hike":
             return 1
-        case "Bike":
+        case "bike":
             return 2
         default:
             return 0
@@ -310,13 +340,13 @@ class NewActivityViewController: UIViewController {
     func setActivityTypeForActivityCreation(_ index: Int) -> String {
         switch (index) {
         case 0:
-            return "Run"
+            return "run"
         case 1:
-            return "Hike"
+            return "hike"
         case 2:
-            return "Bike"
+            return "bike"
         default:
-            return "Run"
+            return "run"
         }
     }
     

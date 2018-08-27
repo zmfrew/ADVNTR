@@ -29,14 +29,17 @@ class ActivityHistoryTableViewCell: UITableViewCell {
     func updateViews() {
         guard let activity = activity else { return }
         
-        activitySnapshotImageView.image = activity.activitySnapshotImage
+        // Get a reference to the image on Firebase Storage and then pass it directly into SDWebImage.
+        let imageReference = ActivityController.usersActivityImagesReference.child(activity.uid)
+        self.activitySnapshotImageView?.sd_setImage(with: imageReference)
+        
         activityTitleLabel.text = activity.name
         activityDateLabel.text = activity.timestamp
         activityLengthLabel.text = "\(activity.distance)"
         // TODO: - Check if user preferences are Imperial or Metric, convert units accordingly, and display unit type to user.
         activityDistanceLabel.text = "\(activity.distance)"
 
-        if activity.type == "Run" {
+        if activity.type == "run" {
             // Convert distance, which is an Int, to a measurement in meters to get the correct formatted pace.
             let distance = Measurement.init(value: Double(activity.distance), unit: UnitLength.meters)
             let pace = ActivityUnitConverter.formatPace(distance: distance, seconds: activity.duration, outputUnit: UnitSpeed.milesPerHour)
