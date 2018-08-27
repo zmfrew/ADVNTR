@@ -162,13 +162,28 @@ class UserController {
         }
     }
     
+    func resetPasswordForUserWith(email: String, completion: @escaping (Bool, Error?) -> Void) {
+        Auth.auth().sendPasswordReset(withEmail: email) { (error) in
+            if let error = error {
+                print("Error saving activity image map view to Firebase Storage: \(error)")
+                completion(false, error)
+                return
+            } else {
+                completion(true, nil)
+            }
+        }
+    }
+    
     func toggleDefaultUnits() {
         if user.defaultUnits == "imperial" {
             user.defaultUnits = "metric"
         } else if user.defaultUnits == "metric" {
             user.defaultUnits = "imperial"
         }
-        // TODO: - Save to firebase
+        
+        let uid = String(describing: user.uid)
+        let defaultUnits = String(describing: user.defaultUnits)
+        self.userReference.child("\(uid)/defaultUnits").setValue(defaultUnits)
     }
     
 }

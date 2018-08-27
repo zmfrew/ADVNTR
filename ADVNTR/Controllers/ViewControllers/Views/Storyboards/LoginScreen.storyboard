@@ -201,7 +201,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="xVm-Px-2m9" kind="unwind" unwindAction="unwindFromSignUpVC:" id="Vsd-e5-k9E"/>
+                                    <segue destination="xVm-Px-2m9" kind="unwind" identifier="unwindToSignIn" unwindAction="unwindFromSignUpVC:" id="Vsd-e5-k9E"/>
                                 </connections>
                             </button>
                         </subviews>
