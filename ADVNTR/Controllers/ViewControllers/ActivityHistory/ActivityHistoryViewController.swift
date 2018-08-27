@@ -12,6 +12,7 @@ class ActivityHistoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        StoreReviewManager.shared.showReview()
     }
     
     // MARK: - Actions

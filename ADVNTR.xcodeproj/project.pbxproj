@@ -31,6 +31,7 @@
 		3EC2C959212CBEC8002D7F69 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC2C958212CBEC8002D7F69 /* TabBarViewController.swift */; };
 		3EDC8D00212CE0F800A7A7DE /* LoginScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EDC8CFF212CE0F800A7A7DE /* LoginScreen.storyboard */; };
 		A257D0FA1C8D5CF727AFE0AB /* Pods_ADVNTR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563D539FA125C3178E952DBA /* Pods_ADVNTR.framework */; };
+		B614238821349B6B009E4814 /* StoreReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B614238721349B6B009E4814 /* StoreReviewManager.swift */; };
 		B62687D7212E28FB00FC5D58 /* Double+Rounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62687D6212E28FB00FC5D58 /* Double+Rounding.swift */; };
 		B62687D9212E56EB00FC5D58 /* ActivityUnitConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62687D8212E56EB00FC5D58 /* ActivityUnitConverter.swift */; };
 		B69D6721212F417B007A3A92 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D6720212F417B007A3A92 /* DateFormatter.swift */; };
@@ -81,6 +82,7 @@
 		563D539FA125C3178E952DBA /* Pods_ADVNTR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ADVNTR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63937897E99FD28B7A7B74CF /* Pods-ADVNTR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADVNTR.release.xcconfig"; path = "Pods/Target Support Files/Pods-ADVNTR/Pods-ADVNTR.release.xcconfig"; sourceTree = "<group>"; };
 		935BCCE4C33EEAF8D03C5AF0 /* Pods-ADVNTR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADVNTR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ADVNTR/Pods-ADVNTR.debug.xcconfig"; sourceTree = "<group>"; };
+		B614238721349B6B009E4814 /* StoreReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreReviewManager.swift; sourceTree = "<group>"; };
 		B62687D6212E28FB00FC5D58 /* Double+Rounding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Rounding.swift"; sourceTree = "<group>"; };
 		B62687D8212E56EB00FC5D58 /* ActivityUnitConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityUnitConverter.swift; sourceTree = "<group>"; };
 		B69D6720212F417B007A3A92 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				B6C74F8F212B83AA00331D01 /* LocationManager.swift */,
+				B614238721349B6B009E4814 /* StoreReviewManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				3E4528612130676C003E892E /* AddCustomActivityTableViewController.swift in Sources */,
 				B6C74FAF212B83AB00331D01 /* Activity.swift in Sources */,
 				B62687D7212E28FB00FC5D58 /* Double+Rounding.swift in Sources */,
+				B614238821349B6B009E4814 /* StoreReviewManager.swift in Sources */,
 				B62687D9212E56EB00FC5D58 /* ActivityUnitConverter.swift in Sources */,
 				EF0A6C89213464B700BCE182 /* MessageController.swift in Sources */,
 				B6C74FD0212B84F600331D01 /* ActivityHistoryButton.swift in Sources */,
