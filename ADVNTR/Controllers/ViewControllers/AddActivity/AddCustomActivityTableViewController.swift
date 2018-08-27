@@ -12,6 +12,7 @@ class AddCustomActivityTableViewController: UITableViewController {
     
     // MARK: - Properties
     
+    // Distance
     var unitDistance: [Int] {
         var unitDistance: [Int] = []
         for number in 0...99 {
@@ -25,9 +26,10 @@ class AddCustomActivityTableViewController: UITableViewController {
     }
     
     var units: [String] {
-        return ["Kilometers", "Miles"]
+        return ["KM's", "Miles"]
     }
     
+    // Duration
     var hours: [Int] {
         var hours: [Int] = []
         for number in 0...23 {
@@ -126,6 +128,7 @@ extension AddCustomActivityTableViewController: UIPickerViewDelegate {
             case 2:
                 var secondsAsString = String(seconds[row])
                 secondsAsString.append(" s")
+                return secondsAsString
             default:
                 return ""
             }

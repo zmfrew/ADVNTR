@@ -2,8 +2,8 @@
 //  LaunchScreenViewController.swift
 //  ADVNTR
 //
-//  Created by Zachary Frew on 8/20/18.
-//  Copyright © 2018 Zachary Frew. All rights reserved.
+//  Created by Owen Henley on 8/20/18.
+//  Copyright © 2018 ADVNTR. All rights reserved.
 //
 
 import UIKit
@@ -12,8 +12,6 @@ class LaunchScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
 
