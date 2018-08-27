@@ -24,7 +24,7 @@ class ActivityController {
     // Create an Activity model object. Create a new reference for the activity, under its associated
     // activity type, with it's own auto-generated UID. Then use the toAnyObject() helper method to save
     // the values (distance, name, speed etc) to that UID.
-    func saveActivity(type: String, name: String, distance: Int, averageSpeed: Double, elevationChange: Int, averageHeartRate: String, timestamp: String, duration: Int, image: UIImage, completion: @escaping (Bool) -> Void) {
+    func saveActivity(type: String, name: String, distance: Int, averageSpeed: Double, elevationChange: Int, timestamp: String, duration: Int, image: UIImage, completion: @escaping (Bool) -> Void) {
         
         // Create a reference first to the intended location of the new activity's data on Firebase
         // Realtime Database
@@ -127,7 +127,7 @@ class ActivityController {
                             let imageURL = downloadURL.absoluteString
                             
                             // Create a new Activity model object and save it Firebase Realtime Database
-                            var activity = Activity(type: type, name: name, distance: distance, averageSpeed: averageSpeed, elevationChange: elevationChange, averageHeartRate: averageHeartRate, timestamp: timestamp, duration: duration, imageURL: imageURL)
+                            var activity = Activity(type: type, name: name, distance: distance, averageSpeed: averageSpeed, elevationChange: elevationChange, timestamp: timestamp, duration: duration, imageURL: imageURL)
                             
                             activity.uid = activityUID
                             activityRef.setValue(activity.toAnyObject())
