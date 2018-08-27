@@ -127,6 +127,7 @@ class NewActivityViewController: UIViewController {
     
     @IBAction func pauseButtonTapped(_ sender: UIButton) {
         locationManager.stopUpdatingLocation()
+        
         resumeButton.isHidden = false
         stopButton.isHidden = false
         pauseButton.isHidden = true
@@ -138,6 +139,13 @@ class NewActivityViewController: UIViewController {
         saveButton.isHidden = false
         locationManager.stopUpdatingLocation()
         stopButton.isHidden = true
+        
+        resetViews()
+        hideInitialViews()
+        
+        secondsTimer?.invalidate()
+        altitudeAndPaceOrSpeedTimer?.invalidate()
+        altitudeAndPaceOrSpeedTimer?.invalidate()
         // TODO: - takeSnapShot of map with polyline showing user's path.
     }
     
@@ -163,7 +171,6 @@ class NewActivityViewController: UIViewController {
             
             if success {
                 self.resetLocalProperties()
-                self.hideInitialViews()
                 
                 guard let isAnonymousUser = Auth.auth().currentUser?.isAnonymous else { return }
                 
@@ -357,8 +364,6 @@ class NewActivityViewController: UIViewController {
     
     // Clears out local properties to allow user to complete multiple activities without closing the app.
     func resetLocalProperties() {
-        secondsTimer?.invalidate()
-        altitudeAndPaceOrSpeedTimer?.invalidate()
         locationList = []
         coordinates = []
         distance = Measurement(value: 0, unit: UnitLength.meters)
@@ -368,6 +373,13 @@ class NewActivityViewController: UIViewController {
         updateAltitudeAndPaceOrSpeedViews()
         durationInSeconds = 0
         activityTimeLabel.text = "0:00:00"
+    }
+    
+    func resetViews() {
+        activityTimeLabel.text = ""
+        activityDistanceLabel.text = ""
+        altitudeLabel.text = ""
+        averageSpeedOrPaceLabel.text = ""
     }
   
 }
