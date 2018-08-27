@@ -13,7 +13,6 @@
 		3E45285F21305C31003E892E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45285E21305C30003E892E /* SignInViewController.swift */; };
 		3E4528612130676C003E892E /* AddCustomActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4528602130676C003E892E /* AddCustomActivityTableViewController.swift */; };
 		3E45286321306F76003E892E /* SelectedActivityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45286221306F76003E892E /* SelectedActivityDetailsViewController.swift */; };
-		3E4528662130B6BC003E892E /* UnitsOfMeasureTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4528652130B6BC003E892E /* UnitsOfMeasureTableViewController.swift */; };
 		3E4528682130B7A0003E892E /* UnitsOfMeasureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4528672130B7A0003E892E /* UnitsOfMeasureTableViewCell.swift */; };
 		3EA20906212E184500750A5D /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA20905212E184500750A5D /* Settings.storyboard */; };
 		3EA20908212E2EFB00750A5D /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA20907212E2EFB00750A5D /* SettingsTableViewController.swift */; };
@@ -62,7 +61,6 @@
 		3E45285E21305C30003E892E /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		3E4528602130676C003E892E /* AddCustomActivityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomActivityTableViewController.swift; sourceTree = "<group>"; };
 		3E45286221306F76003E892E /* SelectedActivityDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedActivityDetailsViewController.swift; sourceTree = "<group>"; };
-		3E4528652130B6BC003E892E /* UnitsOfMeasureTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsOfMeasureTableViewController.swift; sourceTree = "<group>"; };
 		3E4528672130B7A0003E892E /* UnitsOfMeasureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsOfMeasureTableViewCell.swift; sourceTree = "<group>"; };
 		3EA20905212E184500750A5D /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		3EA20907212E2EFB00750A5D /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -239,7 +237,6 @@
 		B6C74F7B212B83AA00331D01 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				3E4528652130B6BC003E892E /* UnitsOfMeasureTableViewController.swift */,
 				3EA20911212E315900750A5D /* AppVersionDetailsViewController.swift */,
 				3EA20909212E2F6F00750A5D /* TermsOfServiceViewController.swift */,
 				3EA2090B212E2FBC00750A5D /* PrivacyPolicyViewController.swift */,
@@ -507,7 +504,6 @@
 				3E093751212F6B49003BA862 /* ForgotPasswordViewController.swift in Sources */,
 				B6C74FAC212B83AB00331D01 /* LocationManager.swift in Sources */,
 				EF0A6C852134640300BCE182 /* UserController.swift in Sources */,
-				3E4528662130B6BC003E892E /* UnitsOfMeasureTableViewController.swift in Sources */,
 				3EA2090A212E2F6F00750A5D /* TermsOfServiceViewController.swift in Sources */,
 				3EA2090C212E2FBC00750A5D /* PrivacyPolicyViewController.swift in Sources */,
 				B6C74F9E212B83AB00331D01 /* ActivityController.swift in Sources */,
@@ -673,7 +669,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 999584GN38;
+				DEVELOPMENT_TEAM = PKK87S6JNY;
 				INFOPLIST_FILE = "$(SRCROOT)/ADVNTR/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -693,7 +689,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 999584GN38;
+				DEVELOPMENT_TEAM = PKK87S6JNY;
 				INFOPLIST_FILE = "$(SRCROOT)/ADVNTR/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
