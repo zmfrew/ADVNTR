@@ -133,5 +133,15 @@ class UserController {
             }
         }
     }
+    
+    func toggleDefaultUnits() {
+        if user.defaultUnits == "imperial" {
+            user.defaultUnits = "metric"
+        } else if user.defaultUnits == "metric" {
+            user.defaultUnits = "imperial"
+        }
+        // TODO: - Save to firebase
+    }
+    
 }
 

@@ -10,9 +10,19 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
 
+    // MARK: - Outlets
+    @IBOutlet weak var unitsOfMeasureButton: UIButton!
+    
+    // MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        unitsOfMeasureButton.setTitle(UserController.shared.user.defaultUnits, for: .normal)
+    }
+    
+    // MARK: - Actions
+    @IBAction func unitsOfMeasureButtonTapped(_ sender: UIButton) {
+        UserController.shared.toggleDefaultUnits()
+        unitsOfMeasureButton.setTitle(UserController.shared.user.defaultUnits, for: .normal)
     }
 
     // MARK: - Table view data source
