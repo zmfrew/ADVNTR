@@ -37,6 +37,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let isAnonymous = Auth.auth().currentUser?.isAnonymous else { return true }
         if isAnonymous {
             UserController.shared.user.uid = Auth.auth().currentUser?.uid
+            UserController.shared.fetchCurrentUserData { (success) in
+                if success {
+                    print("Fuck yeah")
+                }
+            }
         } else {
             UserController.shared.fetchCurrentUserData { (success) in
                 if success {
