@@ -18,120 +18,152 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fKV-hg-uoh">
-                                <rect key="frame" x="1" y="133" width="374" height="450"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="83p-yi-gbu">
+                                <rect key="frame" x="16" y="132" width="343" height="473"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="83p-yi-gbu">
-                                        <rect key="frame" x="16" y="8" width="343" height="422"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QeY-ap-oUI">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="147"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QeY-ap-oUI">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="130"/>
-                                                <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="massimo-sartirana-562838-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="a6r-Hj-smI">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="130"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="5"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="RUN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gQ-Nj-H6G">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="130"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="150"/>
-                                                        <color key="textColor" white="1" alpha="0.69877860915492962" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.42077464788732394" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <size key="shadowOffset" width="1" height="1"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rj4-DD-FJl">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="130"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <connections>
-                                                            <action selector="runButtonTapped:" destination="Pm5-4h-AlW" eventType="touchUpInside" id="amT-tB-2Bj"/>
-                                                            <segue destination="lYs-Rg-45t" kind="show" identifier="toRunDetails" id="aGz-zK-VcG"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7gp-em-mk9">
-                                                <rect key="frame" x="0.0" y="146" width="343" height="130"/>
-                                                <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lucas-clara-579404-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="III-10-0ri">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="130"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="5"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HIKE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gol-7F-bTN">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="130"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="150"/>
-                                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.696715448943662" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.42077464790000002" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <size key="shadowOffset" width="1" height="1"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TdH-Cb-5AC">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="130"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <connections>
-                                                            <action selector="hikeButtonTapped:" destination="Pm5-4h-AlW" eventType="touchUpInside" id="F5q-TX-1Cd"/>
-                                                            <segue destination="lYs-Rg-45t" kind="show" identifier="toHikeDetails" id="T9s-GR-pBy"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BwF-7b-Kd7">
-                                                <rect key="frame" x="0.0" y="292" width="343" height="130"/>
-                                                <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="william-hook-58602-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="G9E-vL-B3e">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="130"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="5"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BIKE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Udd-z4-i05">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="130"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="149"/>
-                                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.704803036971831" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.42077464790000002" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <size key="shadowOffset" width="1" height="1"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6T-yd-pEX">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="130"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <connections>
-                                                            <action selector="bikeButtonTapped:" destination="Pm5-4h-AlW" eventType="touchUpInside" id="OFk-UY-lGv"/>
-                                                            <segue destination="lYs-Rg-45t" kind="show" identifier="toBikeDetails" id="PWZ-w3-ODy"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="massimo-sartirana-562838-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="a6r-Hj-smI">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="147"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RUN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gQ-Nj-H6G">
+                                                <rect key="frame" x="8" y="8" width="327" height="137"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="120"/>
+                                                <color key="textColor" white="1" alpha="0.69877860915492962" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.42077464788732394" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <size key="shadowOffset" width="1" height="1"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rj4-DD-FJl">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="147"/>
+                                                <connections>
+                                                    <action selector="runButtonTapped:" destination="Pm5-4h-AlW" eventType="touchUpInside" id="amT-tB-2Bj"/>
+                                                    <segue destination="lYs-Rg-45t" kind="show" identifier="toRunDetails" id="aGz-zK-VcG"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
-                                    </stackView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="a6r-Hj-smI" firstAttribute="top" secondItem="QeY-ap-oUI" secondAttribute="top" id="BYr-Ik-T2M"/>
+                                            <constraint firstItem="4gQ-Nj-H6G" firstAttribute="trailing" secondItem="QeY-ap-oUI" secondAttribute="trailingMargin" id="Fci-6e-c6l"/>
+                                            <constraint firstItem="4gQ-Nj-H6G" firstAttribute="top" secondItem="Rj4-DD-FJl" secondAttribute="top" constant="8" id="QfF-3O-igV"/>
+                                            <constraint firstItem="4gQ-Nj-H6G" firstAttribute="bottom" secondItem="Rj4-DD-FJl" secondAttribute="bottom" constant="-2" id="VX6-Aa-cDw"/>
+                                            <constraint firstAttribute="bottom" secondItem="a6r-Hj-smI" secondAttribute="bottom" id="Wpa-RR-Q1s"/>
+                                            <constraint firstItem="a6r-Hj-smI" firstAttribute="leading" secondItem="QeY-ap-oUI" secondAttribute="leading" id="ZTx-gg-Avi"/>
+                                            <constraint firstAttribute="bottom" secondItem="Rj4-DD-FJl" secondAttribute="bottom" id="bl7-lb-CgK"/>
+                                            <constraint firstAttribute="trailing" secondItem="Rj4-DD-FJl" secondAttribute="trailing" id="cmd-hP-cSg"/>
+                                            <constraint firstItem="Rj4-DD-FJl" firstAttribute="leading" secondItem="QeY-ap-oUI" secondAttribute="leading" id="es2-Is-8Od"/>
+                                            <constraint firstItem="4gQ-Nj-H6G" firstAttribute="leading" secondItem="Rj4-DD-FJl" secondAttribute="leading" constant="8" id="mlC-iY-YTs"/>
+                                            <constraint firstItem="Rj4-DD-FJl" firstAttribute="top" secondItem="QeY-ap-oUI" secondAttribute="top" id="oSO-hA-JmI"/>
+                                            <constraint firstAttribute="trailing" secondItem="a6r-Hj-smI" secondAttribute="trailing" id="sbU-bC-ZHf"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gp-em-mk9">
+                                        <rect key="frame" x="0.0" y="163" width="343" height="147"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lucas-clara-579404-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="III-10-0ri">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="147"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HIKE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIC-8X-h2W">
+                                                <rect key="frame" x="8" y="8" width="327" height="131"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="120"/>
+                                                <color key="textColor" white="1" alpha="0.69877860920000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.42077464790000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <size key="shadowOffset" width="1" height="1"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TdH-Cb-5AC">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="147"/>
+                                                <connections>
+                                                    <action selector="hikeButtonTapped:" destination="Pm5-4h-AlW" eventType="touchUpInside" id="F5q-TX-1Cd"/>
+                                                    <segue destination="lYs-Rg-45t" kind="show" identifier="toHikeDetails" id="T9s-GR-pBy"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="III-10-0ri" secondAttribute="bottom" id="DJX-39-Kxp"/>
+                                            <constraint firstItem="III-10-0ri" firstAttribute="top" secondItem="7gp-em-mk9" secondAttribute="top" id="Le8-OS-0dl"/>
+                                            <constraint firstAttribute="bottom" secondItem="XIC-8X-h2W" secondAttribute="bottom" constant="8" id="NWb-g9-NPA"/>
+                                            <constraint firstAttribute="trailing" secondItem="III-10-0ri" secondAttribute="trailing" id="RmR-GF-oe2"/>
+                                            <constraint firstItem="TdH-Cb-5AC" firstAttribute="top" secondItem="7gp-em-mk9" secondAttribute="top" id="SiY-t2-WXi"/>
+                                            <constraint firstAttribute="trailing" secondItem="TdH-Cb-5AC" secondAttribute="trailing" id="Xj7-bN-df8"/>
+                                            <constraint firstItem="III-10-0ri" firstAttribute="leading" secondItem="7gp-em-mk9" secondAttribute="leading" id="YLe-2N-lwv"/>
+                                            <constraint firstAttribute="bottom" secondItem="TdH-Cb-5AC" secondAttribute="bottom" id="ZXH-jz-JK5"/>
+                                            <constraint firstAttribute="trailing" secondItem="XIC-8X-h2W" secondAttribute="trailing" constant="8" id="cuW-7A-Jzc"/>
+                                            <constraint firstItem="TdH-Cb-5AC" firstAttribute="leading" secondItem="7gp-em-mk9" secondAttribute="leading" id="gFN-ig-dCw"/>
+                                            <constraint firstItem="XIC-8X-h2W" firstAttribute="leading" secondItem="7gp-em-mk9" secondAttribute="leading" constant="8" id="kj1-ps-0oC"/>
+                                            <constraint firstItem="XIC-8X-h2W" firstAttribute="top" secondItem="7gp-em-mk9" secondAttribute="top" constant="8" id="oxn-9i-rbP"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BwF-7b-Kd7">
+                                        <rect key="frame" x="0.0" y="326" width="343" height="147"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="william-hook-58602-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="G9E-vL-B3e">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="147"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BIKE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyK-Ur-LXa">
+                                                <rect key="frame" x="8" y="8" width="327" height="131"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="120"/>
+                                                <color key="textColor" white="1" alpha="0.69877860920000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.42077464790000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <size key="shadowOffset" width="1" height="1"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6T-yd-pEX">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="147"/>
+                                                <connections>
+                                                    <action selector="bikeButtonTapped:" destination="Pm5-4h-AlW" eventType="touchUpInside" id="OFk-UY-lGv"/>
+                                                    <segue destination="lYs-Rg-45t" kind="show" identifier="toBikeDetails" id="PWZ-w3-ODy"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="wyK-Ur-LXa" secondAttribute="trailing" constant="8" id="4oW-er-BBE"/>
+                                            <constraint firstItem="wyK-Ur-LXa" firstAttribute="top" secondItem="BwF-7b-Kd7" secondAttribute="top" constant="8" id="85o-pG-uAF"/>
+                                            <constraint firstItem="k6T-yd-pEX" firstAttribute="leading" secondItem="BwF-7b-Kd7" secondAttribute="leading" id="CAC-Rm-GAL"/>
+                                            <constraint firstAttribute="trailing" secondItem="G9E-vL-B3e" secondAttribute="trailing" id="L2i-6Z-nJs"/>
+                                            <constraint firstItem="G9E-vL-B3e" firstAttribute="leading" secondItem="BwF-7b-Kd7" secondAttribute="leading" id="O0y-H4-p3m"/>
+                                            <constraint firstAttribute="trailing" secondItem="k6T-yd-pEX" secondAttribute="trailing" id="Osg-Ky-dz6"/>
+                                            <constraint firstItem="G9E-vL-B3e" firstAttribute="top" secondItem="BwF-7b-Kd7" secondAttribute="top" id="dOW-5M-eEo"/>
+                                            <constraint firstAttribute="bottom" secondItem="k6T-yd-pEX" secondAttribute="bottom" id="h2p-W9-T3J"/>
+                                            <constraint firstAttribute="bottom" secondItem="wyK-Ur-LXa" secondAttribute="bottom" constant="8" id="hqq-vJ-4q0"/>
+                                            <constraint firstAttribute="bottom" secondItem="G9E-vL-B3e" secondAttribute="bottom" id="oc9-70-swL"/>
+                                            <constraint firstItem="wyK-Ur-LXa" firstAttribute="leading" secondItem="BwF-7b-Kd7" secondAttribute="leading" constant="8" id="v5A-KU-fF2"/>
+                                            <constraint firstItem="k6T-yd-pEX" firstAttribute="top" secondItem="BwF-7b-Kd7" secondAttribute="top" id="yZ9-IH-iXL"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="83p-yi-gbu" secondAttribute="trailing" constant="16" id="1y4-CS-brB"/>
+                            <constraint firstItem="83p-yi-gbu" firstAttribute="leading" secondItem="G2q-Bg-IGr" secondAttribute="leading" constant="16" id="VVq-Z5-JTD"/>
+                            <constraint firstItem="83p-yi-gbu" firstAttribute="top" secondItem="G2q-Bg-IGr" secondAttribute="top" constant="132" id="ZuN-1J-iG9"/>
+                            <constraint firstAttribute="bottom" secondItem="83p-yi-gbu" secondAttribute="bottom" constant="62" id="Zzx-a2-WNM"/>
+                            <constraint firstItem="83p-yi-gbu" firstAttribute="centerX" secondItem="G2q-Bg-IGr" secondAttribute="centerX" id="bY0-kE-MlI"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="75W-bG-bee"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Adventure Mode" id="AQC-gD-eKc"/>
+                    <navigationItem key="navigationItem" title="Adventure History" id="AQC-gD-eKc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pCu-OY-nWu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -160,7 +192,7 @@
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
-                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="32"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="32"/>
                             <color key="textColor" red="0.95756662436548223" green="0.95756662436548223" blue="0.95756662436548223" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
@@ -181,6 +213,6 @@
         <image name="william-hook-58602-unsplash" width="4000" height="3000"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PWZ-w3-ODy"/>
+        <segue reference="aGz-zK-VcG"/>
     </inferredMetricsTieBreakers>
 </document>
