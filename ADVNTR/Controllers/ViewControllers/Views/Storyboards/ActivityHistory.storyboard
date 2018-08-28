@@ -39,9 +39,8 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="RUN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gQ-Nj-H6G">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RUN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gQ-Nj-H6G">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="130"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="150"/>
                                                         <color key="textColor" white="1" alpha="0.69877860915492962" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -62,12 +61,16 @@
                                                     <constraint firstItem="Rj4-DD-FJl" firstAttribute="top" secondItem="QeY-ap-oUI" secondAttribute="top" id="6vK-sd-6Zs"/>
                                                     <constraint firstAttribute="width" constant="343" id="ElQ-MM-VKI"/>
                                                     <constraint firstItem="a6r-Hj-smI" firstAttribute="top" secondItem="Rj4-DD-FJl" secondAttribute="top" id="HIY-Ha-lfh"/>
+                                                    <constraint firstItem="4gQ-Nj-H6G" firstAttribute="leading" secondItem="QeY-ap-oUI" secondAttribute="leading" id="KTX-ek-H6i"/>
                                                     <constraint firstAttribute="trailing" secondItem="a6r-Hj-smI" secondAttribute="trailing" id="L96-ZA-WVK"/>
+                                                    <constraint firstAttribute="bottom" secondItem="4gQ-Nj-H6G" secondAttribute="bottom" id="Shs-5t-4v0"/>
                                                     <constraint firstAttribute="bottom" secondItem="Rj4-DD-FJl" secondAttribute="bottom" id="Tvo-Io-NMz"/>
                                                     <constraint firstItem="a6r-Hj-smI" firstAttribute="bottom" secondItem="Rj4-DD-FJl" secondAttribute="bottom" id="U3F-NL-xZa"/>
                                                     <constraint firstItem="a6r-Hj-smI" firstAttribute="leading" secondItem="Rj4-DD-FJl" secondAttribute="leading" id="bnh-aq-rRN"/>
                                                     <constraint firstAttribute="bottom" secondItem="Rj4-DD-FJl" secondAttribute="bottom" id="frE-Df-clc"/>
+                                                    <constraint firstAttribute="trailing" secondItem="4gQ-Nj-H6G" secondAttribute="trailing" id="icg-W6-3ua"/>
                                                     <constraint firstItem="Rj4-DD-FJl" firstAttribute="leading" secondItem="QeY-ap-oUI" secondAttribute="leading" id="pSA-T2-yBe"/>
+                                                    <constraint firstItem="4gQ-Nj-H6G" firstAttribute="top" secondItem="QeY-ap-oUI" secondAttribute="top" id="qOY-eE-89g"/>
                                                     <constraint firstAttribute="trailing" secondItem="Rj4-DD-FJl" secondAttribute="trailing" id="v96-ZP-dIU"/>
                                                     <constraint firstAttribute="trailing" secondItem="Rj4-DD-FJl" secondAttribute="trailing" id="w01-gL-zww"/>
                                                     <constraint firstItem="Rj4-DD-FJl" firstAttribute="top" secondItem="QeY-ap-oUI" secondAttribute="top" id="ya5-Tb-rlj"/>
@@ -176,6 +179,7 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="83p-yi-gbu" secondAttribute="trailing" constant="16" id="98S-Cf-Pd4"/>
                                     <constraint firstItem="83p-yi-gbu" firstAttribute="top" secondItem="fKV-hg-uoh" secondAttribute="top" constant="32" id="MiF-n2-d4r"/>
+                                    <constraint firstAttribute="bottom" secondItem="83p-yi-gbu" secondAttribute="bottom" constant="78" id="o5a-rW-VKO"/>
                                     <constraint firstItem="83p-yi-gbu" firstAttribute="leading" secondItem="fKV-hg-uoh" secondAttribute="leading" constant="16" id="pLs-Tp-jRP"/>
                                 </constraints>
                             </view>
@@ -185,6 +189,7 @@
                             <constraint firstItem="fKV-hg-uoh" firstAttribute="top" secondItem="75W-bG-bee" secondAttribute="top" id="3DW-H8-Zbf"/>
                             <constraint firstItem="75W-bG-bee" firstAttribute="bottom" secondItem="fKV-hg-uoh" secondAttribute="bottom" constant="19" id="8WS-Lt-KRV"/>
                             <constraint firstItem="fKV-hg-uoh" firstAttribute="leading" secondItem="G2q-Bg-IGr" secondAttribute="leading" id="IBA-wd-QH1"/>
+                            <constraint firstItem="fKV-hg-uoh" firstAttribute="centerX" secondItem="G2q-Bg-IGr" secondAttribute="centerX" id="VG4-6f-FHK"/>
                             <constraint firstItem="fKV-hg-uoh" firstAttribute="top" secondItem="75W-bG-bee" secondAttribute="top" id="izV-Bj-0dP"/>
                             <constraint firstItem="fKV-hg-uoh" firstAttribute="trailing" secondItem="75W-bG-bee" secondAttribute="trailing" id="nla-FP-qZf"/>
                         </constraints>
