@@ -12,7 +12,6 @@
 		3E093753212F6B7A003BA862 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E093752212F6B7A003BA862 /* SignUpViewController.swift */; };
 		3E45285F21305C31003E892E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45285E21305C30003E892E /* SignInViewController.swift */; };
 		3E4528612130676C003E892E /* AddCustomActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4528602130676C003E892E /* AddCustomActivityTableViewController.swift */; };
-		3E4528682130B7A0003E892E /* UnitsOfMeasureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4528672130B7A0003E892E /* UnitsOfMeasureTableViewCell.swift */; };
 		3E7FFF6F2135B68100E3554E /* SelectedActivityDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FFF6E2135B68100E3554E /* SelectedActivityDetailsTableViewController.swift */; };
 		3EA20906212E184500750A5D /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA20905212E184500750A5D /* Settings.storyboard */; };
 		3EA20908212E2EFB00750A5D /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA20907212E2EFB00750A5D /* SettingsTableViewController.swift */; };
@@ -38,7 +37,6 @@
 		B6C74F9E212B83AB00331D01 /* ActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F77212B83AA00331D01 /* ActivityController.swift */; };
 		B6C74FA2212B83AB00331D01 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F80212B83AA00331D01 /* ProfileViewController.swift */; };
 		B6C74FA3212B83AB00331D01 /* CurrentActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F82212B83AA00331D01 /* CurrentActivityViewController.swift */; };
-		B6C74FA4212B83AB00331D01 /* SelectedActivityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F84212B83AA00331D01 /* SelectedActivityListViewController.swift */; };
 		B6C74FA8212B83AB00331D01 /* ActivityHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F88212B83AA00331D01 /* ActivityHistoryViewController.swift */; };
 		B6C74FAC212B83AB00331D01 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F8F212B83AA00331D01 /* LocationManager.swift */; };
 		B6C74FAE212B83AB00331D01 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F93212B83AB00331D01 /* User.swift */; };
@@ -60,7 +58,6 @@
 		3E093752212F6B7A003BA862 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3E45285E21305C30003E892E /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		3E4528602130676C003E892E /* AddCustomActivityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomActivityTableViewController.swift; sourceTree = "<group>"; };
-		3E4528672130B7A0003E892E /* UnitsOfMeasureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsOfMeasureTableViewCell.swift; sourceTree = "<group>"; };
 		3E7FFF6E2135B68100E3554E /* SelectedActivityDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedActivityDetailsTableViewController.swift; sourceTree = "<group>"; };
 		3EA20905212E184500750A5D /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		3EA20907212E2EFB00750A5D /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -89,7 +86,6 @@
 		B6C74F77212B83AA00331D01 /* ActivityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
 		B6C74F80212B83AA00331D01 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B6C74F82212B83AA00331D01 /* CurrentActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentActivityViewController.swift; sourceTree = "<group>"; };
-		B6C74F84212B83AA00331D01 /* SelectedActivityListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedActivityListViewController.swift; sourceTree = "<group>"; };
 		B6C74F88212B83AA00331D01 /* ActivityHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityHistoryViewController.swift; sourceTree = "<group>"; };
 		B6C74F8F212B83AA00331D01 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		B6C74F93212B83AB00331D01 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -266,7 +262,6 @@
 			isa = PBXGroup;
 			children = (
 				3E7FFF6E2135B68100E3554E /* SelectedActivityDetailsTableViewController.swift */,
-				B6C74F84212B83AA00331D01 /* SelectedActivityListViewController.swift */,
 				B6C74F88212B83AA00331D01 /* ActivityHistoryViewController.swift */,
 			);
 			path = ActivityHistory;
@@ -353,7 +348,6 @@
 			children = (
 				B6C74FC6212B84F600331D01 /* ActivityHistoryTableViewCell.swift */,
 				B6C74FC7212B84F600331D01 /* ActivityHistoryButton.swift */,
-				3E4528672130B7A0003E892E /* UnitsOfMeasureTableViewCell.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -504,10 +498,8 @@
 				B6C74FCF212B84F600331D01 /* ActivityHistoryTableViewCell.swift in Sources */,
 				3EA20910212E309C00750A5D /* FeedbackViewController.swift in Sources */,
 				3EA20912212E315900750A5D /* AppVersionDetailsViewController.swift in Sources */,
-				B6C74FA4212B83AB00331D01 /* SelectedActivityListViewController.swift in Sources */,
 				3E7FFF6F2135B68100E3554E /* SelectedActivityDetailsTableViewController.swift in Sources */,
 				3EA2090E212E2FF100750A5D /* CreditsViewController.swift in Sources */,
-				3E4528682130B7A0003E892E /* UnitsOfMeasureTableViewCell.swift in Sources */,
 				3E4528612130676C003E892E /* AddCustomActivityTableViewController.swift in Sources */,
 				B6C74FAF212B83AB00331D01 /* Activity.swift in Sources */,
 				B62687D7212E28FB00FC5D58 /* Double+Rounding.swift in Sources */,

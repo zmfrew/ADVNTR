@@ -94,7 +94,7 @@ class SignInViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let activityType = activityType else { return }
         if segue.identifier == "successfulSignIn" {
-            let destinationVC = segue.destination as? SelectedActivityListViewController
+            let destinationVC = segue.destination as? SelectedActivityDetailsTableViewController
             destinationVC?.activityType = activityType
         }
         

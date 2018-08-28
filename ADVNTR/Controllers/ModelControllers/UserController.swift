@@ -28,7 +28,9 @@ class UserController {
     
     // Fetch current user data if previously signed up and authenticated with Firebase
     func fetchCurrentUserData(completion: @escaping (Bool) -> Void) {
-        guard let uid = self.user.uid else { return }
+        
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
         userReference.child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
             guard let user = User(snapshot: snapshot) else { return }
             self.user = user
@@ -227,5 +229,3 @@ class UserController {
         }
     }
 }
-
-

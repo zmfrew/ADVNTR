@@ -113,7 +113,7 @@ class SignUpViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "successfulSignUp" {
-            let destinationVC = segue.destination as? SelectedActivityListViewController
+            let destinationVC = segue.destination as? SelectedActivityDetailsTableViewController
             guard let activityType = activityType else { return }
             destinationVC?.activityType = activityType
         }

@@ -31,7 +31,7 @@ class ActivityHistoryViewController: UIViewController {
 
     // Set the current activity type for the selected activity table view.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destinationVC = segue.destination as? SelectedActivityListViewController else { return }
+        guard let destinationVC = segue.destination as? SelectedActivityDetailsTableViewController else { return }
         
         if segue.identifier == "toHikeDetails" {
             destinationVC.activityType = "hike"

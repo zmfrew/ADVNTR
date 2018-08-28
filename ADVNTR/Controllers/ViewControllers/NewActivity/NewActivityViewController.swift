@@ -163,9 +163,9 @@ class NewActivityViewController: UIViewController {
         let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedController.selectedSegmentIndex).lowercased()
         let hour = currentDate?.getHour(from: currentDate!)
         let timeOfDay = currentDate?.getTimeOfDay(from: hour!)
-        let name = "\(timeOfDay!) - \(activityType)"
+        let name = "\(timeOfDay!) - \(activityType.capitalized)"
         let averageSpeed = ActivityUnitConverter.milesPerHourFromMetersPerSecond(seconds: durationInSeconds, meters: distance)
-        let activitySnapshotImage = activitySnapshotImageView.image ?? UIImage(named: "trail-776795-unsplash")!
+        let activitySnapshotImage = activitySnapshotImageView.image ?? UIImage(named: "defaultProfile")!
         
         ActivityController.shared.saveActivity(type: activityType, name: name, distance: Int(distance.value), averageSpeed: averageSpeed, elevationChange: Int(elevationChange.rounded()), timestamp: (currentDate?.stringValue(from: currentDate!))!, duration: durationInSeconds, image: activitySnapshotImage) { (success) in
             
@@ -183,6 +183,8 @@ class NewActivityViewController: UIViewController {
                         self.performSegue(withIdentifier: "toLoginScreen", sender: self)
                     }
                 }
+            } else {
+                print("gay")
             }
         }
     }
@@ -191,11 +193,11 @@ class NewActivityViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedController.selectedSegmentIndex)
         if segue.identifier == "toSelectedActivityListDetails" {
-            let destinationVC = segue.destination as? SelectedActivityListViewController
+            let destinationVC = segue.destination as? SelectedActivityDetailsTableViewController
             destinationVC?.activityType = activityType
         }
         if segue.identifier == "toLoginScreen" {
-            let destinationVC = segue.destination as? SelectedActivityListViewController
+            let destinationVC = segue.destination as? SelectedActivityDetailsTableViewController
             destinationVC?.activityType = activityType
         }
     }
@@ -352,13 +354,13 @@ class NewActivityViewController: UIViewController {
     func setActivityTypeForActivityCreation(_ index: Int) -> String {
         switch (index) {
         case 0:
-            return "Run"
+            return "run"
         case 1:
-            return "Hike"
+            return "hike"
         case 2:
-            return "Bike"
+            return "bike"
         default:
-            return "Run"
+            return "run"
         }
     }
     

@@ -33,6 +33,7 @@ class ActivityController {
         
         // Get the latest totals for the user's activities
         UserController.shared.fetchCurrentUserData { (success) in
+            
             if success {
                 // Create a reference to the database location for the user's totals
                 let userRef = UserController.shared.userReference.child(UserController.shared.user.uid!)
