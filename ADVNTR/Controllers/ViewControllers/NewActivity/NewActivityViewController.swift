@@ -171,9 +171,7 @@ class NewActivityViewController: UIViewController {
             
             if success {
                 self.resetLocalProperties()
-                
                 guard let isAnonymousUser = Auth.auth().currentUser?.isAnonymous else { return }
-                
                 if !isAnonymousUser {
                     DispatchQueue.main.async {
                         self.performSegue(withIdentifier: "toSelectedActivityListDetails", sender: self)
@@ -184,7 +182,7 @@ class NewActivityViewController: UIViewController {
                     }
                 }
             } else {
-                print("gay")
+                print("Failed to save Activity.")
             }
         }
     }
