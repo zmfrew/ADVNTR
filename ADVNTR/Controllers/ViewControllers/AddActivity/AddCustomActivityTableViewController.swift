@@ -26,7 +26,7 @@ class AddCustomActivityTableViewController: UITableViewController {
     }
     
     var units: [String] {
-        return ["KM's", "Miles"]
+        return ["Km's", "Miles"]
     }
     
     // Duration
@@ -63,7 +63,11 @@ class AddCustomActivityTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.backgroundView = UIImageView(image: UIImage(named: "DefaultNewActivity"))
+        let backgroundImage = UIImageView(image: UIImage(named: "DefaultNewActivity"))
+        backgroundImage.frame = self.tableView.frame
+        backgroundImage.contentMode = .scaleToFill
+        backgroundImage.clipsToBounds = false
+        self.tableView.backgroundView = backgroundImage;
         
         distancePickerView.delegate = self
         durationPickerView.delegate = self
