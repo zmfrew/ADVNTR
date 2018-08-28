@@ -47,7 +47,9 @@
         <scene sceneID="ldR-ae-8ad">
             <objects>
                 <viewControllerPlaceholder storyboardName="ActivityHistory" id="pAA-FH-8fq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="icons8-tenses" id="Pon-hB-cBO"/>
+                    <tabBarItem key="tabBarItem" title="" image="icons8-tenses" id="Pon-hB-cBO">
+                        <inset key="imageInsets" minX="0.0" minY="3" maxX="0.0" maxY="-8"/>
+                    </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mWu-46-Nvr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -87,7 +89,9 @@
         <scene sceneID="S35-xT-rTX">
             <objects>
                 <viewControllerPlaceholder storyboardName="AddCustomActivity" id="ZIf-nR-qBn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="icons8-add" id="JXK-OE-hnP"/>
+                    <tabBarItem key="tabBarItem" title="" image="icons8-add" id="JXK-OE-hnP">
+                        <inset key="imageInsets" minX="0.0" minY="3" maxX="0.0" maxY="-7"/>
+                    </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jUZ-p8-y2s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
