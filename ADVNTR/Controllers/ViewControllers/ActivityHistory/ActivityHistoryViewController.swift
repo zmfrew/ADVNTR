@@ -38,7 +38,7 @@ class ActivityHistoryViewController: UIViewController {
         } else if segue.identifier == "toBikeDetails" {
             destinationVC.activityType = "bike"
         } else {
-            destinationVC.activityType = "bike"
+            destinationVC.activityType = "run"
         }
     }
 }
