@@ -39,10 +39,12 @@ class UserController {
             return
         }
     }
+
     
     // All users will have a Firebase UID as this function is called in AppDelegate.
     func logInAnonymousUser() {
         Auth.auth().signInAnonymously() { (authResult, error) in
+            
             if let error = error {
                 print("Error signing in with Firebase: \(error)")
                 return
@@ -50,23 +52,19 @@ class UserController {
                 guard let result = authResult else { return }
                 let user = result.user
                 self.user.uid = user.uid
-                
-                // Create initial Firebase records for the new user
-                self.userReference.child("\(user.uid)/totalActivityDuration").setValue(0)
-                self.userReference.child("\(user.uid)/totalActivityDistance").setValue(0)
-                self.userReference.child("\(user.uid)/totalElevationChange").setValue(0)
-                self.userReference.child("\(user.uid)/totalActivityCount").setValue(0)
-                self.userReference.child("\(user.uid)/preferredActivityType").setValue("run")
-                self.userReference.child("\(user.uid)/defaultUnits").setValue("imperial")
-                self.userReference.child("\(user.uid)/totalRunDistance").setValue(0)
-                self.userReference.child("\(user.uid)/totalRunTime").setValue(0)
-                self.userReference.child("\(user.uid)/totalRunElevationChange").setValue(0)
-                self.userReference.child("\(user.uid)/totalHikeDistance").setValue(0)
-                self.userReference.child("\(user.uid)/totalHikeTime").setValue(0)
-                self.userReference.child("\(user.uid)/totalHikeElevationChange").setValue(0)
-                self.userReference.child("\(user.uid)/totalBikeDistance").setValue(0)
-                self.userReference.child("\(user.uid)/totalBikeTime").setValue(0)
-                self.userReference.child("\(user.uid)/totalBikeElevationChange").setValue(0)
+
+                self.setInitialValuesForUser(completion: { (success) in
+                    if success {
+                        UserController.shared.fetchCurrentUserData(completion: { (success) in
+                            
+                            if success {
+                                print("Successfully signed in existing Firebase user.")
+                            } else {
+                                print("Error fetching data for newly signed-in user.")
+                            }
+                        })
+                    }
+                })
             }
         }
     }
@@ -176,17 +174,58 @@ class UserController {
     }
     
     func toggleDefaultUnits() {
-        print("The units before are: \(user.defaultUnits)")
+        print("The units before are: \(String(describing: user.defaultUnits))")
         if user.defaultUnits == "imperial" {
             user.defaultUnits = "metric"
         } else if user.defaultUnits == "metric" {
             user.defaultUnits = "imperial"
         }
-        print("The units after are: \(user.defaultUnits)")
-        let uid = String(describing: user.uid)
-        let defaultUnits = String(describing: user.defaultUnits)
-        self.userReference.child("\(uid)/defaultUnits").setValue(defaultUnits)
+        
+        let uid = user.uid ?? Auth.auth().currentUser?.uid
+        let defaultUnits = user.defaultUnits as Any
+        let values = ["defaultUnits" : defaultUnits] as [String : Any]
+        self.userReference.child(uid!).updateChildValues(values) { (error, ref) in
+            if let error = error {
+                print("Units error fuck \(error)")
+            } else {
+                print("The units after are: \(String(describing: self.user.defaultUnits))")
+            }
+        }
     }
     
+    func setInitialValuesForUser(completion: @escaping (Bool) -> Void) {
+        // Create initial Firebase records for the new user
+        guard let uid = self.user.uid else { print("Fucked it") ; return }
+        
+        let values = ["uid" : uid,
+                      "email" : "email",
+                      "displayName" : "AVNTRer",
+                      "photoURL" : "photoURL",
+                      "defaultUnits" : "imperial",
+                      "totalActivityDuration" : 0,
+                      "totalActivityDistance" : 0,
+                      "totalElevationChange" : 0,
+                      "totalActivityCount" : 0,
+                      "preferredActivityType" : "run",
+                      "totalRunDistance" : 0,
+                      "totalRunTime" : 0,
+                      "totalRunElevationChange" : 0,
+                      "totalHikeDistance" : 0,
+                      "totalHikeTime" : 0,
+                      "totalHikeElevationChange" : 0,
+                      "totalBikeDistance" : 0,
+                      "totalBikeTime" : 0,
+                      "totalBikeElevationChange" : 0] as [String : Any]
+        
+        userReference.child((Auth.auth().currentUser?.uid)!).updateChildValues(values) { (error, ref) in
+            if let error = error {
+                print("Error saving initial data values to Firebase: \(error)")
+                completion(false)
+            } else {
+                completion(true)
+            }
+        }
+    }
 }
+
 

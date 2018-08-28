@@ -21,6 +21,8 @@ class SettingsTableViewController: UITableViewController {
     
     // MARK: - Actions
     @IBAction func unitsOfMeasureButtonTapped(_ sender: UIButton) {
+        
+        
         UserController.shared.toggleDefaultUnits()
         unitsOfMeasureButton.setTitle(UserController.shared.user.defaultUnits?.capitalized ?? "Metric", for: .normal)
         self.loadViewIfNeeded()
