@@ -16,13 +16,15 @@ class SettingsTableViewController: UITableViewController {
     // MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        unitsOfMeasureButton.setTitle(UserController.shared.user.defaultUnits, for: .normal)
+        unitsOfMeasureButton.setTitle(UserController.shared.user.defaultUnits?.capitalized ?? "Imperial", for: .normal)
     }
     
     // MARK: - Actions
     @IBAction func unitsOfMeasureButtonTapped(_ sender: UIButton) {
         UserController.shared.toggleDefaultUnits()
-        unitsOfMeasureButton.setTitle(UserController.shared.user.defaultUnits, for: .normal)
+        unitsOfMeasureButton.setTitle(UserController.shared.user.defaultUnits?.capitalized ?? "Metric", for: .normal)
+        self.loadViewIfNeeded()
+        print("Units toggle action button was tapped")
     }
 
     // MARK: - Table view data source

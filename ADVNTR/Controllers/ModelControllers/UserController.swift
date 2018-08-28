@@ -45,6 +45,7 @@ class UserController {
         Auth.auth().signInAnonymously() { (authResult, error) in
             if let error = error {
                 print("Error signing in with Firebase: \(error)")
+                return
             } else {
                 guard let result = authResult else { return }
                 let user = result.user
@@ -175,12 +176,13 @@ class UserController {
     }
     
     func toggleDefaultUnits() {
+        print("The units before are: \(user.defaultUnits)")
         if user.defaultUnits == "imperial" {
             user.defaultUnits = "metric"
         } else if user.defaultUnits == "metric" {
             user.defaultUnits = "imperial"
         }
-        
+        print("The units after are: \(user.defaultUnits)")
         let uid = String(describing: user.uid)
         let defaultUnits = String(describing: user.defaultUnits)
         self.userReference.child("\(uid)/defaultUnits").setValue(defaultUnits)
