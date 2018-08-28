@@ -12,7 +12,6 @@
 		3E093753212F6B7A003BA862 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E093752212F6B7A003BA862 /* SignUpViewController.swift */; };
 		3E45285F21305C31003E892E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45285E21305C30003E892E /* SignInViewController.swift */; };
 		3E4528612130676C003E892E /* AddCustomActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4528602130676C003E892E /* AddCustomActivityTableViewController.swift */; };
-		3E45286321306F76003E892E /* SelectedActivityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45286221306F76003E892E /* SelectedActivityDetailsViewController.swift */; };
 		3E4528682130B7A0003E892E /* UnitsOfMeasureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4528672130B7A0003E892E /* UnitsOfMeasureTableViewCell.swift */; };
 		3EA20906212E184500750A5D /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA20905212E184500750A5D /* Settings.storyboard */; };
 		3EA20908212E2EFB00750A5D /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA20907212E2EFB00750A5D /* SettingsTableViewController.swift */; };
@@ -36,7 +35,6 @@
 		B62687D9212E56EB00FC5D58 /* ActivityUnitConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62687D8212E56EB00FC5D58 /* ActivityUnitConverter.swift */; };
 		B69D6721212F417B007A3A92 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D6720212F417B007A3A92 /* DateFormatter.swift */; };
 		B6C74F9E212B83AB00331D01 /* ActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F77212B83AA00331D01 /* ActivityController.swift */; };
-		B6C74F9F212B83AB00331D01 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F7A212B83AA00331D01 /* LaunchScreenViewController.swift */; };
 		B6C74FA2212B83AB00331D01 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F80212B83AA00331D01 /* ProfileViewController.swift */; };
 		B6C74FA3212B83AB00331D01 /* CurrentActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F82212B83AA00331D01 /* CurrentActivityViewController.swift */; };
 		B6C74FA4212B83AB00331D01 /* SelectedActivityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F84212B83AA00331D01 /* SelectedActivityListViewController.swift */; };
@@ -61,7 +59,6 @@
 		3E093752212F6B7A003BA862 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3E45285E21305C30003E892E /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		3E4528602130676C003E892E /* AddCustomActivityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomActivityTableViewController.swift; sourceTree = "<group>"; };
-		3E45286221306F76003E892E /* SelectedActivityDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedActivityDetailsViewController.swift; sourceTree = "<group>"; };
 		3E4528672130B7A0003E892E /* UnitsOfMeasureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsOfMeasureTableViewCell.swift; sourceTree = "<group>"; };
 		3EA20905212E184500750A5D /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		3EA20907212E2EFB00750A5D /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -88,7 +85,6 @@
 		B69D6720212F417B007A3A92 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		B6C74ECE212B7C3500331D01 /* ADVNTR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADVNTR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6C74F77212B83AA00331D01 /* ActivityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
-		B6C74F7A212B83AA00331D01 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		B6C74F80212B83AA00331D01 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B6C74F82212B83AA00331D01 /* CurrentActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentActivityViewController.swift; sourceTree = "<group>"; };
 		B6C74F84212B83AA00331D01 /* SelectedActivityListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedActivityListViewController.swift; sourceTree = "<group>"; };
@@ -215,7 +211,6 @@
 		B6C74F78212B83AA00331D01 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				B6C74F79212B83AA00331D01 /* LaunchScreen */,
 				3EC2C95A212CBFD3002D7F69 /* TabBarController */,
 				B6C74F7D212B83AA00331D01 /* AddActivity */,
 				B6C74F83212B83AA00331D01 /* ActivityHistory */,
@@ -226,14 +221,6 @@
 				B6C74F7B212B83AA00331D01 /* Settings */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		B6C74F79212B83AA00331D01 /* LaunchScreen */ = {
-			isa = PBXGroup;
-			children = (
-				B6C74F7A212B83AA00331D01 /* LaunchScreenViewController.swift */,
-			);
-			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
 		B6C74F7B212B83AA00331D01 /* Settings */ = {
@@ -276,7 +263,6 @@
 		B6C74F83212B83AA00331D01 /* ActivityHistory */ = {
 			isa = PBXGroup;
 			children = (
-				3E45286221306F76003E892E /* SelectedActivityDetailsViewController.swift */,
 				B6C74F84212B83AA00331D01 /* SelectedActivityListViewController.swift */,
 				B6C74F88212B83AA00331D01 /* ActivityHistoryViewController.swift */,
 			);
@@ -514,10 +500,8 @@
 				B6C74FA8212B83AB00331D01 /* ActivityHistoryViewController.swift in Sources */,
 				B6C74FCF212B84F600331D01 /* ActivityHistoryTableViewCell.swift in Sources */,
 				3EA20910212E309C00750A5D /* FeedbackViewController.swift in Sources */,
-				3E45286321306F76003E892E /* SelectedActivityDetailsViewController.swift in Sources */,
 				3EA20912212E315900750A5D /* AppVersionDetailsViewController.swift in Sources */,
 				B6C74FA4212B83AB00331D01 /* SelectedActivityListViewController.swift in Sources */,
-				B6C74F9F212B83AB00331D01 /* LaunchScreenViewController.swift in Sources */,
 				3EA2090E212E2FF100750A5D /* CreditsViewController.swift in Sources */,
 				3E4528682130B7A0003E892E /* UnitsOfMeasureTableViewCell.swift in Sources */,
 				3E4528612130676C003E892E /* AddCustomActivityTableViewController.swift in Sources */,

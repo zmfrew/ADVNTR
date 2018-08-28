@@ -2,8 +2,8 @@
 //  SelectedActivityListViewController.swift
 //  ADVNTR
 //
-//  Created by Zachary Frew & Owen Henley on 8/20/18.
-//  Copyright © 2018 Zachary Frew. All rights reserved.
+//  Created by Zachary Frew, Jeter Pow & Owen Henley on 8/20/18.
+//  Copyright © 2018 ADVNTR. All rights reserved.
 //
 
 import UIKit

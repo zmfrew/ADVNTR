@@ -3,7 +3,7 @@
 //  ADVNTR
 //
 //  Created by Zachary Frew on 8/22/18.
-//  Copyright © 2018 Zachary Frew. All rights reserved.
+//  Copyright © 2018 ADVNTR. All rights reserved.
 //
 
 import Foundation

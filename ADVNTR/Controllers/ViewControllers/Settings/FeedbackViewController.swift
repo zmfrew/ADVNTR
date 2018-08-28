@@ -3,7 +3,7 @@
 //  ADVNTR
 //
 //  Created by Owen Henley on 8/22/18.
-//  Copyright © 2018 Zachary Frew. All rights reserved.
+//  Copyright © 2018 ADVNTR. All rights reserved.
 //
 
 import UIKit
@@ -12,8 +12,6 @@ class FeedbackViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
 
