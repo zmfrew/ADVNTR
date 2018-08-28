@@ -26,7 +26,7 @@ class SettingsTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-    
+ 
     // Custom Header/Footer Color
 //    override func tableView(_ tableView: UITableView, willDisplayHeaderView view:UIView, forSection: Int) {
 //        if let tableViewHeaderFooterView = view as? UITableViewHeaderFooterView {
