@@ -2,8 +2,8 @@
 //  SignUpViewController.swift
 //  ADVNTR
 //
-//  Created by Owen Henley on 8/23/18.
-//  Copyright © 2018 Zachary Frew. All rights reserved.
+//  Created by Owen Henley & Jeter Pow on 8/23/18.
+//  Copyright © 2018 ADVNTR. All rights reserved.
 //
 
 import UIKit

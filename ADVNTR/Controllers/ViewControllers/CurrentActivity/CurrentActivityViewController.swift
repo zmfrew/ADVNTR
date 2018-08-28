@@ -3,7 +3,7 @@
 //  ADVNTR
 //
 //  Created by Zachary Frew on 8/20/18.
-//  Copyright © 2018 Zachary Frew. All rights reserved.
+//  Copyright © 2018 ADVNTR. All rights reserved.
 //
 
 import UIKit
@@ -12,15 +12,7 @@ class CurrentActivityViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     /*
     // MARK: - Navigation

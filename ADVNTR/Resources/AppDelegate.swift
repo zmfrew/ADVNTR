@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  ADVNTR
 //
-//  Created by Zachary Frew on 8/17/18.
-//  Copyright © 2018 Zachary Frew. All rights reserved.
+//  Created by Zachary Frew, Jeter Pow & Owen Henley on 8/17/18.
+//  Copyright © 2018 ADVNTR. All rights reserved.
 //
 
 import UIKit

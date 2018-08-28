@@ -2,7 +2,7 @@
 //  MessageController.swift
 //  ADVNTR
 //
-//  Created by Peter Gow on 28/8/18.
+//  Created by Jeter Pow on 28/8/18.
 //  Copyright © 2018 ADVNTR. All rights reserved.
 //
 
