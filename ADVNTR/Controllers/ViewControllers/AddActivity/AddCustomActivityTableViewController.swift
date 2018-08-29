@@ -7,10 +7,17 @@
 //
 
 import UIKit
+import SwiftEntryKit
 
 class AddCustomActivityTableViewController: UITableViewController {
     
     // MARK: - Properties
+    var distanceFirstDigit: Int?
+    var distanceSecondDigit: Double?
+    var distanceUnits: String?
+    var durationHours: Int?
+    var durationMinutes: Int?
+    var durationSeconds: Int?
     
     // Distance
     var unitDistance: [Int] {
@@ -59,6 +66,9 @@ class AddCustomActivityTableViewController: UITableViewController {
     @IBOutlet weak var activityTitleTextField: UITextField!
     @IBOutlet weak var distancePickerView: UIPickerView!
     @IBOutlet weak var durationPickerView: UIPickerView!
+    @IBOutlet weak var activityTypeSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,6 +92,49 @@ class AddCustomActivityTableViewController: UITableViewController {
     }
     
     @IBAction func saveActivityButtonTapped(_ sender: UIButton) {
+        
+        let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedControl.selectedSegmentIndex)
+        
+        let date = datePicker.date
+        // Convert to String fuckhead
+        // let timestamp =
+        
+        let hour = date.getHour(from: date)
+        let timeOfDay = date.getTimeOfDay(from: hour)
+        let title = "\(timeOfDay) - \(activityType)"
+        let name = activityTitleTextField.text ?? title
+        
+        var unitLength: UnitLength?
+        if distanceUnits == "Km's" {
+            unitLength = UnitLength.kilometers
+        } else {
+            unitLength = UnitLength.miles
+        }
+        
+        let distanceLength = ((Double(distanceFirstDigit ?? 0)) + (distanceSecondDigit ?? 0))
+        let distance = ActivityUnitConverter.convertToMeters(from: unitLength!, distance: distanceLength)
+        
+        let hours = durationHours ?? 0
+        let minutes = durationMinutes ?? 0
+        let seconds = durationSeconds ?? 0
+        
+        let duration = (hours * 3600) + (minutes * 60) + seconds
+        
+        let averageSpeed = ActivityUnitConverter.speed(distance: distance, seconds: duration)
+        
+        let image = UIImage(named: "defaultProfile")
+        
+        ActivityController.shared.saveActivity(type: activityType, name: name, distance: Int(distance.value), averageSpeed: averageSpeed.value, elevationChange: 0, timestamp: date.stringValue(from: date), duration: duration, image: image!) { (success) in
+            
+            if success {
+                let message = MessageController.shared.createSuccessAlertWith(title: "New activity saved.", description: "Great job!")
+                
+                DispatchQueue.main.async {
+                    SwiftEntryKit.display(entry: message.0, using: message.1)
+                    self.tabBarController?.selectedIndex = 1
+                }
+            }
+        }
     }
     
     // MARK: - Table view data source
@@ -142,6 +195,34 @@ extension AddCustomActivityTableViewController: UIPickerViewDelegate {
         }
         return ""
     }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView.tag == 1 {
+            switch component {
+            case 0:
+                self.distanceFirstDigit = unitDistance[pickerView.selectedRow(inComponent: 0)]
+            case 1:
+                self.distanceSecondDigit = unitDistanceFraction[pickerView.selectedRow(inComponent: 1)]
+            case 2:
+                self.distanceUnits = units[pickerView.selectedRow(inComponent: 2)]
+            default:
+                return
+            }
+        }
+        
+        if pickerView.tag == 2 {
+            switch component {
+            case 0:
+                self.durationHours = hours[pickerView.selectedRow(inComponent: 0)]
+            case 1:
+                self.durationMinutes = minutes[pickerView.selectedRow(inComponent: 1)]
+            case 2:
+                self.durationSeconds = seconds[pickerView.selectedRow(inComponent: 2)]
+            default:
+                return
+            }
+        }
+    }
 }
 
 // MARK: - PickerView Datasource
@@ -176,14 +257,27 @@ extension AddCustomActivityTableViewController: UIPickerViewDataSource {
         }
         return 0
     }
+    
+    func setActivityTypeForActivityCreation(_ index: Int) -> String {
+        switch (index) {
+        case 0:
+            return "run"
+        case 1:
+            return "hike"
+        case 2:
+            return "bike"
+        default:
+            return "run"
+        }
+    }
 }
 
-// MARK: Successful Sign Up Alert
+// MARK: Successful Custom Activity Alert
 extension AddCustomActivityTableViewController {
     
 }
 
-// MARK: Error Signing Up Alert (Boring iOS SDK AlertController)
+// MARK: Error Adding Custom Activity Alert (Boring iOS SDK AlertController)
 extension AddCustomActivityTableViewController {
     
 }
