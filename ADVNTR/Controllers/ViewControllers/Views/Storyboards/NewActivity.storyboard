@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gKh-kU-SQ2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gKh-kU-SQ2">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -84,13 +86,13 @@
                                                         <rect key="frame" x="46" y="54.999999999999986" width="322.66666666666669" height="221.66666666666663"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(activity time)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jO4-41-duX">
-                                                                <rect key="frame" x="86.000000000000014" y="0.0" width="150.33333333333337" height="33"/>
+                                                                <rect key="frame" x="86.333333333333329" y="0.0" width="150.33333333333337" height="33"/>
                                                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="24"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFy-Ey-G59">
-                                                                <rect key="frame" x="19.333333333333343" y="77.999999999999986" width="283.66666666666663" height="143.66666666666663"/>
+                                                                <rect key="frame" x="19.666666666666657" y="77.999999999999986" width="283.66666666666674" height="143.66666666666663"/>
                                                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="105"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -143,7 +145,7 @@
                                                                 <rect key="frame" x="120" y="51.666666666666629" width="104" height="129.33333333333334"/>
                                                                 <subviews>
                                                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gGt-F1-dFw">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="129.33333333333334"/>
+                                                                        <rect key="frame" x="-155" y="0.0" width="0.0" height="129.33333333333334"/>
                                                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="30"/>
                                                                         <state key="normal" title="RESUME">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -152,18 +154,8 @@
                                                                             <action selector="resumeButtonTapped:" destination="gKh-kU-SQ2" eventType="touchUpInside" id="zZp-vk-TVZ"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WxM-H5-uKZ" userLabel="SAVE">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="129.33333333333334"/>
-                                                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="30"/>
-                                                                        <state key="normal" title="SAVE">
-                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        </state>
-                                                                        <connections>
-                                                                            <action selector="saveButtonTapped:" destination="gKh-kU-SQ2" eventType="touchUpInside" id="1dy-a0-26w"/>
-                                                                        </connections>
-                                                                    </button>
                                                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fAL-lw-R4m" userLabel="STOP">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="129.33333333333334"/>
+                                                                        <rect key="frame" x="-155" y="0.0" width="0.0" height="129.33333333333334"/>
                                                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="30"/>
                                                                         <state key="normal" title="STOP">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -183,7 +175,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ic7-AB-qpm" userLabel="PAUSE">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="129.33333333333334"/>
+                                                                        <rect key="frame" x="-155" y="0.0" width="0.0" height="129.33333333333334"/>
                                                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="30"/>
                                                                         <state key="normal" title="PAUSE">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -254,7 +246,6 @@
                         <outlet property="mapView" destination="pl0-qX-Jga" id="qeR-si-N73"/>
                         <outlet property="pauseButton" destination="ic7-AB-qpm" id="fVs-nx-ReT"/>
                         <outlet property="resumeButton" destination="gGt-F1-dFw" id="39Z-F8-0Ad"/>
-                        <outlet property="saveButton" destination="WxM-H5-uKZ" id="nGg-1P-brJ"/>
                         <outlet property="startButton" destination="U1c-GN-pmN" id="Hzp-nC-GPb"/>
                         <outlet property="stopButton" destination="fAL-lw-R4m" id="827-7M-78r"/>
                         <segue destination="gR8-Cj-EVS" kind="show" identifier="toSelectedActivityListDetails" id="dH3-Zj-xqG"/>
