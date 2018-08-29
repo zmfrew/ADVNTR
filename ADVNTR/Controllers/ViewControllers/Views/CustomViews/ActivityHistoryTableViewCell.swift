@@ -15,7 +15,7 @@ class ActivityHistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var activitySnapshotImageView: UIImageView!
     @IBOutlet weak var activityTitleLabel: UILabel!
     @IBOutlet weak var activityDateLabel: UILabel!
-    @IBOutlet weak var activityLengthLabel: UILabel!
+    @IBOutlet weak var activityDurationLabel: UILabel!
     @IBOutlet weak var activityDistanceLabel: UILabel!
     @IBOutlet weak var averageSpeedLabel: UILabel!
 
@@ -36,17 +36,24 @@ class ActivityHistoryTableViewCell: UITableViewCell {
         
         activityTitleLabel.text = activity.name
         activityDateLabel.text = activity.timestamp
-        activityLengthLabel.text = "\(activity.distance)"
-        // TODO: - Check if user preferences are Imperial or Metric, convert units accordingly, and display unit type to user.
-        activityDistanceLabel.text = "\(activity.distance)"
-
+        activityDurationLabel.text = "\(FormatDisplay.time(activity.duration))"
+        
+        let distanceMeasurementUnits = UserController.shared.user.defaultUnits == "imperial" ? UnitLength.miles : UnitLength.kilometers
+        
+        let distanceMeasurement = Measurement(value: Double(activity.distance), unit: distanceMeasurementUnits)
+        let distanceToDisplay = UserController.shared.user.defaultUnits == "imperial" ? "\(ActivityUnitConverter.milesFromMeters(distance: distanceMeasurement))" : "\(ActivityUnitConverter.kilometersFromMeters(distance: distanceMeasurement))"
+        let distanceUnits = UserController.shared.user.defaultUnits == "imperial" ? "mi" : "km"
+        activityDistanceLabel.text = "\(distanceToDisplay) \(distanceUnits)"
+        
         if activity.type == "run" {
-            // Convert distance, which is an Int, to a measurement in meters to get the correct formatted pace.
-            let distance = Measurement.init(value: Double(activity.distance), unit: UnitLength.meters)
-            let pace = ActivityUnitConverter.formatPace(distance: distance, seconds: activity.duration, outputUnit: UnitSpeed.milesPerHour)
-            averageSpeedLabel.text = "Average pace: \(pace)"
+            let distance = Measurement(value: Double(activity.distance), unit: UnitLength.meters)
+            let speedUnit = UserController.shared.user.defaultUnits == "imperial" ? UnitSpeed.milesPerHour : UnitSpeed.kilometersPerHour
+            let pace = ActivityUnitConverter.formatPace(distance: distance, seconds: activity.duration, outputUnit: speedUnit)
+            activityDistanceLabel.text = "\(distanceToDisplay) \(distanceUnits)"
+            averageSpeedLabel.text = "Average pace: \(pace) / \(distanceUnits)"
         } else {
-            averageSpeedLabel.text = "Average speed: \(activity.averageSpeed)"
+            let speedUnits = UserController.shared.user.defaultUnits == "imperial" ? "mph" : "km/h"
+            averageSpeedLabel.text = "Average speed: \(activity.averageSpeed) \(speedUnits)"
         }
     }
     
