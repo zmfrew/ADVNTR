@@ -32,8 +32,6 @@ class NewActivityViewController: UIViewController {
     @IBOutlet weak var stopButton: UIButton!
     
     // MARK: - Properties
-    var user: User?
-    
     var distance = Measurement(value: 0, unit: UnitLength.meters)
     var averageSpeed: Double?
     var currentAltitude = 0.0
@@ -56,18 +54,15 @@ class NewActivityViewController: UIViewController {
         super.viewDidLoad()
         setupMapView()
         setupLocationManager()
-        
-        activityTypeLabel.text = user?.preferredActivityType ?? "Run"
-        
-        if let user = user {
-            activityTypeSegmentedController.selectedSegmentIndex = setActivityTypeSegmentedControllerFor(user: user)
-        }
-        
         hideInitialViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        activityTypeLabel.text = UserController.shared.user.preferredActivityType?.capitalized ?? "Run"
+        activityTypeSegmentedController.selectedSegmentIndex = setActivityTypeSegmentedControllerFor(user: UserController.shared.user)
+        
         secondsTimer?.invalidate()
         altitudeAndPaceOrSpeedTimer?.invalidate()
         locationManager.stopUpdatingLocation()
@@ -77,7 +72,7 @@ class NewActivityViewController: UIViewController {
     // MARK: - Actions
     @IBAction func activitySegmentedControllerDidChange(_ sender: UISegmentedControl) {
         let activityType = setActivityTypeForActivityCreation(sender.selectedSegmentIndex)
-        activityTypeLabel.text = activityType
+        activityTypeLabel.text = activityType.capitalized
     }
     
     @IBAction func startButtonTapped(_ sender: UIButton) {
@@ -145,12 +140,17 @@ class NewActivityViewController: UIViewController {
         altitudeAndPaceOrSpeedTimer?.invalidate()
         altitudeAndPaceOrSpeedTimer?.invalidate()
         // TODO: - takeSnapShot of map with polyline showing user's path.
-        takeSnapShot()
+//        takeSnapShot()
         
         saveNewWorkout()
         
         let message = MessageController.shared.createSuccessAlertWith(title: "New activity saved.", description: "Great job with your workout!")
         SwiftEntryKit.display(entry: message.0, using: message.1)
+        
+        if UserController.shared.user.email != "email" {
+            self.tabBarController?.selectedIndex = 1
+        }
+        
     }
     
     // MARK: Navigation
@@ -161,10 +161,11 @@ class NewActivityViewController: UIViewController {
             destinationVC?.activityType = activityType
         }
         if segue.identifier == "toLoginScreen" {
-            let destinationVC = segue.destination as? SelectedActivityDetailsTableViewController
+            let destinationVC = segue.destination as? SignInViewController
             destinationVC?.activityType = activityType
         }
     }
+
     
     // MARK: - Methods
     func updateAverageSpeedOrPaceLabelText() {
@@ -205,7 +206,7 @@ class NewActivityViewController: UIViewController {
     
     func updateAltitudeAndPaceOrSpeedViews() {
         var outputUnit: UnitSpeed
-        if user?.defaultUnits == "imperial" {
+        if UserController.shared.user.defaultUnits == "imperial" {
             outputUnit = UnitSpeed.milesPerHour
         } else {
             outputUnit = UnitSpeed.kilometersPerHour
@@ -339,7 +340,7 @@ class NewActivityViewController: UIViewController {
     
     // Allows for setting the default activityType based on the user's preference.
     func setActivityTypeSegmentedControllerFor(user: User) -> Int {
-        switch (user.preferredActivityType) {
+        switch (UserController.shared.user.preferredActivityType) {
         case "run":
             return 0
         case "hike":

@@ -29,7 +29,7 @@ class SignInViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func signInButtonTapped(_ sender: UIButton) {
-        signInUser()
+//        signInUser()
     }
     
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
@@ -40,16 +40,21 @@ class SignInViewController: UIViewController {
         performSegue(withIdentifier: "toForgotPassword", sender: self)
     }
     
-    func signInUser() {
+    func signInUser(completion: @escaping (Bool) -> Void) {
         guard let email = emailAddressTextField.text, !email.isEmpty, isValidEmail(email: email),
-            let password = passwordTextField.text, !password.isEmpty else { showEmptyFieldsAlert() ; return }
+            let password = passwordTextField.text, !password.isEmpty else {
+                showEmptyFieldsAlert()
+                completion(false)
+                return
+        }
         
         UserController.shared.signInAuthenticatedUserWith(email: email, password: password) { (success, error) in
             
             if success {
                 self.isSuccessfulSignIn = true
+                completion(true)
                 DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "successfulSignIn", sender: self)
+                    self.performSegue(withIdentifier: "unwindFromSignIn", sender: self)
                 }
             } else {
                 if let errorCode = AuthErrorCode(rawValue: (error?._code)!) {
@@ -84,6 +89,7 @@ class SignInViewController: UIViewController {
                             SwiftEntryKit.display(entry: alert.0, using: alert.1)
                         }
                     }
+                    completion(false)
                 }
             }
         }
@@ -93,9 +99,9 @@ class SignInViewController: UIViewController {
     // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let activityType = activityType else { return }
-        if segue.identifier == "successfulSignIn" {
-            let destinationVC = segue.destination as? SelectedActivityDetailsTableViewController
-            destinationVC?.activityType = activityType
+        if segue.identifier == "unwindFromSignIn" {
+            let destinationVC = segue.destination as? ActivityHistoryViewController
+//            destinationVC?.activityType = activityType
         }
         
         if segue.identifier == "toSignUp" {
@@ -106,13 +112,21 @@ class SignInViewController: UIViewController {
     
     // Prevents the unwind segue from performing unless the user's sign up/in has been successful.
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if identifier == "successfulSignIn" {
-            signInUser()
-            if self.isSuccessfulSignIn {
-                return true
+        var boolToReturn = false
+        if identifier == "unwindFromSignIn" {
+            signInUser { (success) in
+                if success {
+                    boolToReturn = true
+                } else {
+                    let message = MessageController.shared.createAuthErrorAlertWith(title: "Error", description: "Failed to sign in. Please try again.")
+                    DispatchQueue.main.async {
+                        SwiftEntryKit.display(entry: message.0, using: message.1)
+                    }
+                }
             }
         }
-        return false
+        
+        return boolToReturn
     }
     
     // Required so that pressing the back button on the Sign Up View Controller will
