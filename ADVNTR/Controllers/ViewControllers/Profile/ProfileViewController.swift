@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseUI
+import FirebaseAuth
 
 class ProfileViewController: UIViewController {
     
@@ -15,18 +17,20 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var activityTypeSegmentedController: UISegmentedControl!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var profileNameLabel: UILabel!
-    @IBOutlet weak var displayNameLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var displayNameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
     
     // MARK: - Properties
-    let user = UserController.shared.user
+    lazy var user = UserController.shared.user
     let imagePickerController = UIImagePickerController()
     
     // MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        prohibitUserInteraction()
+        setTextFieldColors()
+        toggleUserInteraction()
         updateViews()
+        
         
         let tapGestureForImageView = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped))
         profileImageView.addGestureRecognizer(tapGestureForImageView)
@@ -36,9 +40,10 @@ class ProfileViewController: UIViewController {
     // MARK: - Actions
     @IBAction func editAndSaveButtonTapped(_ sender: UIBarButtonItem) {
         toggleEditOrSaveButtonText()
-        allowUserInteraction()
-        guard let displayName = displayNameLabel.text, !displayName.isEmpty, displayName != " ",
-            let email = emailLabel.text, !email.isEmpty, email != " "
+        toggleTextFieldColors()
+        toggleUserInteraction()
+        guard let displayName = displayNameTextField.text, !displayName.isEmpty, displayName != " ",
+            let email = emailTextField.text, !email.isEmpty, email != " "
             else { return }
         
         let preferredActivty = updatePreferredActivityType(activityTypeSegmentedController.selectedSegmentIndex)
@@ -52,30 +57,47 @@ class ProfileViewController: UIViewController {
     
     // MARK: - Methods
     func updateViews() {
-        let data = try? Data(contentsOf: URL(string: user.photoURL!)!)
-        let userImage = UIImage(data: data!) ?? UIImage(named: "defaultProfile")
+        if (Auth.auth().currentUser?.isAnonymous)! {
+            profileImageView.image = UIImage(named: "defaultProfile")
+        }
+        
+        let profileImageRef = UserController.shared.profileImageReference.child(user.uid!).child("profilePhoto").child("photo")
+        profileImageView?.sd_setImage(with: profileImageRef)
         
         activityTypeSegmentedController.selectedSegmentIndex = setActivityTypeSegmentedControllerFor(user: user)
-        profileImageView.image = userImage
         profileNameLabel.text = user.displayName
-        displayNameLabel.text = user.displayName
-        emailLabel.text = user.email
+        displayNameTextField.text = user.displayName
+        emailTextField.text = user.email
     }
     
-    func allowUserInteraction() {
-        activityTypeSegmentedController.isUserInteractionEnabled = true
-        profileImageView.isUserInteractionEnabled = true
-        profileNameLabel.isUserInteractionEnabled = true
-        displayNameLabel.isUserInteractionEnabled = true
-        emailLabel.isUserInteractionEnabled = true
+    func setTextFieldColors() {
+        displayNameTextField.textColor = UIColor.white
+        displayNameTextField.backgroundColor = UIColor.black
+        emailTextField.textColor = UIColor.white
+        emailTextField.backgroundColor = UIColor.black
     }
     
-    func prohibitUserInteraction() {
-        activityTypeSegmentedController.isUserInteractionEnabled = false
-        profileImageView.isUserInteractionEnabled = false
-        profileNameLabel.isUserInteractionEnabled = false
-        displayNameLabel.isUserInteractionEnabled = false
-        emailLabel.isUserInteractionEnabled = false
+    func toggleUserInteraction() {
+        activityTypeSegmentedController.isUserInteractionEnabled = !activityTypeSegmentedController.isUserInteractionEnabled
+        profileImageView.isUserInteractionEnabled = !profileImageView.isUserInteractionEnabled
+        profileNameLabel.isUserInteractionEnabled = !profileNameLabel.isUserInteractionEnabled
+        displayNameTextField.isUserInteractionEnabled = !displayNameTextField.isUserInteractionEnabled
+        emailTextField.isUserInteractionEnabled = !emailTextField.isUserInteractionEnabled
+    }
+
+    func toggleTextFieldColors() {
+        displayNameTextField.textColor = toggleColorToOppositeOf(displayNameTextField.textColor!)
+        displayNameTextField.backgroundColor = toggleColorToOppositeOf(displayNameTextField.backgroundColor!)
+        emailTextField.textColor = toggleColorToOppositeOf(emailTextField.textColor!)
+        emailTextField.backgroundColor = toggleColorToOppositeOf(emailTextField.backgroundColor!)
+    }
+    
+    func toggleColorToOppositeOf(_ currentColor: UIColor) -> UIColor {
+        if currentColor == UIColor.white {
+            return UIColor.black
+        } else {
+            return UIColor.white
+        }
     }
     
     func setActivityTypeSegmentedControllerFor(user: User) -> Int {
