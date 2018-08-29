@@ -23,11 +23,12 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    // MARK: - Actions
     
+    // MARK: - Actions
     @IBAction func signInButtonTapped(_ sender: UIButton) {
 //        signInUser()
     }
@@ -95,7 +96,6 @@ class SignInViewController: UIViewController {
         }
     }
     
-    
     // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let activityType = activityType else { return }
@@ -136,6 +136,22 @@ class SignInViewController: UIViewController {
     
     
     // MARK: Helper Methods
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0 {
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
+        self.view.frame.origin.y = 0
+    }
     
     func showEmptyFieldsAlert() {
         let alertController = MessageController.shared.createEmptyFieldAlert()
