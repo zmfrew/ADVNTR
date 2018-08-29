@@ -13,22 +13,22 @@ import SwiftEntryKit
 class SignUpViewController: UIViewController {
     
     // MARK: Properties
-    
     var isSuccessfulSignUp = false
     var activityType: String?
     
     // MARK: - Outlets
-    
     @IBOutlet weak var displayNameTextField: UITextField!
     @IBOutlet weak var emailAddressTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
 
+    // MARK: - LifeCycleMethods
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     // MARK: - Actions
-    
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
         signUpNewUser()
     }
@@ -38,6 +38,22 @@ class SignUpViewController: UIViewController {
     }
     
     // MARK: - Methods
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0 {
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
+        self.view.frame.origin.y = 0
+    }
     
     // Convenience function that handles creating a new authenticated user from an anonymous user.
     // This function is called in shouldPerformSegue so that errors are handled before the user
