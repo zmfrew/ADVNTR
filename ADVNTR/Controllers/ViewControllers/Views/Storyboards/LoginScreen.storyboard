@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RG6-NH-xt0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RG6-NH-xt0">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -126,8 +127,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
-                                                                    <action selector="signInButtonTapped:" destination="RG6-NH-xt0" eventType="touchUpInside" id="hgk-UJ-V5m"/>
-                                                                    <segue destination="38y-0A-ftw" kind="show" identifier="successfulSignIn" id="WZO-7j-3mb"/>
+                                                                    <segue destination="x5b-Ff-2be" kind="unwind" identifier="unwindFromSignIn" unwindAction="unwindFromSignUpVC:" id="n5I-aC-qch"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -183,6 +183,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N8K-6r-Kbt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="x5b-Ff-2be" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="45.600000000000001" y="141.87192118226602"/>
         </scene>
@@ -275,14 +276,6 @@
                 <exit id="xVm-Px-2m9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-567.20000000000005" y="841.52923538230891"/>
-        </scene>
-        <!--SelectedActivityListDetails-->
-        <scene sceneID="m7T-5d-2jz">
-            <objects>
-                <viewControllerPlaceholder storyboardName="SelectedActivityListDetails" id="38y-0A-ftw" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uSA-lK-3Uu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="45" y="575"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="C0B-j9-0hY">

@@ -41,4 +41,8 @@ class ActivityHistoryViewController: UIViewController {
             destinationVC.activityType = "run"
         }
     }
+    
+    @IBAction func unwindFromSignUpVC(_ sender: UIStoryboardSegue) {
+        //self.tabBarController?.selectedIndex = 1
+    }
 }
