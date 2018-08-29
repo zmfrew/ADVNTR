@@ -259,7 +259,7 @@
                         <outlet property="startButton" destination="U1c-GN-pmN" id="Hzp-nC-GPb"/>
                         <outlet property="stopButton" destination="fAL-lw-R4m" id="827-7M-78r"/>
                         <segue destination="gR8-Cj-EVS" kind="show" identifier="toSelectedActivityListDetails" id="dH3-Zj-xqG"/>
-                        <segue destination="ybh-q0-fs5" kind="show" identifier="toLoginScreen" id="Sz5-vi-XR4"/>
+                        <segue destination="ybh-q0-fs5" kind="presentation" identifier="toLoginScreen" modalTransitionStyle="crossDissolve" id="Sz5-vi-XR4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bHa-gu-3lW" userLabel="First Responder" sceneMemberID="firstResponder"/>

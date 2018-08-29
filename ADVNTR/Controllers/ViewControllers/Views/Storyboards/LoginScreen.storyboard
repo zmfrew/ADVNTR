@@ -127,7 +127,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
-                                                                    <segue destination="x5b-Ff-2be" kind="unwind" identifier="unwindFromSignIn" unwindAction="unwindFromSignUpVC:" id="n5I-aC-qch"/>
+                                                                    <segue destination="x5b-Ff-2be" kind="unwind" identifier="unwindFromSignIn" unwindAction="unwindFromSignInVC:" id="n5I-aC-qch"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -382,7 +382,6 @@
                                         </state>
                                         <connections>
                                             <action selector="backButtonTapped:" destination="l7B-nu-oFZ" eventType="touchUpInside" id="iJa-En-QBo"/>
-                                            <segue destination="4nj-5a-xuP" kind="unwind" unwindAction="unwindFromSignUpVC:" id="6ui-Nm-XiM"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -401,7 +400,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="signUpButtonTapped:" destination="l7B-nu-oFZ" eventType="touchUpInside" id="cy6-OM-3bV"/>
+                                    <segue destination="4nj-5a-xuP" kind="unwind" identifier="successfulSignUp" unwindAction="unwindFromSignUpVC:" id="a6c-c1-bOX"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -418,21 +417,12 @@
                         <outlet property="displayNameTextField" destination="zZH-M1-bqw" id="pVR-b4-C2l"/>
                         <outlet property="emailAddressTextField" destination="E1W-bh-hM7" id="ryb-cQ-vbT"/>
                         <outlet property="passwordTextField" destination="gwJ-vo-fpF" id="aj8-Ed-hxj"/>
-                        <segue destination="PNY-cO-fKO" kind="show" identifier="successfulSignUp" id="UM1-Y2-YBg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E31-5y-yNo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="4nj-5a-xuP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="640.79999999999995" y="841.52923538230891"/>
-        </scene>
-        <!--SelectedActivityListDetails-->
-        <scene sceneID="r2e-DY-Xrd">
-            <objects>
-                <viewControllerPlaceholder storyboardName="SelectedActivityListDetails" id="PNY-cO-fKO" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="avw-B2-vNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1404" y="1115"/>
         </scene>
     </scenes>
     <resources>
