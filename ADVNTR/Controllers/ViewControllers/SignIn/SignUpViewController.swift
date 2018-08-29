@@ -29,9 +29,10 @@ class SignUpViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @IBAction func signUpButtonTapped(_ sender: UIButton) {
-        signUpNewUser()
-    }
+    
+//    @IBAction func signUpButtonTapped(_ sender: UIButton) {
+//
+//    }
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
@@ -58,7 +59,7 @@ class SignUpViewController: UIViewController {
     // Convenience function that handles creating a new authenticated user from an anonymous user.
     // This function is called in shouldPerformSegue so that errors are handled before the user
     // is returned to the app to see their new Activity History.
-    func signUpNewUser() {
+    func signUpNewUser(completion: @escaping (Bool) -> Void) {
         
         // Show an alert if text is not entered in one or both fields.
         // TODO: Handle password complexity requirements.
@@ -71,6 +72,7 @@ class SignUpViewController: UIViewController {
                 
                 self.isSuccessfulSignUp = true
                 DispatchQueue.main.async {
+                    completion(true)
                     self.performSegue(withIdentifier: "successfulSignUp", sender: self)
                 }
             } else {
@@ -113,25 +115,44 @@ class SignUpViewController: UIViewController {
                         }
                     }
                 }
+                completion(false)
             }
         }
     }
     
-    // Prevents the unwind segue from performing unless the user's sign up/in has been successful.
+//    // Prevents the unwind segue from performing unless the user's sign up/in has been successful.
+//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+//        if identifier == "successfulSignUp" {
+//            if self.isSuccessfulSignUp {
+//                return true
+//            }
+//        }
+//        return false
+//    }
+    
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        var boolToReturn = false
         if identifier == "successfulSignUp" {
-            if self.isSuccessfulSignUp {
-                return true
+            signUpNewUser { (success) in
+                if success {
+                    self.isSuccessfulSignUp = true
+                    boolToReturn = true
+                } else {
+                    let message = MessageController.shared.createAuthErrorAlertWith(title: "Error", description: "Failed to sign up. Please try again.")
+                    DispatchQueue.main.async {
+                        SwiftEntryKit.display(entry: message.0, using: message.1)
+                    }
+                }
             }
         }
-        return false
+        return boolToReturn
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "successfulSignUp" {
-            let destinationVC = segue.destination as? SelectedActivityDetailsTableViewController
-            guard let activityType = activityType else { return }
-            destinationVC?.activityType = activityType
+//            let destinationVC = segue.destination as? ActivityHistoryViewController
+//            guard let activityType = activityType else { return }
+            //destinationVC?.activityType = activityType
         }
     }
 }

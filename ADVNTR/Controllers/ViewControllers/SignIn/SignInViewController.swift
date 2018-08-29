@@ -29,10 +29,6 @@ class SignInViewController: UIViewController {
     
     
     // MARK: - Actions
-    @IBAction func signInButtonTapped(_ sender: UIButton) {
-//        signInUser()
-    }
-    
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "toSignUp", sender: self)
     }
@@ -132,6 +128,14 @@ class SignInViewController: UIViewController {
     // Required so that pressing the back button on the Sign Up View Controller will
     // allow the user to pop that screen off the view stack.
     @IBAction func unwindFromSignUpVC(_ sender: UIStoryboardSegue) {
+        
+        let source = sender.source
+        if source.isKind(of: SignUpViewController.self) {
+            guard let sourceVC = source as? SignUpViewController else { return }
+            if sourceVC.isSuccessfulSignUp {
+                performSegue(withIdentifier: "unwindFromSignIn", sender: self)
+            }
+        }
     }
     
     

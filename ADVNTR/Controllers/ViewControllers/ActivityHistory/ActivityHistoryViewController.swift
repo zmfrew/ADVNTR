@@ -42,7 +42,6 @@ class ActivityHistoryViewController: UIViewController {
         }
     }
     
-    @IBAction func unwindFromSignUpVC(_ sender: UIStoryboardSegue) {
-        //self.tabBarController?.selectedIndex = 1
-    }
+    @IBAction func unwindFromSignInVC(_ sender: UIStoryboardSegue) { }
+    
 }
