@@ -92,23 +92,24 @@ class NewActivityViewController: UIViewController {
             locationManager.requestWhenInUseAuthorization()
         } else if status != .authorizedWhenInUse && status != .authorizedAlways {
             presentLocationAlert()
+        } else if status == .authorizedWhenInUse || status == .authorizedAlways {
+            secondsTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (_) in
+                self.fireSecond()
+            })
+            altitudeAndPaceOrSpeedTimer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true, block: { (_) in
+                self.updateAltitudeAndPaceOrSpeedViews()
+            })
+            distanceTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true, block: { (_) in
+                self.updateDistanceView()
+            })
+            updateAverageSpeedOrPaceLabelText()
+            updateAltitudeAndPaceOrSpeedViews()
+            pauseButton.isHidden = false
+            startButton.isHidden = true
+            mapView.showsUserLocation = true
+            mapView.userTrackingMode = .follow
         }
         
-        secondsTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (_) in
-            self.fireSecond()
-        })
-        altitudeAndPaceOrSpeedTimer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true, block: { (_) in
-            self.updateAltitudeAndPaceOrSpeedViews()
-        })
-        distanceTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true, block: { (_) in
-            self.updateDistanceView()
-        })
-        updateAverageSpeedOrPaceLabelText()
-        updateAltitudeAndPaceOrSpeedViews()
-        pauseButton.isHidden = false
-        startButton.isHidden = true
-        mapView.showsUserLocation = true
-        mapView.userTrackingMode = .follow
     }
     
     @IBAction func resumeButtonTapped(_ sender: UIButton) {
@@ -200,12 +201,14 @@ class NewActivityViewController: UIViewController {
     }
     
     func updateDistanceView() {
-         let distanceToDisplay = FormatDisplay.distance(distance.value)
-        activityDistanceLabel.text = distanceToDisplay
+        let distanceToDisplay = FormatDisplay.distance(distance.value)
+        let distanceUnits = UserController.shared.user.defaultUnits == "imperial" ? "mi" : "km"
+        activityDistanceLabel.text = "\(distanceToDisplay) \(distanceUnits)"
     }
     
     func updateAltitudeAndPaceOrSpeedViews() {
         var outputUnit: UnitSpeed
+        
         if UserController.shared.user.defaultUnits == "imperial" {
             outputUnit = UnitSpeed.milesPerHour
         } else {
@@ -213,14 +216,17 @@ class NewActivityViewController: UIViewController {
         }
         
         let pace = ActivityUnitConverter.formatPace(distance: distance, seconds: durationInSeconds, outputUnit: outputUnit)
+        let distanceUnits = UserController.shared.user.defaultUnits == "imperial" ? "mi" : "km"
+
+        let speedUnits = UserController.shared.user.defaultUnits == "imperial" ? "mph" : "km/h"
         let speed = ActivityUnitConverter.speed(distance: distance, seconds: durationInSeconds).value
         
         let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedController.selectedSegmentIndex)
         
-        if activityType == "Run" {
-            averageSpeedOrPaceLabel.text = pace
+        if activityType == "run" {
+            averageSpeedOrPaceLabel.text = "\(pace)/\(distanceUnits)"
         } else {
-            averageSpeedOrPaceLabel.text = "\(speed.roundTo(places: 2))"
+            averageSpeedOrPaceLabel.text = "\(speed.roundTo(places: 2)) \(speedUnits)"
         }
         
         if currentAltitude == 0 {
@@ -231,6 +237,7 @@ class NewActivityViewController: UIViewController {
     }
     
     func fireSecond() {
+        
         durationInSeconds += 1
         updateTimerView()
     }

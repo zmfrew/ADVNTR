@@ -176,7 +176,6 @@ class UserController {
     }
     
     func toggleDefaultUnits() {
-        print("The units before are: \(String(describing: user.defaultUnits))")
         if user.defaultUnits == "imperial" {
             user.defaultUnits = "metric"
         } else if user.defaultUnits == "metric" {
@@ -188,9 +187,7 @@ class UserController {
         let values = ["defaultUnits" : defaultUnits] as [String : Any]
         self.userReference.child(uid!).updateChildValues(values) { (error, ref) in
             if let error = error {
-                print("Units error fuck \(error)")
-            } else {
-                print("The units after are: \(String(describing: self.user.defaultUnits))")
+                print("Error occurred toggling units: \(error.localizedDescription).")
             }
         }
     }
