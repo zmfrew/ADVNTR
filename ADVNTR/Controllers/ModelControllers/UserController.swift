@@ -228,4 +228,66 @@ class UserController {
             }
         }
     }
+    
+    func updateProfileForUserWith(uid: String, displayName: String, email: String, photo: UIImage?, preferredActivityType: String, completion: @escaping (Bool) -> Void) {
+        
+        let values = ["email" : email,
+                      "displayName" : displayName,
+                      "preferredActivityType": preferredActivityType]
+        
+        userReference.child(uid).updateChildValues(values) { (error, ref) in
+            if let error = error {
+                print("Error saving initial data values to Firebase: \(error)")
+                completion(false)
+            } else {
+                if photo != nil {
+                    // Save the profile photo to Firebase Storage and save the URL to it under the user's
+                    // Firebase Database dictionary.
+                    let profileImageRef = self.profileImageReference.child(uid).child("profilePhoto").child("photo")
+                    guard let photo = photo else { completion(false) ; return }
+                    guard let photoData = UIImageJPEGRepresentation(photo, 0.1) else { completion(false) ; return }
+                    
+                    profileImageRef.putData(photoData, metadata: nil) { (metadata, error) in
+                        if let error = error {
+                            print("Error saving activity image map view to Firebase Storage: \(error)")
+                            completion(false)
+                            return
+                        }
+                        
+                        profileImageRef.downloadURL { (url, error) in
+                            guard let downloadURL = url else {
+                                print("Error retrieving photoURL when saving image to Firebase Storage.")
+                                return
+                            }
+                            
+                            // Create a string describing the profile image's new URL in Firebase Storage that can
+                            // be stored in the local User model object's photoURL property and thereafter
+                            // uploaded to Firebase Realtime Database.
+                            let photoURL = downloadURL.absoluteString
+                            self.userReference.child("\(uid)/photoURL").setValue(photoURL, withCompletionBlock: { (error, ref) in
+                                if let error = error {
+                                    print("Error updating profile image URL on Firebase Database: \(error.localizedDescription)")
+                                    completion(false)
+                                    return
+                                } else {
+                                    print("Successfully updated user's profile")
+                                    completion(true)
+                                }
+                            })
+                        }
+                    }
+                } else {
+                    completion(true)
+                }
+            }
+        }
+    }
 }
+
+
+
+
+
+
+
+

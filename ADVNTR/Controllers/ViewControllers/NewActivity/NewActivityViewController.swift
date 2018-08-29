@@ -427,7 +427,6 @@ extension NewActivityViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("LocationManager failed with error: \(error.localizedDescription).")
     }
-    
 }
 
 extension NewActivityViewController: MKMapViewDelegate {

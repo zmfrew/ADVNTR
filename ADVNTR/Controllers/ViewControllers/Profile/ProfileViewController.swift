@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseUI
 import FirebaseAuth
+import SwiftEntryKit
 
 class ProfileViewController: UIViewController {
     
@@ -43,12 +44,27 @@ class ProfileViewController: UIViewController {
         toggleTextFieldColors()
         toggleUserInteraction()
         guard let displayName = displayNameTextField.text, !displayName.isEmpty, displayName != " ",
-            let email = emailTextField.text, !email.isEmpty, email != " "
+            let email = emailTextField.text, !email.isEmpty, email != " ",
+            let photo = profileImageView.image
             else { return }
         
-        let preferredActivty = updatePreferredActivityType(activityTypeSegmentedController.selectedSegmentIndex)
+        let preferredActivity = updatePreferredActivityType(activityTypeSegmentedController.selectedSegmentIndex)
         
-        // TODO: - Implement update and save logic for displayName, image, preferredActivity, and email.
+        // Update on Firebase
+        UserController.shared.updateProfileForUserWith(uid: UserController.shared.user.uid!, displayName: displayName, email: email, photo: photo, preferredActivityType: preferredActivity) { (success) in
+            
+            if success {
+                UserController.shared.fetchCurrentUserData(completion: { (success) in
+                    let message = MessageController.shared.createSuccessAlertWith(title: "Success", description: "Your profile was successfully updated.")
+                    DispatchQueue.main.async {
+                        SwiftEntryKit.display(entry: message.0, using: message.1)
+                        self.updateViews()
+                    }
+                })
+            } else {
+                print("Failed to update user's profile.")
+            }
+        }
     }
     
     @IBAction func defaultActivitySegmentedController(_ sender: UISegmentedControl) {
