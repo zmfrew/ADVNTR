@@ -30,7 +30,6 @@ class NewActivityViewController: UIViewController {
     @IBOutlet weak var resumeButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
-    @IBOutlet weak var saveButton: UIButton!
     
     // MARK: - Properties
     var user: User?
@@ -136,7 +135,6 @@ class NewActivityViewController: UIViewController {
     @IBAction func stopButtonTapped(_ sender: UIButton) {
         pauseButton.isHidden = true
         resumeButton.isHidden = true
-        saveButton.isHidden = false
         locationManager.stopUpdatingLocation()
         stopButton.isHidden = true
         
@@ -146,47 +144,15 @@ class NewActivityViewController: UIViewController {
         secondsTimer?.invalidate()
         altitudeAndPaceOrSpeedTimer?.invalidate()
         altitudeAndPaceOrSpeedTimer?.invalidate()
-        // TODO: - takeSnapShot of map with polyline showing user's path.
+        
+        takeSnapShot()
+        
+        saveNewWorkout()
+        let message = MessageController.shared.createSuccessAlertWith(title: "New activity saved.", description: "Great job with your workout!")
+        SwiftEntryKit.display(entry: message.0, using: message.1)
+        
     }
-    
-    @IBAction func saveButtonTapped(_ sender: UIButton) {
-        startButton.isHidden = false
-        resumeButton.isHidden = true
-        pauseButton.isHidden = true
-        stopButton.isHidden = true
-        saveButton.isHidden = true
-        mapView.showsUserLocation = false
-        mapView.userTrackingMode = .none
-        
-        activityTypeSegmentedController.isUserInteractionEnabled = true
-        
-        let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedController.selectedSegmentIndex).lowercased()
-        let hour = currentDate?.getHour(from: currentDate!)
-        let timeOfDay = currentDate?.getTimeOfDay(from: hour!)
-        let name = "\(timeOfDay!) - \(activityType.capitalized)"
-        let averageSpeed = ActivityUnitConverter.milesPerHourFromMetersPerSecond(seconds: durationInSeconds, meters: distance)
-        let activitySnapshotImage = activitySnapshotImageView.image ?? UIImage(named: "defaultProfile")!
-        
-        ActivityController.shared.saveActivity(type: activityType, name: name, distance: Int(distance.value), averageSpeed: averageSpeed, elevationChange: Int(elevationChange.rounded()), timestamp: (currentDate?.stringValue(from: currentDate!))!, duration: durationInSeconds, image: activitySnapshotImage) { (success) in
-            
-            if success {
-                self.resetLocalProperties()
-                guard let isAnonymousUser = Auth.auth().currentUser?.isAnonymous else { return }
-                if !isAnonymousUser {
-                    DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: "toSelectedActivityListDetails", sender: self)
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: "toLoginScreen", sender: self)
-                    }
-                }
-            } else {
-                print("Failed to save Activity.")
-            }
-        }
-    }
-    
+ 
     // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedController.selectedSegmentIndex)
@@ -282,6 +248,43 @@ class NewActivityViewController: UIViewController {
         alert.addAction(enableAction)
         alert.addAction(dismissAction)
         present(alert, animated: true, completion: nil)
+    }
+    
+    func saveNewWorkout() {
+        startButton.isHidden = false
+        resumeButton.isHidden = true
+        pauseButton.isHidden = true
+        stopButton.isHidden = true
+        mapView.showsUserLocation = false
+        mapView.userTrackingMode = .none
+        
+        activityTypeSegmentedController.isUserInteractionEnabled = true
+        
+        let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedController.selectedSegmentIndex).lowercased()
+        let hour = currentDate?.getHour(from: currentDate!)
+        let timeOfDay = currentDate?.getTimeOfDay(from: hour!)
+        let name = "\(timeOfDay!) - \(activityType.capitalized)"
+        let averageSpeed = ActivityUnitConverter.milesPerHourFromMetersPerSecond(seconds: durationInSeconds, meters: distance)
+        let activitySnapshotImage = activitySnapshotImageView.image ?? UIImage(named: "defaultProfile")!
+        
+        ActivityController.shared.saveActivity(type: activityType, name: name, distance: Int(distance.value), averageSpeed: averageSpeed, elevationChange: Int(elevationChange.rounded()), timestamp: (currentDate?.stringValue(from: currentDate!))!, duration: durationInSeconds, image: activitySnapshotImage) { (success) in
+            
+            if success {
+                self.resetLocalProperties()
+                guard let isAnonymousUser = Auth.auth().currentUser?.isAnonymous else { return }
+                if !isAnonymousUser {
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "toSelectedActivityListDetails", sender: self)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "toLoginScreen", sender: self)
+                    }
+                }
+            } else {
+                print("Failed to save Activity.")
+            }
+        }
     }
         
     // The following two methods are not useful until we have a Stop and Save feature. In addition, we will return a UIImage from takeSnapShot() to pass into the save function, thus saving to the model.
