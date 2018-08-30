@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KyK-C0-UeB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KyK-C0-UeB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -54,7 +54,7 @@
         <scene sceneID="QBD-lq-Ia2">
             <objects>
                 <viewControllerPlaceholder storyboardName="NewActivity" id="8DD-Ag-X5l" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="icons8-mountain_filledBIG" id="XtL-SK-blx"/>
+                    <tabBarItem key="tabBarItem" title="" image="icons8-mountain_filled75" id="XtL-SK-blx"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H0a-AB-WNR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -96,7 +96,7 @@
     <resources>
         <image name="icons8-add" width="32" height="32"/>
         <image name="icons8-administrator_female" width="32" height="32"/>
-        <image name="icons8-mountain_filledBIG" width="100" height="100"/>
+        <image name="icons8-mountain_filled75" width="75" height="75"/>
         <image name="icons8-settings" width="32" height="32"/>
         <image name="icons8-tenses" width="32" height="32"/>
     </resources>
