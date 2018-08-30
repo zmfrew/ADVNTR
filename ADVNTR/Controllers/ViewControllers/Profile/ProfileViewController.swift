@@ -46,7 +46,6 @@ class ProfileViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func editAndSaveButtonTapped(_ sender: UIBarButtonItem) {
-        toggleEditOrSaveButtonText()
         toggleTextFieldColors()
         toggleUserInteraction()
         guard let displayName = displayNameTextField.text, !displayName.isEmpty, displayName != " ",
@@ -56,21 +55,24 @@ class ProfileViewController: UIViewController {
         
         let preferredActivity = updatePreferredActivityType(activityTypeSegmentedController.selectedSegmentIndex)
         
-        // Update on Firebase
-        UserController.shared.updateProfileForUserWith(uid: UserController.shared.user.uid!, displayName: displayName, email: email, photo: photo, preferredActivityType: preferredActivity) { (success) in
-            
-            if success {
-                UserController.shared.fetchCurrentUserData(completion: { (success) in
-                    let message = MessageController.shared.createSuccessAlertWith(title: "Success", description: "Your profile was successfully updated.")
-                    DispatchQueue.main.async {
-                        SwiftEntryKit.display(entry: message.0, using: message.1)
-                        self.updateViews()
-                    }
-                })
-            } else {
-                print("Failed to update user's profile.")
+        if editAndSaveButton.title == "Save" {
+            // Update on Firebase
+            UserController.shared.updateProfileForUserWith(uid: UserController.shared.user.uid!, displayName: displayName, email: email, photo: photo, preferredActivityType: preferredActivity) { (success) in
+                
+                if success {
+                    UserController.shared.fetchCurrentUserData(completion: { (success) in
+                        let message = MessageController.shared.createSuccessAlertWith(title: "Success", description: "Your profile was successfully updated.")
+                        DispatchQueue.main.async {
+                            SwiftEntryKit.display(entry: message.0, using: message.1)
+                            self.updateViews()
+                        }
+                    })
+                } else {
+                    print("Failed to update user's profile.")
+                }
             }
         }
+        toggleEditOrSaveButtonText()
     }
     
     @IBAction func defaultActivitySegmentedController(_ sender: UISegmentedControl) {

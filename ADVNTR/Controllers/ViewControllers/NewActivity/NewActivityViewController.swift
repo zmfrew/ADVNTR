@@ -80,6 +80,7 @@ class NewActivityViewController: UIViewController {
         durationInSeconds = 0
         currentDate = Date()
         locationList = []
+        coordinates = []
         
         activityTypeSegmentedController.isUserInteractionEnabled = false
         
@@ -153,6 +154,7 @@ class NewActivityViewController: UIViewController {
     }
     
     func hideInitialViews() {
+        activityTimeLabel.text = "0:00:00"
         activityTimeLabel.isHidden = true
         altitudeLabel.isHidden = true
         averageSpeedOrPaceLabel.isHidden = true
@@ -265,42 +267,54 @@ class NewActivityViewController: UIViewController {
         
         activityTypeSegmentedController.isUserInteractionEnabled = true
         
-        takeSnapShot { (success) in
-            if success {
-                
-                let activityType = self.setActivityTypeForActivityCreation(self.activityTypeSegmentedController.selectedSegmentIndex).lowercased()
-                let hour = self.currentDate?.getHour(from: self.currentDate!)
-                let timeOfDay = self.currentDate?.getTimeOfDay(from: hour!)
-                let name = "\(timeOfDay!) - \(activityType.capitalized)"
-                let averageSpeed = ActivityUnitConverter.milesPerHourFromMetersPerSecond(seconds: self.durationInSeconds, meters: self.distance)
-                let activitySnapshotImage = self.activitySnapshotImageView.image ?? UIImage(named: "defaultProfile")
-                
-                ActivityController.shared.saveActivity(type: activityType, name: name, distance: Int(self.distance.value), averageSpeed: averageSpeed, elevationChange: Int(self.elevationChange.rounded()), timestamp: (self.currentDate?.stringValue(from: self.currentDate!))!, duration: self.durationInSeconds, image: activitySnapshotImage!) { (success, activityUID) in
+        let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
+        let region = MKCoordinateRegionForMapRect(polyline.boundingMapRect)
+        
+        DispatchQueue.main.async {
+            self.mapView.setVisibleMapRect(polyline.boundingMapRect, animated: true)
+            self.mapView.setRegion(region, animated: false)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            
+            
+            self.takeSnapShot { (success) in
+                if success {
                     
-                    if success {
-                        self.resetLocalProperties()
-                        guard let isAnonymousUser = Auth.auth().currentUser?.isAnonymous else { return }
+                    let activityType = self.setActivityTypeForActivityCreation(self.activityTypeSegmentedController.selectedSegmentIndex).lowercased()
+                    let hour = self.currentDate?.getHour(from: self.currentDate!)
+                    let timeOfDay = self.currentDate?.getTimeOfDay(from: hour!)
+                    let name = "\(timeOfDay!) - \(activityType.capitalized)"
+                    let averageSpeed = ActivityUnitConverter.milesPerHourFromMetersPerSecond(seconds: self.durationInSeconds, meters: self.distance)
+                    let activitySnapshotImage = self.activitySnapshotImageView.image ?? UIImage(named: "defaultProfile")
+                    
+                    ActivityController.shared.saveActivity(type: activityType, name: name, distance: Int(self.distance.value), averageSpeed: averageSpeed, elevationChange: Int(self.elevationChange.rounded()), timestamp: (self.currentDate?.stringValue(from: self.currentDate!))!, duration: self.durationInSeconds, image: activitySnapshotImage!) { (success, activityUID) in
                         
-                        SwiftEntryKit.dismiss {
-                            // Executed right after the entry has been dismissed
-                            self.resetViews()
-                            self.hideInitialViews()
-                            if !isAnonymousUser {
-                                DispatchQueue.main.async {
-                                    self.tabBarController?.selectedIndex = 1
-                                }
-                            } else {
-                                DispatchQueue.main.async {
-                                    self.performSegue(withIdentifier: "toLoginScreen", sender: self)
+                        if success {
+                            self.resetLocalProperties()
+                            guard let isAnonymousUser = Auth.auth().currentUser?.isAnonymous else { return }
+                            
+                            SwiftEntryKit.dismiss {
+                                // Executed right after the entry has been dismissed
+                                self.resetViews()
+                                self.hideInitialViews()
+                                if !isAnonymousUser {
+                                    DispatchQueue.main.async {
+                                        self.tabBarController?.selectedIndex = 1
+                                    }
+                                } else {
+                                    DispatchQueue.main.async {
+                                        self.performSegue(withIdentifier: "toLoginScreen", sender: self)
+                                    }
                                 }
                             }
+                        } else {
+                            print("Failed to save Activity.")
                         }
-                    } else {
-                        print("Failed to save Activity.")
                     }
+                } else {
+                    print("Failure to save snapshot caused failure to save activity.")
                 }
-            } else {
-                print("Failure to save snapshot caused failure to save activity.")
             }
         }
     }
@@ -440,7 +454,7 @@ extension NewActivityViewController: MKMapViewDelegate {
     func setupMapView() {
         mapView.delegate = self
         // TODO: - Decide which map type we would like to display.
-        mapView.mapType = .hybrid
+        mapView.mapType = .standard
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -458,7 +472,6 @@ extension NewActivityViewController: MKMapViewDelegate {
 extension MKMapView {
     
     func takeScreenshot(view: MKMapView) -> UIImage {
-        
         // Begin context
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, view.contentScaleFactor)
         
