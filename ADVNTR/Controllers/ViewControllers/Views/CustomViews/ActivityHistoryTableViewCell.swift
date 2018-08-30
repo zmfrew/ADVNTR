@@ -45,8 +45,7 @@ class ActivityHistoryTableViewCell: UITableViewCell {
         
         if activity.type == "run" {
             let distance = Measurement(value: Double(activity.distance), unit: UnitLength.meters)
-            let speedUnit = UserController.shared.user.defaultUnits == "imperial" ? UnitSpeed.milesPerHour : UnitSpeed.kilometersPerHour
-            let pace = ActivityUnitConverter.formatPace(distance: distance, seconds: activity.duration, outputUnit: speedUnit)
+            let pace = ActivityUnitConverter.formatPace(distance: distance, seconds: activity.duration)
             activityDistanceLabel.text = "\(distanceToDisplay.roundedDoubleString) \(distanceUnits)"
             averageSpeedLabel.text = "Average pace: \(pace) / \(distanceUnits)"
         } else {

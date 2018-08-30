@@ -30,10 +30,16 @@ class ActivityUnitConverter: UnitConverter {
         return speed
     }
     
-    static func formatPace(distance: Measurement<UnitLength>, seconds: Int, outputUnit: UnitSpeed) -> String  {
-        let currentSpeed = speed(distance: distance, seconds: seconds).converted(to: outputUnit).value
-        let minutes = Int(currentSpeed)
-        let seconds = Int((currentSpeed - Double(minutes)) * 60)
+    static func formatPace(distance: Measurement<UnitLength>, seconds: Int) -> String  {
+        if distance.value == 0 || seconds == 0 {
+            return "00:00"
+        }
+        
+        let distanceMeasurement = Measurement(value: distance.value, unit: UnitLength.meters)
+        let distanceForPace = UserController.shared.user.defaultUnits == "imperial" ? milesFromMeters(distance: distanceMeasurement) : kilometersFromMeters(distance: distanceMeasurement)
+        let pace =  (Double(seconds) / 60) / distanceForPace
+        let minutes = Int(floor(pace))
+        let seconds = Int(pace.truncatingRemainder(dividingBy: 1) * 60)
         let displaySeconds = String(format: "%02d", seconds)
         return "\(minutes):\(displaySeconds)"
     }

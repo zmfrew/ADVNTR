@@ -203,15 +203,7 @@ class NewActivityViewController: UIViewController {
     }
     
     func updateAltitudeAndPaceOrSpeedViews() {
-        var outputUnit: UnitSpeed
-        
-        if UserController.shared.user.defaultUnits == "imperial" {
-            outputUnit = UnitSpeed.milesPerHour
-        } else {
-            outputUnit = UnitSpeed.kilometersPerHour
-        }
-        
-        let pace = ActivityUnitConverter.formatPace(distance: distance, seconds: durationInSeconds, outputUnit: outputUnit)
+        let pace = ActivityUnitConverter.formatPace(distance: distance, seconds: durationInSeconds)
         let distanceUnits = UserController.shared.user.defaultUnits == "imperial" ? "mi" : "km"
 
         let speedUnits = UserController.shared.user.defaultUnits == "imperial" ? "mph" : "km/h"
@@ -225,10 +217,13 @@ class NewActivityViewController: UIViewController {
             averageSpeedOrPaceLabel.text = "\(speed.roundedDoubleString) \(speedUnits)"
         }
         
+        let altitudeMeasurement = Measurement(value: currentAltitude, unit: UnitLength.meters)
+        let altitudeToDisplay = UserController.shared.user.defaultUnits == "imperial" ? ActivityUnitConverter.feetFromMeters(distance: altitudeMeasurement) : currentAltitude
+        let altitudeUnits = UserController.shared.user.defaultUnits == "imperial" ? "ft" : "m"
         if currentAltitude == 0 {
             altitudeLabel.text = "--"
         } else {
-            altitudeLabel.text = "\(currentAltitude.roundedDoubleString)"
+            altitudeLabel.text = "\(Int(altitudeToDisplay)) \(altitudeUnits)"
         }
     }
     
@@ -268,7 +263,8 @@ class NewActivityViewController: UIViewController {
         activityTypeSegmentedController.isUserInteractionEnabled = true
         
         let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
-        let region = MKCoordinateRegionForMapRect(polyline.boundingMapRect)
+        let mapSize = MKMapSize(width: polyline.boundingMapRect.size.width + 32, height: polyline.boundingMapRect.size.height + 32)
+        let region = MKCoordinateRegionForMapRect(MKMapRect(origin: polyline.boundingMapRect.origin, size: mapSize))
         
         DispatchQueue.main.async {
             self.mapView.setVisibleMapRect(polyline.boundingMapRect, animated: true)
@@ -393,6 +389,7 @@ class NewActivityViewController: UIViewController {
         updateAltitudeAndPaceOrSpeedViews()
         durationInSeconds = 0
         activityTimeLabel.text = "0:00:00"
+        mapView.removeOverlays(self.mapView.overlays)
     }
     
     func resetViews() {
@@ -453,7 +450,6 @@ extension NewActivityViewController: MKMapViewDelegate {
     
     func setupMapView() {
         mapView.delegate = self
-        // TODO: - Decide which map type we would like to display.
         mapView.mapType = .standard
     }
     
