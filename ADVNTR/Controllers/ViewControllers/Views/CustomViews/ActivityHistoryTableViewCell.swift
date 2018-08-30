@@ -38,22 +38,20 @@ class ActivityHistoryTableViewCell: UITableViewCell {
         activityDateLabel.text = activity.timestamp
         activityDurationLabel.text = "\(FormatDisplay.time(activity.duration))"
         
-        let distanceMeasurementUnits = UserController.shared.user.defaultUnits == "imperial" ? UnitLength.miles : UnitLength.kilometers
-        
-        let distanceMeasurement = Measurement(value: Double(activity.distance), unit: distanceMeasurementUnits)
-        let distanceToDisplay = UserController.shared.user.defaultUnits == "imperial" ? "\(ActivityUnitConverter.milesFromMeters(distance: distanceMeasurement))" : "\(ActivityUnitConverter.kilometersFromMeters(distance: distanceMeasurement))"
+        let distanceMeasurement = Measurement(value: Double(activity.distance), unit: UnitLength.meters)
+        let distanceToDisplay = UserController.shared.user.defaultUnits == "imperial" ? ActivityUnitConverter.milesFromMeters(distance: distanceMeasurement) : ActivityUnitConverter.kilometersFromMeters(distance: distanceMeasurement)
         let distanceUnits = UserController.shared.user.defaultUnits == "imperial" ? "mi" : "km"
-        activityDistanceLabel.text = "\(distanceToDisplay) \(distanceUnits)"
+        activityDistanceLabel.text = "\(distanceToDisplay.roundedDoubleString)\(distanceUnits)"
         
         if activity.type == "run" {
             let distance = Measurement(value: Double(activity.distance), unit: UnitLength.meters)
             let speedUnit = UserController.shared.user.defaultUnits == "imperial" ? UnitSpeed.milesPerHour : UnitSpeed.kilometersPerHour
             let pace = ActivityUnitConverter.formatPace(distance: distance, seconds: activity.duration, outputUnit: speedUnit)
-            activityDistanceLabel.text = "\(distanceToDisplay) \(distanceUnits)"
+            activityDistanceLabel.text = "\(distanceToDisplay.roundedDoubleString) \(distanceUnits)"
             averageSpeedLabel.text = "Average pace: \(pace) / \(distanceUnits)"
         } else {
             let speedUnits = UserController.shared.user.defaultUnits == "imperial" ? "mph" : "km/h"
-            averageSpeedLabel.text = "Average speed: \(activity.averageSpeed) \(speedUnits)"
+            averageSpeedLabel.text = "Average speed: \(activity.averageSpeed.roundedDoubleString)\(speedUnits)"
         }
     }
     

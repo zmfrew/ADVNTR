@@ -26,20 +26,20 @@ class ActivityUnitConverter: UnitConverter {
         let formatter = MeasurementFormatter()
         formatter.unitOptions = [.providedUnit]
         let speedMagnitude = seconds != 0 ? distance.value / Double(seconds) : 0
-        let speed = Measurement(value: speedMagnitude.roundTo(places: 2), unit: UnitSpeed.metersPerSecond)
+        let speed = Measurement(value: speedMagnitude, unit: UnitSpeed.metersPerSecond)
         return speed
     }
     
     static func formatPace(distance: Measurement<UnitLength>, seconds: Int, outputUnit: UnitSpeed) -> String  {
         let currentSpeed = speed(distance: distance, seconds: seconds).converted(to: outputUnit).value
         let minutes = Int(currentSpeed)
-        let seconds = Int((currentSpeed.roundTo(places: 2) - Double(minutes)) * 60)
+        let seconds = Int((currentSpeed - Double(minutes)) * 60)
         let displaySeconds = String(format: "%02d", seconds)
         return "\(minutes):\(displaySeconds)"
     }
     
     static func kilometersFromMeters(distance: Measurement<UnitLength>) -> Double {
-        return distance.value / 100
+        return distance.value / 1000
     }
     
     static func milesFromMeters(distance: Measurement<UnitLength>) -> Double {
