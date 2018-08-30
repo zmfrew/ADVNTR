@@ -105,7 +105,7 @@ class ActivityController {
                     // Turn the activity/map screenshot image into data for upload to Firebase Storage
                     // TODO: Check that 0.1 is enough/too much compression for the image to reduce Firebase Storage usage
                     // and download times.
-                    guard let imageData = UIImageJPEGRepresentation(image, 1.0) else { completion(false, nil) ; return }
+                    guard let imageData = UIImageJPEGRepresentation(image, 0.3) else { completion(false, nil) ; return }
                     
                     // Perform the upload task to store the image on Firebase Storage and retrieve it's URL for saving in
                     // the Firebase Realtime Database record for that activity.
