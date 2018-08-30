@@ -36,7 +36,6 @@
 		B69D6721212F417B007A3A92 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D6720212F417B007A3A92 /* DateFormatter.swift */; };
 		B6C74F9E212B83AB00331D01 /* ActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F77212B83AA00331D01 /* ActivityController.swift */; };
 		B6C74FA2212B83AB00331D01 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F80212B83AA00331D01 /* ProfileViewController.swift */; };
-		B6C74FA3212B83AB00331D01 /* CurrentActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F82212B83AA00331D01 /* CurrentActivityViewController.swift */; };
 		B6C74FA8212B83AB00331D01 /* ActivityHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F88212B83AA00331D01 /* ActivityHistoryViewController.swift */; };
 		B6C74FAC212B83AB00331D01 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F8F212B83AA00331D01 /* LocationManager.swift */; };
 		B6C74FAE212B83AB00331D01 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74F93212B83AB00331D01 /* User.swift */; };
@@ -85,7 +84,6 @@
 		B6C74ECE212B7C3500331D01 /* ADVNTR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADVNTR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6C74F77212B83AA00331D01 /* ActivityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
 		B6C74F80212B83AA00331D01 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		B6C74F82212B83AA00331D01 /* CurrentActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentActivityViewController.swift; sourceTree = "<group>"; };
 		B6C74F88212B83AA00331D01 /* ActivityHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityHistoryViewController.swift; sourceTree = "<group>"; };
 		B6C74F8F212B83AA00331D01 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		B6C74F93212B83AB00331D01 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -213,7 +211,6 @@
 				B6C74F7D212B83AA00331D01 /* AddActivity */,
 				B6C74F83212B83AA00331D01 /* ActivityHistory */,
 				3EC2C957212CBE75002D7F69 /* NewActivity */,
-				B6C74F81212B83AA00331D01 /* CurrentActivity */,
 				B6C74F7F212B83AA00331D01 /* Profile */,
 				3E4528642130A93B003E892E /* SignIn */,
 				B6C74F7B212B83AA00331D01 /* Settings */,
@@ -248,14 +245,6 @@
 				B6C74F80212B83AA00331D01 /* ProfileViewController.swift */,
 			);
 			path = Profile;
-			sourceTree = "<group>";
-		};
-		B6C74F81212B83AA00331D01 /* CurrentActivity */ = {
-			isa = PBXGroup;
-			children = (
-				B6C74F82212B83AA00331D01 /* CurrentActivityViewController.swift */,
-			);
-			path = CurrentActivity;
 			sourceTree = "<group>";
 		};
 		B6C74F83212B83AA00331D01 /* ActivityHistory */ = {
@@ -510,7 +499,6 @@
 				B6C74FA2212B83AB00331D01 /* ProfileViewController.swift in Sources */,
 				B69D6721212F417B007A3A92 /* DateFormatter.swift in Sources */,
 				3E45285F21305C31003E892E /* SignInViewController.swift in Sources */,
-				B6C74FA3212B83AB00331D01 /* CurrentActivityViewController.swift in Sources */,
 				B6FE8A97212DD8ED0095FC8B /* FormatDisplay.swift in Sources */,
 				3EC2C956212CBE57002D7F69 /* NewActivityViewController.swift in Sources */,
 				3EA20908212E2EFB00750A5D /* SettingsTableViewController.swift in Sources */,

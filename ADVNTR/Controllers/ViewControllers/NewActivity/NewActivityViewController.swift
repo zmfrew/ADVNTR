@@ -141,12 +141,14 @@ class NewActivityViewController: UIViewController {
         altitudeAndPaceOrSpeedTimer?.invalidate()
         altitudeAndPaceOrSpeedTimer?.invalidate()
         // TODO: - takeSnapShot of map with polyline showing user's path.
-//        takeSnapShot()
+        takeSnapShot()
         
         saveNewWorkout()
         
         let message = MessageController.shared.createSuccessAlertWith(title: "New activity saved.", description: "Great job with your workout!")
-        SwiftEntryKit.display(entry: message.0, using: message.1)
+        DispatchQueue.main.async {
+            SwiftEntryKit.display(entry: message.0, using: message.1)
+        }
         
         if UserController.shared.user.email != "email" {
             self.tabBarController?.selectedIndex = 1
@@ -201,8 +203,10 @@ class NewActivityViewController: UIViewController {
     }
     
     func updateDistanceView() {
-        let distanceToDisplay = distance.value.roundedDoubleString
         let distanceUnits = UserController.shared.user.defaultUnits == "imperial" ? "mi" : "km"
+        let distanceMeasurement = Measurement(value: Double(distance.value), unit: UnitLength.meters)
+        let distanceToDisplay = UserController.shared.user.defaultUnits == "imperial" ? ActivityUnitConverter.milesFromMeters(distance: distanceMeasurement) : ActivityUnitConverter.kilometersFromMeters(distance: distanceMeasurement)
+
         activityDistanceLabel.text = "\(distanceToDisplay) \(distanceUnits)"
     }
     
@@ -237,7 +241,6 @@ class NewActivityViewController: UIViewController {
     }
     
     func fireSecond() {
-        
         durationInSeconds += 1
         updateTimerView()
     }
@@ -295,7 +298,6 @@ class NewActivityViewController: UIViewController {
         }
     }
         
-    // The following two methods are not useful until we have a Stop and Save feature. In addition, we will return a UIImage from takeSnapShot() to pass into the save function, thus saving to the model.
     // Takes a snapshot of the mapview from the user's activity.
     func takeSnapShot() {
         let mapSnapShotOptions = MKMapSnapshotOptions()
