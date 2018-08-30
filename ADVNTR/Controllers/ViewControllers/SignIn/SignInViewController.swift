@@ -96,7 +96,7 @@ class SignInViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let activityType = activityType else { return }
         if segue.identifier == "unwindFromSignIn" {
-            let destinationVC = segue.destination as? ActivityHistoryViewController
+//            let destinationVC = segue.destination as? ActivityHistoryViewController
 //            destinationVC?.activityType = activityType
         }
         
