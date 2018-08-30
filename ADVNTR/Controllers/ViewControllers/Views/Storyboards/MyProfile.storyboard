@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4Ch-0H-lwo">
-    <device id="retina4_0" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4Ch-0H-lwo">
+    <device id="retina5_9" orientation="portrait">
+
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -192,6 +194,9 @@
                         <outlet property="emailTextField" destination="yw9-7T-vMo" id="7tw-lQ-YZ5"/>
                         <outlet property="profileImageView" destination="Ghl-lM-qrE" id="9bG-hN-go1"/>
                         <outlet property="profileNameLabel" destination="zpd-P7-Zdb" id="KiK-G7-vKW"/>
+                        <outlet property="totalDistanceLabel" destination="cEx-PA-OGW" id="c1z-bb-xOr"/>
+                        <outlet property="totalDistanceNameLabel" destination="DVD-yE-GBW" id="trq-tg-j2d"/>
+                        <outlet property="totalElevationLabel" destination="dFb-TB-sgE" id="j95-Az-OHE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bwZ-yh-KKL" userLabel="First Responder" sceneMemberID="firstResponder"/>
