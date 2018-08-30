@@ -48,12 +48,6 @@ class NewActivityViewController: UIViewController {
     var locationList: [CLLocation] = []
     var coordinates: [CLLocationCoordinate2D] = []
     
-//    var activityUID: String? {
-//        didSet {
-//            
-//        }
-//    }
-    
     // MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -138,34 +132,11 @@ class NewActivityViewController: UIViewController {
         stopButton.isHidden = true
         invalidateTimers()
         self.saveNewWorkout()
-        
-//        takeSnapShot { (success) in
-//            if success {
-//                DispatchQueue.main.async {
-//                    // FIXME: - Insert logic to update activity's image.
-//                    // pseduocode: recentActivity.image = activitySnapshotImageView.image
-//                }
-//            }
-//        }
-//
-//        func saveWorkoutImage() {
-//
-//        }
-//        let message = MessageController.shared.createSuccessAlertWith(title: "New activity saved.", description: "Great job with your workout!")
-//        DispatchQueue.main.async {
-//            SwiftEntryKit.display(entry: message.0, using: message.1)
-//        }
-        
-        
     }
     
     // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedController.selectedSegmentIndex)
-//        if segue.identifier == "toSelectedActivityListDetails" {
-//            let destinationVC = segue.destination as? SelectedActivityDetailsTableViewController
-//            destinationVC?.activityType = activityType
-//        }
         if segue.identifier == "toLoginScreen" {
             let destinationVC = segue.destination as? SignInViewController
             destinationVC?.activityType = activityType
@@ -307,8 +278,6 @@ class NewActivityViewController: UIViewController {
                 ActivityController.shared.saveActivity(type: activityType, name: name, distance: Int(self.distance.value), averageSpeed: averageSpeed, elevationChange: Int(self.elevationChange.rounded()), timestamp: (self.currentDate?.stringValue(from: self.currentDate!))!, duration: self.durationInSeconds, image: activitySnapshotImage!) { (success, activityUID) in
                     
                     if success {
-                        //guard let activityUID = activityUID else { return }
-                        //self.activityUID = activityUID
                         self.resetLocalProperties()
                         guard let isAnonymousUser = Auth.auth().currentUser?.isAnonymous else { return }
                         
@@ -318,9 +287,7 @@ class NewActivityViewController: UIViewController {
                             self.hideInitialViews()
                             if !isAnonymousUser {
                                 DispatchQueue.main.async {
-                                    //if UserController.shared.user.email != "email" {
                                     self.tabBarController?.selectedIndex = 1
-                                    //}
                                 }
                             } else {
                                 DispatchQueue.main.async {
@@ -337,35 +304,18 @@ class NewActivityViewController: UIViewController {
             }
         }
     }
-        
-    // Takes a snapshot of the mapview from the user's activity.
+
     func takeSnapShot(completion: @escaping (Bool) -> Void) {
-        let mapSnapShotOptions = MKMapSnapshotOptions()
-
-        let coordinates = locationList.compactMap { $0.coordinate }
-        let polyline = MKPolyline(coordinates: coordinates, count: locationList.count)
-        let region = MKCoordinateRegionForMapRect(polyline.boundingMapRect)
-
-        mapSnapShotOptions.region = region
-        mapSnapShotOptions.scale = UIScreen.main.scale
-        mapSnapShotOptions.size = CGSize(width: 359.0, height: 330.0)
-        mapSnapShotOptions.showsBuildings = false
-        mapSnapShotOptions.showsPointsOfInterest = false
-
-        let snapShotter = MKMapSnapshotter(options: mapSnapShotOptions)
-        
-        snapShotter.start { (snapshot, error) in
-            if let error = error {
-                print("Error occurred snapshotting mapview: \(error.localizedDescription).")
-                completion(false)
-                return
-            }
-            
-            guard let snapshot = snapshot else { completion(false) ; return }
-            
-            self.activitySnapshotImageView.image = self.drawLineOnImage(snapshot: snapshot)
-            completion(true)
-        }
+        self.activityDistanceLabel.isHidden = true
+        self.activityTimeLabel.isHidden = true
+        self.activityTypeLabel.isHidden = true
+    
+        let image = mapView.takeScreenshot(view: mapView)
+        self.activitySnapshotImageView.image = image
+        self.activityDistanceLabel.isHidden = false
+        self.activityTimeLabel.isHidden = false
+        self.activityTypeLabel.isHidden = false
+        completion(true)
     }
 
     // Draws the polyline from the user's path onto the snapshot taken of the mapview.
@@ -503,5 +453,27 @@ extension NewActivityViewController: MKMapViewDelegate {
         
         return MKOverlayRenderer()
     }
-    
 }
+
+extension MKMapView {
+    
+    func takeScreenshot(view: MKMapView) -> UIImage {
+        
+        // Begin context
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, view.contentScaleFactor)
+        
+        // Draw view in that context
+        drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        
+        // And finally, get image
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        if (image != nil)
+        {
+            return image!
+        }
+        return UIImage()
+    }
+}
+
