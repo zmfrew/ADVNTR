@@ -133,8 +133,16 @@ class NewActivityViewController: UIViewController {
         
         invalidateTimers()
 
-        takeSnapShot()
+        takeSnapShot { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    // FIXME: - Insert logic to update activity's image.
+                    // pseduocode: recentActivity.image = activitySnapshotImageView.image
+                }
+            }
+        }
         
+        // FIXME: - Remove delay code.
         // Delay 1 second to give the snapshot time to be taken.
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             
@@ -144,6 +152,7 @@ class NewActivityViewController: UIViewController {
             }
         }
         
+        // FIXME: - Remove delay code.
         // Delay 2 seconds to give the snapshot time to be taken.
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.saveNewWorkout()
@@ -316,7 +325,7 @@ class NewActivityViewController: UIViewController {
     }
         
     // Takes a snapshot of the mapview from the user's activity.
-    func takeSnapShot() {
+    func takeSnapShot(completion: @escaping (Bool) -> Void) {
         let mapSnapShotOptions = MKMapSnapshotOptions()
 
         let coordinates = locationList.compactMap { $0.coordinate }
@@ -334,11 +343,14 @@ class NewActivityViewController: UIViewController {
         snapShotter.start { (snapshot, error) in
             if let error = error {
                 print("Error occurred snapshotting mapview: \(error.localizedDescription).")
+                completion(false)
+                return
             }
             
-            guard let snapshot = snapshot else { return }
+            guard let snapshot = snapshot else { completion(false) ; return }
             
             self.activitySnapshotImageView.image = self.drawLineOnImage(snapshot: snapshot)
+            completion(true)
         }
     }
 
