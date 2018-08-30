@@ -39,6 +39,11 @@ class ProfileViewController: UIViewController {
         imagePickerController.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateViews()
+    }
+    
     // MARK: - Actions
     @IBAction func editAndSaveButtonTapped(_ sender: UIBarButtonItem) {
         toggleEditOrSaveButtonText()
@@ -89,8 +94,16 @@ class ProfileViewController: UIViewController {
         displayNameTextField.text = UserController.shared.user.displayName
         emailTextField.text = UserController.shared.user.email
         
-        totalDistanceLabel.text = "\(UserController.shared.user.totalActivityDistance ?? 0)"
-        totalElevationLabel.text = "\(UserController.shared.user.totalElevationChange ?? 0)"
+        let distanceUnits = UserController.shared.user.defaultUnits == "imperial" ? "mi" : "km"
+        let distanceMeasurement = Measurement(value: Double(UserController.shared.user.totalActivityDistance ?? 0), unit: UnitLength.meters)
+        let distanceToDisplay = UserController.shared.user.defaultUnits == "imperial" ? ActivityUnitConverter.milesFromMeters(distance: distanceMeasurement) : ActivityUnitConverter.kilometersFromMeters(distance: distanceMeasurement)
+        totalDistanceLabel.text = "\(distanceToDisplay.roundedDoubleString) \(distanceUnits)"
+        
+        let elevationUnits = UserController.shared.user.defaultUnits == "imperial" ? "ft" : "m"
+        let elevationMeasurement = Measurement(value: Double(UserController.shared.user.totalElevationChange ?? 0), unit: UnitLength.meters)
+        let elevationToDisplay = UserController.shared.user.defaultUnits == "imperial" ? Int(ActivityUnitConverter.feetFromMeters(distance: elevationMeasurement)) : UserController.shared.user.totalElevationChange
+        totalDistanceLabel.text = "\(distanceToDisplay) \(distanceUnits)"
+        totalElevationLabel.text = "\(elevationToDisplay ?? 0) \(elevationUnits)"
     }
     
     func setTextFieldColors() {

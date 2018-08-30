@@ -46,9 +46,14 @@ class ActivityUnitConverter: UnitConverter {
         return distance.converted(to: .miles).value
     }
     
+    static func feetFromMeters(distance: Measurement<UnitLength>) -> Double {
+        return distance.converted(to: .feet).value
+    }
+    
     static func convertToMeters(from unit: UnitLength, distance: Double) -> Measurement<UnitLength> {
         let distance = Measurement(value: distance, unit: unit)
         return distance.converted(to: UnitLength.meters)
     }
+
     
 }
