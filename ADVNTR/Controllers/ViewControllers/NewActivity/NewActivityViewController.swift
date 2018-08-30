@@ -48,6 +48,12 @@ class NewActivityViewController: UIViewController {
     var locationList: [CLLocation] = []
     var coordinates: [CLLocationCoordinate2D] = []
     
+//    var activityUID: String? {
+//        didSet {
+//            
+//        }
+//    }
+    
     // MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,49 +136,36 @@ class NewActivityViewController: UIViewController {
         resumeButton.isHidden = true
         locationManager.stopUpdatingLocation()
         stopButton.isHidden = true
-        
         invalidateTimers()
-
-        takeSnapShot { (success) in
-            if success {
-                DispatchQueue.main.async {
-                    // FIXME: - Insert logic to update activity's image.
-                    // pseduocode: recentActivity.image = activitySnapshotImageView.image
-                }
-            }
-        }
+        self.saveNewWorkout()
         
-        // FIXME: - Remove delay code.
-        // Delay 1 second to give the snapshot time to be taken.
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            
-            let message = MessageController.shared.createSuccessAlertWith(title: "New activity saved.", description: "Great job with your workout!")
-            DispatchQueue.main.async {
-                SwiftEntryKit.display(entry: message.0, using: message.1)
-            }
-        }
+//        takeSnapShot { (success) in
+//            if success {
+//                DispatchQueue.main.async {
+//                    // FIXME: - Insert logic to update activity's image.
+//                    // pseduocode: recentActivity.image = activitySnapshotImageView.image
+//                }
+//            }
+//        }
+//
+//        func saveWorkoutImage() {
+//
+//        }
+//        let message = MessageController.shared.createSuccessAlertWith(title: "New activity saved.", description: "Great job with your workout!")
+//        DispatchQueue.main.async {
+//            SwiftEntryKit.display(entry: message.0, using: message.1)
+//        }
         
-        // FIXME: - Remove delay code.
-        // Delay 2 seconds to give the snapshot time to be taken.
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.saveNewWorkout()
-            
-            if UserController.shared.user.email != "email" {
-                self.tabBarController?.selectedIndex = 1
-            }
-            
-            self.resetViews()
-            self.hideInitialViews()
-        }
+        
     }
     
     // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedController.selectedSegmentIndex)
-        if segue.identifier == "toSelectedActivityListDetails" {
-            let destinationVC = segue.destination as? SelectedActivityDetailsTableViewController
-            destinationVC?.activityType = activityType
-        }
+//        if segue.identifier == "toSelectedActivityListDetails" {
+//            let destinationVC = segue.destination as? SelectedActivityDetailsTableViewController
+//            destinationVC?.activityType = activityType
+//        }
         if segue.identifier == "toLoginScreen" {
             let destinationVC = segue.destination as? SignInViewController
             destinationVC?.activityType = activityType
@@ -288,6 +281,10 @@ class NewActivityViewController: UIViewController {
     }
     
     func saveNewWorkout() {
+        
+        let message = MessageController.shared.createSuccessfulAddSnapShotAlertWith(title: "Saving Workout", description: "Saving your workout details and route!")
+        SwiftEntryKit.display(entry: message.0, using: message.1)
+        
         startButton.isHidden = false
         resumeButton.isHidden = true
         pauseButton.isHidden = true
@@ -297,29 +294,46 @@ class NewActivityViewController: UIViewController {
         
         activityTypeSegmentedController.isUserInteractionEnabled = true
         
-        let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedController.selectedSegmentIndex).lowercased()
-        let hour = currentDate?.getHour(from: currentDate!)
-        let timeOfDay = currentDate?.getTimeOfDay(from: hour!)
-        let name = "\(timeOfDay!) - \(activityType.capitalized)"
-        let averageSpeed = ActivityUnitConverter.milesPerHourFromMetersPerSecond(seconds: durationInSeconds, meters: distance)
-        let activitySnapshotImage = activitySnapshotImageView.image ?? UIImage(named: "defaultProfile")!
-        
-        ActivityController.shared.saveActivity(type: activityType, name: name, distance: Int(distance.value), averageSpeed: averageSpeed, elevationChange: Int(elevationChange.rounded()), timestamp: (currentDate?.stringValue(from: currentDate!))!, duration: durationInSeconds, image: activitySnapshotImage) { (success) in
-            
+        takeSnapShot { (success) in
             if success {
-                self.resetLocalProperties()
-                guard let isAnonymousUser = Auth.auth().currentUser?.isAnonymous else { return }
-                if !isAnonymousUser {
-                    DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: "toSelectedActivityListDetails", sender: self)
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: "toLoginScreen", sender: self)
+                
+                let activityType = self.setActivityTypeForActivityCreation(self.activityTypeSegmentedController.selectedSegmentIndex).lowercased()
+                let hour = self.currentDate?.getHour(from: self.currentDate!)
+                let timeOfDay = self.currentDate?.getTimeOfDay(from: hour!)
+                let name = "\(timeOfDay!) - \(activityType.capitalized)"
+                let averageSpeed = ActivityUnitConverter.milesPerHourFromMetersPerSecond(seconds: self.durationInSeconds, meters: self.distance)
+                let activitySnapshotImage = self.activitySnapshotImageView.image ?? UIImage(named: "defaultProfile")
+                
+                ActivityController.shared.saveActivity(type: activityType, name: name, distance: Int(self.distance.value), averageSpeed: averageSpeed, elevationChange: Int(self.elevationChange.rounded()), timestamp: (self.currentDate?.stringValue(from: self.currentDate!))!, duration: self.durationInSeconds, image: activitySnapshotImage!) { (success, activityUID) in
+                    
+                    if success {
+                        //guard let activityUID = activityUID else { return }
+                        //self.activityUID = activityUID
+                        self.resetLocalProperties()
+                        guard let isAnonymousUser = Auth.auth().currentUser?.isAnonymous else { return }
+                        
+                        SwiftEntryKit.dismiss {
+                            // Executed right after the entry has been dismissed
+                            self.resetViews()
+                            self.hideInitialViews()
+                            if !isAnonymousUser {
+                                DispatchQueue.main.async {
+                                    //if UserController.shared.user.email != "email" {
+                                    self.tabBarController?.selectedIndex = 1
+                                    //}
+                                }
+                            } else {
+                                DispatchQueue.main.async {
+                                    self.performSegue(withIdentifier: "toLoginScreen", sender: self)
+                                }
+                            }
+                        }
+                    } else {
+                        print("Failed to save Activity.")
                     }
                 }
             } else {
-                print("Failed to save Activity.")
+                print("Failure to save snapshot caused failure to save activity.")
             }
         }
     }

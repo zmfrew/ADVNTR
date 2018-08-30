@@ -24,7 +24,7 @@ class ActivityController {
     // Create an Activity model object. Create a new reference for the activity, under its associated
     // activity type, with it's own auto-generated UID. Then use the toAnyObject() helper method to save
     // the values (distance, name, speed etc) to that UID.
-    func saveActivity(type: String, name: String, distance: Int, averageSpeed: Double, elevationChange: Int, timestamp: String, duration: Int, image: UIImage, completion: @escaping (Bool) -> Void) {
+    func saveActivity(type: String, name: String, distance: Int, averageSpeed: Double, elevationChange: Int, timestamp: String, duration: Int, image: UIImage, completion: @escaping (Bool, String?) -> Void) {
         
         // Create a reference first to the intended location of the new activity's data on Firebase
         // Realtime Database
@@ -95,7 +95,7 @@ class ActivityController {
                 userRef.updateChildValues(totalsUpdates) { (error, ref) in
                     if let error = error {
                         print("Error updating new activity parameters to Firebase: \(error)")
-                        completion(false)
+                        completion(false, nil)
                         return
                     }
                     
@@ -105,14 +105,14 @@ class ActivityController {
                     // Turn the activity/map screenshot image into data for upload to Firebase Storage
                     // TODO: Check that 0.1 is enough/too much compression for the image to reduce Firebase Storage usage
                     // and download times.
-                    guard let imageData = UIImageJPEGRepresentation(image, 0.1) else { completion(false) ; return }
+                    guard let imageData = UIImageJPEGRepresentation(image, 1.0) else { completion(false, nil) ; return }
                     
                     // Perform the upload task to store the image on Firebase Storage and retrieve it's URL for saving in
                     // the Firebase Realtime Database record for that activity.
                     activityImageReference.putData(imageData, metadata: nil) { (metadata, error) in
                         if let error = error {
                             print("Error saving activity image map view to Firebase Storage: \(error)")
-                            completion(false)
+                            completion(false, nil)
                             return
                         }
                         
@@ -134,7 +134,7 @@ class ActivityController {
                             activityRef.setValue(activity.toAnyObject())
                             
                             print("Successfully saved new activity and its associated image.")
-                            completion(true)
+                            completion(true, activityUID)
                         }
                     }
                 }

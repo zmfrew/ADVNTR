@@ -45,6 +45,37 @@ class MessageController {
         return (contentView, attributes)
     }
     
+    func createSuccessfulAddSnapShotAlertWith(title: String, description: String) -> (EKNotificationMessageView, EKAttributes) {
+        
+        // Customise the alert's UI.
+        var attributes = EKAttributes.bottomFloat
+        attributes.popBehavior = .animated(animation: .init(translate: .init(duration: 0.3), scale: .init(from: 1, to: 0.7, duration: 0.7)))
+        attributes.displayDuration = .infinity
+        attributes.shadow = .active(with: .init(color: .black, opacity: 0.5, radius: 10, offset: .zero))
+        attributes.scroll = .enabled(swipeable: true, pullbackAnimation: .jolt)
+        attributes.positionConstraints.maxSize = .init(width: .ratio(value: 0.7), height: .intrinsic)
+        attributes.hapticFeedbackType = .success
+        attributes.roundCorners = .all(radius: 8.0)
+        attributes.screenBackground = .visualEffect(style: UIBlurEffectStyle.light)
+        attributes.entryBackground = .color(color: UIColor.alertGreen)
+        
+        // Set the title and its style.
+        let titleLabelStyle = EKProperty.LabelStyle.init(font: UIFont.alertTitle!, color: UIColor.lightWhite)
+        let title = EKProperty.LabelContent(text: title, style: titleLabelStyle)
+        
+        let descriptionLabelStyle = EKProperty.LabelStyle.init(font: UIFont.alertDescription!, color: UIColor.darkWhite)
+        let description = EKProperty.LabelContent(text: description, style: descriptionLabelStyle)
+        
+        // Set the image for the alert view.
+        let image = EKProperty.ImageContent(image: UIImage(named: "alertSuccess")!, size: CGSize(width: 35, height: 35))
+        
+        let simpleMessage = EKSimpleMessage(image: image, title: title, description: description)
+        let alertMessage = EKNotificationMessage(simpleMessage: simpleMessage)
+        let contentView = EKNotificationMessageView(with: alertMessage)
+        
+        return (contentView, attributes)
+    }
+    
     // Alerts shown for any errors during sign up/authentication. This view is a popup with a button.
     // The view will disappear automatically if the Ok button isn't pressed.
     func createAuthErrorAlertWith(title: String, description: String) -> (EKPopUpMessageView, EKAttributes) {

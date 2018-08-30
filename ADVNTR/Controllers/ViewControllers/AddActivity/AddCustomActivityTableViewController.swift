@@ -124,7 +124,7 @@ class AddCustomActivityTableViewController: UITableViewController {
         
         let image = UIImage(named: "defaultProfile")
         
-        ActivityController.shared.saveActivity(type: activityType, name: name, distance: Int(distance.value), averageSpeed: averageSpeed.value, elevationChange: 0, timestamp: date.stringValue(from: date), duration: duration, image: image!) { (success) in
+        ActivityController.shared.saveActivity(type: activityType, name: name, distance: Int(distance.value), averageSpeed: averageSpeed.value, elevationChange: 0, timestamp: date.stringValue(from: date), duration: duration, image: image!) { (success, _) in
             
             if success {
                 let message = MessageController.shared.createSuccessAlertWith(title: "New activity saved.", description: "Great job!")
