@@ -66,12 +66,14 @@ class AddCustomActivityTableViewController: UITableViewController {
     @IBOutlet weak var activityTitleTextField: UITextField!
     @IBOutlet weak var distancePickerView: UIPickerView!
     @IBOutlet weak var durationPickerView: UIPickerView!
-    @IBOutlet weak var activityTypeSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var activityTypeSegmentedController: UISegmentedControl!
     @IBOutlet weak var datePicker: UIDatePicker!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        activityTypeSegmentedController.selectedSegmentIndex = setActivityTypeSegmentedControllerFor(user: UserController.shared.user)
         
         let backgroundImage = UIImageView(image: UIImage(named: "DefaultNewActivity"))
         backgroundImage.frame = self.tableView.frame
@@ -93,7 +95,7 @@ class AddCustomActivityTableViewController: UITableViewController {
     
     @IBAction func saveActivityButtonTapped(_ sender: UIButton) {
         
-        let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedControl.selectedSegmentIndex)
+        let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedController.selectedSegmentIndex)
         
         let date = datePicker.date
         // Convert to String fuckhead
@@ -137,25 +139,40 @@ class AddCustomActivityTableViewController: UITableViewController {
         }
     }
     
-    // MARK: - Table view data source
+    // MARK: - Methods
+    func setActivityTypeForActivityCreation(_ index: Int) -> String {
+        switch (index) {
+        case 0:
+            return "run"
+        case 1:
+            return "hike"
+        case 2:
+            return "bike"
+        default:
+            return "run"
+        }
+    }
     
+    func setActivityTypeSegmentedControllerFor(user: User) -> Int {
+        switch (UserController.shared.user.preferredActivityType) {
+        case "run":
+            return 0
+        case "hike":
+            return 1
+        case "bike":
+            return 2
+        default:
+            return 0
+        }
+    }
+    
+    // MARK: - Table view data source
     // Custom Header Color
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view:UIView, forSection: Int) {
         if let tableViewHeaderFooterView = view as? UITableViewHeaderFooterView {
             tableViewHeaderFooterView.textLabel?.textColor = UIColor.white
         }
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
 
@@ -257,19 +274,7 @@ extension AddCustomActivityTableViewController: UIPickerViewDataSource {
         }
         return 0
     }
-    
-    func setActivityTypeForActivityCreation(_ index: Int) -> String {
-        switch (index) {
-        case 0:
-            return "run"
-        case 1:
-            return "hike"
-        case 2:
-            return "bike"
-        default:
-            return "run"
-        }
-    }
+
 }
 
 // MARK: Successful Custom Activity Alert
