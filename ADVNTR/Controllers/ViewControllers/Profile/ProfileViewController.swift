@@ -20,9 +20,11 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileNameLabel: UILabel!
     @IBOutlet weak var displayNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var totalDistanceNameLabel: UILabel!
+    @IBOutlet weak var totalDistanceLabel: UILabel!
+    @IBOutlet weak var totalElevationLabel: UILabel!
     
     // MARK: - Properties
-    lazy var user = UserController.shared.user
     let imagePickerController = UIImagePickerController()
     
     // MARK: - LifeCycle Methods
@@ -31,8 +33,7 @@ class ProfileViewController: UIViewController {
         setTextFieldColors()
         toggleUserInteraction()
         updateViews()
-        
-        
+    
         let tapGestureForImageView = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped))
         profileImageView.addGestureRecognizer(tapGestureForImageView)
         imagePickerController.delegate = self
@@ -68,7 +69,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func defaultActivitySegmentedController(_ sender: UISegmentedControl) {
-        user.preferredActivityType = updatePreferredActivityType(sender.selectedSegmentIndex)
+        UserController.shared.user.preferredActivityType = updatePreferredActivityType(sender.selectedSegmentIndex)
     }
     
     // MARK: - Methods
@@ -77,13 +78,19 @@ class ProfileViewController: UIViewController {
             profileImageView.image = UIImage(named: "defaultProfile")
         }
         
-        let profileImageRef = UserController.shared.profileImageReference.child(user.uid!).child("profilePhoto").child("photo")
+        let profileImageRef = UserController.shared.profileImageReference.child(UserController.shared.user.uid!).child("profilePhoto").child("photo")
         profileImageView?.sd_setImage(with: profileImageRef)
         
-        activityTypeSegmentedController.selectedSegmentIndex = setActivityTypeSegmentedControllerFor(user: user)
-        profileNameLabel.text = user.displayName
-        displayNameTextField.text = user.displayName
-        emailTextField.text = user.email
+        let travelSpelling = UserController.shared.user.defaultUnits == "imperial" ? "Traveled" : "Travelled"
+        totalDistanceNameLabel.text = "Total Distance \(travelSpelling):"
+        
+        activityTypeSegmentedController.selectedSegmentIndex = setActivityTypeSegmentedControllerFor(user: UserController.shared.user)
+        profileNameLabel.text = UserController.shared.user.displayName
+        displayNameTextField.text = UserController.shared.user.displayName
+        emailTextField.text = UserController.shared.user.email
+        
+        totalDistanceLabel.text = "\(UserController.shared.user.totalActivityDistance ?? 0)"
+        totalElevationLabel.text = "\(UserController.shared.user.totalElevationChange ?? 0)"
     }
     
     func setTextFieldColors() {
