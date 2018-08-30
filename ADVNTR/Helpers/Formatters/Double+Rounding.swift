@@ -9,8 +9,7 @@
 import Foundation
 
 extension Double {
-    func roundTo(places: Int) -> Double {
-        let multiplier = pow(10, Double(places))
-        return Darwin.round(self * multiplier) / multiplier
+    var roundedDoubleString: String {
+        return String(format: "%.2f", self)
     }
 }

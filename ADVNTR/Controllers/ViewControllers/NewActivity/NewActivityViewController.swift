@@ -201,7 +201,7 @@ class NewActivityViewController: UIViewController {
     }
     
     func updateDistanceView() {
-        let distanceToDisplay = FormatDisplay.distance(distance.value)
+        let distanceToDisplay = distance.value.roundedDoubleString
         let distanceUnits = UserController.shared.user.defaultUnits == "imperial" ? "mi" : "km"
         activityDistanceLabel.text = "\(distanceToDisplay) \(distanceUnits)"
     }
@@ -226,13 +226,13 @@ class NewActivityViewController: UIViewController {
         if activityType == "run" {
             averageSpeedOrPaceLabel.text = "\(pace)/\(distanceUnits)"
         } else {
-            averageSpeedOrPaceLabel.text = "\(speed.roundTo(places: 2)) \(speedUnits)"
+            averageSpeedOrPaceLabel.text = "\(speed.roundedDoubleString)\(speedUnits)"
         }
         
         if currentAltitude == 0 {
             altitudeLabel.text = "--"
         } else {
-            altitudeLabel.text = "\(currentAltitude)"
+            altitudeLabel.text = "\(currentAltitude.roundedDoubleString)"
         }
     }
     

@@ -30,4 +30,11 @@ struct FormatDisplay {
         return formatter.string(from: TimeInterval(seconds))!
     }
     
+    static func roundToTwoDecimals(value: Double) -> String {
+        let doubleFormatter = NumberFormatter()
+        doubleFormatter.maximumFractionDigits = 2
+        let stringValue = doubleFormatter.string(from: NSNumber(value: value))
+        return stringValue ?? "\(value)"
+    }
+    
 }
