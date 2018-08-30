@@ -26,15 +26,23 @@ class SignInViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
-    
-    
+
     // MARK: - Actions
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "toSignUp", sender: self)
+        blurBackground()
     }
     
     @IBAction func forgotPasswordTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "toForgotPassword", sender: self)
+    }
+    
+    // MARK: - Methods
+    func blurBackground() {
+        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
+        visualEffectView.frame = self.view.bounds
+        visualEffectView.translatesAutoresizingMaskIntoConstraints = true
+        self.view.addSubview(visualEffectView)
     }
     
     func signInUser(completion: @escaping (Bool) -> Void) {
@@ -128,7 +136,6 @@ class SignInViewController: UIViewController {
     // Required so that pressing the back button on the Sign Up View Controller will
     // allow the user to pop that screen off the view stack.
     @IBAction func unwindFromSignUpVC(_ sender: UIStoryboardSegue) {
-        
         let source = sender.source
         if source.isKind(of: SignUpViewController.self) {
             guard let sourceVC = source as? SignUpViewController else { return }

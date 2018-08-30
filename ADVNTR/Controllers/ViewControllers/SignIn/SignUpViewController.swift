@@ -24,16 +24,17 @@ class SignUpViewController: UIViewController {
     // MARK: - LifeCycleMethods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unblurBackground()
+    }
+    
     // MARK: - Actions
-    
-//    @IBAction func signUpButtonTapped(_ sender: UIButton) {
-//
-//    }
-    
     @IBAction func backButtonTapped(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -55,6 +56,16 @@ class SignUpViewController: UIViewController {
         }
         self.view.frame.origin.y = 0
     }
+    
+    func unblurBackground() {
+        guard let signInVC = self.presentingViewController as? SignInViewController else { return }
+        for subView in signInVC.view.subviews {
+            if subView is UIVisualEffectView {
+                subView.removeFromSuperview()
+            }
+        }
+    }
+    
     
     // Convenience function that handles creating a new authenticated user from an anonymous user.
     // This function is called in shouldPerformSegue so that errors are handled before the user
