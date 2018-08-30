@@ -102,7 +102,7 @@ class ProfileViewController: UIViewController {
         let elevationUnits = UserController.shared.user.defaultUnits == "imperial" ? "ft" : "m"
         let elevationMeasurement = Measurement(value: Double(UserController.shared.user.totalElevationChange ?? 0), unit: UnitLength.meters)
         let elevationToDisplay = UserController.shared.user.defaultUnits == "imperial" ? Int(ActivityUnitConverter.feetFromMeters(distance: elevationMeasurement)) : UserController.shared.user.totalElevationChange
-        totalDistanceLabel.text = "\(distanceToDisplay) \(distanceUnits)"
+        totalDistanceLabel.text = "\(distanceToDisplay.roundedDoubleString) \(distanceUnits)"
         totalElevationLabel.text = "\(elevationToDisplay ?? 0) \(elevationUnits)"
     }
     
