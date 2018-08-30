@@ -62,8 +62,8 @@ class NewActivityViewController: UIViewController {
         activityTypeLabel.text = UserController.shared.user.preferredActivityType?.capitalized ?? "Run"
         activityTypeSegmentedController.selectedSegmentIndex = setActivityTypeSegmentedControllerFor(user: UserController.shared.user)
         
-        secondsTimer?.invalidate()
-        altitudeAndPaceOrSpeedTimer?.invalidate()
+        invalidateTimers()
+        
         locationManager.stopUpdatingLocation()
         distance = Measurement(value: 0, unit: UnitLength.meters)
     }
@@ -92,19 +92,14 @@ class NewActivityViewController: UIViewController {
         } else if status != .authorizedWhenInUse && status != .authorizedAlways {
             presentLocationAlert()
         } else if status == .authorizedWhenInUse || status == .authorizedAlways {
-            secondsTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (_) in
-                self.fireSecond()
-            })
-            altitudeAndPaceOrSpeedTimer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true, block: { (_) in
-                self.updateAltitudeAndPaceOrSpeedViews()
-            })
-            distanceTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true, block: { (_) in
-                self.updateDistanceView()
-            })
+            activateTimers()
+            
             updateAverageSpeedOrPaceLabelText()
             updateAltitudeAndPaceOrSpeedViews()
+            
             pauseButton.isHidden = false
             startButton.isHidden = true
+            
             mapView.showsUserLocation = true
             mapView.userTrackingMode = .follow
         }
@@ -116,6 +111,8 @@ class NewActivityViewController: UIViewController {
         resumeButton.isHidden = true
         stopButton.isHidden = true
         pauseButton.isHidden = false
+        
+        activateTimers()
     }
     
     @IBAction func pauseButtonTapped(_ sender: UIButton) {
@@ -124,6 +121,8 @@ class NewActivityViewController: UIViewController {
         resumeButton.isHidden = false
         stopButton.isHidden = false
         pauseButton.isHidden = true
+        
+        invalidateTimers()
     }
     
     @IBAction func stopButtonTapped(_ sender: UIButton) {
@@ -132,9 +131,7 @@ class NewActivityViewController: UIViewController {
         locationManager.stopUpdatingLocation()
         stopButton.isHidden = true
         
-        secondsTimer?.invalidate()
-        altitudeAndPaceOrSpeedTimer?.invalidate()
-        altitudeAndPaceOrSpeedTimer?.invalidate()
+        invalidateTimers()
 
         takeSnapShot()
         
@@ -200,6 +197,24 @@ class NewActivityViewController: UIViewController {
         averageSpeedOrPaceNameLabel.isHidden = false
     }
     
+    func activateTimers() {
+        secondsTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (_) in
+            self.fireSecond()
+        })
+        altitudeAndPaceOrSpeedTimer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true, block: { (_) in
+            self.updateAltitudeAndPaceOrSpeedViews()
+        })
+        distanceTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true, block: { (_) in
+            self.updateDistanceView()
+        })
+    }
+    
+    func invalidateTimers() {
+        secondsTimer?.invalidate()
+        altitudeAndPaceOrSpeedTimer?.invalidate()
+        distanceTimer?.invalidate()
+    }
+    
     func updateTimerView() {
         let timeToDisplay = FormatDisplay.time(durationInSeconds)
         activityTimeLabel.text = timeToDisplay
@@ -225,7 +240,6 @@ class NewActivityViewController: UIViewController {
         let distanceUnits = UserController.shared.user.defaultUnits == "imperial" ? "mi" : "km"
 
         let speedUnits = UserController.shared.user.defaultUnits == "imperial" ? "mph" : "km/h"
-//        let speed = ActivityUnitConverter.speed(distance: distance, seconds: durationInSeconds).value
         let speed = UserController.shared.user.defaultUnits == "imperial" ? ActivityUnitConverter.milesPerHourFromMetersPerSecond(seconds: durationInSeconds, meters: distance) : ActivityUnitConverter.kilometersPerHourFrom(seconds: durationInSeconds, meters: distance)
         
         let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedController.selectedSegmentIndex)
