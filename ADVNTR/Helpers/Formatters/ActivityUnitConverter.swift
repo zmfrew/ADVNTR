@@ -16,8 +16,8 @@ class ActivityUnitConverter: UnitConverter {
         return miles / hours
     }
     
-    static func kilometersPerHourFrom(seconds: Int, distance: Measurement<UnitLength>) -> Double {
-        let kilometers = kilometersFromMeters(distance: distance)
+    static func kilometersPerHourFrom(seconds: Int, meters: Measurement<UnitLength>) -> Double {
+        let kilometers = kilometersFromMeters(distance: meters)
         let hours = Double(seconds) / 3600
         return kilometers / hours
     }

@@ -39,7 +39,6 @@ class NewActivityViewController: UIViewController {
     var pace: Int?
     var timestamp: String?
     var durationInSeconds = 0
-    var activitySnapShotImage: UIImage?
     
     let locationManager = LocationManager.shared
     var secondsTimer: Timer?
@@ -109,7 +108,6 @@ class NewActivityViewController: UIViewController {
             mapView.showsUserLocation = true
             mapView.userTrackingMode = .follow
         }
-        
     }
     
     @IBAction func resumeButtonTapped(_ sender: UIButton) {
@@ -134,26 +132,32 @@ class NewActivityViewController: UIViewController {
         locationManager.stopUpdatingLocation()
         stopButton.isHidden = true
         
-        resetViews()
-        hideInitialViews()
-        
         secondsTimer?.invalidate()
         altitudeAndPaceOrSpeedTimer?.invalidate()
         altitudeAndPaceOrSpeedTimer?.invalidate()
-        // TODO: - takeSnapShot of map with polyline showing user's path.
+
         takeSnapShot()
         
-        saveNewWorkout()
-        
-        let message = MessageController.shared.createSuccessAlertWith(title: "New activity saved.", description: "Great job with your workout!")
-        DispatchQueue.main.async {
-            SwiftEntryKit.display(entry: message.0, using: message.1)
+        // Delay 1 second to give the snapshot time to be taken.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            
+            let message = MessageController.shared.createSuccessAlertWith(title: "New activity saved.", description: "Great job with your workout!")
+            DispatchQueue.main.async {
+                SwiftEntryKit.display(entry: message.0, using: message.1)
+            }
         }
         
-        if UserController.shared.user.email != "email" {
-            self.tabBarController?.selectedIndex = 1
+        // Delay 2 seconds to give the snapshot time to be taken.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.saveNewWorkout()
+            
+            if UserController.shared.user.email != "email" {
+                self.tabBarController?.selectedIndex = 1
+            }
+            
+            self.resetViews()
+            self.hideInitialViews()
         }
-        
     }
     
     // MARK: Navigation
@@ -168,7 +172,6 @@ class NewActivityViewController: UIViewController {
             destinationVC?.activityType = activityType
         }
     }
-
     
     // MARK: - Methods
     func updateAverageSpeedOrPaceLabelText() {
@@ -206,8 +209,7 @@ class NewActivityViewController: UIViewController {
         let distanceUnits = UserController.shared.user.defaultUnits == "imperial" ? "mi" : "km"
         let distanceMeasurement = Measurement(value: Double(distance.value), unit: UnitLength.meters)
         let distanceToDisplay = UserController.shared.user.defaultUnits == "imperial" ? ActivityUnitConverter.milesFromMeters(distance: distanceMeasurement) : ActivityUnitConverter.kilometersFromMeters(distance: distanceMeasurement)
-
-        activityDistanceLabel.text = "\(distanceToDisplay) \(distanceUnits)"
+        activityDistanceLabel.text = "\(distanceToDisplay.roundedDoubleString) \(distanceUnits)"
     }
     
     func updateAltitudeAndPaceOrSpeedViews() {
@@ -223,14 +225,15 @@ class NewActivityViewController: UIViewController {
         let distanceUnits = UserController.shared.user.defaultUnits == "imperial" ? "mi" : "km"
 
         let speedUnits = UserController.shared.user.defaultUnits == "imperial" ? "mph" : "km/h"
-        let speed = ActivityUnitConverter.speed(distance: distance, seconds: durationInSeconds).value
+//        let speed = ActivityUnitConverter.speed(distance: distance, seconds: durationInSeconds).value
+        let speed = UserController.shared.user.defaultUnits == "imperial" ? ActivityUnitConverter.milesPerHourFromMetersPerSecond(seconds: durationInSeconds, meters: distance) : ActivityUnitConverter.kilometersPerHourFrom(seconds: durationInSeconds, meters: distance)
         
         let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedController.selectedSegmentIndex)
         
         if activityType == "run" {
             averageSpeedOrPaceLabel.text = "\(pace)/\(distanceUnits)"
         } else {
-            averageSpeedOrPaceLabel.text = "\(speed.roundedDoubleString)\(speedUnits)"
+            averageSpeedOrPaceLabel.text = "\(speed.roundedDoubleString) \(speedUnits)"
         }
         
         if currentAltitude == 0 {
@@ -308,19 +311,19 @@ class NewActivityViewController: UIViewController {
 
         mapSnapShotOptions.region = region
         mapSnapShotOptions.scale = UIScreen.main.scale
-        mapSnapShotOptions.size = CGSize(width: 343.0, height: 208.0)
-        mapSnapShotOptions.showsBuildings = true
-        mapSnapShotOptions.showsPointsOfInterest = true
+        mapSnapShotOptions.size = CGSize(width: 359.0, height: 330.0)
+        mapSnapShotOptions.showsBuildings = false
+        mapSnapShotOptions.showsPointsOfInterest = false
 
         let snapShotter = MKMapSnapshotter(options: mapSnapShotOptions)
-
+        
         snapShotter.start { (snapshot, error) in
             if let error = error {
                 print("Error occurred snapshotting mapview: \(error.localizedDescription).")
             }
-
+            
             guard let snapshot = snapshot else { return }
-
+            
             self.activitySnapshotImageView.image = self.drawLineOnImage(snapshot: snapshot)
         }
     }
