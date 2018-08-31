@@ -42,7 +42,7 @@
         <scene sceneID="ldR-ae-8ad">
             <objects>
                 <viewControllerPlaceholder storyboardName="ActivityHistory" id="pAA-FH-8fq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="icons8-tenses" id="Pon-hB-cBO">
+                    <tabBarItem key="tabBarItem" title="" image="historyIcon" selectedImage="historyIcon" id="Pon-hB-cBO">
                         <inset key="imageInsets" minX="0.0" minY="3" maxX="0.0" maxY="-8"/>
                     </tabBarItem>
                 </viewControllerPlaceholder>
@@ -54,7 +54,9 @@
         <scene sceneID="QBD-lq-Ia2">
             <objects>
                 <viewControllerPlaceholder storyboardName="NewActivity" id="8DD-Ag-X5l" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="icons8-mountain_filled75" id="XtL-SK-blx"/>
+                    <tabBarItem key="tabBarItem" title="" image="mountainsIcon" selectedImage="mountainsSelectedIcon" id="XtL-SK-blx">
+                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H0a-AB-WNR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -64,7 +66,9 @@
         <scene sceneID="FMC-Yd-cqX">
             <objects>
                 <viewControllerPlaceholder storyboardName="MyProfile" id="SIf-a9-8uS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="icons8-administrator_female" id="FHJ-SL-eTG"/>
+                    <tabBarItem key="tabBarItem" title="" image="profileIcon" selectedImage="profileIcon" id="FHJ-SL-eTG">
+                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="II9-Rc-JRe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -74,7 +78,9 @@
         <scene sceneID="hjS-U1-70q">
             <objects>
                 <viewControllerPlaceholder storyboardName="Settings" id="H15-dZ-RFP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="icons8-settings" id="omZ-vk-t3G"/>
+                    <tabBarItem key="tabBarItem" title="" image="settingsIcon" selectedImage="settingsIcon" id="omZ-vk-t3G">
+                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A37-dh-cml" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -84,8 +90,8 @@
         <scene sceneID="S35-xT-rTX">
             <objects>
                 <viewControllerPlaceholder storyboardName="AddCustomActivity" id="ZIf-nR-qBn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="icons8-add" id="JXK-OE-hnP">
-                        <inset key="imageInsets" minX="0.0" minY="3" maxX="0.0" maxY="-7"/>
+                    <tabBarItem key="tabBarItem" title="" image="addActivityIcon" selectedImage="addActivityIcon" id="JXK-OE-hnP">
+                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jUZ-p8-y2s" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -94,10 +100,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icons8-add" width="32" height="32"/>
-        <image name="icons8-administrator_female" width="32" height="32"/>
-        <image name="icons8-mountain_filled75" width="75" height="75"/>
-        <image name="icons8-settings" width="32" height="32"/>
-        <image name="icons8-tenses" width="32" height="32"/>
+        <image name="addActivityIcon" width="40" height="40"/>
+        <image name="historyIcon" width="40" height="40"/>
+        <image name="mountainsIcon" width="32" height="32"/>
+        <image name="mountainsSelectedIcon" width="68" height="68"/>
+        <image name="profileIcon" width="40" height="40"/>
+        <image name="settingsIcon" width="40" height="40"/>
     </resources>
 </document>

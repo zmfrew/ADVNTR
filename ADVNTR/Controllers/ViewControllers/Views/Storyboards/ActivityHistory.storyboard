@@ -181,7 +181,9 @@
         <scene sceneID="QtH-B6-yCz">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SvR-AX-mFV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="icons8-tenses" selectedImage="icons8-tenses" id="tnY-9w-dKu"/>
+                    <tabBarItem key="tabBarItem" title="" image="historyIcon" selectedImage="historyIcon" id="tnY-9w-dKu">
+                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Iud-Bz-jMg">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
@@ -207,7 +209,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icons8-tenses" width="32" height="32"/>
+        <image name="historyIcon" width="40" height="40"/>
         <image name="lucas-clara-579404-unsplash" width="5472" height="3648"/>
         <image name="massimo-sartirana-562838-unsplash" width="5616" height="3744"/>
         <image name="william-hook-58602-unsplash" width="4000" height="3000"/>
