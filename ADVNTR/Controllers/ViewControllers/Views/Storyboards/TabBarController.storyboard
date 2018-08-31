@@ -102,8 +102,8 @@
     <resources>
         <image name="addActivityIcon" width="40" height="40"/>
         <image name="historyIcon" width="40" height="40"/>
-        <image name="mountainsIcon" width="32" height="32"/>
-        <image name="mountainsSelectedIcon" width="68" height="68"/>
+        <image name="mountainsIcon" width="72" height="72"/>
+        <image name="mountainsSelectedIcon" width="96" height="96"/>
         <image name="profileIcon" width="40" height="40"/>
         <image name="settingsIcon" width="40" height="40"/>
     </resources>
