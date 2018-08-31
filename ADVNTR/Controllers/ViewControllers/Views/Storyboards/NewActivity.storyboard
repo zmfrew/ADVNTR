@@ -34,7 +34,7 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultNewActivity" translatesAutoresizingMaskIntoConstraints="NO" id="heh-Tw-XqC">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" red="0.21176470589999999" green="0.36078431370000003" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="h8e-91-V6f">
@@ -234,7 +234,7 @@
                             <constraint firstItem="rXC-3d-xfP" firstAttribute="leading" secondItem="lnL-ZQ-ibL" secondAttribute="leading" constant="15" id="hsF-rW-9F1"/>
                             <constraint firstItem="70u-qK-b3c" firstAttribute="centerY" secondItem="Jd9-HN-wRs" secondAttribute="centerY" id="jua-7Z-8ir"/>
                             <constraint firstItem="FP2-KN-9Qs" firstAttribute="leading" secondItem="lnL-ZQ-ibL" secondAttribute="leading" constant="8" id="mvQ-KC-08Q"/>
-                            <constraint firstAttribute="bottom" secondItem="heh-Tw-XqC" secondAttribute="bottom" constant="49" id="n44-uY-L2n"/>
+                            <constraint firstAttribute="bottom" secondItem="heh-Tw-XqC" secondAttribute="bottom" id="n44-uY-L2n"/>
                             <constraint firstItem="70u-qK-b3c" firstAttribute="centerX" secondItem="Jd9-HN-wRs" secondAttribute="centerX" id="sSI-cG-aih"/>
                             <constraint firstItem="h8e-91-V6f" firstAttribute="top" secondItem="lnL-ZQ-ibL" secondAttribute="top" constant="20" id="xPP-hS-F6D"/>
                             <constraint firstItem="heh-Tw-XqC" firstAttribute="leading" secondItem="lnL-ZQ-ibL" secondAttribute="leading" id="ynR-1J-7ej"/>
