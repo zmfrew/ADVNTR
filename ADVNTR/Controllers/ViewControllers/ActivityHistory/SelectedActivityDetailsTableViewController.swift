@@ -15,7 +15,11 @@ class SelectedActivityDetailsTableViewController: UITableViewController {
     
     // MARK: - Properties
     var activities: [Activity] = []
-    var activityType: String?
+    var activityType: String? {
+        didSet {
+            self.title = activityType?.capitalized
+        }
+    }
     
     // MARK: - LifeCycle Methods
     override func viewDidLoad() {
@@ -70,13 +74,5 @@ class SelectedActivityDetailsTableViewController: UITableViewController {
             }
         }
     }
-    
-    /*
-     // MARK: - Navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
