@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tLO-gv-g6N">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tLO-gv-g6N">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,12 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="s7t-4y-qvW">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="s7t-4y-qvW">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Custom Activity" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZi-ju-kBb">
-                                    <rect key="frame" x="8" y="-4" width="243" height="314"/>
+                                    <rect key="frame" x="8" y="-4" width="243" height="102"/>
                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="26"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -37,12 +37,12 @@
                                 <constraint firstItem="lZi-ju-kBb" firstAttribute="top" secondItem="s7t-4y-qvW" secondAttribute="top" constant="-4" id="wHu-rC-rvR"/>
                             </constraints>
                         </view>
-                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="rOe-e1-oHk">
-                            <rect key="frame" x="0.0" y="686.33333333333337" width="375" height="50"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="rOe-e1-oHk">
+                            <rect key="frame" x="0.0" y="686.33333333333337" width="375" height="62"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxy-Fv-vkL">
-                                    <rect key="frame" x="140.66666666666666" y="2" width="94" height="252"/>
+                                    <rect key="frame" x="140.66666666666666" y="12" width="94" height="38"/>
                                     <color key="backgroundColor" white="1" alpha="0.79778279049295775" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                                     <state key="normal" title="     Save     ">
@@ -60,8 +60,8 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="gxy-Fv-vkL" secondAttribute="bottom" constant="8" id="To7-ps-ExZ"/>
-                                <constraint firstItem="gxy-Fv-vkL" firstAttribute="top" secondItem="rOe-e1-oHk" secondAttribute="top" constant="2" id="s2O-PA-Mw1"/>
+                                <constraint firstAttribute="bottom" secondItem="gxy-Fv-vkL" secondAttribute="bottom" constant="12" id="To7-ps-ExZ"/>
+                                <constraint firstItem="gxy-Fv-vkL" firstAttribute="top" secondItem="rOe-e1-oHk" secondAttribute="top" constant="12" id="s2O-PA-Mw1"/>
                                 <constraint firstItem="gxy-Fv-vkL" firstAttribute="centerX" secondItem="rOe-e1-oHk" secondAttribute="centerX" id="ss5-Se-8dY"/>
                             </constraints>
                         </view>
@@ -217,7 +217,9 @@
                             <outlet property="delegate" destination="tLO-gv-g6N" id="QjM-OM-1pW"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="" image="icons8-add" selectedImage="icons8-add" id="h3T-Of-E6d"/>
+                    <tabBarItem key="tabBarItem" title="" image="addActivityIcon" selectedImage="addActivityIcon" id="h3T-Of-E6d">
+                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="activityTitleTextField" destination="gH2-YY-WWI" id="GSa-zd-8jr"/>
                         <outlet property="activityTypeSegmentedController" destination="sSO-an-3t4" id="rg8-LX-1YK"/>
@@ -230,16 +232,8 @@
             </objects>
             <point key="canvasLocation" x="-1919.2" y="633.99014778325125"/>
         </scene>
-        <!--LoginScreen-->
-        <scene sceneID="ZT0-0i-j43">
-            <objects>
-                <viewControllerPlaceholder storyboardName="LoginScreen" id="tzH-gD-Eyh" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Omx-eK-vzc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1114" y="634"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="icons8-add" width="32" height="32"/>
+        <image name="addActivityIcon" width="60" height="60"/>
     </resources>
 </document>
