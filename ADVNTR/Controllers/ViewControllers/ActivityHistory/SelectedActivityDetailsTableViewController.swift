@@ -33,8 +33,9 @@ class SelectedActivityDetailsTableViewController: UITableViewController {
         // Firebase 'snapshot'. The snapshot is essentially a dictionary from which each of its
         // 'children' can be compactMapped into an array of activities that is stored in a local
         // variable for the table view data source.
-        ActivityController.shared.ref.child(activityType).queryOrdered(byChild: "distance").observe(.value) { (snapshot) in
-            let activities = snapshot.children.compactMap { Activity(snapshot: $0 as! DataSnapshot)}
+        ActivityController.shared.ref.child(activityType).queryOrdered(byChild: "createdAt").observe(.value) { (snapshot) in
+            var activities = snapshot.children.compactMap { Activity(snapshot: $0 as! DataSnapshot)}
+            activities.reverse()
             self.activities = activities
             DispatchQueue.main.async {
                 self.tableView.reloadData()

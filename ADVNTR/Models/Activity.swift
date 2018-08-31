@@ -25,6 +25,7 @@ struct Activity {
     let timestamp: String
     let duration: Int //seconds
     let imageURL: String
+    let createdAt: Double
     
     // Keys
     fileprivate let uidKey = "uid"
@@ -36,8 +37,9 @@ struct Activity {
     fileprivate let timestampKey = "timestamp"
     fileprivate let durationKey = "duration"
     fileprivate let imageURLKey = "imageURL"
+    fileprivate let createdAtKey = "createdAt"
     
-    init(type: String, name: String, distance: Int, key: String = "", uid: String = "", averageSpeed: Double, elevationChange: Int,timestamp: String, duration: Int, imageURL: String) {
+    init(type: String, name: String, distance: Int, key: String = "", uid: String = "", averageSpeed: Double, elevationChange: Int,timestamp: String, duration: Int, imageURL: String, createdAt: Double = Date().timeIntervalSince1970) {
         self.reference = nil
         self.type = type
         self.name = name
@@ -49,6 +51,7 @@ struct Activity {
         self.timestamp = timestamp
         self.duration = duration
         self.imageURL = imageURL
+        self.createdAt = createdAt
     }
     
     init?(snapshot: DataSnapshot) {
@@ -61,7 +64,8 @@ struct Activity {
             let elevationChange = value[elevationChangeKey] as? Int,
             let timestamp = value[timestampKey] as? String,
             let duration = value[durationKey] as? Int,
-            let imageURL = value[imageURLKey] as? String
+            let imageURL = value[imageURLKey] as? String,
+            let createdAt = value[createdAtKey] as? Double
             else { return nil }
         
         // Reference is the DatabaseReference to the data ('snapshot').
@@ -78,6 +82,7 @@ struct Activity {
         self.timestamp = timestamp
         self.duration = duration
         self.imageURL = imageURL
+        self.createdAt = createdAt
     }
     
     func toAnyObject() -> Any {
@@ -90,7 +95,8 @@ struct Activity {
             elevationChangeKey: elevationChange,
             timestampKey: timestamp,
             durationKey: duration,
-            imageURLKey: imageURL
+            imageURLKey: imageURL,
+            createdAtKey: createdAt
         ]
     }
 }
