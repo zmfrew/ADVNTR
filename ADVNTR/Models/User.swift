@@ -131,8 +131,8 @@ class User {
     init?(result: AuthDataResult) {
         self.uid = result.user.uid
         self.email = result.user.email
-        
     }
+    
 }
 
 

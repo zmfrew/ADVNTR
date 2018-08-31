@@ -43,7 +43,6 @@
 		B6C74FB5212B83B800331D01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74FB2212B83B800331D01 /* AppDelegate.swift */; };
 		B6C74FCC212B84F600331D01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6C74FC0212B84F600331D01 /* LaunchScreen.storyboard */; };
 		B6C74FCF212B84F600331D01 /* ActivityHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74FC6212B84F600331D01 /* ActivityHistoryTableViewCell.swift */; };
-		B6C74FD0212B84F600331D01 /* ActivityHistoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74FC7212B84F600331D01 /* ActivityHistoryButton.swift */; };
 		B6FE8A97212DD8ED0095FC8B /* FormatDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE8A96212DD8ED0095FC8B /* FormatDisplay.swift */; };
 		EF0A6C83213462CB00BCE182 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF0A6C82213462CB00BCE182 /* GoogleService-Info.plist */; };
 		EF0A6C852134640300BCE182 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A6C842134640300BCE182 /* UserController.swift */; };
@@ -80,6 +79,7 @@
 		B614238721349B6B009E4814 /* StoreReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreReviewManager.swift; sourceTree = "<group>"; };
 		B62687D6212E28FB00FC5D58 /* Double+Rounding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Rounding.swift"; sourceTree = "<group>"; };
 		B62687D8212E56EB00FC5D58 /* ActivityUnitConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityUnitConverter.swift; sourceTree = "<group>"; };
+		B6584FFD2138AF29002F09B4 /* ADVNTR.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ADVNTR.entitlements; sourceTree = "<group>"; };
 		B69D6720212F417B007A3A92 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		B6C74ECE212B7C3500331D01 /* ADVNTR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADVNTR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6C74F77212B83AA00331D01 /* ActivityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
@@ -92,7 +92,6 @@
 		B6C74FB3212B83B800331D01 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6C74FC1212B84F600331D01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6C74FC6212B84F600331D01 /* ActivityHistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityHistoryTableViewCell.swift; sourceTree = "<group>"; };
-		B6C74FC7212B84F600331D01 /* ActivityHistoryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityHistoryButton.swift; sourceTree = "<group>"; };
 		B6FE8A96212DD8ED0095FC8B /* FormatDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDisplay.swift; sourceTree = "<group>"; };
 		EF0A6C82213462CB00BCE182 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EF0A6C842134640300BCE182 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
@@ -176,6 +175,7 @@
 		B6C74ED0212B7C3500331D01 /* ADVNTR */ = {
 			isa = PBXGroup;
 			children = (
+				B6584FFD2138AF29002F09B4 /* ADVNTR.entitlements */,
 				EF0A6C82213462CB00BCE182 /* GoogleService-Info.plist */,
 				B6C74F92212B83AB00331D01 /* Models */,
 				B6C74FBA212B84F600331D01 /* Views */,
@@ -336,7 +336,6 @@
 			isa = PBXGroup;
 			children = (
 				B6C74FC6212B84F600331D01 /* ActivityHistoryTableViewCell.swift */,
-				B6C74FC7212B84F600331D01 /* ActivityHistoryButton.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -376,6 +375,14 @@
 					B6C74ECD212B7C3500331D01 = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1000;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -495,7 +502,6 @@
 				B614238821349B6B009E4814 /* StoreReviewManager.swift in Sources */,
 				B62687D9212E56EB00FC5D58 /* ActivityUnitConverter.swift in Sources */,
 				EF0A6C89213464B700BCE182 /* MessageController.swift in Sources */,
-				B6C74FD0212B84F600331D01 /* ActivityHistoryButton.swift in Sources */,
 				B6C74FA2212B83AB00331D01 /* ProfileViewController.swift in Sources */,
 				B69D6721212F417B007A3A92 /* DateFormatter.swift in Sources */,
 				3E45285F21305C31003E892E /* SignInViewController.swift in Sources */,
@@ -640,6 +646,7 @@
 			baseConfigurationReference = 935BCCE4C33EEAF8D03C5AF0 /* Pods-ADVNTR.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ADVNTR/ADVNTR.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PKK87S6JNY;
 				INFOPLIST_FILE = "$(SRCROOT)/ADVNTR/Resources/Info.plist";
@@ -660,6 +667,7 @@
 			baseConfigurationReference = 63937897E99FD28B7A7B74CF /* Pods-ADVNTR.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ADVNTR/ADVNTR.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PKK87S6JNY;
 				INFOPLIST_FILE = "$(SRCROOT)/ADVNTR/Resources/Info.plist";

@@ -24,7 +24,6 @@ class SignUpViewController: UIViewController {
     // MARK: - LifeCycleMethods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
@@ -65,7 +64,6 @@ class SignUpViewController: UIViewController {
             }
         }
     }
-    
     
     // Convenience function that handles creating a new authenticated user from an anonymous user.
     // This function is called in shouldPerformSegue so that errors are handled before the user
@@ -130,16 +128,6 @@ class SignUpViewController: UIViewController {
             }
         }
     }
-    
-//    // Prevents the unwind segue from performing unless the user's sign up/in has been successful.
-//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-//        if identifier == "successfulSignUp" {
-//            if self.isSuccessfulSignUp {
-//                return true
-//            }
-//        }
-//        return false
-//    }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         var boolToReturn = false
