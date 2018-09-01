@@ -12,6 +12,7 @@ import SwiftEntryKit
 class AddCustomActivityTableViewController: UITableViewController {
     
     // MARK: - Properties
+    
     var distanceFirstDigit: Int?
     var distanceSecondDigit: Double?
     var distanceUnits: String?
@@ -19,7 +20,8 @@ class AddCustomActivityTableViewController: UITableViewController {
     var durationMinutes: Int?
     var durationSeconds: Int?
     
-    // Distance
+    //MARK - Distance
+    
     var unitDistance: [Int] {
         var unitDistance: [Int] = []
         for number in 0...99 {
@@ -36,7 +38,8 @@ class AddCustomActivityTableViewController: UITableViewController {
         return ["Km's", "Miles"]
     }
     
-    // Duration
+    //MARK - Duration
+    
     var hours: [Int] {
         var hours: [Int] = []
         for number in 0...23 {
@@ -69,6 +72,7 @@ class AddCustomActivityTableViewController: UITableViewController {
     @IBOutlet weak var activityTypeSegmentedController: UISegmentedControl!
     @IBOutlet weak var datePicker: UIDatePicker!
     
+    // MARK: - ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +81,7 @@ class AddCustomActivityTableViewController: UITableViewController {
         
         let backgroundImage = UIImageView(image: UIImage(named: "DefaultNewActivity"))
         backgroundImage.frame = self.tableView.frame
-        backgroundImage.contentMode = .scaleToFill
+        backgroundImage.contentMode = .scaleAspectFill
         backgroundImage.clipsToBounds = false
         self.tableView.backgroundView = backgroundImage;
         
@@ -98,9 +102,6 @@ class AddCustomActivityTableViewController: UITableViewController {
         let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedController.selectedSegmentIndex)
         
         let date = datePicker.date
-        // Convert to String fuckhead
-        // let timestamp =
-        
         let hour = date.getHour(from: date)
         let timeOfDay = date.getTimeOfDay(from: hour)
         let title = "\(timeOfDay) - \(activityType)"
@@ -140,6 +141,7 @@ class AddCustomActivityTableViewController: UITableViewController {
     }
     
     // MARK: - Methods
+    
     func setActivityTypeForActivityCreation(_ index: Int) -> String {
         switch (index) {
         case 0:
@@ -166,7 +168,8 @@ class AddCustomActivityTableViewController: UITableViewController {
         }
     }
     
-    // MARK: - Table view data source
+    // MARK: - Table View Data Source
+    
     // Custom Header Color
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view:UIView, forSection: Int) {
         if let tableViewHeaderFooterView = view as? UITableViewHeaderFooterView {
@@ -177,6 +180,7 @@ class AddCustomActivityTableViewController: UITableViewController {
 }
 
 // MARK: - PickerView Delegte
+
 extension AddCustomActivityTableViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView.tag == 1 {
@@ -243,6 +247,7 @@ extension AddCustomActivityTableViewController: UIPickerViewDelegate {
 }
 
 // MARK: - PickerView Datasource
+
 extension AddCustomActivityTableViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 3
@@ -274,7 +279,6 @@ extension AddCustomActivityTableViewController: UIPickerViewDataSource {
         }
         return 0
     }
-
 }
 
 // MARK: Successful Custom Activity Alert
