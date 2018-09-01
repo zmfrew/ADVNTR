@@ -76,7 +76,7 @@ class AddCustomActivityTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        activityTitleTextField.delegate = self
         activityTypeSegmentedController.selectedSegmentIndex = setActivityTypeSegmentedControllerFor(user: UserController.shared.user)
         
         let backgroundImage = UIImageView(image: UIImage(named: "DefaultNewActivity"))
@@ -98,7 +98,7 @@ class AddCustomActivityTableViewController: UITableViewController {
     }
     
     @IBAction func saveActivityButtonTapped(_ sender: UIButton) {
-        
+        self.resignFirstResponder()
         let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedController.selectedSegmentIndex)
         
         let date = datePicker.date
@@ -279,6 +279,16 @@ extension AddCustomActivityTableViewController: UIPickerViewDataSource {
         }
         return 0
     }
+}
+
+// MARK: - TextField Delegate Conformance
+extension AddCustomActivityTableViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        activityTitleTextField.resignFirstResponder()
+        return true
+    }
+    
 }
 
 // MARK: Successful Custom Activity Alert
