@@ -129,10 +129,24 @@ class NewActivityViewController: UIViewController {
     @IBAction func stopButtonTapped(_ sender: UIButton) {
         pauseButton.isHidden = true
         resumeButton.isHidden = true
+        startButton.isHidden = false
         locationManager.stopUpdatingLocation()
         stopButton.isHidden = true
         invalidateTimers()
-        self.saveNewWorkout()
+        
+        if locationList.count >= 3 && averageSpeed != nil {
+            let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
+            let mapSize = MKMapSize(width: polyline.boundingMapRect.size.width + 32, height: polyline.boundingMapRect.size.height + 32)
+            let region = MKCoordinateRegionForMapRect(MKMapRect(origin: polyline.boundingMapRect.origin, size: mapSize))
+            
+            mapView.setVisibleMapRect(polyline.boundingMapRect, animated: true)
+            mapView.setRegion(region, animated: true)
+            
+            saveNewWorkout()
+        } else {
+            resetLocalProperties()
+            resetViews()
+        }
     }
     
     // MARK: Navigation
@@ -261,15 +275,6 @@ class NewActivityViewController: UIViewController {
         mapView.userTrackingMode = .none
         
         activityTypeSegmentedController.isUserInteractionEnabled = true
-        
-        let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
-        let mapSize = MKMapSize(width: polyline.boundingMapRect.size.width + 32, height: polyline.boundingMapRect.size.height + 32)
-        let region = MKCoordinateRegionForMapRect(MKMapRect(origin: polyline.boundingMapRect.origin, size: mapSize))
-        
-        DispatchQueue.main.async {
-            self.mapView.setVisibleMapRect(polyline.boundingMapRect, animated: true)
-            self.mapView.setRegion(region, animated: false)
-        }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             
