@@ -147,6 +147,8 @@ class NewActivityViewController: UIViewController {
             resetLocalProperties()
             resetViews()
         }
+        
+        activityTypeSegmentedController.isUserInteractionEnabled = true
     }
     
     // MARK: Navigation
@@ -273,8 +275,6 @@ class NewActivityViewController: UIViewController {
         stopButton.isHidden = true
         mapView.showsUserLocation = false
         mapView.userTrackingMode = .none
-        
-        activityTypeSegmentedController.isUserInteractionEnabled = true
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             
