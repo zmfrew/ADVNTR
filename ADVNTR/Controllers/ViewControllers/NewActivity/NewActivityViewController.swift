@@ -10,12 +10,14 @@ import UIKit
 import MapKit
 import FirebaseAuth
 import SwiftEntryKit
+import TwicketSegmentedControl
 
-class NewActivityViewController: UIViewController {
+
+class NewActivityViewController: UIViewController, TwicketSegmentedControlDelegate {
 
     // MARK: - Outlets
     @IBOutlet weak var activityTypeLabel: UILabel!
-    @IBOutlet weak var activityTypeSegmentedController: UISegmentedControl!
+    @IBOutlet weak var activityTypeSegmentedController: TwicketSegmentedControl!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var activityTimeLabel: UILabel!
     @IBOutlet weak var activityDistanceLabel: UILabel!
@@ -54,13 +56,14 @@ class NewActivityViewController: UIViewController {
         setupMapView()
         setupLocationManager()
         hideInitialViews()
+        setUpSegmentedController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         activityTypeLabel.text = UserController.shared.user.preferredActivityType?.capitalized ?? "Run"
-        activityTypeSegmentedController.selectedSegmentIndex = setActivityTypeSegmentedControllerFor(user: UserController.shared.user)
+        activityTypeSegmentedController.move(to: setActivityTypeSegmentedControllerFor(user: UserController.shared.user))
         
         invalidateTimers()
         
@@ -69,11 +72,11 @@ class NewActivityViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @IBAction func activitySegmentedControllerDidChange(_ sender: UISegmentedControl) {
-        let activityType = setActivityTypeForActivityCreation(sender.selectedSegmentIndex)
+    func didSelect(_ segmentIndex: Int) {
+        let activityType = setActivityTypeForActivityCreation(segmentIndex)
         activityTypeLabel.text = activityType.capitalized
     }
-    
+
     @IBAction func startButtonTapped(_ sender: UIButton) {
         locationManager.startUpdatingLocation()
         unhideInitialViews()
@@ -161,6 +164,19 @@ class NewActivityViewController: UIViewController {
     }
     
     // MARK: - Methods
+    func setUpSegmentedController() {
+        let titles = ["Run", "Hike", "Bike"]
+        activityTypeSegmentedController.setSegmentItems(titles)
+        activityTypeSegmentedController.delegate = self
+        activityTypeSegmentedController.defaultTextColor = UIColor.white
+        activityTypeSegmentedController.highlightTextColor = UIColor.yellow
+        activityTypeSegmentedController.segmentsBackgroundColor = UIColor.black
+        activityTypeSegmentedController.sliderBackgroundColor = UIColor.clear
+        activityTypeSegmentedController.isSliderShadowHidden = true
+        activityTypeSegmentedController.layer.backgroundColor = UIColor.clear.cgColor
+        activityTypeSegmentedController.sizeToFit()
+    }
+    
     func updateAverageSpeedOrPaceLabelText() {
         if activityTypeSegmentedController.selectedSegmentIndex == 0 {
             averageSpeedOrPaceNameLabel.text = "Pace"
