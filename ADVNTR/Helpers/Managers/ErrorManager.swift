@@ -33,5 +33,5 @@ extension AuthErrorCode {
 // MARK: - Password Validation
 enum PasswordError: String {
     case passwordRequired = "A password is required."
-    case passwordNotValid = "Your password must be at least 6 characters."
+    case passwordNotValid = "Your password must be at least 8 characters, contain 1 letter, and contain 1 special character."
 }

@@ -14,10 +14,10 @@ class SignUpViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var displayNameTextField: UITextField!
-    @IBOutlet weak var emailAddressTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailAddressErrorLabel: UILabel!
+    @IBOutlet weak var emailAddressTextField: UITextField!
     @IBOutlet weak var passwordErrorLabel: UILabel!
+    @IBOutlet weak var passwordTextField: UITextField!
     
     // MARK: Properties
     var isSuccessfulSignUp = false
@@ -198,6 +198,7 @@ class SignUpViewController: UIViewController {
             //destinationVC?.activityType = activityType
         }
     }
+    
 }
 
 // MARK: UITextFieldDelegate Conformance
@@ -208,7 +209,7 @@ extension SignUpViewController: UITextFieldDelegate {
             emailAddressTextField.becomeFirstResponder()
         } else if textField == emailAddressTextField {
             passwordTextField.becomeFirstResponder()
-        } else {
+        } else if textField == passwordTextField {
             passwordTextField.resignFirstResponder()
         }
         return true
@@ -217,7 +218,9 @@ extension SignUpViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == emailAddressTextField {
             ValidationManager.validateEmail(errorLabel: emailAddressErrorLabel, textField: emailAddressTextField)
-        } else if textField == passwordTextField {
+        }
+        
+        if textField == passwordTextField {
             ValidationManager.validatePassword(errorLabel: passwordErrorLabel, textField: passwordTextField)
         }
     }
@@ -234,4 +237,5 @@ extension SignUpViewController {
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
     }
+    
 }
