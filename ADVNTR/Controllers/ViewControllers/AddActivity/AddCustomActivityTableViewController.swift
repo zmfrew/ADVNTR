@@ -13,12 +13,15 @@ class AddCustomActivityTableViewController: UITableViewController {
     
     // MARK: - Properties
     
+    var activity: Activity?
+    
     var distanceFirstDigit: Int?
     var distanceSecondDigit: Double?
     var distanceUnits: String?
     var durationHours: Int?
     var durationMinutes: Int?
     var durationSeconds: Int?
+    var defaultImage = UIImage(named: "defaultProfile")!
     
     //MARK - Distance
     
@@ -66,6 +69,7 @@ class AddCustomActivityTableViewController: UITableViewController {
     
     // MARK: - Outlets
     
+    
     @IBOutlet weak var activityTitleTextField: UITextField!
     @IBOutlet weak var distancePickerView: UIPickerView!
     @IBOutlet weak var durationPickerView: UIPickerView!
@@ -76,7 +80,7 @@ class AddCustomActivityTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityTitleTextField.delegate = self
+        
         activityTypeSegmentedController.selectedSegmentIndex = setActivityTypeSegmentedControllerFor(user: UserController.shared.user)
         
         let backgroundImage = UIImageView(image: UIImage(named: "DefaultNewActivity"))
@@ -98,7 +102,7 @@ class AddCustomActivityTableViewController: UITableViewController {
     }
     
     @IBAction func saveActivityButtonTapped(_ sender: UIButton) {
-        self.resignFirstResponder()
+        
         let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedController.selectedSegmentIndex)
         
         let date = datePicker.date
@@ -106,6 +110,8 @@ class AddCustomActivityTableViewController: UITableViewController {
         let timeOfDay = date.getTimeOfDay(from: hour)
         let title = "\(timeOfDay) - \(activityType)"
         let name = activityTitleTextField.text ?? title
+        
+        setDefaultActivityImage()
         
         var unitLength: UnitLength?
         if distanceUnits == "Km's" {
@@ -125,9 +131,7 @@ class AddCustomActivityTableViewController: UITableViewController {
         
         let averageSpeed = ActivityUnitConverter.speed(distance: distance, seconds: duration)
         
-        let image = UIImage(named: "defaultProfile")
-        
-        ActivityController.shared.saveActivity(type: activityType, name: name, distance: Int(distance.value), averageSpeed: averageSpeed.value, elevationChange: 0, timestamp: date.stringValue(from: date), duration: duration, image: image!) { (success, _) in
+        ActivityController.shared.saveActivity(type: activityType, name: name, distance: Int(distance.value), averageSpeed: averageSpeed.value, elevationChange: 0, timestamp: date.stringValue(from: date), duration: duration, image: defaultImage) { (success, _) in
             
             if success {
                 let message = MessageController.shared.createSuccessAlertWith(title: "New activity saved.", description: "Great job!")
@@ -139,6 +143,7 @@ class AddCustomActivityTableViewController: UITableViewController {
             }
         }
     }
+    
     
     // MARK: - Methods
     
@@ -168,6 +173,19 @@ class AddCustomActivityTableViewController: UITableViewController {
         }
     }
     
+    func setDefaultActivityImage() {
+        switch (activityTypeSegmentedController.selectedSegmentIndex) {
+        case 0:
+            defaultImage = UIImage(named: "DefaultRun")!
+        case 1:
+            defaultImage = UIImage(named: "lucas-clara-579404-unsplash")!
+        case 2:
+            defaultImage = UIImage(named: "daniel-frank-645862-unsplash")!
+        default:
+            defaultImage = UIImage(named: "defaultProfile")!
+        }
+    }
+    
     // MARK: - Table View Data Source
     
     // Custom Header Color
@@ -176,7 +194,6 @@ class AddCustomActivityTableViewController: UITableViewController {
             tableViewHeaderFooterView.textLabel?.textColor = UIColor.white
         }
     }
-    
 }
 
 // MARK: - PickerView Delegte
@@ -281,22 +298,3 @@ extension AddCustomActivityTableViewController: UIPickerViewDataSource {
     }
 }
 
-// MARK: - TextField Delegate Conformance
-extension AddCustomActivityTableViewController: UITextFieldDelegate {
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        activityTitleTextField.resignFirstResponder()
-        return true
-    }
-    
-}
-
-// MARK: Successful Custom Activity Alert
-extension AddCustomActivityTableViewController {
-    
-}
-
-// MARK: Error Adding Custom Activity Alert (Boring iOS SDK AlertController)
-extension AddCustomActivityTableViewController {
-    
-}
