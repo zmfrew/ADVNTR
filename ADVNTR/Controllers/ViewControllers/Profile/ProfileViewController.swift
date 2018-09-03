@@ -35,6 +35,7 @@ class ProfileViewController: UIViewController, TwicketSegmentedControlDelegate {
     // MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUpTextFields()
         toggleUserInteraction()
         updateViews()
