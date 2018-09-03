@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tLO-gv-g6N">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tLO-gv-g6N">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -75,20 +75,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="54.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sSO-an-3t4">
-                                                    <rect key="frame" x="50" y="12.666666666666657" width="275" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <segments>
-                                                        <segment title="Run"/>
-                                                        <segment title="Hike"/>
-                                                        <segment title="Bike"/>
-                                                    </segments>
-                                                    <color key="tintColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </segmentedControl>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R2O-no-rTQ" customClass="TwicketSegmentedControl" customModule="TwicketSegmentedControl">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                                </view>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="R2O-no-rTQ" firstAttribute="leading" secondItem="cRh-wg-TFq" secondAttribute="leading" id="EhC-S6-YOJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="R2O-no-rTQ" secondAttribute="trailing" id="LcS-Fy-Vm2"/>
+                                                <constraint firstAttribute="bottom" secondItem="R2O-no-rTQ" secondAttribute="bottom" id="VaJ-IW-BKu"/>
+                                                <constraint firstItem="R2O-no-rTQ" firstAttribute="top" secondItem="cRh-wg-TFq" secondAttribute="top" id="ccv-27-oJa"/>
+                                            </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -222,7 +220,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="activityTitleTextField" destination="gH2-YY-WWI" id="GSa-zd-8jr"/>
-                        <outlet property="activityTypeSegmentedController" destination="sSO-an-3t4" id="rg8-LX-1YK"/>
+                        <outlet property="activityTypeSegmentedController" destination="R2O-no-rTQ" id="goQ-9G-U1X"/>
                         <outlet property="datePicker" destination="Fmz-RX-bzu" id="jGS-t0-KIW"/>
                         <outlet property="distancePickerView" destination="jsb-g7-YSR" id="Dhr-BM-QXw"/>
                         <outlet property="durationPickerView" destination="f7b-OV-ZBF" id="QI4-8F-LGK"/>
@@ -234,6 +232,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="addActivityIcon" width="60" height="60"/>
+        <image name="addActivityIcon" width="25" height="25"/>
     </resources>
 </document>
