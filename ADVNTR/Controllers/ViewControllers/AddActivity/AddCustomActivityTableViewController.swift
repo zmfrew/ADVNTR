@@ -8,8 +8,9 @@
 
 import UIKit
 import SwiftEntryKit
+import TwicketSegmentedControl
 
-class AddCustomActivityTableViewController: UITableViewController {
+class AddCustomActivityTableViewController: UITableViewController, TwicketSegmentedControlDelegate {
     
     // MARK: - Properties
     
@@ -73,7 +74,7 @@ class AddCustomActivityTableViewController: UITableViewController {
     @IBOutlet weak var activityTitleTextField: UITextField!
     @IBOutlet weak var distancePickerView: UIPickerView!
     @IBOutlet weak var durationPickerView: UIPickerView!
-    @IBOutlet weak var activityTypeSegmentedController: UISegmentedControl!
+    @IBOutlet weak var activityTypeSegmentedController: TwicketSegmentedControl!
     @IBOutlet weak var datePicker: UIDatePicker!
     
     // MARK: - ViewDidLoad
@@ -81,7 +82,9 @@ class AddCustomActivityTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        activityTypeSegmentedController.selectedSegmentIndex = setActivityTypeSegmentedControllerFor(user: UserController.shared.user)
+        setUpSegmentedController()
+        
+        activityTypeSegmentedController.move(to: setActivityTypeSegmentedControllerFor(user: UserController.shared.user))
         
         let backgroundImage = UIImageView(image: UIImage(named: "DefaultNewActivity"))
         backgroundImage.frame = self.tableView.frame
@@ -94,6 +97,7 @@ class AddCustomActivityTableViewController: UITableViewController {
         
         distancePickerView.dataSource = self
         durationPickerView.dataSource = self
+
     }
     
     // MARK: - Actions
@@ -137,6 +141,7 @@ class AddCustomActivityTableViewController: UITableViewController {
                 let message = MessageController.shared.createSuccessAlertWith(title: "New activity saved.", description: "Great job!")
                 
                 DispatchQueue.main.async {
+                    
                     SwiftEntryKit.display(entry: message.0, using: message.1)
                     self.tabBarController?.selectedIndex = 1
                 }
@@ -146,6 +151,23 @@ class AddCustomActivityTableViewController: UITableViewController {
     
     
     // MARK: - Methods
+    
+    func setUpSegmentedController() {
+        let titles = ["Run", "Hike", "Bike"]
+        activityTypeSegmentedController.setSegmentItems(titles)
+        activityTypeSegmentedController.delegate = self
+        activityTypeSegmentedController.defaultTextColor = UIColor.white
+        activityTypeSegmentedController.highlightTextColor = UIColor.yellow
+        activityTypeSegmentedController.segmentsBackgroundColor = UIColor.black
+        activityTypeSegmentedController.sliderBackgroundColor = UIColor.clear
+        activityTypeSegmentedController.isSliderShadowHidden = true
+        activityTypeSegmentedController.layer.backgroundColor = UIColor.clear.cgColor
+        activityTypeSegmentedController.sizeToFit()
+    }
+    
+    func didSelect(_ segmentIndex: Int) {
+        _ = setActivityTypeForActivityCreation(segmentIndex)
+    }
     
     func setActivityTypeForActivityCreation(_ index: Int) -> String {
         switch (index) {
