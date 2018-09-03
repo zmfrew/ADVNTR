@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1l4-rd-SFi">
-    <device id="retina5_5" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1l4-rd-SFi">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,67 +15,31 @@
             <objects>
                 <tableViewController id="WQo-Rb-uDM" customClass="SettingsTableViewController" customModule="ADVNTR" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="xzq-fQ-DJr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.15368632254205217" green="0.15368632254205217" blue="0.15368632254205217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
                             <tableViewSection headerTitle=" " id="1G5-4m-ysm">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="X0H-iV-A0j">
-                                        <rect key="frame" x="0.0" y="55.333333333333343" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="X0H-iV-A0j" id="r1I-Pc-1B2">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notifiction Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3G-xZ-8i8">
-                                                    <rect key="frame" x="16" y="11" width="148" height="24"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                                    <color key="textColor" white="0.75335491365856599" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.075917119565217406" green="0.075917119565217406" blue="0.075917119565217406" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="d61-G7-nyk">
-                                        <rect key="frame" x="0.0" y="99.333333333333343" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d61-G7-nyk" id="3ua-oq-Iwu">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bluetooth Connections" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUA-ZU-yLI">
-                                                    <rect key="frame" x="16" y="11" width="179" height="24"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                                    <color key="textColor" white="0.75335491369999996" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.075917119565217406" green="0.075917119565217406" blue="0.075917119565217406" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="GmF-CL-aqp">
-                                        <rect key="frame" x="0.0" y="143.33333333333334" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GmF-CL-aqp" id="1h6-C2-vIV">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="MnN-jB-Dql">
-                                                    <rect key="frame" x="16" y="8" width="382" height="27.666666666666671"/>
+                                                    <rect key="frame" x="16" y="8" width="343" height="27.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Units of Measure" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cQ-se-C9P">
-                                                            <rect key="frame" x="0.0" y="0.0" width="130.33333333333334" height="27.666666666666668"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="130.5" height="27.5"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                             <color key="textColor" white="0.75335491369999996" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ILC-ls-v0q">
-                                                            <rect key="frame" x="318" y="0.0" width="64" height="27.666666666666668"/>
+                                                            <rect key="frame" x="279" y="0.0" width="64" height="27.5"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -106,10 +69,10 @@
                             <tableViewSection headerTitle=" " id="PCd-Bz-pHW">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ijS-qN-zpn">
-                                        <rect key="frame" x="0.0" y="243.33333333333337" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="155.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ijS-qN-zpn" id="jMc-2t-yw9">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="About This Version" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lcs-qX-Nen">
@@ -127,10 +90,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Gjr-zd-mut">
-                                        <rect key="frame" x="0.0" y="287.33333333333337" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="199.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gjr-zd-mut" id="t5h-mV-E4V">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Suggestions and Feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82u-4Z-cUI">
@@ -147,36 +110,15 @@
                                             <segue destination="cyS-vp-c66" kind="show" id="Abl-xX-T5l"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="THx-6G-emO">
-                                        <rect key="frame" x="0.0" y="331.33333333333337" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="THx-6G-emO" id="Hp9-Be-FTG">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contact Us" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TI4-gX-eXA">
-                                                    <rect key="frame" x="16" y="10" width="85" height="24"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                                    <color key="textColor" white="0.75335491369999996" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.075917119569999997" green="0.075917119569999997" blue="0.075917119569999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <segue destination="Yay-Ww-3JI" kind="show" id="Xgc-9c-IKD"/>
-                                        </connections>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle=" " footerTitle="Crafted with ❤ by Owen Henley, Jeter Pow &amp; Zach Frew." id="tbV-hn-ytm">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="s5F-rz-sAQ">
-                                        <rect key="frame" x="0.0" y="438.66666666666669" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="307" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s5F-rz-sAQ" id="X1Y-Nh-zd0">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jfx-Ez-jdl">
@@ -194,10 +136,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="fPY-Xz-5jZ">
-                                        <rect key="frame" x="0.0" y="482.66666666666674" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="351" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fPY-Xz-5jZ" id="BQZ-sM-XNp">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Terms Of Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qlo-Hp-Ti4">
@@ -215,10 +157,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ahf-86-WOv">
-                                        <rect key="frame" x="0.0" y="526.66666666666674" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="395" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ahf-86-WOv" id="3wF-H6-FPu">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="App Credits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1x-iQ-Erc">
@@ -257,35 +199,56 @@
             <objects>
                 <viewController id="Hkd-bb-aOa" customClass="CurrentVersionViewController" customModule="ADVNTR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tOe-3N-8wV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="0Zj-sY-hLQ">
-                                <rect key="frame" x="16" y="80" width="382" height="624"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="0Zj-sY-hLQ">
+                                <rect key="frame" x="16" y="104" width="343" height="531"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="fI1-6Z-TYh">
-                                        <rect key="frame" x="102" y="0.0" width="178" height="20.333333333333332"/>
+                                        <rect key="frame" x="87" y="0.0" width="169.5" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Version: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3d-oY-Q2l">
-                                                <rect key="frame" x="0.0" y="0.0" width="128.66666666666666" height="20.333333333333332"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="128.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.1a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="olJ-xN-2B4">
-                                                <rect key="frame" x="147.66666666666669" y="0.0" width="30.333333333333343" height="20.333333333333332"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="olJ-xN-2B4">
+                                                <rect key="frame" x="147.5" y="0.0" width="22" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Update: x.x" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WKd-sm-kmx">
-                                        <rect key="frame" x="55" y="120.33333333333334" width="272" height="503.66666666666663"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WKd-sm-kmx">
+                                        <rect key="frame" x="27.5" y="52.5" width="288" height="379.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="288" id="P3I-e5-BNh"/>
+                                            <constraint firstAttribute="height" constant="379.5" id="Q4V-1a-AWR"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment>
+                                                <string key="content">Update: 1.3
+
+Manual activity default images
+iPhone 8 Plus bug fixes
+Keyboard bug fixes
+Crash on startup bug fix</string>
+                                                <attributes>
+                                                    <font key="NSFont" metaFont="system" size="14"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mnp-Gb-hNg">
+                                        <rect key="frame" x="51.5" y="464" width="240" height="67"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -294,298 +257,177 @@
                             <constraint firstItem="oOg-q6-pgK" firstAttribute="trailing" secondItem="0Zj-sY-hLQ" secondAttribute="trailing" constant="16" id="a3T-Fc-vSq"/>
                             <constraint firstItem="oOg-q6-pgK" firstAttribute="bottom" secondItem="0Zj-sY-hLQ" secondAttribute="bottom" constant="32" id="iEJ-Lp-LX4"/>
                             <constraint firstItem="0Zj-sY-hLQ" firstAttribute="leading" secondItem="oOg-q6-pgK" secondAttribute="leading" constant="16" id="jir-V1-SVU"/>
-                            <constraint firstItem="0Zj-sY-hLQ" firstAttribute="top" secondItem="oOg-q6-pgK" secondAttribute="top" constant="16" id="uIo-hg-37l"/>
+                            <constraint firstItem="0Zj-sY-hLQ" firstAttribute="top" secondItem="oOg-q6-pgK" secondAttribute="top" constant="40" id="uIo-hg-37l"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oOg-q6-pgK"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JlB-ge-J4x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2925.5999999999999" y="179.46026986506749"/>
+            <point key="canvasLocation" x="2924.6376811594205" y="179.34782608695653"/>
         </scene>
         <!--Privacy Policy View Controller-->
         <scene sceneID="yb0-50-9CC">
             <objects>
                 <viewController id="6pG-ND-oxe" customClass="PrivacyPolicyViewController" customModule="ADVNTR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="poi-BR-ApI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ceg-Gb-c8D">
-                                <rect key="frame" x="30" y="30" width="354" height="686"/>
+                                <rect key="frame" x="30" y="30" width="315" height="617"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="3tO-6x-j1a">
-                                        <rect key="frame" x="8" y="8" width="338" height="662"/>
+                                        <rect key="frame" x="8" y="8" width="299" height="593"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="s6H-ns-ejP">
-                                                <rect key="frame" x="0.0" y="0.0" width="338" height="609"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="299" height="538"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <mutableString key="text">Effective as of May 25, 2018
+                                                <mutableString key="text">ADVNTR
+Privacy Policy of ADVNTR
 
-1. Introduction
-2 About this Policy
-3 Your rights and your preferences: Giving you choice and control
-4 How do we collect your personal data?
-5 What personal data do we collect from you?
-6 What do we use your personal data for?
-7 Sharing your personal data
-8 Data retention and deletion
-9 Transfer to other countries
-10 Links
-11 Keeping your data safe
-12 Children
-13 Changes to this Privacy Policy
-14 How to contact us
-
-1. Introduction
-
-Thanks for choosing ADVNTR!
+Effective date: September 03, 2018
 
-At ADVNTR, we want to give you the best possible experience to ensure that you enjoy our service today, tomorrow, and in the future. To do this we need to understand your listening habits so we can deliver an exceptional and personalized service specifically for you. That said, your privacy and the security of your personal data is, and will always be, enormously important to us. So, we want to transparently explain how and why we gather, store, share and use your personal data - as well as outline the controls and choices you have around when and how you choose to share your personal data.
-
-That is our objective, and this Privacy Policy (“Policy”) will explain exactly what we mean in further detail below.
-
-2. About this Policy
-
-This Policy sets out the essential details relating to your personal data relationship with ADVNTR. The Policy applies to all ADVNTR services and any associated services (referred to as the ‘ADVNTR Service’). The terms governing your use of the ADVNTR Service are defined in our Terms and Conditions of Use (the “Terms and Conditions of Use”).
-
-From time to time, we may develop new or offer additional services. If the introduction of these new or additional services results in any change to the way we collect or process your personal data we will provide you with more information and additional terms or policies. Unless stated otherwise when we introduce these new or additional services, they will be subject to this Policy.
-
-The aim of this Policy is to:
-
-Ensure that you understand what personal data we collect about you, the reasons why we collect and use it, and who we share it with;
-Explain the way we use the personal data that you share with us in order to give you a great experience when you are using the ADVNTR Service; and
-Explain your rights and choices in relation to the personal data we collect and process about you and how we will protect your privacy.
-We hope this helps you to understand our privacy commitments to you. For further clarification of the terms used in this Policy please visit our Privacy Center on ADVNTR.com. For information on how to contact us if you ever have any questions or concerns, please see the ‘How to Contact Us’ Section 14 below. Alternatively, if you do not agree with the content of this Policy, then please remember it is your choice whether you want to use the ADVNTR Service.
-
-3. Your rights and your preferences: Giving you choice and control
-
-You may be aware that a new European Union law, called the General Data Protection Regulation or "GDPR" gives certain rights to individuals in relation to their personal data. Accordingly, we have implemented additional transparency and access controls in our Privacy Center and Privacy Settings to help users take advantage of those rights. As available and except as limited under applicable law, the rights afforded to individuals are:
-
-Right of Access - the right to be informed of and request access to the personal data we process about you;
-Right to Rectification - the right to request that we amend or update your personal data where it is inaccurate or incomplete;
-Right to Erasure - the right to request that we delete your personal data;
-Right to Restrict - the right to request that we temporarily or permanently stop processing all or some of your personal data;
-Right to Object -
-the right, at any time, to object to us processing your personal data on grounds relating to your particular situation;
-the right to object to your personal data being processed for direct marketing purposes;
-Right to Data Portability - the right to request a copy of your personal data in electronic format and the right to transmit that personal data for use in another party’s service; and
-Right not to be subject to Automated Decision-making - the right to not be subject to a decision based solely on automated decision making, including profiling, where the decision would have a legal effect on you or produce a similarly significant effect.
-In order to enable you to exercise these rights with ease and to record your preferences in relation to how ADVNTR uses your personal data, we provide you with access to the following settings via your Account Settings page:
-
-Privacy Settings - allows you to control some of the categories of personal data we process about you, enables you to access your personal data via a ‘Download my Data’ button, and includes a link to the Privacy Center on ADVNTR.com where you can find out more information about how ADVNTR uses your personal data and what your rights are; and,
-Notification Settings - allows you to choose which communications you receive from ADVNTR, manage your publicly available personal data, and set your sharing preferences.
-The Privacy Center puts you in control of how ADVNTR processes your personal data. It provides you with information about what happens if you adjust your settings on your Account Settings page and how to opt out of receiving certain messages from ADVNTR. If we send you electronic marketing messages based on your consent or as otherwise permitted by applicable law, you may, at any time, respectively withdraw such consent or declare your objection (“opt-out”) at no cost. The electronic marketing messages you receive from ADVNTR (e.g. those sent via email) also will include an opt-out mechanism within the message itself (e.g. an unsubscribe link in the emails we send to you).
-
-You can find out more about the GDPR rights described above and the controls we provide to all ADVNTR users with respect to these rights in the ‘Your Rights’ section contained in the Privacy Center. If you have any questions about your privacy, your rights, or how to exercise them, please contact our Data Protection Officer using the ‘Contact Us’ form on the Privacy Center. We will respond to your request within a reasonable period of time upon verification of your identity. If you are unhappy with the way we are using your personal data you can also contact and are free to lodge a complaint with the Swedish Data Protection Authority (Datainspektionen) or your local Data Protection Authority.
-
-4. How do we collect your personal data?
-
-We collect your personal data in the following ways:
-
-When you sign up for the ADVNTR Service - when you sign up to the ADVNTR Service, we collect certain personal data so you can use the ADVNTR Service such as your email address, birth date, gender, and country.
-Through your use of the ADVNTR Service - when you use the ADVNTR Service, we collect personal data about your use of the ADVNTR Service, such as what songs you have played and what playlists you have created.
-Personal data collected that enables us to provide you with additional features/functionality - from time to time, you also may provide us with additional personal data or give us your permission to collect additional personal data e.g. to provide you with more features or functionality. As described further below (see Voluntary Music Data), we will not collect photos, precise mobile device location, voice data, or contacts from your device without your prior consent. You always will have the option to change your mind and withdraw your consent at any time.
-From third parties - we will receive personal data about you and your activity from third parties, including advertisers and partners we work with in order to provide you with the ADVNTR Service (please see ‘Sharing your personal data’ Section 7 below). We will use this personal data either where you have provided your consent to the third party or to ADVNTR to that data sharing taking place or where ADVNTR has a legitimate interest to use the personal data in order to provide you with the ADVNTR Service.
-We use anonymised and aggregated information for purposes that include testing our IT systems, research, data analysis, creating marketing and promotion models, improving the ADVNTR Service, and developing new features and functionality within the ADVNTR Service.
-
-5.What personal data do we collect from you?
-
-We have set out in the tables below the categories of personal data we collect and use about you:
-
-Personal data collected when you sign up for the ADVNTR Service
-
-Categories of personal data	Description of category
-Account Registration Data	This is the personal data that is provided by you or collected by us to enable you to sign up for and use the ADVNTR Service. This includes your email address, birth date, gender, postal code, and country. 
-
-Some of the personal data we will ask you to provide is required in order to create your account. You also have the option to provide us with some additional personal data in order to make your account more personalized. 
-
-The exact personal data we will collect depends on the type of ADVNTR Service plan you sign up for and whether or not you use a Third Party Service (as defined in the Terms and Conditions of Use, such as Facebook) to sign up and use the ADVNTR Service. If you use a Third Party Service to create an account, we will receive personal data via that Third Party Service but only when you have consented to that Third Party Service sharing your personal data with us.
-Personal data collected through your use of the ADVNTR Service
-
-Categories of personal data	Description of category
-ADVNTR Service Usage Data	This is the personal data that is collected about you when you are using the ADVNTR Service - this may include: 
-Information about your type of ADVNTR Service plan.
-Information about your interactions with the ADVNTR Service which includes the date and time of any requests you make, songs you have listened to, playlists you create, video content you’ve watched, and your interactions with other ADVNTR users. This also may include details of your use of Third Party Applications and advertising you receive.
-User Content (as defined in the Terms and Conditions of Use) you post to ADVNTR including messages you send and/or receive via ADVNTR and your interactions with the ADVNTR Customer Service team.
-Technical Data which may include URL information, cookie data, your IP address, the types of devices you are using to access or connect to the ADVNTR Service, unique device IDs, device attributes, network connection type (e.g. WiFi, 3G, LTE, Bluetooth) and provider, network and device performance, browser type, language, information enabling digital rights management, operating system, and ADVNTR application version. Further details about the technical data that is processed by us can be found in our Cookies Policy.
-Motion-generated or orientation-generated mobile sensor data (e.g. accelerometer or gyroscope) required for the purposes of providing specific features of the ADVNTR Service to you.
-Personal data collected with your permission that enables us to provide you with additional features/functionality
-
-Categories of personal data	Description of category
-Voluntary Mobile Data	In addition to the mobile data we collect to provide you with the ADVNTR Service (outlined above), you also have the option to give us your consent to collect additional personal data from your mobile device to provide you with features/functionality that will enhance your ADVNTR Service experience. 
-
-We will not access any of the personal data listed below without first obtaining your consent:
-Your photos - If you give us permission to access your photos or camera, we will only access images that you specifically choose to share with us and metadata related to those images, such as the type of file and the size of the image. We will never scan or import your photo library or camera roll;
-Your precise mobile device location - If you give us permission to access your precise location, this enables us to access your GPS or Bluetooth to provide location-aware functionality in the ADVNTR Service. Please note that this does not include your IP address. We use your IP address to determine non-precise location, for example, what country you are in to comply with our licensing agreements;
-Your voice data - If you give us permission, this enables us to access the voice commands captured via your device microphone to enable you to interact with the ADVNTR Service with your voice. Please note you will always have the ability to turn off the microphone feature; and,
-Your contacts - If you give us permission to access your contacts, this enables us to access individual contacts stored on your device to help you find friends who use ADVNTR.
-Payment Data	We may collect such personal data if you sign up for a Trial or purchase any of our Paid Subscriptions (as defined in the Terms and Conditions of Use) or make other purchases through the ADVNTR Service. The exact personal data collected will vary depending on the payment method (e.g. direct via your mobile phone carrier or by invoice) but will include information such as:
-Name;
-Date of birth;
-Credit or debit card type, expiration date, and certain digits of your card number;
-Postal code;
-Mobile phone number; and
-Details of your transaction history.
-If you choose to pay by invoice, we will provide your personal data to our payment processors to enable them to complete a credit check and to send you invoices.
-Contests, Surveys and Sweepstakes Data	This personal data is used to allow you to sign up and participate in these types of promotions. The exact personal data collected will vary depending on the promotion.
-Marketing Data	This personal data is used to enable ADVNTR and our partners / service providers to send you marketing communications either: 
-Via email;
-Whilst using the ADVNTR Service; and/or
-Direct from the third party.
-
-You can find out more about the personal data collected and the controls you have in relation to the marketing communications you receive via the Privacy Center
-6. What do we use your personal data for?
-
-When you use or interact with the ADVNTR Service, we use a variety of technologies to process the personal data we collect about you for various reasons. We have set out in the table below the reasons why we process your personal data, the associated legal bases we rely upon to legally permit us to process your personal data, and the categories of personal data (identified in Section 5 ‘What personal data do we collect from you?’) used for these purposes:
-
-Description of why ADVNTR processes your personal data (‘processing purpose’)	Legal Basis for the processing purpose	Categories of personal data used by ADVNTR for the processing purpose
-To provide, personalize, and improve your experience with the ADVNTR Service and other services and products provided by ADVNTR, for example by providing customized, personalized, or localized content, recommendations, features, and advertising on or outside of the ADVNTR Service (including for third party products and services).	
-Performance of a Contract
-Legitimate Interest
-Account Registration Data
-Service Usage Data
-To understand how you access and use the ADVNTR Service to ensure technical functionality of the ADVNTR Service, develop new products and services, and analyze your use of the ADVNTR Service, including your interaction with applications, advertising, products, and services that are made available, linked to, or offered through the ADVNTR Service.	
-Performance of a Contract
-Legitimate Interest
-Account Registration Data
-Service Usage Data
-To communicate with you for ADVNTR Service-related purposes.	
-Performance of a Contract
-Legitimate Interest
-Account Registration Data
-Service Usage Data
-To process your payment to prevent or detect fraud including fraudulent payments and fraudulent use of the ADVNTR Service.	
-Performance of a Contract
-Compliance with legal obligations
-Legitimate Interest
-Payment Data
-To communicate with you, either directly or through one of our partners, for: 
-marketing,
-research,
-participation in contests, surveys and sweepstakes,
-promotional purposes,
-via emails, notifications, or other messages, consistent with any permissions you may have communicated to us (e.g., through your Account Settings page).	
-Consent
-Legitimate Interest
-Contests, Surveys and Sweepstakes Data
-Marketing Data
-To provide you with features, information, advertising, or other content which is based on your specific location.	
-Consent
-Voluntary Mobile Data
-If you require further information about the balancing test that ADVNTR has undertaken to justify its reliance on the legitimate interest legal basis under the GDPR, please see Section 14 ‘How to contact us’ for further details on how to contact us.
+ADVNTR ("us", "we", or "our") operates the website and the ADVNTR mobile application (the "Service").
 
-7. Sharing your personal data
+This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data. Our Privacy Policy for ADVNTR is managed through Free Privacy Policy.
 
-We have set out the categories of recipients of the personal data collected or generated through your use of the ADVNTR Service.
+We use your data to provide and improve the Service. By using the Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, terms used in this Privacy Policy have the same meanings as in our Terms and Conditions.
 
-Publicly available information
+Information Collection And Use
 
-The following personal data will always be publicly available on the ADVNTR Service: your name and/or username, profile picture, who you follow and who follows you on the ADVNTR Service, your recently played artists, and your public playlists.
+We collect several different types of information for various purposes to provide and improve our Service to you.
 
-Personal data you may choose to share
+Types of Data Collected
 
-The following personal data will only be shared with the categories of recipients outlined in the table below if:
+Personal Data
 
-you choose to make use of a specific ADVNTR Service feature where sharing of particular personal data is required for the proper use of the ADVNTR Service feature; or
+While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you ("Personal Data"). Personally identifiable information may include, but is not limited to:
 
-you grant us your permission to share the personal data, e.g. by selecting the appropriate setting in the ADVNTR Service.
+Email address
+First name and last name
+Cookies and Usage Data
+Usage Data
 
-Categories of Recipients	Reason for sharing
-Third Party Applications you connect to your ADVNTR Account	If you connect your ADVNTR account to a Third Party Application, such as, for example, social media, audio, television, or automotive platforms, ADVNTR may share your Service Usage Data so you can connect to your ADVNTR account.
-Third Party Applications you use to log into ADVNTR	If you log into a Third Party Application using your ADVNTR account credentials, then that Third Party Application may have access to certain Service Usage Data such as your playlists, saved content and activity. 
+We may also collect information that your browser sends whenever you visit our Service or when you access the Service by or through a mobile device ("Usage Data").
 
-You will receive a notification before connecting to the Third Party Application to let you know what personal data will be shared / accessible to that Third Party Application.
-Support Community	When you register for a ADVNTR Support Account on the ADVNTR Support Community, we will ask you to create a specific ADVNTR Support Community username. This will be publicly displayed to anyone who accesses the ADVNTR Support Community along with any questions or comments you post.
-Your ADVNTR Followers	There also may be times when you want us to share certain Service Usage Data, specifically information about your use of ADVNTR, with other ADVNTR users known as ‘Your ADVNTR Followers’. 
+This Usage Data may include information such as your computer's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that you visit, the time and date of your visit, the time spent on those pages, unique device identifiers and other diagnostic data.
 
-For example, when you make playlists, you might want those playlists to be visible to others on the ADVNTR Service, but you can also make your playlists private at any time.
-Artists and Record Labels	You can ask us to share personal data (like your email address) with artists or record labels, or other partners who may want to directly send you news or promotional offers, but you can also revoke that consent at any time.
-Learn more about how to manage notifications, your publicly available information, and what you share with others in the ‘Your rights and your preferences: Giving you choice and control’ Section 3 of this Policy and on the Privacy Center.
+When you access the Service by or through a mobile device, this Usage Data may include information such as the type of mobile device you use, your mobile device unique ID, the IP address of your mobile device, your mobile operating system, the type of mobile Internet browser you use, unique device identifiers and other diagnostic data.
 
-Information we may share
+Tracking &amp; Cookies Data
 
-Categories of Recipients	Reason for sharing
-Service Providers and Others	We use technical service providers which may operate the technical infrastructure that we need to provide the ADVNTR Service, in particular providers which host, store, manage, and maintain the ADVNTR application, its content and the data we process. 
-We use technical service providers to help us communicate with you, as described in Section 6 of this Policy. 
-We use marketing and advertising partners to show you more tailored content, or to help us understand your use of the ADVNTR Service, to provide you with a better service. We also may share personal data with certain marketing and advertising partners to send you promotional communications about ADVNTR.
-ADVNTR Partners	If you access the ADVNTR Service through an offer that you received or purchased from a third party such as your mobile network operator, we share personal data with that third party about your use of the ADVNTR Service, such as whether and to what extent you have used the offer, activated a ADVNTR account, or actively used the ADVNTR Service. 
-Depending on how you sign up for the ADVNTR Service (e.g. through a third party service or a mobile provider), we share your ADVNTR username or other Account Registration Data as necessary to enable your account. 
-We also may share your personal data in a pseudonymised format with our music industry partners to help them understand how the content they license to us is performing and to enable you to listen to streaming content via the ADVNTR Service. 
-We also share your personal data in a pseudonymised format with marketing partners who help us with promotional efforts and with advertisers that allow us to offer a free service.
-Academic Researchers	We will share your personal data for activities such as statistical analysis and academic study but only in a pseudonymised format.
-Other ADVNTR Group Companies	We will share your personal data with other ADVNTR Group companies to carry out our daily business operations and to enable us to maintain and provide the ADVNTR Service to you.
-Law Enforcement and Data Protection Authorities	We will share your personal data when we in good faith believe it is necessary for us to do so in order to comply with a legal obligation under applicable law, or respond to valid legal process, such as a search warrant, a court order, or a subpoena. 
+We use cookies and similar tracking technologies to track the activity on our Service and hold certain information.
 
-We also will also share your personal data where we in good faith believe that it is necessary for the purpose of our own, or a third party’s legitimate interest relating to national security, law enforcement, litigation, criminal investigation, protecting the safety of any person, or to prevent death or imminent bodily harm, provided that we deem that such interest is not overridden by your interests or fundamental rights and freedoms requiring the protection of your personal data.
-Purchasers of our business	We will share your personal data in those cases where we sell or negotiate to sell our business to a buyer or prospective buyer. In this situation, ADVNTR will continue to ensure the confidentiality of your personal data and give you notice before your personal data is transferred to the buyer or becomes subject to a different Privacy Policy.
-8. Data retention and deletion
+Cookies are files with small amount of data which may include an anonymous unique identifier. Cookies are sent to your browser from a website and stored on your device. Tracking technologies also used are beacons, tags, and scripts to collect and track information and to improve and analyze our Service.
 
-We keep your personal data only as long as necessary to provide you with the ADVNTR Service and for legitimate and essential business purposes, such as maintaining the performance of the ADVNTR Service, making data-driven business decisions about new features and offerings, complying with our legal obligations, and resolving disputes. We keep some of your personal data for as long as you are a user of the ADVNTR Service. For example, we keep your playlists, song library, and account information.
+You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Service.
 
-If you request, we will delete or anonymise your personal data so that it no longer identifies you, unless, we are legally allowed or required to maintain certain personal data, including situations such as the following:
+Examples of Cookies we use:
 
-If there is an unresolved issue relating to your account, such as an outstanding credit on your account or an unresolved claim or dispute we will retain the necessary personal data until the issue is resolved;
-Where we are required to retain the personal data for our legal, tax, audit, and accounting obligations, we will retain the necessary personal data for the period required by applicable law; and/or,
-Where necessary for our legitimate business interests such as fraud prevention or to maintain the security of our users.
-9. Transfer to other countries
+Session Cookies. We use Session Cookies to operate our Service.
+Preference Cookies. We use Preference Cookies to remember your preferences and various settings.
+Security Cookies. We use Security Cookies for security purposes.
+Use of Data
 
-ADVNTR shares your personal data globally with other companies in the ADVNTR Group in order to carry out the activities specified in this Policy. This includes to ADVNTR Group companies in the following countries: Australia, Austria, Belgium, Brazil, Canada, Denmark, Finland, France, Germany, Hong Kong, Italy, Japan, Luxembourg, Mexico, The Netherlands, Poland, Singapore, Spain, Sweden, Switzerland, Taiwan, Turkey, United Kingdom and the United States of America. ADVNTR may also subcontract processing to, or share your personal data with, third parties located in countries other than your home country. Your personal data, therefore, may be subject to privacy laws that are different from those in your country of residence.
+ADVNTR uses the collected data for various purposes:
 
-Personal data collected within the European Union and Switzerland may, for example, be transferred to and processed by third parties located in a country outside of the European Union and Switzerland. In such instances ADVNTR shall ensure that the transfer of your personal data is carried out in accordance with applicable privacy laws and, in particular, that appropriate contractual, technical, and organisational measures are in place such as the Standard Contractual Clauses approved by the EU Commission.
+To provide and maintain the Service
+To notify you about changes to our Service
+To allow you to participate in interactive features of our Service when you choose to do so
+To provide customer care and support
+To provide analysis or valuable information so that we can improve the Service
+To monitor the usage of the Service
+To detect, prevent and address technical issues
+Transfer Of Data
 
-For further details of the security measures we use to protect your personal data, please see the ‘Keeping your personal data safe’ Section 11 of this Policy.
+Your information, including Personal Data, may be transferred to — and maintained on — computers located outside of your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from your jurisdiction.
 
-10. Links
+If you are located outside United States and choose to provide information to us, please note that we transfer the data, including Personal Data, to United States and process it there.
 
-We may display advertisements from third parties and other content that links to third-party websites. We cannot control or be held responsible for third parties’ privacy practices and content. If you click on a third-party advertisement or link, please understand that you are leaving the ADVNTR Service and any personal data you provide will not be covered by this Policy. Please read their privacy policies to find out how they collect and process your personal data.
+Your consent to this Privacy Policy followed by your submission of such information represents your agreement to that transfer.
 
-11. Keeping your personal data safe
+ADVNTR will take all steps reasonably necessary to ensure that your data is treated securely and in accordance with this Privacy Policy and no transfer of your Personal Data will take place to an organization or a country unless there are adequate controls in place including the security of your data and other personal information.
 
-We are committed to protecting our users’ personal data. We implement appropriate technical and organisational measures to help protect the security of your personal data; however, please note that no system is ever completely secure. We have implemented various policies including pseudonymisation, encryption, access, and retention policies to guard against unauthorised access and unnecessary retention of personal data in our systems.
+Disclosure Of Data
 
-Your password protects your user account, so we encourage you to use a unique and strong password, limit access to your computer and browser, and log out after having used the ADVNTR Service.
+Legal Requirements
 
-12. Children
+ADVNTR may disclose your Personal Data in the good faith belief that such action is necessary to:
 
-The ADVNTR Service is not directed to children under the age of 13 years. However, in some countries, stricter age limits may apply under local law. Please see our Terms and Conditions of Use for further details.
+To comply with a legal obligation
+To protect and defend the rights or property of ADVNTR
+To prevent or investigate possible wrongdoing in connection with the Service
+To protect the personal safety of users of the Service or the public
+To protect against legal liability
+Security Of Data
 
-We do not knowingly collect personal data from children under 13 years or under the applicable age limit (the “Age Limit”). If you are under the Age Limit, please do not use the ADVNTR Service, and do not provide any personal data to us.
+The security of your data is important to us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.
 
-If you are a parent of a child under the Age Limit and become aware that your child has provided personal data to ADVNTR, please contact us using the ‘Contact Us’ form on the Privacy Center, and you may request exercise of your applicable rights detailed in the ‘Your rights and your preferences: Giving you choice and control’ Section 3 of this Policy.
+Service Providers
 
-If we learn that we have collected the personal data of a child under the age of 13 years, we will take reasonable steps to delete the personal data. This may require us to delete the ADVNTR account for that child.
+We may employ third party companies and individuals to facilitate our Service ("Service Providers"), to provide the Service on our behalf, to perform Service-related services or to assist us in analyzing how our Service is used.
 
-13. Changes to this Privacy Policy
+These third parties have access to your Personal Data only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.
 
-We may occasionally make changes to this Policy.
+Analytics
 
-When we make material changes to this Policy, we’ll provide you with prominent notice as appropriate under the circumstances, e.g., by displaying a prominent notice within the ADVNTR Service or by sending you an email. We may notify you in advance.
+We may use third-party Service Providers to monitor and analyze the use of our Service.
 
-Please, therefore, make sure you read any such notice carefully.
+Google Analytics
 
-If you want to find out more about this Policy and how ADVNTR uses your personal data, please visit the Privacy Center on ADVNTR.com to find out more.
+Google Analytics is a web analytics service offered by Google that tracks and reports website traffic. Google uses the data collected to track and monitor the use of our Service. This data is shared with other Google services. Google may use the collected data to contextualize and personalize the ads of its own advertising network.
 
-14. How to contact us
+For more information on the privacy practices of Google, please visit the Google Privacy &amp; Terms web page: https://policies.google.com/privacy?hl=en
 
-Thank you for reading our Privacy Policy. If you have any questions about this Policy, please contact our Data Protection Officer by using the ‘Contact Us’ form on the Privacy Center or by writing to us at the following address:
+Links To Other Sites
 
-ADVNTR USA Inc.
-45 W 18th Street, Floor 7
-New York, NY 10011
-USA
+Our Service may contain links to other sites that are not operated by us. If you click on a third party link, you will be directed to that third party's site. We strongly advise you to review the Privacy Policy of every site you visit.
 
-We hope you enjoy ADVNTR!
-© ADVNTR USA Inc.</mutableString>
+We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services.
+
+Children's Privacy
+
+Our Service does not address anyone under the age of 18 ("Children").
+
+We do not knowingly collect personally identifiable information from anyone under the age of 18. If you are a parent or guardian and you are aware that your Children has provided us with Personal Data, please contact us. If we become aware that we have collected Personal Data from children without verification of parental consent, we take steps to remove that information from our servers.
+
+Changes To This Privacy Policy
+
+We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.
+
+We will let you know via email and/or a prominent notice on our Service, prior to the change becoming effective and update the "effective date" at the top of this Privacy Policy.
+
+You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.
+
+Contact Us
+
+If you have any questions about this Privacy Policy, please contact us:
+
+By email: advntr@gmail.com</mutableString>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XWD-fg-Kxt">
-                                                <rect key="frame" x="144" y="632" width="50" height="30"/>
+                                                <rect key="frame" x="109.5" y="561" width="80" height="32"/>
+                                                <color key="backgroundColor" red="0.42179840800000001" green="0.59717673059999998" blue="0.99855548139999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="zVM-os-HA7"/>
+                                                    <constraint firstAttribute="height" constant="32" id="X1Q-Kf-d1o"/>
+                                                    <constraint firstAttribute="width" constant="80" id="zVM-os-HA7">
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </constraint>
                                                 </constraints>
-                                                <state key="normal" title="Back"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                                <state key="normal" title="Back">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="backButtonTapped:" destination="6pG-ND-oxe" eventType="touchUpInside" id="pEp-TH-btW"/>
                                                 </connections>
@@ -632,27 +474,165 @@ We hope you enjoy ADVNTR!
             <objects>
                 <viewController id="tdh-VS-IAa" customClass="TermsOfServiceViewController" customModule="ADVNTR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="khi-c3-YkJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7cI-m0-2mD">
-                                <rect key="frame" x="30" y="30" width="354" height="686"/>
+                                <rect key="frame" x="30" y="30" width="315" height="617"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="ETS-29-LuS">
-                                        <rect key="frame" x="8" y="8" width="338" height="662"/>
+                                        <rect key="frame" x="8" y="8" width="299" height="593"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Terms Of Service" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RQK-Hi-ryU">
-                                                <rect key="frame" x="0.0" y="0.0" width="338" height="473"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RQK-Hi-ryU">
+                                                <rect key="frame" x="0.0" y="0.0" width="299" height="538"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <mutableString key="text">ADVNTR Terms of Use
+
+Version 1.0
+
+The ADVNTR App located at n/a is a copyrighted work belonging to ADVNTR. Certain features of the Site may be subject to additional guidelines, terms, or rules, which will be posted on the Site in connection with such features.
+
+All such additional terms, guidelines, and rules are incorporated by reference into these Terms.
+
+These Terms of Use described the legally binding terms and conditions that oversee your use of the Site. BY LOGGING INTO THE SITE, YOU ARE BEING COMPLIANT THAT THESE TERMS and you represent that you have the authority and capacity to enter into these Terms. YOU SHOULD BE AT LEAST 18 YEARS OF AGE TO ACCESS THE SITE. IF YOU DISAGREE WITH ALL OF THE PROVISION OF THESE TERMS, DO NOT LOG INTO AND/OR USE THE SITE.
+
+These terms require the use of arbitration Section 10.2 on an individual basis to resolve disputes and also limit the remedies available to you in the event of a dispute.
+
+Access to the Site
+
+Subject to these Terms. Company grants you a non-transferable, non-exclusive, revocable, limited license to access the Site solely for your own personal, noncommercial use.
+
+Certain Restrictions. The rights approved to you in these Terms are subject to the following restrictions: (a) you shall not sell, rent, lease, transfer, assign, distribute, host, or otherwise commercially exploit the Site; (b) you shall not change, make derivative works of, disassemble, reverse compile or reverse engineer any part of the Site; (c) you shall not access the Site in order to build a similar or competitive website; and (d) except as expressly stated herein, no part of the Site may be copied, reproduced, distributed, republished, downloaded, displayed, posted or transmitted in any form or by any means unless otherwise indicated, any future release, update, or other addition to functionality of the Site shall be subject to these Terms.  All copyright and other proprietary notices on the Site must be retained on all copies thereof.
+
+Company reserves the right to change, suspend, or cease the Site with or without notice to you.  You approved that Company will not be held liable to you or any third-party for any change, interruption, or termination of the Site or any part.
+
+No Support or Maintenance. You agree that Company will have no obligation to provide you with any support in connection with the Site.
+
+Excluding any User Content that you may provide, you are aware that all the intellectual property rights, including copyrights, patents, trademarks, and trade secrets, in the Site and its content are owned by Company or Company’s suppliers. Note that these Terms and access to the Site do not give you any rights, title or interest in or to any intellectual property rights, except for the limited access rights expressed in Section 2.1. Company and its suppliers reserve all rights not granted in these Terms.
+
+User Content
+
+User Content. "User Content" means any and all information and content that a user submits to the Site. You are exclusively responsible for your User Content. You bear all risks associated with use of your User Content.  You hereby certify that your User Content does not violate our Acceptable Use Policy.  You may not represent or imply to others that your User Content is in any way provided, sponsored or endorsed by Company. Because you alone are responsible for your User Content, you may expose yourself to liability. Company is not obliged to backup any User Content that you post; also, your User Content may be deleted at any time without prior notice to you. You are solely responsible for making your own backup copies of your User Content if you desire.
+
+You hereby grant to Company an irreversible, nonexclusive, royalty-free and fully paid, worldwide license to reproduce, distribute, publicly display and perform, prepare derivative works of, incorporate into other works, and otherwise use and exploit your User Content, and to grant sublicenses of the foregoing rights, solely for the purposes of including your User Content in the Site.  You hereby irreversibly waive any claims and assertions of moral rights or attribution with respect to your User Content.
+
+Acceptable Use Policy. The following terms constitute our "Acceptable Use Policy": You agree not to use the Site to collect, upload, transmit, display, or distribute any User Content (i) that violates any third-party right or any intellectual property or proprietary right; (ii) that is unlawful, harassing, abusive, tortious, threatening, harmful, invasive of another’s privacy, vulgar, defamatory, false, intentionally misleading, trade libelous, pornographic, obscene, patently offensive, promotes racism, bigotry, hatred, or physical harm of any kind against any group or individual; (iii) that is harmful to minors in any way; or (iv) that is in violation of any law, regulation, or obligations or restrictions imposed by any third party.
+
+In addition, you agree not to: (i) upload, transmit, or distribute to or through the Site any software intended to damage or alter a computer system or data; (ii) send through the Site unsolicited or unauthorized advertising, promotional materials, junk mail, spam, chain letters, pyramid schemes, or any other form of duplicative or unsolicited messages; (iii) use the Site to harvest, collect, gather or assemble information or data regarding other users without their consent; (iv) interfere with, disrupt, or create an undue burden on servers or networks connected to the Site, or violate the regulations, policies or procedures of such networks; (v) attempt to gain unauthorized access to the Site, whether through password mining or any other means; (vi) harass or interfere with any other user’s use and enjoyment of the Site; or (vi) use software or automated agents or scripts to produce multiple accounts on the Site, or to generate automated searches, requests, or queries to the Site.
+
+We reserve the right to review any User Content, and to investigate and/or take appropriate action against you in our sole discretion if you violate the Acceptable Use Policy or any other provision of these Terms or otherwise create liability for us or any other person. Such action may include removing or modifying your User Content, terminating your Account in accordance with Section 8, and/or reporting you to law enforcement authorities.
+
+If you provide Company with any feedback or suggestions regarding the Site, you hereby assign to Company all rights in such Feedback and agree that Company shall have the right to use and fully exploit such Feedback and related information in any manner it believes appropriate.  Company will treat any Feedback you provide to Company as non-confidential and non-proprietary.
+
+You agree to indemnify and hold Company and its officers, employees, and agents harmless, including costs and attorneys’ fees, from any claim or demand made by any third-party due to or arising out of (a) your use of the Site, (b) your violation of these Terms, (c) your violation of applicable laws or regulations or (d) your User Content.  Company reserves the right to assume the exclusive defense and control of any matter for which you are required to indemnify us, and you agree to cooperate with our defense of these claims.  You agree not to settle any matter without the prior written consent of Company.  Company will use reasonable efforts to notify you of any such claim, action or proceeding upon becoming aware of it.
+
+Third-Party Links &amp; Ads; Other Users
+
+Third-Party Links &amp; Ads. The Site may contain links to third-party websites and services, and/or display advertisements for third-parties.  Such Third-Party Links &amp; Ads are not under the control of Company, and Company is not responsible for any Third-Party Links &amp; Ads.  Company provides access to these Third-Party Links &amp; Ads only as a convenience to you, and does not review, approve, monitor, endorse, warrant, or make any representations with respect to Third-Party Links &amp; Ads.  You use all Third-Party Links &amp; Ads at your own risk, and should apply a suitable level of caution and discretion in doing so. When you click on any of the Third-Party Links &amp; Ads, the applicable third party’s terms and policies apply, including the third party’s privacy and data gathering practices.
+
+Other Users. Each Site user is solely responsible for any and all of its own User Content.  Because we do not control User Content, you acknowledge and agree that we are not responsible for any User Content, whether provided by you or by others.  You agree that Company will not be responsible for any loss or damage incurred as the result of any such interactions.  If there is a dispute between you and any Site user, we are under no obligation to become involved.
+
+You hereby release and forever discharge the Company and our officers, employees, agents, successors, and assigns from, and hereby waive and relinquish, each and every past, present and future dispute, claim, controversy, demand, right, obligation, liability, action and cause of action of every kind and nature, that has arisen or arises directly or indirectly out of, or that relates directly or indirectly to, the Site. If you are a California resident, you hereby waive California civil code section 1542 in connection with the foregoing, which states: "a general release does not extend to claims which the creditor does not know or suspect to exist in his or her favor at the time of executing the release, which if known by him or her must have materially affected his or her settlement with the debtor."
+
+Disclaimers
+
+The site is provided on an "as-is" and "as available" basis, and company and our suppliers expressly disclaim any and all warranties and conditions of any kind, whether express, implied, or statutory, including all warranties or conditions of merchantability, fitness for a particular purpose, title, quiet enjoyment, accuracy, or non-infringement.  We and our suppliers make not guarantee that the site will meet your requirements, will be available on an uninterrupted, timely, secure, or error-free basis, or will be accurate, reliable, free of viruses or other harmful code, complete, legal, or safe.  If applicable law requires any warranties with respect to the site, all such warranties are limited in duration to ninety (90) days from the date of first use.
+
+Some jurisdictions do not allow the exclusion of implied warranties, so the above exclusion may not apply to you.  Some jurisdictions do not allow limitations on how long an implied warranty lasts, so the above limitation may not apply to you.
+
+Limitation on Liability
+
+To the maximum extent permitted by law, in no event shall company or our suppliers be liable to you or any third-party for any lost profits, lost data, costs of procurement of substitute products, or any indirect, consequential, exemplary, incidental, special or punitive damages arising from or relating to these terms or your use of, or incapability to use the site even if company has been advised of the possibility of such damages.  Access to and use of the site is at your own discretion and risk, and you will be solely responsible for any damage to your device or computer system, or loss of data resulting therefrom.
+
+To the maximum extent permitted by law, notwithstanding anything to the contrary contained herein, our liability to you for any damages arising from or related to this agreement, will at all times be limited to a maximum of fifty U.S. dollars (u.s. $50). The existence of more than one claim will not enlarge this limit.  You agree that our suppliers will have no liability of any kind arising from or relating to this agreement.
+
+Some jurisdictions do not allow the limitation or exclusion of liability for incidental or consequential damages, so the above limitation or exclusion may not apply to you.
+
+Term and Termination. Subject to this Section, these Terms will remain in full force and effect while you use the Site.  We may suspend or terminate your rights to use the Site at any time for any reason at our sole discretion, including for any use of the Site in violation of these Terms.  Upon termination of your rights under these Terms, your Account and right to access and use the Site will terminate immediately.  You understand that any termination of your Account may involve deletion of your User Content associated with your Account from our live databases.  Company will not have any liability whatsoever to you for any termination of your rights under these Terms.  Even after your rights under these Terms are terminated, the following provisions of these Terms will remain in effect: Sections 2 through 2.5, Section 3 and Sections 4 through 10.
+
+Copyright Policy.
+
+Company respects the intellectual property of others and asks that users of our Site do the same.  In connection with our Site, we have adopted and implemented a policy respecting copyright law that provides for the removal of any infringing materials and for the termination of users of our online Site who are repeated infringers of intellectual property rights, including copyrights.  If you believe that one of our users is, through the use of our Site, unlawfully infringing the copyright(s) in a work, and wish to have the allegedly infringing material removed, the following information in the form of a written notification (pursuant to 17 U.S.C. § 512(c)) must be provided to our designated Copyright Agent:
+
+your physical or electronic signature;
+identification of the copyrighted work(s) that you claim to have been infringed;
+identification of the material on our services that you claim is infringing and that you request us to remove;
+sufficient information to permit us to locate such material;
+your address, telephone number, and e-mail address;
+a statement that you have a good faith belief that use of the objectionable material is not authorized by the copyright owner, its agent, or under the law; and
+a statement that the information in the notification is accurate, and under penalty of perjury, that you are either the owner of the copyright that has allegedly been infringed or that you are authorized to act on behalf of the copyright owner.
+Please note that, pursuant to 17 U.S.C. § 512(f), any misrepresentation of material fact in a written notification automatically subjects the complaining party to liability for any damages, costs and attorney’s fees incurred by us in connection with the written notification and allegation of copyright infringement.
+
+General
+
+These Terms are subject to occasional revision, and if we make any substantial changes, we may notify you by sending you an e-mail to the last e-mail address you provided to us and/or by prominently posting notice of the changes on our Site.  You are responsible for providing us with your most current e-mail address.  In the event that the last e-mail address that you have provided us is not valid our dispatch of the e-mail containing such notice will nonetheless constitute effective notice of the changes described in the notice.  Any changes to these Terms will be effective upon the earliest of thirty (30) calendar days following our dispatch of an e-mail notice to you or thirty (30) calendar days following our posting of notice of the changes on our Site.  These changes will be effective immediately for new users of our Site.  Continued use of our Site following notice of such changes shall indicate your acknowledgement of such changes and agreement to be bound by the terms and conditions of such changes. Dispute Resolution. Please read this Arbitration Agreement carefully. It is part of your contract with Company and affects your rights.  It contains procedures for MANDATORY BINDING ARBITRATION AND A CLASS ACTION WAIVER.
+
+Applicability of Arbitration Agreement. All claims and disputes in connection with the Terms or the use of any product or service provided by the Company that cannot be resolved informally or in small claims court shall be resolved by binding arbitration on an individual basis under the terms of this Arbitration Agreement.  Unless otherwise agreed to, all arbitration proceedings shall be held in English.  This Arbitration Agreement applies to you and the Company, and to any subsidiaries, affiliates, agents, employees, predecessors in interest, successors, and assigns, as well as all authorized or unauthorized users or beneficiaries of services or goods provided under the Terms.
+
+Notice Requirement and Informal Dispute Resolution. Before either party may seek arbitration, the party must first send to the other party a written Notice of Dispute describing the nature and basis of the claim or dispute, and the requested relief.  A Notice to the Company should be sent to: n/a. After the Notice is received, you and the Company may attempt to resolve the claim or dispute informally.  If you and the Company do not resolve the claim or dispute within thirty (30) days after the Notice is received, either party may begin an arbitration proceeding.  The amount of any settlement offer made by any party may not be disclosed to the arbitrator until after the arbitrator has determined the amount of the award to which either party is entitled.
+
+Arbitration Rules. Arbitration shall be initiated through the American Arbitration Association, an established alternative dispute resolution provider that offers arbitration as set forth in this section.  If AAA is not available to arbitrate, the parties shall agree to select an alternative ADR Provider.  The rules of the ADR Provider shall govern all aspects of the arbitration except to the extent such rules are in conflict with the Terms.  The AAA Consumer Arbitration Rules governing the arbitration are available online at adr.org or by calling the AAA at 1-800-778-7879.  The arbitration shall be conducted by a single, neutral arbitrator.  Any claims or disputes where the total amount of the award sought is less than Ten Thousand U.S. Dollars (US $10,000.00) may be resolved through binding non-appearance-based arbitration, at the option of the party seeking relief.  For claims or disputes where the total amount of the award sought is Ten Thousand U.S. Dollars (US $10,000.00) or more, the right to a hearing will be determined by the Arbitration Rules.  Any hearing will be held in a location within 100 miles of your residence, unless you reside outside of the United States, and unless the parties agree otherwise.  If you reside outside of the U.S., the arbitrator shall give the parties reasonable notice of the date, time and place of any oral hearings. Any judgment on the award rendered by the arbitrator may be entered in any court of competent jurisdiction.  If the arbitrator grants you an award that is greater than the last settlement offer that the Company made to you prior to the initiation of arbitration, the Company will pay you the greater of the award or $2,500.00.  Each party shall bear its own costs and disbursements arising out of the arbitration and shall pay an equal share of the fees and costs of the ADR Provider.
+
+Additional Rules for Non-Appearance Based Arbitration. If non-appearance based arbitration is elected, the arbitration shall be conducted by telephone, online and/or based solely on written submissions; the specific manner shall be chosen by the party initiating the arbitration.  The arbitration shall not involve any personal appearance by the parties or witnesses unless otherwise agreed by the parties.
+
+Time Limits. If you or the Company pursues arbitration, the arbitration action must be initiated and/or demanded within the statute of limitations and within any deadline imposed under the AAA Rules for the pertinent claim.
+
+Authority of Arbitrator. If arbitration is initiated, the arbitrator will decide the rights and liabilities of you and the Company, and the dispute will not be consolidated with any other matters or joined with any other cases or parties.  The arbitrator shall have the authority to grant motions dispositive of all or part of any claim.  The arbitrator shall have the authority to award monetary damages, and to grant any non-monetary remedy or relief available to an individual under applicable law, the AAA Rules, and the Terms.  The arbitrator shall issue a written award and statement of decision describing the essential findings and conclusions on which the award is based.  The arbitrator has the same authority to award relief on an individual basis that a judge in a court of law would have.  The award of the arbitrator is final and binding upon you and the Company.
+
+Waiver of Jury Trial. THE PARTIES HEREBY WAIVE THEIR CONSTITUTIONAL AND STATUTORY RIGHTS TO GO TO COURT AND HAVE A TRIAL IN FRONT OF A JUDGE OR A JURY, instead electing that all claims and disputes shall be resolved by arbitration under this Arbitration Agreement.  Arbitration procedures are typically more limited, more efficient and less expensive than rules applicable in a court and are subject to very limited review by a court.  In the event any litigation should arise between you and the Company in any state or federal court in a suit to vacate or enforce an arbitration award or otherwise, YOU AND THE COMPANY WAIVE ALL RIGHTS TO A JURY TRIAL, instead electing that the dispute be resolved by a judge.
+
+Waiver of Class or Consolidated Actions. All claims and disputes within the scope of this arbitration agreement must be arbitrated or litigated on an individual basis and not on a class basis, and claims of more than one customer or user cannot be arbitrated or litigated jointly or consolidated with those of any other customer or user.
+
+Confidentiality. All aspects of the arbitration proceeding shall be strictly confidential.  The parties agree to maintain confidentiality unless otherwise required by law.  This paragraph shall not prevent a party from submitting to a court of law any information necessary to enforce this Agreement, to enforce an arbitration award, or to seek injunctive or equitable relief.
+
+Severability. If any part or parts of this Arbitration Agreement are found under the law to be invalid or unenforceable by a court of competent jurisdiction, then such specific part or parts shall be of no force and effect and shall be severed and the remainder of the Agreement shall continue in full force and effect.
+
+Right to Waive. Any or all of the rights and limitations set forth in this Arbitration Agreement may be waived by the party against whom the claim is asserted.  Such waiver shall not waive or affect any other portion of this Arbitration Agreement.
+
+Survival of Agreement. This Arbitration Agreement will survive the termination of your relationship with Company.
+
+Small Claims Court. Nonetheless the foregoing, either you or the Company may bring an individual action in small claims court.
+
+Emergency Equitable Relief. Anyhow the foregoing, either party may seek emergency equitable relief before a state or federal court in order to maintain the status quo pending arbitration.  A request for interim measures shall not be deemed a waiver of any other rights or obligations under this Arbitration Agreement.
+
+Claims Not Subject to Arbitration. Notwithstanding the foregoing, claims of defamation, violation of the Computer Fraud and Abuse Act, and infringement or misappropriation of the other party’s patent, copyright, trademark or trade secrets shall not be subject to this Arbitration Agreement.
+
+In any circumstances where the foregoing Arbitration Agreement permits the parties to litigate in court, the parties hereby agree to submit to the personal jurisdiction of the courts located within Netherlands County, California, for such purposes.
+
+The Site may be subject to U.S. export control laws and may be subject to export or import regulations in other countries. You agree not to export, re-export, or transfer, directly or indirectly, any U.S. technical data acquired from Company, or any products utilizing such data, in violation of the United States export laws or regulations.
+
+Company is located at the address in Section 10.8. If you are a California resident, you may report complaints to the Complaint Assistance Unit of the Division of Consumer Product of the California Department of Consumer Affairs by contacting them in writing at 400 R Street, Sacramento, CA 95814, or by telephone at (800) 952-5210.
+
+Electronic Communications. The communications between you and Company use electronic means, whether you use the Site or send us emails, or whether Company posts notices on the Site or communicates with you via email. For contractual purposes, you (a) consent to receive communications from Company in an electronic form; and (b) agree that all terms and conditions, agreements, notices, disclosures, and other communications that Company provides to you electronically satisfy any legal obligation that such communications would satisfy if it were be in a hard copy writing.
+
+Entire Terms. These Terms constitute the entire agreement between you and us regarding the use of the Site. Our failure to exercise or enforce any right or provision of these Terms shall not operate as a waiver of such right or provision. The section titles in these Terms are for convenience only and have no legal or contractual effect. The word "including" means "including without limitation". If any provision of these Terms is held to be invalid or unenforceable, the other provisions of these Terms will be unimpaired and the invalid or unenforceable provision will be deemed modified so that it is valid and enforceable to the maximum extent permitted by law.  Your relationship to Company is that of an independent contractor, and neither party is an agent or partner of the other.  These Terms, and your rights and obligations herein, may not be assigned, subcontracted, delegated, or otherwise transferred by you without Company’s prior written consent, and any attempted assignment, subcontract, delegation, or transfer in violation of the foregoing will be null and void.  Company may freely assign these Terms.  The terms and conditions set forth in these Terms shall be binding upon assignees.
+
+Copyright/Trademark Information. Copyright ©. All rights reserved.  All trademarks, logos and service marks displayed on the Site are our property or the property of other third-parties. You are not permitted to use these Marks without our prior written consent or the consent of such third party which may own the Marks.
+
+Contact Information
+
+Address: n/a
+
+Email: advntr@gmail.com</mutableString>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JzM-AU-bsx">
-                                                <rect key="frame" x="144" y="496" width="50" height="166"/>
+                                                <rect key="frame" x="109.5" y="561" width="80" height="32"/>
+                                                <color key="backgroundColor" red="0.42179840800000001" green="0.59717673059999998" blue="0.99855548139999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="q1h-Ei-7vg"/>
+                                                    <constraint firstAttribute="height" constant="32" id="oza-fX-QwE"/>
+                                                    <constraint firstAttribute="width" constant="80" id="q1h-Ei-7vg"/>
                                                 </constraints>
-                                                <state key="normal" title="Back"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                                <state key="normal" title="Back">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="backButtonTapped:" destination="tdh-VS-IAa" eventType="touchUpInside" id="f46-hA-Gai"/>
                                                 </connections>
@@ -692,24 +672,24 @@ We hope you enjoy ADVNTR!
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ZO-it-laA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1341.5999999999999" y="1351.5742128935533"/>
+            <point key="canvasLocation" x="1340.5797101449277" y="1350.8152173913045"/>
         </scene>
         <!--Credits View Controller-->
         <scene sceneID="YdR-Le-5eM">
             <objects>
                 <viewController id="sm9-40-hsV" customClass="CreditsViewController" customModule="ADVNTR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LOL-KJ-dOy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="36c-k3-org">
-                                <rect key="frame" x="30" y="30" width="354" height="686"/>
+                                <rect key="frame" x="30" y="30" width="315" height="617"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="TQJ-Uw-XM6">
-                                        <rect key="frame" x="8" y="8" width="338" height="662"/>
+                                        <rect key="frame" x="8" y="8" width="299" height="593"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0w2-yM-je7">
-                                                <rect key="frame" x="0.0" y="0.0" width="338" height="473"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="299" height="538"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="Credits">
@@ -738,26 +718,15 @@ Crafted with </string>
                                                     </fragment>
                                                     <fragment>
                                                         <string key="content"> by
-Owen Henley, Jeter Pow and Zach Frew. 
+Owen Henley, Peter Gow and Zach Frew. 
 
-Images Supplied by </string>
-                                                        <attributes>
-                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <font key="NSFont" size="14" name="AvenirNext-Regular"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                    <fragment content="Unsplash.com">
-                                                        <attributes>
-                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <font key="NSFont" size="14" name="AvenirNext-Regular"/>
-                                                            <url key="NSLink" string="http://Unsplash.com"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                    <fragment>
-                                                        <string key="content" base64-UTF8="YES">
-Cg
+Images Supplied by Unsplash.com
+
+Icons by:
+Anton Saputro
+Hanan
+Google
+Freepik
 </string>
                                                         <attributes>
                                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -769,12 +738,22 @@ Cg
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                             </textView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9RG-jO-pIW">
-                                                <rect key="frame" x="144" y="496" width="50" height="166"/>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9RG-jO-pIW">
+                                                <rect key="frame" x="109.5" y="561" width="80" height="32"/>
+                                                <color key="backgroundColor" red="0.42179840800000001" green="0.59717673059999998" blue="0.99855548139999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="Zvd-9C-Due"/>
+                                                    <constraint firstAttribute="height" constant="32" id="TcW-H9-ZMW"/>
+                                                    <constraint firstAttribute="width" constant="80" id="Zvd-9C-Due"/>
                                                 </constraints>
-                                                <state key="normal" title="Back"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                                <state key="normal" title="Back">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="backButtonTapped:" destination="sm9-40-hsV" eventType="touchUpInside" id="lL3-yJ-1pV"/>
                                                 </connections>
@@ -821,7 +800,7 @@ Cg
             <objects>
                 <viewController id="Yay-Ww-3JI" customClass="ContactUsViewController" customModule="ADVNTR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zah-RT-whW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="TiD-ni-0Y0"/>
@@ -836,26 +815,26 @@ Cg
             <objects>
                 <viewController id="cyS-vp-c66" customClass="FeedbackViewController" customModule="ADVNTR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Kd-j9-iUY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="zbC-xV-nlh">
-                                <rect key="frame" x="20" y="151" width="374" height="434"/>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="zbC-xV-nlh">
+                                <rect key="frame" x="16" y="151" width="343" height="365"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l6r-9x-Cr2">
-                                        <rect key="frame" x="0.0" y="0.0" width="75.333333333333329" height="20.333333333333332"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l6r-9x-Cr2">
+                                        <rect key="frame" x="0.0" y="0.0" width="75.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cgA-41-pHX">
-                                        <rect key="frame" x="0.0" y="30" width="374" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cgA-41-pHX">
+                                        <rect key="frame" x="0.0" y="24.5" width="343" height="7.5"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Whats up?..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HTW-pf-yDJ">
-                                        <rect key="frame" x="0.0" y="69.333333333333343" width="343" height="325"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="Whats up?..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HTW-pf-yDJ">
+                                        <rect key="frame" x="0.0" y="36" width="288" height="325"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="325" id="kcw-cw-Fz0"/>
@@ -863,8 +842,8 @@ Cg
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPd-4w-ZU9">
-                                        <rect key="frame" x="0.0" y="404" width="49" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPd-4w-ZU9">
+                                        <rect key="frame" x="0.0" y="365" width="49" height="0.0"/>
                                         <state key="normal" title="Submit"/>
                                     </button>
                                 </subviews>
@@ -873,7 +852,7 @@ Cg
                                 </constraints>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tcV-Cq-jqJ">
-                                <rect key="frame" x="20" y="90" width="374" height="53"/>
+                                <rect key="frame" x="16" y="90" width="343" height="53"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <attributedString key="attributedText">
                                     <fragment>
@@ -925,7 +904,7 @@ Cg
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HpK-IB-JAl">
-                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -948,6 +927,6 @@ Cg
         </scene>
     </scenes>
     <resources>
-        <image name="settingsIcon" width="25" height="25"/>
+        <image name="settingsIcon" width="40" height="40"/>
     </resources>
 </document>
