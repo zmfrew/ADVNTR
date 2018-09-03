@@ -21,10 +21,10 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="83p-yi-gbu">
                                 <rect key="frame" x="16" y="145" width="343" height="577"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QeY-ap-oUI">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QeY-ap-oUI" userLabel="Run">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="181.66666666666666"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="massimo-sartirana-562838-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="a6r-Hj-smI">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultRun" translatesAutoresizingMaskIntoConstraints="NO" id="a6r-Hj-smI">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="181.66666666666666"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -64,10 +64,10 @@
                                             <constraint firstAttribute="trailing" secondItem="a6r-Hj-smI" secondAttribute="trailing" id="sbU-bC-ZHf"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gp-em-mk9">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gp-em-mk9" userLabel="Hike">
                                         <rect key="frame" x="0.0" y="197.66666666666669" width="343" height="181.66666666666669"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lucas-clara-579404-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="III-10-0ri">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="philippe-toupet-319821-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="III-10-0ri">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="181.66666666666666"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -107,10 +107,10 @@
                                             <constraint firstItem="XIC-8X-h2W" firstAttribute="top" secondItem="7gp-em-mk9" secondAttribute="top" constant="8" id="oxn-9i-rbP"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BwF-7b-Kd7">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BwF-7b-Kd7" userLabel="Bike">
                                         <rect key="frame" x="0.0" y="395.33333333333337" width="343" height="181.66666666666663"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="william-hook-58602-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="G9E-vL-B3e">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="daniel-frank-645862-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="G9E-vL-B3e">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="181.66666666666666"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -209,10 +209,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="DefaultRun" width="2001" height="2500"/>
+        <image name="daniel-frank-645862-unsplash" width="4608" height="3456"/>
         <image name="historyIcon" width="60" height="60"/>
-        <image name="lucas-clara-579404-unsplash" width="5472" height="3648"/>
-        <image name="massimo-sartirana-562838-unsplash" width="5616" height="3744"/>
-        <image name="william-hook-58602-unsplash" width="4000" height="3000"/>
+        <image name="philippe-toupet-319821-unsplash" width="6065" height="4048"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="aGz-zK-VcG"/>
