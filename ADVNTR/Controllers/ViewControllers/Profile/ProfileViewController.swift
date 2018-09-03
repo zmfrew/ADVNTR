@@ -10,12 +10,13 @@ import UIKit
 import FirebaseUI
 import FirebaseAuth
 import SwiftEntryKit
+import TwicketSegmentedControl
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, TwicketSegmentedControlDelegate {
     
     // MARK: - Outlets
     @IBOutlet weak var editAndSaveButton: UIBarButtonItem!
-    @IBOutlet weak var activityTypeSegmentedController: UISegmentedControl!
+    @IBOutlet weak var activityTypeSegmentedController: TwicketSegmentedControl!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var profileNameLabel: UILabel!
     @IBOutlet weak var displayNameTextField: UITextField!
@@ -37,6 +38,7 @@ class ProfileViewController: UIViewController {
         setUpTextFields()
         toggleUserInteraction()
         updateViews()
+        setUpSegmentedController()
         
         let tapGestureForImageView = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped))
         profileImageView.addGestureRecognizer(tapGestureForImageView)
@@ -80,11 +82,24 @@ class ProfileViewController: UIViewController {
         toggleEditOrSaveButtonText()
     }
     
-    @IBAction func defaultActivitySegmentedController(_ sender: UISegmentedControl) {
-        UserController.shared.user.preferredActivityType = updatePreferredActivityType(sender.selectedSegmentIndex)
+    func didSelect(_ segmentIndex: Int) {
+        UserController.shared.user.preferredActivityType = updatePreferredActivityType(segmentIndex)
     }
     
     // MARK: - Methods
+    func setUpSegmentedController() {
+        let titles = ["Run", "Hike", "Bike"]
+        activityTypeSegmentedController.setSegmentItems(titles)
+        activityTypeSegmentedController.delegate = self
+        activityTypeSegmentedController.defaultTextColor = UIColor.white
+        activityTypeSegmentedController.highlightTextColor = UIColor.yellow
+        activityTypeSegmentedController.segmentsBackgroundColor = UIColor.black
+        activityTypeSegmentedController.sliderBackgroundColor = UIColor.clear
+        activityTypeSegmentedController.isSliderShadowHidden = true
+        activityTypeSegmentedController.layer.backgroundColor = UIColor.clear.cgColor
+        activityTypeSegmentedController.sizeToFit()
+    }
+    
     func updateViews() {
         if (Auth.auth().currentUser?.isAnonymous)! {
             profileImageView.image = UIImage(named: "defaultProfile")
@@ -96,7 +111,7 @@ class ProfileViewController: UIViewController {
         let travelSpelling = UserController.shared.user.defaultUnits == "imperial" ? "Traveled" : "Travelled"
         totalDistanceNameLabel.text = "Total Distance \(travelSpelling):"
         
-        activityTypeSegmentedController.selectedSegmentIndex = setActivityTypeSegmentedControllerFor(user: UserController.shared.user)
+        activityTypeSegmentedController.move(to: setActivityTypeSegmentedControllerFor(user: UserController.shared.user))
         profileNameLabel.text = UserController.shared.user.displayName
         displayNameTextField.text = UserController.shared.user.displayName
         emailTextField.text = UserController.shared.user.email
