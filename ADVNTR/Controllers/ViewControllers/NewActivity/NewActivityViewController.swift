@@ -35,7 +35,6 @@ class NewActivityViewController: UIViewController, TwicketSegmentedControlDelega
     
     // MARK: - Properties
     var distance = Measurement(value: 0, unit: UnitLength.meters)
-    var averageSpeed: Double?
     var currentAltitude = 0.0
     var elevationChange = 0.0
     var pace: Int?
@@ -137,7 +136,7 @@ class NewActivityViewController: UIViewController, TwicketSegmentedControlDelega
         stopButton.isHidden = true
         invalidateTimers()
         
-        if locationList.count >= 2 && averageSpeed != nil {
+        if locationList.count >= 1 {
             let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
             let mapSize = MKMapSize(width: polyline.boundingMapRect.size.width + 32, height: polyline.boundingMapRect.size.height + 32)
             let region = MKCoordinateRegionForMapRect(MKMapRect(origin: polyline.boundingMapRect.origin, size: mapSize))
@@ -404,7 +403,6 @@ class NewActivityViewController: UIViewController, TwicketSegmentedControlDelega
         locationList = []
         coordinates = []
         distance = Measurement(value: 0, unit: UnitLength.meters)
-        averageSpeed = 0
         currentAltitude = 0.0
         elevationChange = 0.0
         updateAltitudeAndPaceOrSpeedViews()
