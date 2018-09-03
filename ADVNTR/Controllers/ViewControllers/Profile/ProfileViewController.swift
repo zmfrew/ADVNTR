@@ -34,7 +34,7 @@ class ProfileViewController: UIViewController {
     // MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTextFieldColors()
+        setUpTextFields()
         toggleUserInteraction()
         updateViews()
         
@@ -51,6 +51,7 @@ class ProfileViewController: UIViewController {
     // MARK: - Actions
     @IBAction func editAndSaveButtonTapped(_ sender: UIBarButtonItem) {
         toggleTextFieldColors()
+        toggleTextFieldAlignment()
         toggleUserInteraction()
         guard let displayName = displayNameTextField.text, !displayName.isEmpty, displayName != " ",
             let email = emailTextField.text, !email.isEmpty, email != " ",
@@ -117,11 +118,13 @@ class ProfileViewController: UIViewController {
         totalHikingTimeLabel.text = "\(FormatDisplay.time(UserController.shared.user.totalBikeTime ?? 0))"
     }
     
-    func setTextFieldColors() {
+    func setUpTextFields() {
         displayNameTextField.textColor = UIColor.white
         displayNameTextField.backgroundColor = UIColor.black
+        displayNameTextField.textAlignment = .right
         emailTextField.textColor = UIColor.white
         emailTextField.backgroundColor = UIColor.black
+        emailTextField.textAlignment = .right
     }
     
     func toggleUserInteraction() {
@@ -139,6 +142,11 @@ class ProfileViewController: UIViewController {
         emailTextField.backgroundColor = toggleColorToOppositeOf(emailTextField.backgroundColor!)
     }
     
+    func toggleTextFieldAlignment() {
+        toggleTextFieldAlignmentToOppositeOf(displayNameTextField)
+        toggleTextFieldAlignmentToOppositeOf(emailTextField)
+    }
+
     func toggleColorToOppositeOf(_ currentColor: UIColor) -> UIColor {
         if currentColor == UIColor.white {
             return UIColor.black
@@ -146,6 +154,15 @@ class ProfileViewController: UIViewController {
             return UIColor.white
         }
     }
+    
+    func toggleTextFieldAlignmentToOppositeOf(_ textField: UITextField) {
+        if textField.textAlignment == .right {
+            textField.textAlignment = .left
+        } else {
+            textField.textAlignment = .right
+        }
+    }
+    
     
     func setActivityTypeSegmentedControllerFor(user: User) -> Int {
         switch (user.preferredActivityType) {
