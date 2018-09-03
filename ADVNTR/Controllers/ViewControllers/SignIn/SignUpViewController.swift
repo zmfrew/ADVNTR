@@ -232,7 +232,7 @@ extension SignUpViewController: UITextFieldDelegate {
 extension SignUpViewController {
     
     func createEmptyFieldAlert() {
-        let alertController = UIAlertController(title: "Error", message: "Please enter a valid email and password. Your password must be at least 6 characters in length.", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Error", message: "Please enter a valid email and password. Your password must be at least 8 characters, contain 1 letter, and contain 1 special character.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
