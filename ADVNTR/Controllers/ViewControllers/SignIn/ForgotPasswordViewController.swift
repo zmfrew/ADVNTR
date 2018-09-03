@@ -22,6 +22,11 @@ class ForgotPasswordViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unblurBackground()
+    }
+    
     // MARK: - Actions
     @IBAction func resetPasswordButtonTapped(_ sender: UIButton) {
         guard let email = emailAddressTextField.text, !email.isEmpty else { return }
@@ -80,6 +85,16 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     // MARK: - Methods
+    
+    func unblurBackground() {
+        guard let signInVC = self.presentingViewController as? SignInViewController else { return }
+        for subView in signInVC.view.subviews {
+            if subView is UIVisualEffectView {
+                subView.removeFromSuperview()
+            }
+        }
+    }
+    
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0 {
