@@ -35,11 +35,12 @@ class SignInViewController: UIViewController {
     
     @IBAction func forgotPasswordTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "toForgotPassword", sender: self)
+        blurBackground()
     }
     
     // MARK: - Methods
     func blurBackground() {
-        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
+        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
         visualEffectView.frame = self.view.bounds
         visualEffectView.translatesAutoresizingMaskIntoConstraints = true
         self.view.addSubview(visualEffectView)
