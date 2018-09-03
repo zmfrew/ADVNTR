@@ -47,7 +47,7 @@ class SignInViewController: UIViewController {
     
     func signInUser(completion: @escaping (Bool) -> Void) {
         guard let email = emailAddressTextField.text, !email.isEmpty, ValidationManager.isValidEmail(email: email),
-            let password = passwordTextField.text, !password.isEmpty, ValidationManager.isValidPassword(password: password)
+            let password = passwordTextField.text, !password.isEmpty
             else {
                 showEmptyFieldsAlert()
                 completion(false)
