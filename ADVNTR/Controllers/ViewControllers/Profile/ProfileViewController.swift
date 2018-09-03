@@ -23,6 +23,10 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var totalDistanceNameLabel: UILabel!
     @IBOutlet weak var totalDistanceLabel: UILabel!
     @IBOutlet weak var totalElevationLabel: UILabel!
+    @IBOutlet weak var totalActivitiesLabel: UILabel!
+    @IBOutlet weak var totalRunningTimeLabel: UILabel!
+    @IBOutlet weak var totalHikingTimeLabel: UILabel!
+    @IBOutlet weak var totalBikingTimeLabel: UILabel!
     
     // MARK: - Properties
     let imagePickerController = UIImagePickerController()
@@ -33,7 +37,7 @@ class ProfileViewController: UIViewController {
         setTextFieldColors()
         toggleUserInteraction()
         updateViews()
-    
+        
         let tapGestureForImageView = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped))
         profileImageView.addGestureRecognizer(tapGestureForImageView)
         imagePickerController.delegate = self
@@ -106,6 +110,11 @@ class ProfileViewController: UIViewController {
         let elevationToDisplay = UserController.shared.user.defaultUnits == "imperial" ? Int(ActivityUnitConverter.feetFromMeters(distance: elevationMeasurement)) : UserController.shared.user.totalElevationChange
         totalDistanceLabel.text = "\(distanceToDisplay.roundedDoubleString) \(distanceUnits)"
         totalElevationLabel.text = "\(elevationToDisplay ?? 0) \(elevationUnits)"
+        
+        totalActivitiesLabel.text = "\(UserController.shared.user.totalActivityCount ?? 0)"
+        totalRunningTimeLabel.text = "\(FormatDisplay.time(UserController.shared.user.totalRunTime ?? 0))"
+        totalBikingTimeLabel.text = "\(FormatDisplay.time(UserController.shared.user.totalHikeTime ?? 0))"
+        totalHikingTimeLabel.text = "\(FormatDisplay.time(UserController.shared.user.totalBikeTime ?? 0))"
     }
     
     func setTextFieldColors() {
