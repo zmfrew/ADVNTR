@@ -286,12 +286,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fOK-hf-1Ri">
-                                <rect key="frame" x="125" y="507" width="233" height="94"/>
+                                <rect key="frame" x="125" y="445" width="233" height="156"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="nDe-FK-XTu">
-                                        <rect key="frame" x="2" y="2" width="229" height="92"/>
+                                        <rect key="frame" x="2" y="2" width="229" height="154"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  First name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zZH-M1-bqw">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Display name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zZH-M1-bqw">
                                                 <rect key="frame" x="0.0" y="0.0" width="229" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -302,8 +302,14 @@
                                                 <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E1W-bh-hM7">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rex-fO-eNC">
                                                 <rect key="frame" x="0.0" y="31" width="229" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E1W-bh-hM7">
+                                                <rect key="frame" x="0.0" y="62" width="229" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="bor-4p-RL2"/>
                                                 </constraints>
@@ -311,8 +317,14 @@
                                                 <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1q-xO-QVU">
+                                                <rect key="frame" x="0.0" y="93" width="229" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gwJ-vo-fpF">
-                                                <rect key="frame" x="0.0" y="62" width="229" height="30"/>
+                                                <rect key="frame" x="0.0" y="124" width="229" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="0pS-Vd-XDf"/>
                                                 </constraints>
@@ -323,11 +335,15 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="zZH-M1-bqw" secondAttribute="trailing" id="3Lx-cf-sLI"/>
+                                            <constraint firstItem="f1q-xO-QVU" firstAttribute="width" secondItem="rex-fO-eNC" secondAttribute="width" id="6Sn-6l-wkn"/>
+                                            <constraint firstItem="rex-fO-eNC" firstAttribute="width" secondItem="zZH-M1-bqw" secondAttribute="width" id="EjD-Pe-zqg"/>
+                                            <constraint firstItem="rex-fO-eNC" firstAttribute="height" secondItem="zZH-M1-bqw" secondAttribute="height" id="RZh-L1-y3i"/>
                                             <constraint firstAttribute="trailing" secondItem="gwJ-vo-fpF" secondAttribute="trailing" id="T8N-6F-MOI"/>
                                             <constraint firstAttribute="trailing" secondItem="E1W-bh-hM7" secondAttribute="trailing" id="UAg-VX-pWK"/>
                                             <constraint firstItem="zZH-M1-bqw" firstAttribute="leading" secondItem="nDe-FK-XTu" secondAttribute="leading" id="Xpc-FZ-sA9"/>
                                             <constraint firstItem="E1W-bh-hM7" firstAttribute="leading" secondItem="nDe-FK-XTu" secondAttribute="leading" id="bSd-h4-uIV"/>
                                             <constraint firstItem="gwJ-vo-fpF" firstAttribute="leading" secondItem="nDe-FK-XTu" secondAttribute="leading" id="m7e-j4-iVv"/>
+                                            <constraint firstItem="f1q-xO-QVU" firstAttribute="height" secondItem="rex-fO-eNC" secondAttribute="height" id="sFQ-zf-eXR"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -346,7 +362,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create an account" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHY-Ip-3ci">
-                                <rect key="frame" x="208" y="419" width="151" height="80"/>
+                                <rect key="frame" x="208" y="357" width="151" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="KUI-1u-vgg"/>
                                     <constraint firstAttribute="width" constant="151" id="TWv-uQ-8pj"/>
@@ -397,6 +413,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <color key="backgroundColor" white="0.33333333329999998" alpha="0.3006474743150685" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="AYb-3a-8jt" firstAttribute="trailing" secondItem="oHY-Ip-3ci" secondAttribute="trailing" constant="16" id="2wV-8I-ULs"/>
                             <constraint firstItem="fOK-hf-1Ri" firstAttribute="top" secondItem="oHY-Ip-3ci" secondAttribute="bottom" constant="8" id="GeN-KW-GlR"/>
@@ -407,7 +424,9 @@
                     </view>
                     <connections>
                         <outlet property="displayNameTextField" destination="zZH-M1-bqw" id="pVR-b4-C2l"/>
+                        <outlet property="emailAddressErrorLabel" destination="rex-fO-eNC" id="CEi-dB-cvt"/>
                         <outlet property="emailAddressTextField" destination="E1W-bh-hM7" id="ryb-cQ-vbT"/>
+                        <outlet property="passwordErrorLabel" destination="f1q-xO-QVU" id="PIZ-Fv-3to"/>
                         <outlet property="passwordTextField" destination="gwJ-vo-fpF" id="aj8-Ed-hxj"/>
                     </connections>
                 </viewController>
