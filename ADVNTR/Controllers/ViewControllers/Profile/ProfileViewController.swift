@@ -102,7 +102,7 @@ class ProfileViewController: UIViewController, TwicketSegmentedControlDelegate {
     
     func updateViews() {
         if (Auth.auth().currentUser?.isAnonymous)! {
-            profileImageView.image = UIImage(named: "defaultProfile")
+            profileImageView.image = UIImage(named: "SplashScreen")
         }
         
         let profileImageRef = UserController.shared.profileImageReference.child(UserController.shared.user.uid!).child("profilePhoto").child("photo")
