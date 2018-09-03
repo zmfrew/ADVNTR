@@ -12,18 +12,21 @@ import SwiftEntryKit
 
 class SignUpViewController: UIViewController {
     
+    // MARK: - Outlets
+    @IBOutlet weak var displayNameTextField: UITextField!
+    @IBOutlet weak var emailAddressErrorLabel: UILabel!
+    @IBOutlet weak var emailAddressTextField: UITextField!
+    @IBOutlet weak var passwordErrorLabel: UILabel!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
     // MARK: Properties
     var isSuccessfulSignUp = false
     var activityType: String?
     
-    // MARK: - Outlets
-    @IBOutlet weak var displayNameTextField: UITextField!
-    @IBOutlet weak var emailAddressTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-
     // MARK: - LifeCycleMethods
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupLabels()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
@@ -39,6 +42,47 @@ class SignUpViewController: UIViewController {
     }
     
     // MARK: - Methods
+    func setupLabels() {
+        emailAddressTextField.delegate = self
+        passwordTextField.delegate = self
+        displayNameTextField.delegate = self
+        emailAddressErrorLabel.isHidden = true
+        passwordErrorLabel.isHidden = true
+        
+        setupToolbar()
+    }
+    
+    func setupToolbar() {
+        let toolbar = UIToolbar()
+        toolbar.barStyle = .default
+        toolbar.sizeToFit()
+        let nextButton = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextField))
+        nextButton.tintColor = UIColor.darkGray
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissKeyboard))
+        doneButton.tintColor = UIColor.darkGray
+        toolbar.setItems([nextButton, flexibleSpace, doneButton], animated: true)
+        displayNameTextField.inputAccessoryView = toolbar
+        emailAddressTextField.inputAccessoryView = toolbar
+        passwordTextField.inputAccessoryView = toolbar
+    }
+    
+    @objc func nextField() {
+        if displayNameTextField.isEditing {
+            emailAddressTextField.becomeFirstResponder()
+        } else if emailAddressTextField.isEditing {
+            passwordTextField.becomeFirstResponder()
+        } else {
+            displayNameTextField.becomeFirstResponder()
+        }
+    }
+    
+    @objc func dismissKeyboard() {
+        displayNameTextField.resignFirstResponder()
+        emailAddressTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+    }
+    
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0 {
@@ -71,10 +115,10 @@ class SignUpViewController: UIViewController {
     func signUpNewUser(completion: @escaping (Bool) -> Void) {
         
         // Show an alert if text is not entered in one or both fields.
-        // TODO: Handle password complexity requirements.
         guard let displayName = displayNameTextField.text, !displayName.isEmpty,
-            let email = emailAddressTextField.text, !email.isEmpty, isValidEmail(email: email),
-            let password = passwordTextField.text, !password.isEmpty else { createEmptyFieldAlert() ; return }
+            let email = emailAddressTextField.text, !email.isEmpty, ValidationManager.isValidEmail(email: email),
+            let password = passwordTextField.text, !password.isEmpty, ValidationManager.isValidPassword(password: password)
+            else { createEmptyFieldAlert() ; return }
         
         UserController.shared.createAuthenticatedUserWith(displayName: displayName, email: email, password: password) { (success, error) in
             if success {
@@ -154,18 +198,33 @@ class SignUpViewController: UIViewController {
             //destinationVC?.activityType = activityType
         }
     }
+    
 }
 
-// MARK: Email Validator Extension
-// Confirms that the entered email is of the correct format, including two letter domains.
-extension SignUpViewController {
+// MARK: UITextFieldDelegate Conformance
+extension SignUpViewController: UITextFieldDelegate {
     
-    func isValidEmail(email:String?) -> Bool {
-        guard email != nil else { return false }
-        let regEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-        let pred = NSPredicate(format:"SELF MATCHES %@", regEx)
-        return pred.evaluate(with: email)
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == displayNameTextField {
+            emailAddressTextField.becomeFirstResponder()
+        } else if textField == emailAddressTextField {
+            passwordTextField.becomeFirstResponder()
+        } else if textField == passwordTextField {
+            passwordTextField.resignFirstResponder()
+        }
+        return true
     }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == emailAddressTextField {
+            ValidationManager.validateEmail(errorLabel: emailAddressErrorLabel, textField: emailAddressTextField)
+        }
+        
+        if textField == passwordTextField {
+            ValidationManager.validatePassword(errorLabel: passwordErrorLabel, textField: passwordTextField)
+        }
+    }
+    
 }
 
 // MARK: Empty Sign Up Fields Alert Extension
@@ -173,9 +232,10 @@ extension SignUpViewController {
 extension SignUpViewController {
     
     func createEmptyFieldAlert() {
-        let alertController = UIAlertController(title: "Error", message: "Please enter an email and password.", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Error", message: "Please enter a valid email and password. Your password must be at least 6 characters in length.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
     }
+    
 }

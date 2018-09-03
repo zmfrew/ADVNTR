@@ -31,6 +31,8 @@
 		3EDC8D00212CE0F800A7A7DE /* LoginScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EDC8CFF212CE0F800A7A7DE /* LoginScreen.storyboard */; };
 		A257D0FA1C8D5CF727AFE0AB /* Pods_ADVNTR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563D539FA125C3178E952DBA /* Pods_ADVNTR.framework */; };
 		B614238821349B6B009E4814 /* StoreReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B614238721349B6B009E4814 /* StoreReviewManager.swift */; };
+		B61AD61C213D967E0087E1DE /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61AD61B213D967E0087E1DE /* ValidationManager.swift */; };
+		B61AD61E213D96C70087E1DE /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61AD61D213D96C70087E1DE /* ErrorManager.swift */; };
 		B62687D7212E28FB00FC5D58 /* Double+Rounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62687D6212E28FB00FC5D58 /* Double+Rounding.swift */; };
 		B62687D9212E56EB00FC5D58 /* ActivityUnitConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62687D8212E56EB00FC5D58 /* ActivityUnitConverter.swift */; };
 		B69D6721212F417B007A3A92 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D6720212F417B007A3A92 /* DateFormatter.swift */; };
@@ -77,6 +79,8 @@
 		63937897E99FD28B7A7B74CF /* Pods-ADVNTR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADVNTR.release.xcconfig"; path = "Pods/Target Support Files/Pods-ADVNTR/Pods-ADVNTR.release.xcconfig"; sourceTree = "<group>"; };
 		935BCCE4C33EEAF8D03C5AF0 /* Pods-ADVNTR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADVNTR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ADVNTR/Pods-ADVNTR.debug.xcconfig"; sourceTree = "<group>"; };
 		B614238721349B6B009E4814 /* StoreReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreReviewManager.swift; sourceTree = "<group>"; };
+		B61AD61B213D967E0087E1DE /* ValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
+		B61AD61D213D96C70087E1DE /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
 		B62687D6212E28FB00FC5D58 /* Double+Rounding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Rounding.swift"; sourceTree = "<group>"; };
 		B62687D8212E56EB00FC5D58 /* ActivityUnitConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityUnitConverter.swift; sourceTree = "<group>"; };
 		B6584FFD2138AF29002F09B4 /* ADVNTR.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ADVNTR.entitlements; sourceTree = "<group>"; };
@@ -271,6 +275,8 @@
 			children = (
 				B6C74F8F212B83AA00331D01 /* LocationManager.swift */,
 				B614238721349B6B009E4814 /* StoreReviewManager.swift */,
+				B61AD61B213D967E0087E1DE /* ValidationManager.swift */,
+				B61AD61D213D96C70087E1DE /* ErrorManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -481,6 +487,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B61AD61C213D967E0087E1DE /* ValidationManager.swift in Sources */,
 				EF0A6C8B213464DF00BCE182 /* StyleGuide.swift in Sources */,
 				3E093753212F6B7A003BA862 /* SignUpViewController.swift in Sources */,
 				3E093751212F6B49003BA862 /* ForgotPasswordViewController.swift in Sources */,
@@ -508,6 +515,7 @@
 				B6FE8A97212DD8ED0095FC8B /* FormatDisplay.swift in Sources */,
 				3EC2C956212CBE57002D7F69 /* NewActivityViewController.swift in Sources */,
 				3EA20908212E2EFB00750A5D /* SettingsTableViewController.swift in Sources */,
+				B61AD61E213D96C70087E1DE /* ErrorManager.swift in Sources */,
 				B6C74FB5212B83B800331D01 /* AppDelegate.swift in Sources */,
 				B6C74FAE212B83AB00331D01 /* User.swift in Sources */,
 			);
