@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 import FirebaseUI
 import FirebaseAuth
 import SwiftEntryKit
@@ -41,9 +42,10 @@ class ProfileViewController: UIViewController, TwicketSegmentedControlDelegate {
         updateViews()
         setUpSegmentedController()
         
+        imagePickerController.delegate = self
         let tapGestureForImageView = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped))
         profileImageView.addGestureRecognizer(tapGestureForImageView)
-        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -216,13 +218,20 @@ class ProfileViewController: UIViewController, TwicketSegmentedControlDelegate {
     }
     
     @objc func imageViewTapped() {
-        present(imagePickerController, animated: true)
+        
+        if PHPhotoLibrary.authorizationStatus() != .authorized {
+            PHPhotoLibrary.requestAuthorization({ (status: PHAuthorizationStatus) in
+                
+            })
+        } else if PHPhotoLibrary.authorizationStatus() == .authorized {
+            present(imagePickerController, animated: true)
+        }
     }
     
 }
 
 // MARK: - UINavigationControllerDelegate & UIImagePickerControllerDelegate Conformance
-extension ProfileViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
@@ -232,3 +241,4 @@ extension ProfileViewController: UINavigationControllerDelegate, UIImagePickerCo
     }
     
 }
+
