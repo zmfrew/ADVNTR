@@ -33,6 +33,7 @@
 		B614238821349B6B009E4814 /* StoreReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B614238721349B6B009E4814 /* StoreReviewManager.swift */; };
 		B61AD61C213D967E0087E1DE /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61AD61B213D967E0087E1DE /* ValidationManager.swift */; };
 		B61AD61E213D96C70087E1DE /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61AD61D213D96C70087E1DE /* ErrorManager.swift */; };
+		B6221ACC213EF0F500A13E81 /* CountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6221ACB213EF0F500A13E81 /* CountdownViewController.swift */; };
 		B62687D7212E28FB00FC5D58 /* Double+Rounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62687D6212E28FB00FC5D58 /* Double+Rounding.swift */; };
 		B62687D9212E56EB00FC5D58 /* ActivityUnitConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62687D8212E56EB00FC5D58 /* ActivityUnitConverter.swift */; };
 		B69D6721212F417B007A3A92 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D6720212F417B007A3A92 /* DateFormatter.swift */; };
@@ -81,6 +82,7 @@
 		B614238721349B6B009E4814 /* StoreReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreReviewManager.swift; sourceTree = "<group>"; };
 		B61AD61B213D967E0087E1DE /* ValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
 		B61AD61D213D96C70087E1DE /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
+		B6221ACB213EF0F500A13E81 /* CountdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownViewController.swift; sourceTree = "<group>"; };
 		B62687D6212E28FB00FC5D58 /* Double+Rounding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Rounding.swift"; sourceTree = "<group>"; };
 		B62687D8212E56EB00FC5D58 /* ActivityUnitConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityUnitConverter.swift; sourceTree = "<group>"; };
 		B6584FFD2138AF29002F09B4 /* ADVNTR.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ADVNTR.entitlements; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				3EC2C955212CBE57002D7F69 /* NewActivityViewController.swift */,
+				B6221ACB213EF0F500A13E81 /* CountdownViewController.swift */,
 			);
 			path = NewActivity;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				EF0A6C89213464B700BCE182 /* MessageController.swift in Sources */,
 				B6C74FA2212B83AB00331D01 /* ProfileViewController.swift in Sources */,
 				B69D6721212F417B007A3A92 /* DateFormatter.swift in Sources */,
+				B6221ACC213EF0F500A13E81 /* CountdownViewController.swift in Sources */,
 				3E45285F21305C31003E892E /* SignInViewController.swift in Sources */,
 				B6FE8A97212DD8ED0095FC8B /* FormatDisplay.swift in Sources */,
 				3EC2C956212CBE57002D7F69 /* NewActivityViewController.swift in Sources */,
