@@ -3,8 +3,11 @@
 
 # <p align="center">🏔<br></p>
 <br/>
-[![forthebadge](https://forthebadge.com/images/badges/made-with-swift.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)](https://forthebadge.com)
+
+[![forthebadge](https://forthebadge.com/images/badges/made-with-swift.svg)]
+
+[![forthebadge](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)]
+
 <br>
 
 
@@ -28,8 +31,10 @@
 <img height="450" src="https://user-images.githubusercontent.com/28428200/45002552-1610fc80-af95-11e8-9c66-11665b98e3f5.png"/>
 </p>
 
+<br>
+<br>
 
-[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)]
 
 * <a href="https://github.com/zmfrew" style="text-decoration: none;">Zach Frew</a>
 * <a href="https://github.com/owenhenley" style="text-decoration: none;">Owen Henley</a>
