@@ -7,35 +7,31 @@
 //
 
 import UIKit
+import SRCountdownTimer
 
 class CountdownViewController: UIViewController {
     
-    // MARK: - Outlets
-    @IBOutlet weak var countdownLabel: UILabel!
-    
-    // MARK: - Properties
-    var countdownTimer = Timer()
-    var seconds = 4
+    @IBOutlet weak var countdownTimer: SRCountdownTimer!
     
     // MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        countdown()
-    }
-    
-    // MARK: - Methods
-    func countdown() {
-        countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
-    }
-    
-    @objc func updateTimerLabel() {
-        seconds -= 1
-        countdownLabel.text = seconds > 0 ? "\(seconds)" : "Go!"
         
-        if seconds == 0 {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                self.dismiss(animated: true, completion: nil)
-            }
+        setupCountdownTimer()
+        countdownTimer.start(beginingValue: 3, interval: 1)
+        dismissView()
+    }
+    
+    func setupCountdownTimer() {
+        countdownTimer.labelFont = UIFont(name: "Avenir Next", size: 50.0)
+        countdownTimer.labelTextColor = UIColor.white
+        countdownTimer.timerFinishingText = "Go!"
+        countdownTimer.lineWidth = 4
+    }
+    
+    func dismissView() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.75) {
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
