@@ -10,6 +10,7 @@ import UIKit
 import Photos
 import FirebaseUI
 import FirebaseAuth
+import FirebaseStorage
 import SwiftEntryKit
 import TwicketSegmentedControl
 
@@ -46,6 +47,19 @@ class ProfileViewController: UIViewController, TwicketSegmentedControlDelegate {
         let tapGestureForImageView = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped))
         profileImageView.addGestureRecognizer(tapGestureForImageView)
         imagePickerController.sourceType = .photoLibrary
+        
+        
+        let profileImageRef: StorageReference! = Storage.storage().reference(withPath: "\(UserController.shared.user.uid!)/profilePhoto/photo.jpg")
+
+        profileImageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+            if let error = error {
+                print("Error downloading profile image: \(error.localizedDescription)")
+                return
+            } else {
+                let image = UIImage(data: data!)
+                self.profileImageView.image = image
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -107,9 +121,6 @@ class ProfileViewController: UIViewController, TwicketSegmentedControlDelegate {
         if (Auth.auth().currentUser?.isAnonymous)! {
             profileImageView.image = UIImage(named: "SplashScreen")
         }
-        
-        let profileImageRef = UserController.shared.profileImageReference.child(UserController.shared.user.uid!).child("profilePhoto").child("photo")
-        profileImageView?.sd_setImage(with: profileImageRef)
         
         let travelSpelling = UserController.shared.user.defaultUnits == "imperial" ? "Traveled" : "Travelled"
         totalDistanceNameLabel.text = "Total Distance \(travelSpelling):"
@@ -235,10 +246,19 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
     
     @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            profileImageView.image = image
-            self.dismiss(animated: true, completion: nil)
+            //profileImageView.image = image
+            let imageURL = info[UIImagePickerControllerImageURL] as? URL
+            profileImageView?.sd_setImage(with: imageURL, placeholderImage: image, options: .highPriority, completed: { (_, error, _, _) in
+                if let error = error {
+                    print("Fuck it: \(error.localizedDescription)")
+                } else {
+                    print("Fuck yeah")
+                    DispatchQueue.main.async {
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                }
+            })
         }
     }
-    
 }
 

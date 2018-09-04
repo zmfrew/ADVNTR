@@ -134,7 +134,7 @@ class UserController {
                 
                 // Save the profile photo to Firebase Storage and save the URL to it under the user's
                 // Firebase Database dictionary.
-                let profileImageRef = self.profileImageReference.child(result.user.uid).child("profilePhoto").child("photo")
+                let profileImageRef = self.profileImageReference.child("\(result.user.uid)/profilePhoto/photo.jpg")
                 guard let defaultProfileImage = UIImage(named: "defaultProfile") else { completion(false, nil) ; return }
                 guard let imageData = UIImageJPEGRepresentation(defaultProfileImage, 0.1) else { completion(false, nil) ; return }
                 
@@ -240,7 +240,7 @@ class UserController {
                 if photo != nil {
                     // Save the profile photo to Firebase Storage and save the URL to it under the user's
                     // Firebase Database dictionary.
-                    let profileImageRef = self.profileImageReference.child(uid).child("profilePhoto").child("photo")
+                    let profileImageRef = self.profileImageReference.child("\(uid)/profilePhoto/photo.jpg")
                     guard let photo = photo else { completion(false) ; return }
                     guard let photoData = UIImageJPEGRepresentation(photo, 0.1) else { completion(false) ; return }
                     
