@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -277,19 +278,27 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i2A-Ut-zLR">
                                 <rect key="frame" x="16" y="36" width="382" height="684"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bF-5W-deE">
-                                        <rect key="frame" x="95.666666666666686" y="256.66666666666669" width="191" height="171"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="32"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IFn-mR-4Bm" customClass="SRCountdownTimer" customModule="SRCountdownTimer">
+                                        <rect key="frame" x="71" y="222" width="240" height="240"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="mbd-f6-Nhr"/>
+                                            <constraint firstAttribute="width" secondItem="IFn-mR-4Bm" secondAttribute="height" id="opX-e3-7pX"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                <color key="value" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="6bF-5W-deE" firstAttribute="centerX" secondItem="i2A-Ut-zLR" secondAttribute="centerX" id="MMN-8y-DTe"/>
-                                    <constraint firstItem="6bF-5W-deE" firstAttribute="width" secondItem="i2A-Ut-zLR" secondAttribute="width" multiplier="0.5" id="O6t-cf-FAv"/>
-                                    <constraint firstItem="6bF-5W-deE" firstAttribute="height" secondItem="i2A-Ut-zLR" secondAttribute="height" multiplier="0.25" id="PmU-PB-mvi"/>
-                                    <constraint firstItem="6bF-5W-deE" firstAttribute="centerY" secondItem="i2A-Ut-zLR" secondAttribute="centerY" id="kxe-hb-UJE"/>
+                                    <constraint firstItem="IFn-mR-4Bm" firstAttribute="width" secondItem="IFn-mR-4Bm" secondAttribute="height" id="Ejd-zS-oCV"/>
+                                    <constraint firstItem="IFn-mR-4Bm" firstAttribute="width" secondItem="IFn-mR-4Bm" secondAttribute="height" id="Elx-Ye-NZ6"/>
+                                    <constraint firstItem="IFn-mR-4Bm" firstAttribute="centerX" secondItem="i2A-Ut-zLR" secondAttribute="centerX" id="Kqg-gF-Qwd"/>
+                                    <constraint firstItem="IFn-mR-4Bm" firstAttribute="centerY" secondItem="i2A-Ut-zLR" secondAttribute="centerY" id="cLa-c3-Ay7"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -302,7 +311,7 @@
                         <viewLayoutGuide key="safeArea" id="SSK-K4-PRw"/>
                     </view>
                     <connections>
-                        <outlet property="countdownLabel" destination="6bF-5W-deE" id="FHu-sY-wxH"/>
+                        <outlet property="countdownTimer" destination="IFn-mR-4Bm" id="PwD-AT-q2U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y4a-gL-ZJh" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -14,5 +14,6 @@ target 'ADVNTR' do
   pod 'FirebaseUI/Storage'
   pod 'TwicketSegmentedControl'
   pod 'ViewAnimator'
+  pod 'SRCountdownTimer'
 
 end
