@@ -21,10 +21,10 @@ class UserController {
     var user = User()
     
     // Base reference to the location of the user's data dictionary on Firebase Database
-    let userReference = Database.database().reference()
+    let userReference: DatabaseReference! = Database.database().reference()
     
     // Reference to the location of the user's profile photo on Firebase Storage
-    var profileImageReference = Storage.storage().reference()
+    var profileImageReference: StorageReference! = Storage.storage().reference()
     
     // Fetch current user data if previously signed up and authenticated with Firebase
     func fetchCurrentUserData(completion: @escaping (Bool) -> Void) {

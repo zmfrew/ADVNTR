@@ -19,7 +19,7 @@ class ActivityController {
     // Reference to the base level Firebase JSON dictionary for the logged in user
     var ref: DatabaseReference! = Database.database().reference(withPath: (Auth.auth().currentUser?.uid)!)
     
-    static var usersActivityImagesReference = Storage.storage().reference().child((Auth.auth().currentUser?.uid)!).child("activityImages")
+    static var usersActivityImagesReference: StorageReference! = Storage.storage().reference().child((Auth.auth().currentUser?.uid)!).child("activityImages")
     
     // Create an Activity model object. Create a new reference for the activity, under its associated
     // activity type, with it's own auto-generated UID. Then use the toAnyObject() helper method to save

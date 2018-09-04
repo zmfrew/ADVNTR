@@ -233,7 +233,7 @@ class ProfileViewController: UIViewController, TwicketSegmentedControlDelegate {
 // MARK: - UINavigationControllerDelegate & UIImagePickerControllerDelegate Conformance
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             profileImageView.image = image
             self.dismiss(animated: true, completion: nil)
