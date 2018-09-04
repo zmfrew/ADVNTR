@@ -3,6 +3,10 @@
 
 # <p align="center">🏔<br></p>
 <br/>
+[![forthebadge](https://forthebadge.com/images/badges/made-with-swift.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)](https://forthebadge.com)
+<br>
+
 
 <a href="https://www.appstore.com" style="text-decoration: none;">ADVNTR</a> is a fitness app for both budding and experienced adventurists. Track vital statistics for each run, bike ride or hike, compare your pace and record your route to share with friends or refer to when you're trying to remember your favorite activities. Designed for iOS 12 and available now on the App Store.
 
