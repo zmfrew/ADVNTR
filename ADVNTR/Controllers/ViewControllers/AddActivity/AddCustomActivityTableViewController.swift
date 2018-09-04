@@ -97,7 +97,22 @@ class AddCustomActivityTableViewController: UITableViewController, TwicketSegmen
         
         distancePickerView.dataSource = self
         durationPickerView.dataSource = self
+        
+        setUpViews()
 
+    }
+    
+    func setUpViews() {
+        datePicker.setValue(UIColor.white, forKeyPath: "textColor")
+        
+        let date = Date()
+        let hour = date.getHour(from: date)
+        let timeOfDay = date.getTimeOfDay(from: hour)
+        let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedController.selectedSegmentIndex).capitalized
+        let title = "\(timeOfDay) - \(activityType)"
+        activityTitleTextField.placeholder = title
+        activityTitleTextField.attributedPlaceholder = NSAttributedString(string: title,
+                                                                                     attributes: [NSAttributedStringKey.foregroundColor: UIColor.yellow])
     }
     
     // MARK: - Actions
@@ -167,6 +182,7 @@ class AddCustomActivityTableViewController: UITableViewController, TwicketSegmen
     
     func didSelect(_ segmentIndex: Int) {
         _ = setActivityTypeForActivityCreation(segmentIndex)
+        setUpViews()
     }
     
     func setActivityTypeForActivityCreation(_ index: Int) -> String {
@@ -282,6 +298,35 @@ extension AddCustomActivityTableViewController: UIPickerViewDelegate {
                 return
             }
         }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        
+        var string = ""
+        if pickerView.tag == 1 {
+            switch component {
+            case 0:
+                string = String(unitDistance[row])
+            case 1:
+                string = String(unitDistanceFraction[row])
+            case 2:
+                string = units[row]
+            default:
+                return NSAttributedString(string: "")
+            }
+        } else if pickerView.tag == 2 {
+            switch component {
+            case 0:
+                string = String(hours[row])
+            case 1:
+                string = String(minutes[row])
+            case 2:
+                string = String(seconds[row])
+            default:
+                return NSAttributedString(string: "")
+            }
+        }
+        return NSAttributedString(string: string, attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
     }
 }
 
