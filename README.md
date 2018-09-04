@@ -15,9 +15,6 @@
 
 ## Screenshots
 
-
-<p align="center"><img height="450" src="https://user-images.githubusercontent.com/28428200/45042973-3c807780-b029-11e8-805f-dc11ee2ab194.png"/></p>
-
 <p align="center"><img height="450" src="https://user-images.githubusercontent.com/28428200/44928117-10f14a80-ad14-11e8-8cd2-2e16fc390699.png"/>
 <img height="450" src="https://user-images.githubusercontent.com/28428200/45002572-4f496c80-af95-11e8-854c-c0f998e72c98.png"/>
 <img height="450" src="https://user-images.githubusercontent.com/28428200/45002556-2628dc00-af95-11e8-83d4-1f0be5951f30.png"/>
@@ -28,7 +25,8 @@
 </p>
 
 
-## Authors
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+
 * <a href="https://github.com/zmfrew" style="text-decoration: none;">Zach Frew</a>
 * <a href="https://github.com/owenhenley" style="text-decoration: none;">Owen Henley</a>
 * <a href="https://github.com/northsydneybears" style="text-decoration: none;">Jeter Pow</a>
