@@ -4,9 +4,7 @@
 # <p align="center">🏔<br></p>
 <br/>
 
-[![forthebadge](https://forthebadge.com/images/badges/made-with-swift.svg)]
-
-[![forthebadge](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)]
+![forthebadge](https://forthebadge.com/images/badges/made-with-swift.svg) ![forthebadge](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)
 
 <br>
 
@@ -34,7 +32,7 @@
 <br>
 <br>
 
-[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)]
+![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)
 
 * <a href="https://github.com/zmfrew" style="text-decoration: none;">Zach Frew</a>
 * <a href="https://github.com/owenhenley" style="text-decoration: none;">Owen Henley</a>
