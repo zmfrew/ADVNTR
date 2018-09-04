@@ -10,6 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseStorage
 import FirebaseUI
+import ViewAnimator
 
 class SelectedActivityDetailsTableViewController: UITableViewController {
     
@@ -20,13 +21,18 @@ class SelectedActivityDetailsTableViewController: UITableViewController {
             self.title = activityType?.capitalized
         }
     }
-    
+    private let animations = [AnimationType.from(direction: .right, offset: 120.0), AnimationType.zoom(scale: 0.5)]
+
     // MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // This value is set in prepareForSegue on ActivityHistoryVC so that the table view
         // will only display data for a single type of activity.
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshTable), for: .valueChanged)
+        self.refreshControl = refreshControl
+        
         guard let activityType = activityType else { return }
         
         // This is the equivalent of a fetch. We get all the activities in the form of a
@@ -38,9 +44,21 @@ class SelectedActivityDetailsTableViewController: UITableViewController {
             activities.reverse()
             self.activities = activities
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self.refreshTable()
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        refreshTable()
+    }
+    
+    // MARK: - Methods
+    @objc func refreshTable() {
+        self.tableView.reloadData()
+        UIView.animate(views: tableView.visibleCells, animations: animations)
+        self.refreshControl?.endRefreshing()
     }
     
     // MARK: - TableView Delegate Methods
