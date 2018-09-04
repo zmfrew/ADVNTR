@@ -13,5 +13,6 @@ target 'ADVNTR' do
   pod 'SwiftEntryKit'
   pod 'FirebaseUI/Storage'
   pod 'TwicketSegmentedControl'
+  pod 'ViewAnimator'
 
 end
