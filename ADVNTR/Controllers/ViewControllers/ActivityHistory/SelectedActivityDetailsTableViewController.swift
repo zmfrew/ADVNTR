@@ -10,32 +10,55 @@ import UIKit
 import FirebaseDatabase
 import FirebaseStorage
 import FirebaseUI
+import ViewAnimator
 
 class SelectedActivityDetailsTableViewController: UITableViewController {
     
     // MARK: - Properties
     var activities: [Activity] = []
-    var activityType: String?
-    
+    var activityType: String? {
+        didSet {
+            self.title = activityType?.capitalized
+        }
+    }
+    private let animations = [AnimationType.from(direction: .right, offset: 120.0), AnimationType.zoom(scale: 0.5)]
+
     // MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // This value is set in prepareForSegue on ActivityHistoryVC so that the table view
         // will only display data for a single type of activity.
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshTable), for: .valueChanged)
+        self.refreshControl = refreshControl
+        
         guard let activityType = activityType else { return }
         
         // This is the equivalent of a fetch. We get all the activities in the form of a
         // Firebase 'snapshot'. The snapshot is essentially a dictionary from which each of its
         // 'children' can be compactMapped into an array of activities that is stored in a local
         // variable for the table view data source.
-        ActivityController.shared.ref.child(activityType).queryOrdered(byChild: "distance").observe(.value) { (snapshot) in
-            let activities = snapshot.children.compactMap { Activity(snapshot: $0 as! DataSnapshot)}
+        ActivityController.shared.ref.child(activityType).queryOrdered(byChild: "createdAt").observe(.value) { (snapshot) in
+            var activities = snapshot.children.compactMap { Activity(snapshot: $0 as! DataSnapshot)}
+            activities.reverse()
             self.activities = activities
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self.refreshTable()
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        refreshTable()
+    }
+    
+    // MARK: - Methods
+    @objc func refreshTable() {
+        self.tableView.reloadData()
+        UIView.animate(views: tableView.visibleCells, animations: animations)
+        self.refreshControl?.endRefreshing()
     }
     
     // MARK: - TableView Delegate Methods
@@ -70,13 +93,5 @@ class SelectedActivityDetailsTableViewController: UITableViewController {
             }
         }
     }
-    
-    /*
-     // MARK: - Navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

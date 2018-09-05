@@ -10,12 +10,14 @@ import UIKit
 import MapKit
 import FirebaseAuth
 import SwiftEntryKit
+import TwicketSegmentedControl
 
-class NewActivityViewController: UIViewController {
+
+class NewActivityViewController: UIViewController, TwicketSegmentedControlDelegate {
 
     // MARK: - Outlets
     @IBOutlet weak var activityTypeLabel: UILabel!
-    @IBOutlet weak var activityTypeSegmentedController: UISegmentedControl!
+    @IBOutlet weak var activityTypeSegmentedController: TwicketSegmentedControl!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var activityTimeLabel: UILabel!
     @IBOutlet weak var activityDistanceLabel: UILabel!
@@ -33,7 +35,6 @@ class NewActivityViewController: UIViewController {
     
     // MARK: - Properties
     var distance = Measurement(value: 0, unit: UnitLength.meters)
-    var averageSpeed: Double?
     var currentAltitude = 0.0
     var elevationChange = 0.0
     var pace: Int?
@@ -54,38 +55,30 @@ class NewActivityViewController: UIViewController {
         setupMapView()
         setupLocationManager()
         hideInitialViews()
+        setUpSegmentedController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         activityTypeLabel.text = UserController.shared.user.preferredActivityType?.capitalized ?? "Run"
-        activityTypeSegmentedController.selectedSegmentIndex = setActivityTypeSegmentedControllerFor(user: UserController.shared.user)
+        activityTypeSegmentedController.move(to: setActivityTypeSegmentedControllerFor(user: UserController.shared.user))
         
         invalidateTimers()
         
         locationManager.stopUpdatingLocation()
         distance = Measurement(value: 0, unit: UnitLength.meters)
+        
     }
     
     // MARK: - Actions
-    @IBAction func activitySegmentedControllerDidChange(_ sender: UISegmentedControl) {
-        let activityType = setActivityTypeForActivityCreation(sender.selectedSegmentIndex)
+    func didSelect(_ segmentIndex: Int) {
+        let activityType = setActivityTypeForActivityCreation(segmentIndex)
         activityTypeLabel.text = activityType.capitalized
     }
-    
+
     @IBAction func startButtonTapped(_ sender: UIButton) {
-        locationManager.startUpdatingLocation()
-        unhideInitialViews()
-        durationInSeconds = 0
-        currentDate = Date()
-        locationList = []
-        coordinates = []
-        
-        activityTypeSegmentedController.isUserInteractionEnabled = false
-        
-        mapView.showsUserLocation = true
-        mapView.userTrackingMode = .follow
+       
         locationManager.requestWhenInUseAuthorization()
         let status = CLLocationManager.authorizationStatus()
         if status == .notDetermined {
@@ -93,16 +86,13 @@ class NewActivityViewController: UIViewController {
         } else if status != .authorizedWhenInUse && status != .authorizedAlways {
             presentLocationAlert()
         } else if status == .authorizedWhenInUse || status == .authorizedAlways {
-            activateTimers()
-            
-            updateAverageSpeedOrPaceLabelText()
-            updateAltitudeAndPaceOrSpeedViews()
-            
-            pauseButton.isHidden = false
-            startButton.isHidden = true
-            
-            mapView.showsUserLocation = true
-            mapView.userTrackingMode = .follow
+            let countdownVC = UIStoryboard(name: "NewActivity", bundle: nil).instantiateViewController(withIdentifier: "CountdownViewController") as! CountdownViewController
+            present(countdownVC, animated: true) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4, execute: {
+                    self.startButtonMethodCalls()
+                })
+            }
+
         }
     }
     
@@ -129,10 +119,28 @@ class NewActivityViewController: UIViewController {
     @IBAction func stopButtonTapped(_ sender: UIButton) {
         pauseButton.isHidden = true
         resumeButton.isHidden = true
+        startButton.isHidden = false
+        altitudeNameLabel.isHidden = true
+        averageSpeedOrPaceNameLabel.isHidden = true
         locationManager.stopUpdatingLocation()
         stopButton.isHidden = true
         invalidateTimers()
-        self.saveNewWorkout()
+        
+        if locationList.count >= 1 && (Double(self.durationInSeconds) / self.distance.value) >= 0 {
+            let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
+            let mapSize = MKMapSize(width: polyline.boundingMapRect.size.width + 32, height: polyline.boundingMapRect.size.height + 32)
+            let region = MKCoordinateRegionForMapRect(MKMapRect(origin: polyline.boundingMapRect.origin, size: mapSize))
+            
+            mapView.setVisibleMapRect(polyline.boundingMapRect, animated: true)
+            mapView.setRegion(region, animated: true)
+            
+            saveNewWorkout()
+        } else {
+            resetLocalProperties()
+            resetViews()
+        }
+        
+        activityTypeSegmentedController.isUserInteractionEnabled = true
     }
     
     // MARK: Navigation
@@ -145,6 +153,43 @@ class NewActivityViewController: UIViewController {
     }
     
     // MARK: - Methods
+    @objc func startButtonMethodCalls() {
+        locationManager.startUpdatingLocation()
+        unhideInitialViews()
+        durationInSeconds = 0
+        currentDate = Date()
+        locationList = []
+        coordinates = []
+        
+        activityTypeSegmentedController.isUserInteractionEnabled = false
+        
+        mapView.showsUserLocation = true
+        mapView.userTrackingMode = .follow
+        activateTimers()
+
+        pauseButton.isHidden = false
+        startButton.isHidden = true
+        
+        mapView.showsUserLocation = true
+        mapView.userTrackingMode = .follow
+        
+        updateAverageSpeedOrPaceLabelText()
+        updateAltitudeAndPaceOrSpeedViews()
+    }
+    
+    func setUpSegmentedController() {
+        let titles = ["Run", "Hike", "Bike"]
+        activityTypeSegmentedController.setSegmentItems(titles)
+        activityTypeSegmentedController.delegate = self
+        activityTypeSegmentedController.defaultTextColor = UIColor.white
+        activityTypeSegmentedController.highlightTextColor = UIColor.yellow
+        activityTypeSegmentedController.segmentsBackgroundColor = UIColor.black
+        activityTypeSegmentedController.sliderBackgroundColor = UIColor.clear
+        activityTypeSegmentedController.isSliderShadowHidden = true
+        activityTypeSegmentedController.layer.backgroundColor = UIColor.clear.cgColor
+        activityTypeSegmentedController.sizeToFit()
+    }
+    
     func updateAverageSpeedOrPaceLabelText() {
         if activityTypeSegmentedController.selectedSegmentIndex == 0 {
             averageSpeedOrPaceNameLabel.text = "Pace"
@@ -260,17 +305,6 @@ class NewActivityViewController: UIViewController {
         mapView.showsUserLocation = false
         mapView.userTrackingMode = .none
         
-        activityTypeSegmentedController.isUserInteractionEnabled = true
-        
-        let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
-        let mapSize = MKMapSize(width: polyline.boundingMapRect.size.width + 32, height: polyline.boundingMapRect.size.height + 32)
-        let region = MKCoordinateRegionForMapRect(MKMapRect(origin: polyline.boundingMapRect.origin, size: mapSize))
-        
-        DispatchQueue.main.async {
-            self.mapView.setVisibleMapRect(polyline.boundingMapRect, animated: true)
-            self.mapView.setRegion(region, animated: false)
-        }
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             
             
@@ -281,7 +315,7 @@ class NewActivityViewController: UIViewController {
                     let hour = self.currentDate?.getHour(from: self.currentDate!)
                     let timeOfDay = self.currentDate?.getTimeOfDay(from: hour!)
                     let name = "\(timeOfDay!) - \(activityType.capitalized)"
-                    let averageSpeed = ActivityUnitConverter.milesPerHourFromMetersPerSecond(seconds: self.durationInSeconds, meters: self.distance)
+                    let averageSpeed = Double(self.durationInSeconds) / self.distance.value
                     let activitySnapshotImage = self.activitySnapshotImageView.image ?? UIImage(named: "defaultProfile")
                     
                     ActivityController.shared.saveActivity(type: activityType, name: name, distance: Int(self.distance.value), averageSpeed: averageSpeed, elevationChange: Int(self.elevationChange.rounded()), timestamp: (self.currentDate?.stringValue(from: self.currentDate!))!, duration: self.durationInSeconds, image: activitySnapshotImage!) { (success, activityUID) in
@@ -383,7 +417,6 @@ class NewActivityViewController: UIViewController {
         locationList = []
         coordinates = []
         distance = Measurement(value: 0, unit: UnitLength.meters)
-        averageSpeed = 0
         currentAltitude = 0.0
         elevationChange = 0.0
         updateAltitudeAndPaceOrSpeedViews()

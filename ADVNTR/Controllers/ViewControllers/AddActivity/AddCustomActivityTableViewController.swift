@@ -8,18 +8,24 @@
 
 import UIKit
 import SwiftEntryKit
+import TwicketSegmentedControl
 
-class AddCustomActivityTableViewController: UITableViewController {
+class AddCustomActivityTableViewController: UITableViewController, TwicketSegmentedControlDelegate {
     
     // MARK: - Properties
+    
+    var activity: Activity?
+    
     var distanceFirstDigit: Int?
     var distanceSecondDigit: Double?
     var distanceUnits: String?
     var durationHours: Int?
     var durationMinutes: Int?
     var durationSeconds: Int?
+    var defaultImage = UIImage(named: "defaultProfile")!
     
-    // Distance
+    //MARK - Distance
+    
     var unitDistance: [Int] {
         var unitDistance: [Int] = []
         for number in 0...99 {
@@ -36,7 +42,8 @@ class AddCustomActivityTableViewController: UITableViewController {
         return ["Km's", "Miles"]
     }
     
-    // Duration
+    //MARK - Duration
+    
     var hours: [Int] {
         var hours: [Int] = []
         for number in 0...23 {
@@ -63,21 +70,25 @@ class AddCustomActivityTableViewController: UITableViewController {
     
     // MARK: - Outlets
     
+    
     @IBOutlet weak var activityTitleTextField: UITextField!
     @IBOutlet weak var distancePickerView: UIPickerView!
     @IBOutlet weak var durationPickerView: UIPickerView!
-    @IBOutlet weak var activityTypeSegmentedController: UISegmentedControl!
+    @IBOutlet weak var activityTypeSegmentedController: TwicketSegmentedControl!
     @IBOutlet weak var datePicker: UIDatePicker!
     
+    // MARK: - ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        activityTypeSegmentedController.selectedSegmentIndex = setActivityTypeSegmentedControllerFor(user: UserController.shared.user)
+        setUpSegmentedController()
+        
+        activityTypeSegmentedController.move(to: setActivityTypeSegmentedControllerFor(user: UserController.shared.user))
         
         let backgroundImage = UIImageView(image: UIImage(named: "DefaultNewActivity"))
         backgroundImage.frame = self.tableView.frame
-        backgroundImage.contentMode = .scaleToFill
+        backgroundImage.contentMode = .scaleAspectFill
         backgroundImage.clipsToBounds = false
         self.tableView.backgroundView = backgroundImage;
         
@@ -86,6 +97,22 @@ class AddCustomActivityTableViewController: UITableViewController {
         
         distancePickerView.dataSource = self
         durationPickerView.dataSource = self
+        
+        setUpViews()
+
+    }
+    
+    func setUpViews() {
+        datePicker.setValue(UIColor.white, forKeyPath: "textColor")
+        
+        let date = Date()
+        let hour = date.getHour(from: date)
+        let timeOfDay = date.getTimeOfDay(from: hour)
+        let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedController.selectedSegmentIndex).capitalized
+        let title = "\(timeOfDay) - \(activityType)"
+        activityTitleTextField.placeholder = title
+        activityTitleTextField.attributedPlaceholder = NSAttributedString(string: title,
+                                                                                     attributes: [NSAttributedStringKey.foregroundColor: UIColor.yellow])
     }
     
     // MARK: - Actions
@@ -98,13 +125,12 @@ class AddCustomActivityTableViewController: UITableViewController {
         let activityType = setActivityTypeForActivityCreation(activityTypeSegmentedController.selectedSegmentIndex)
         
         let date = datePicker.date
-        // Convert to String fuckhead
-        // let timestamp =
-        
         let hour = date.getHour(from: date)
         let timeOfDay = date.getTimeOfDay(from: hour)
         let title = "\(timeOfDay) - \(activityType)"
         let name = activityTitleTextField.text ?? title
+        
+        setDefaultActivityImage()
         
         var unitLength: UnitLength?
         if distanceUnits == "Km's" {
@@ -124,14 +150,13 @@ class AddCustomActivityTableViewController: UITableViewController {
         
         let averageSpeed = ActivityUnitConverter.speed(distance: distance, seconds: duration)
         
-        let image = UIImage(named: "defaultProfile")
-        
-        ActivityController.shared.saveActivity(type: activityType, name: name, distance: Int(distance.value), averageSpeed: averageSpeed.value, elevationChange: 0, timestamp: date.stringValue(from: date), duration: duration, image: image!) { (success, _) in
+        ActivityController.shared.saveActivity(type: activityType, name: name, distance: Int(distance.value), averageSpeed: averageSpeed.value, elevationChange: 0, timestamp: date.stringValue(from: date), duration: duration, image: defaultImage) { (success, _) in
             
             if success {
                 let message = MessageController.shared.createSuccessAlertWith(title: "New activity saved.", description: "Great job!")
                 
                 DispatchQueue.main.async {
+                    
                     SwiftEntryKit.display(entry: message.0, using: message.1)
                     self.tabBarController?.selectedIndex = 1
                 }
@@ -139,7 +164,27 @@ class AddCustomActivityTableViewController: UITableViewController {
         }
     }
     
+    
     // MARK: - Methods
+    
+    func setUpSegmentedController() {
+        let titles = ["Run", "Hike", "Bike"]
+        activityTypeSegmentedController.setSegmentItems(titles)
+        activityTypeSegmentedController.delegate = self
+        activityTypeSegmentedController.defaultTextColor = UIColor.white
+        activityTypeSegmentedController.highlightTextColor = UIColor.yellow
+        activityTypeSegmentedController.segmentsBackgroundColor = UIColor.black
+        activityTypeSegmentedController.sliderBackgroundColor = UIColor.clear
+        activityTypeSegmentedController.isSliderShadowHidden = true
+        activityTypeSegmentedController.layer.backgroundColor = UIColor.clear.cgColor
+        activityTypeSegmentedController.sizeToFit()
+    }
+    
+    func didSelect(_ segmentIndex: Int) {
+        _ = setActivityTypeForActivityCreation(segmentIndex)
+        setUpViews()
+    }
+    
     func setActivityTypeForActivityCreation(_ index: Int) -> String {
         switch (index) {
         case 0:
@@ -166,17 +211,31 @@ class AddCustomActivityTableViewController: UITableViewController {
         }
     }
     
-    // MARK: - Table view data source
+    func setDefaultActivityImage() {
+        switch (activityTypeSegmentedController.selectedSegmentIndex) {
+        case 0:
+            defaultImage = UIImage(named: "DefaultRun")!
+        case 1:
+            defaultImage = UIImage(named: "lucas-clara-579404-unsplash")!
+        case 2:
+            defaultImage = UIImage(named: "daniel-frank-645862-unsplash")!
+        default:
+            defaultImage = UIImage(named: "defaultProfile")!
+        }
+    }
+    
+    // MARK: - Table View Data Source
+    
     // Custom Header Color
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view:UIView, forSection: Int) {
         if let tableViewHeaderFooterView = view as? UITableViewHeaderFooterView {
             tableViewHeaderFooterView.textLabel?.textColor = UIColor.white
         }
     }
-    
 }
 
 // MARK: - PickerView Delegte
+
 extension AddCustomActivityTableViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView.tag == 1 {
@@ -240,9 +299,39 @@ extension AddCustomActivityTableViewController: UIPickerViewDelegate {
             }
         }
     }
+    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        
+        var string = ""
+        if pickerView.tag == 1 {
+            switch component {
+            case 0:
+                string = String(unitDistance[row])
+            case 1:
+                string = String(unitDistanceFraction[row])
+            case 2:
+                string = units[row]
+            default:
+                return NSAttributedString(string: "")
+            }
+        } else if pickerView.tag == 2 {
+            switch component {
+            case 0:
+                string = String(hours[row])
+            case 1:
+                string = String(minutes[row])
+            case 2:
+                string = String(seconds[row])
+            default:
+                return NSAttributedString(string: "")
+            }
+        }
+        return NSAttributedString(string: string, attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+    }
 }
 
 // MARK: - PickerView Datasource
+
 extension AddCustomActivityTableViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 3
@@ -274,15 +363,5 @@ extension AddCustomActivityTableViewController: UIPickerViewDataSource {
         }
         return 0
     }
-
 }
 
-// MARK: Successful Custom Activity Alert
-extension AddCustomActivityTableViewController {
-    
-}
-
-// MARK: Error Adding Custom Activity Alert (Boring iOS SDK AlertController)
-extension AddCustomActivityTableViewController {
-    
-}

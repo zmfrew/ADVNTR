@@ -31,6 +31,9 @@
 		3EDC8D00212CE0F800A7A7DE /* LoginScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EDC8CFF212CE0F800A7A7DE /* LoginScreen.storyboard */; };
 		A257D0FA1C8D5CF727AFE0AB /* Pods_ADVNTR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563D539FA125C3178E952DBA /* Pods_ADVNTR.framework */; };
 		B614238821349B6B009E4814 /* StoreReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B614238721349B6B009E4814 /* StoreReviewManager.swift */; };
+		B61AD61C213D967E0087E1DE /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61AD61B213D967E0087E1DE /* ValidationManager.swift */; };
+		B61AD61E213D96C70087E1DE /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61AD61D213D96C70087E1DE /* ErrorManager.swift */; };
+		B6221ACC213EF0F500A13E81 /* CountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6221ACB213EF0F500A13E81 /* CountdownViewController.swift */; };
 		B62687D7212E28FB00FC5D58 /* Double+Rounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62687D6212E28FB00FC5D58 /* Double+Rounding.swift */; };
 		B62687D9212E56EB00FC5D58 /* ActivityUnitConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62687D8212E56EB00FC5D58 /* ActivityUnitConverter.swift */; };
 		B69D6721212F417B007A3A92 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D6720212F417B007A3A92 /* DateFormatter.swift */; };
@@ -43,7 +46,6 @@
 		B6C74FB5212B83B800331D01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74FB2212B83B800331D01 /* AppDelegate.swift */; };
 		B6C74FCC212B84F600331D01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6C74FC0212B84F600331D01 /* LaunchScreen.storyboard */; };
 		B6C74FCF212B84F600331D01 /* ActivityHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74FC6212B84F600331D01 /* ActivityHistoryTableViewCell.swift */; };
-		B6C74FD0212B84F600331D01 /* ActivityHistoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C74FC7212B84F600331D01 /* ActivityHistoryButton.swift */; };
 		B6FE8A97212DD8ED0095FC8B /* FormatDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE8A96212DD8ED0095FC8B /* FormatDisplay.swift */; };
 		EF0A6C83213462CB00BCE182 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF0A6C82213462CB00BCE182 /* GoogleService-Info.plist */; };
 		EF0A6C852134640300BCE182 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A6C842134640300BCE182 /* UserController.swift */; };
@@ -78,8 +80,12 @@
 		63937897E99FD28B7A7B74CF /* Pods-ADVNTR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADVNTR.release.xcconfig"; path = "Pods/Target Support Files/Pods-ADVNTR/Pods-ADVNTR.release.xcconfig"; sourceTree = "<group>"; };
 		935BCCE4C33EEAF8D03C5AF0 /* Pods-ADVNTR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADVNTR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ADVNTR/Pods-ADVNTR.debug.xcconfig"; sourceTree = "<group>"; };
 		B614238721349B6B009E4814 /* StoreReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreReviewManager.swift; sourceTree = "<group>"; };
+		B61AD61B213D967E0087E1DE /* ValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
+		B61AD61D213D96C70087E1DE /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
+		B6221ACB213EF0F500A13E81 /* CountdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownViewController.swift; sourceTree = "<group>"; };
 		B62687D6212E28FB00FC5D58 /* Double+Rounding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Rounding.swift"; sourceTree = "<group>"; };
 		B62687D8212E56EB00FC5D58 /* ActivityUnitConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityUnitConverter.swift; sourceTree = "<group>"; };
+		B6584FFD2138AF29002F09B4 /* ADVNTR.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ADVNTR.entitlements; sourceTree = "<group>"; };
 		B69D6720212F417B007A3A92 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		B6C74ECE212B7C3500331D01 /* ADVNTR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADVNTR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6C74F77212B83AA00331D01 /* ActivityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
@@ -92,7 +98,6 @@
 		B6C74FB3212B83B800331D01 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6C74FC1212B84F600331D01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6C74FC6212B84F600331D01 /* ActivityHistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityHistoryTableViewCell.swift; sourceTree = "<group>"; };
-		B6C74FC7212B84F600331D01 /* ActivityHistoryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityHistoryButton.swift; sourceTree = "<group>"; };
 		B6FE8A96212DD8ED0095FC8B /* FormatDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDisplay.swift; sourceTree = "<group>"; };
 		EF0A6C82213462CB00BCE182 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EF0A6C842134640300BCE182 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
@@ -134,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				3EC2C955212CBE57002D7F69 /* NewActivityViewController.swift */,
+				B6221ACB213EF0F500A13E81 /* CountdownViewController.swift */,
 			);
 			path = NewActivity;
 			sourceTree = "<group>";
@@ -176,6 +182,7 @@
 		B6C74ED0212B7C3500331D01 /* ADVNTR */ = {
 			isa = PBXGroup;
 			children = (
+				B6584FFD2138AF29002F09B4 /* ADVNTR.entitlements */,
 				EF0A6C82213462CB00BCE182 /* GoogleService-Info.plist */,
 				B6C74F92212B83AB00331D01 /* Models */,
 				B6C74FBA212B84F600331D01 /* Views */,
@@ -271,6 +278,8 @@
 			children = (
 				B6C74F8F212B83AA00331D01 /* LocationManager.swift */,
 				B614238721349B6B009E4814 /* StoreReviewManager.swift */,
+				B61AD61B213D967E0087E1DE /* ValidationManager.swift */,
+				B61AD61D213D96C70087E1DE /* ErrorManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -336,7 +345,6 @@
 			isa = PBXGroup;
 			children = (
 				B6C74FC6212B84F600331D01 /* ActivityHistoryTableViewCell.swift */,
-				B6C74FC7212B84F600331D01 /* ActivityHistoryButton.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -376,6 +384,14 @@
 					B6C74ECD212B7C3500331D01 = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1000;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -430,7 +446,10 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/QuickLayout/QuickLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SRCountdownTimer/SRCountdownTimer.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftEntryKit/SwiftEntryKit.framework",
+				"${BUILT_PRODUCTS_DIR}/TwicketSegmentedControl/TwicketSegmentedControl.framework",
+				"${BUILT_PRODUCTS_DIR}/ViewAnimator/ViewAnimator.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -440,7 +459,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QuickLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SRCountdownTimer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftEntryKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwicketSegmentedControl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViewAnimator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -474,6 +496,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B61AD61C213D967E0087E1DE /* ValidationManager.swift in Sources */,
 				EF0A6C8B213464DF00BCE182 /* StyleGuide.swift in Sources */,
 				3E093753212F6B7A003BA862 /* SignUpViewController.swift in Sources */,
 				3E093751212F6B49003BA862 /* ForgotPasswordViewController.swift in Sources */,
@@ -495,13 +518,14 @@
 				B614238821349B6B009E4814 /* StoreReviewManager.swift in Sources */,
 				B62687D9212E56EB00FC5D58 /* ActivityUnitConverter.swift in Sources */,
 				EF0A6C89213464B700BCE182 /* MessageController.swift in Sources */,
-				B6C74FD0212B84F600331D01 /* ActivityHistoryButton.swift in Sources */,
 				B6C74FA2212B83AB00331D01 /* ProfileViewController.swift in Sources */,
 				B69D6721212F417B007A3A92 /* DateFormatter.swift in Sources */,
+				B6221ACC213EF0F500A13E81 /* CountdownViewController.swift in Sources */,
 				3E45285F21305C31003E892E /* SignInViewController.swift in Sources */,
 				B6FE8A97212DD8ED0095FC8B /* FormatDisplay.swift in Sources */,
 				3EC2C956212CBE57002D7F69 /* NewActivityViewController.swift in Sources */,
 				3EA20908212E2EFB00750A5D /* SettingsTableViewController.swift in Sources */,
+				B61AD61E213D96C70087E1DE /* ErrorManager.swift in Sources */,
 				B6C74FB5212B83B800331D01 /* AppDelegate.swift in Sources */,
 				B6C74FAE212B83AB00331D01 /* User.swift in Sources */,
 			);
@@ -641,7 +665,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PKK87S6JNY;
+				DEVELOPMENT_TEAM = CYZA2EE6W8;
 				INFOPLIST_FILE = "$(SRCROOT)/ADVNTR/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -651,7 +675,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.zachfrew.ADVNTR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -661,7 +685,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PKK87S6JNY;
+				DEVELOPMENT_TEAM = CYZA2EE6W8;
 				INFOPLIST_FILE = "$(SRCROOT)/ADVNTR/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -671,7 +695,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.zachfrew.ADVNTR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

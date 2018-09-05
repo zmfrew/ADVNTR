@@ -7,15 +7,18 @@
 //
 
 import UIKit
+import Photos
 import FirebaseUI
 import FirebaseAuth
+import FirebaseStorage
 import SwiftEntryKit
+import TwicketSegmentedControl
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, TwicketSegmentedControlDelegate {
     
     // MARK: - Outlets
     @IBOutlet weak var editAndSaveButton: UIBarButtonItem!
-    @IBOutlet weak var activityTypeSegmentedController: UISegmentedControl!
+    @IBOutlet weak var activityTypeSegmentedController: TwicketSegmentedControl!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var profileNameLabel: UILabel!
     @IBOutlet weak var displayNameTextField: UITextField!
@@ -23,6 +26,10 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var totalDistanceNameLabel: UILabel!
     @IBOutlet weak var totalDistanceLabel: UILabel!
     @IBOutlet weak var totalElevationLabel: UILabel!
+    @IBOutlet weak var totalActivitiesLabel: UILabel!
+    @IBOutlet weak var totalRunningTimeLabel: UILabel!
+    @IBOutlet weak var totalHikingTimeLabel: UILabel!
+    @IBOutlet weak var totalBikingTimeLabel: UILabel!
     
     // MARK: - Properties
     let imagePickerController = UIImagePickerController()
@@ -30,13 +37,29 @@ class ProfileViewController: UIViewController {
     // MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTextFieldColors()
+        
+        setUpTextFields()
         toggleUserInteraction()
         updateViews()
-    
+        setUpSegmentedController()
+        
+        imagePickerController.delegate = self
         let tapGestureForImageView = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped))
         profileImageView.addGestureRecognizer(tapGestureForImageView)
-        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        
+        
+        let profileImageRef: StorageReference! = Storage.storage().reference(withPath: "\(UserController.shared.user.uid!)/profilePhoto/photo.jpg")
+
+        profileImageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+            if let error = error {
+                print("Error downloading profile image: \(error.localizedDescription)")
+                return
+            } else {
+                let image = UIImage(data: data!)
+                self.profileImageView.image = image
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +70,7 @@ class ProfileViewController: UIViewController {
     // MARK: - Actions
     @IBAction func editAndSaveButtonTapped(_ sender: UIBarButtonItem) {
         toggleTextFieldColors()
+        toggleTextFieldAlignment()
         toggleUserInteraction()
         guard let displayName = displayNameTextField.text, !displayName.isEmpty, displayName != " ",
             let email = emailTextField.text, !email.isEmpty, email != " ",
@@ -75,23 +99,33 @@ class ProfileViewController: UIViewController {
         toggleEditOrSaveButtonText()
     }
     
-    @IBAction func defaultActivitySegmentedController(_ sender: UISegmentedControl) {
-        UserController.shared.user.preferredActivityType = updatePreferredActivityType(sender.selectedSegmentIndex)
+    func didSelect(_ segmentIndex: Int) {
+        UserController.shared.user.preferredActivityType = updatePreferredActivityType(segmentIndex)
     }
     
     // MARK: - Methods
+    func setUpSegmentedController() {
+        let titles = ["Run", "Hike", "Bike"]
+        activityTypeSegmentedController.setSegmentItems(titles)
+        activityTypeSegmentedController.delegate = self
+        activityTypeSegmentedController.defaultTextColor = UIColor.white
+        activityTypeSegmentedController.highlightTextColor = UIColor.yellow
+        activityTypeSegmentedController.segmentsBackgroundColor = UIColor.black
+        activityTypeSegmentedController.sliderBackgroundColor = UIColor.clear
+        activityTypeSegmentedController.isSliderShadowHidden = true
+        activityTypeSegmentedController.layer.backgroundColor = UIColor.clear.cgColor
+        activityTypeSegmentedController.sizeToFit()
+    }
+    
     func updateViews() {
         if (Auth.auth().currentUser?.isAnonymous)! {
-            profileImageView.image = UIImage(named: "defaultProfile")
+            profileImageView.image = UIImage(named: "SplashScreen")
         }
-        
-        let profileImageRef = UserController.shared.profileImageReference.child(UserController.shared.user.uid!).child("profilePhoto").child("photo")
-        profileImageView?.sd_setImage(with: profileImageRef)
         
         let travelSpelling = UserController.shared.user.defaultUnits == "imperial" ? "Traveled" : "Travelled"
         totalDistanceNameLabel.text = "Total Distance \(travelSpelling):"
         
-        activityTypeSegmentedController.selectedSegmentIndex = setActivityTypeSegmentedControllerFor(user: UserController.shared.user)
+        activityTypeSegmentedController.move(to: setActivityTypeSegmentedControllerFor(user: UserController.shared.user))
         profileNameLabel.text = UserController.shared.user.displayName
         displayNameTextField.text = UserController.shared.user.displayName
         emailTextField.text = UserController.shared.user.email
@@ -106,13 +140,20 @@ class ProfileViewController: UIViewController {
         let elevationToDisplay = UserController.shared.user.defaultUnits == "imperial" ? Int(ActivityUnitConverter.feetFromMeters(distance: elevationMeasurement)) : UserController.shared.user.totalElevationChange
         totalDistanceLabel.text = "\(distanceToDisplay.roundedDoubleString) \(distanceUnits)"
         totalElevationLabel.text = "\(elevationToDisplay ?? 0) \(elevationUnits)"
+        
+        totalActivitiesLabel.text = "\(UserController.shared.user.totalActivityCount ?? 0)"
+        totalRunningTimeLabel.text = "\(FormatDisplay.time(UserController.shared.user.totalRunTime ?? 0))"
+        totalBikingTimeLabel.text = "\(FormatDisplay.time(UserController.shared.user.totalHikeTime ?? 0))"
+        totalHikingTimeLabel.text = "\(FormatDisplay.time(UserController.shared.user.totalBikeTime ?? 0))"
     }
     
-    func setTextFieldColors() {
+    func setUpTextFields() {
         displayNameTextField.textColor = UIColor.white
         displayNameTextField.backgroundColor = UIColor.black
+        displayNameTextField.textAlignment = .right
         emailTextField.textColor = UIColor.white
         emailTextField.backgroundColor = UIColor.black
+        emailTextField.textAlignment = .right
     }
     
     func toggleUserInteraction() {
@@ -130,6 +171,11 @@ class ProfileViewController: UIViewController {
         emailTextField.backgroundColor = toggleColorToOppositeOf(emailTextField.backgroundColor!)
     }
     
+    func toggleTextFieldAlignment() {
+        toggleTextFieldAlignmentToOppositeOf(displayNameTextField)
+        toggleTextFieldAlignmentToOppositeOf(emailTextField)
+    }
+
     func toggleColorToOppositeOf(_ currentColor: UIColor) -> UIColor {
         if currentColor == UIColor.white {
             return UIColor.black
@@ -137,6 +183,15 @@ class ProfileViewController: UIViewController {
             return UIColor.white
         }
     }
+    
+    func toggleTextFieldAlignmentToOppositeOf(_ textField: UITextField) {
+        if textField.textAlignment == .right {
+            textField.textAlignment = .left
+        } else {
+            textField.textAlignment = .right
+        }
+    }
+    
     
     func setActivityTypeSegmentedControllerFor(user: User) -> Int {
         switch (user.preferredActivityType) {
@@ -174,19 +229,36 @@ class ProfileViewController: UIViewController {
     }
     
     @objc func imageViewTapped() {
-        present(imagePickerController, animated: true)
+        
+        if PHPhotoLibrary.authorizationStatus() != .authorized {
+            PHPhotoLibrary.requestAuthorization({ (status: PHAuthorizationStatus) in
+                
+            })
+        } else if PHPhotoLibrary.authorizationStatus() == .authorized {
+            present(imagePickerController, animated: true)
+        }
     }
     
 }
 
 // MARK: - UINavigationControllerDelegate & UIImagePickerControllerDelegate Conformance
-extension ProfileViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            profileImageView.image = image
-            self.dismiss(animated: true, completion: nil)
+            //profileImageView.image = image
+            let imageURL = info[UIImagePickerControllerImageURL] as? URL
+            profileImageView?.sd_setImage(with: imageURL, placeholderImage: image, options: .highPriority, completed: { (_, error, _, _) in
+                if let error = error {
+                    print("Fuck it: \(error.localizedDescription)")
+                } else {
+                    print("Fuck yeah")
+                    DispatchQueue.main.async {
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                }
+            })
         }
     }
-    
 }
+

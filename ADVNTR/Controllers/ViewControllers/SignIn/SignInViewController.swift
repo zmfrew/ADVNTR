@@ -35,19 +35,21 @@ class SignInViewController: UIViewController {
     
     @IBAction func forgotPasswordTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "toForgotPassword", sender: self)
+        blurBackground()
     }
     
     // MARK: - Methods
     func blurBackground() {
-        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
+        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
         visualEffectView.frame = self.view.bounds
         visualEffectView.translatesAutoresizingMaskIntoConstraints = true
         self.view.addSubview(visualEffectView)
     }
     
     func signInUser(completion: @escaping (Bool) -> Void) {
-        guard let email = emailAddressTextField.text, !email.isEmpty, isValidEmail(email: email),
-            let password = passwordTextField.text, !password.isEmpty else {
+        guard let email = emailAddressTextField.text, !email.isEmpty, ValidationManager.isValidEmail(email: email),
+            let password = passwordTextField.text, !password.isEmpty
+            else {
                 showEmptyFieldsAlert()
                 completion(false)
                 return
@@ -145,7 +147,6 @@ class SignInViewController: UIViewController {
         }
     }
     
-    
     // MARK: Helper Methods
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
@@ -169,39 +170,4 @@ class SignInViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    // TODO: This appears in two View Controllers - move to manager?
-    func isValidEmail(email:String?) -> Bool {
-        guard email != nil else { return false }
-        let regEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-        let pred = NSPredicate(format:"SELF MATCHES %@", regEx)
-        return pred.evaluate(with: email)
-    }
 }
-
-// MARK: FIRAuth Error Codes Extension
-// Creates custom strings to show in error popups during sign up process.
-// These are used in the AuthErrorCode switch statement above.
-extension AuthErrorCode {
-    var errorMessage: String {
-        switch self {
-        case .emailAlreadyInUse:
-            return "That email is already in use with another ADVNTR account."
-        case .userDisabled:
-            return "Your account has been disabled. Please contact support."
-        case .invalidEmail:
-            return "Please enter a valid email, for example adventurer@advntr.com"
-        case .networkError:
-            return "Network error. Please try again."
-        case .wrongPassword:
-            return "The password you entered does not match the password for the selected email."
-        default:
-            return "Unknown error occurred."
-        }
-    }
-}
-
-
-
-
-
-

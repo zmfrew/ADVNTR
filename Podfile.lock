@@ -75,8 +75,11 @@ PODS:
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
+  - SRCountdownTimer (1.1)
   - SwiftEntryKit (0.5.9):
     - QuickLayout (= 2.0.2)
+  - TwicketSegmentedControl (0.1.2)
+  - ViewAnimator (2.1.2)
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -84,7 +87,10 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - FirebaseUI/Storage
+  - SRCountdownTimer
   - SwiftEntryKit
+  - TwicketSegmentedControl
+  - ViewAnimator
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -104,7 +110,10 @@ SPEC REPOS:
     - nanopb
     - QuickLayout
     - SDWebImage
+    - SRCountdownTimer
     - SwiftEntryKit
+    - TwicketSegmentedControl
+    - ViewAnimator
 
 SPEC CHECKSUMS:
   Firebase: 75ea9e232eefa158c1049028030b8f661a2ccb62
@@ -123,8 +132,11 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   QuickLayout: a730730b646b231fd4ef7cffaeb1e81fe0e1ca92
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+  SRCountdownTimer: 9c92e444b5403c92f01dd6610299b8c634bc8562
   SwiftEntryKit: 97555549a9d1be703a55d9e5e10e9b5c3ed29d99
+  TwicketSegmentedControl: 6d7a4cf243657e0ac3f00d06d873a25334c04042
+  ViewAnimator: 20df9a24a076c6ee78b77a4dbf1943808c94954e
 
-PODFILE CHECKSUM: fc6ae26ece14f476e1a2816138a4aa330d83dcb6
+PODFILE CHECKSUM: 38aee41f408a200f97a562ab73696fdeadae0fc0
 
 COCOAPODS: 1.5.3

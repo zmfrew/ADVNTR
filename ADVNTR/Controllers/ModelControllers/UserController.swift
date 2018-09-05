@@ -21,10 +21,10 @@ class UserController {
     var user = User()
     
     // Base reference to the location of the user's data dictionary on Firebase Database
-    let userReference = Database.database().reference()
+    let userReference: DatabaseReference! = Database.database().reference()
     
     // Reference to the location of the user's profile photo on Firebase Storage
-    var profileImageReference = Storage.storage().reference()
+    var profileImageReference: StorageReference! = Storage.storage().reference()
     
     // Fetch current user data if previously signed up and authenticated with Firebase
     func fetchCurrentUserData(completion: @escaping (Bool) -> Void) {
@@ -134,7 +134,7 @@ class UserController {
                 
                 // Save the profile photo to Firebase Storage and save the URL to it under the user's
                 // Firebase Database dictionary.
-                let profileImageRef = self.profileImageReference.child(result.user.uid).child("profilePhoto").child("photo")
+                let profileImageRef = self.profileImageReference.child("\(result.user.uid)/profilePhoto/photo.jpg")
                 guard let defaultProfileImage = UIImage(named: "defaultProfile") else { completion(false, nil) ; return }
                 guard let imageData = UIImageJPEGRepresentation(defaultProfileImage, 0.1) else { completion(false, nil) ; return }
                 
@@ -240,7 +240,7 @@ class UserController {
                 if photo != nil {
                     // Save the profile photo to Firebase Storage and save the URL to it under the user's
                     // Firebase Database dictionary.
-                    let profileImageRef = self.profileImageReference.child(uid).child("profilePhoto").child("photo")
+                    let profileImageRef = self.profileImageReference.child("\(uid)/profilePhoto/photo.jpg")
                     guard let photo = photo else { completion(false) ; return }
                     guard let photoData = UIImageJPEGRepresentation(photo, 0.1) else { completion(false) ; return }
                     
