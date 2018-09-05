@@ -42,3 +42,5 @@
 
 
 
+## Contact
+For business inquires, feature requests, or general feedback, please contact us at ADVNTRapp@gmail.com.
