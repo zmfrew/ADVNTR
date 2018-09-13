@@ -16,16 +16,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        // Statusbar
-        UIApplication.shared.statusBarStyle = .lightContent
+    override init() {
+        super.init()
         
         // Required initialiser for Firebase App
         FirebaseApp.configure()
         
         // Enable Firebase Persistence
         Database.database().isPersistenceEnabled = true
+    }
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        // Statusbar
+        UIApplication.shared.statusBarStyle = .lightContent
         
         // If the user is completely new, log in as a new anonymous user.
         if (Auth.auth().currentUser == nil)  {
