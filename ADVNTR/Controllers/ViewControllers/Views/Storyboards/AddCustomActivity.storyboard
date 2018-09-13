@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tLO-gv-g6N">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tLO-gv-g6N">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,7 +23,7 @@
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Custom Activity" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZi-ju-kBb">
                                     <rect key="frame" x="8" y="-4" width="243" height="102"/>
-                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="26"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                     <size key="shadowOffset" width="0.0" height="0.0"/>
@@ -42,11 +42,11 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxy-Fv-vkL">
-                                    <rect key="frame" x="140.5" y="12" width="94" height="38"/>
-                                    <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
+                                    <rect key="frame" x="143.5" y="12" width="88" height="38"/>
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     <state key="normal" title="     Save     ">
-                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -76,7 +76,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R2O-no-rTQ" customClass="TwicketSegmentedControl" customModule="TwicketSegmentedControl">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -101,8 +101,8 @@
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Afternoon Hike" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gH2-YY-WWI">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
-                                                    <color key="textColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
@@ -117,10 +117,36 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Distance:" id="eBp-Gb-7t5">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" tag="2" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="DaL-rw-mwC">
+                                        <rect key="frame" x="0.0" y="307.5" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DaL-rw-mwC" id="eF5-AZ-xUA">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jsb-g7-YSR">
+                                                    <rect key="frame" x="16" y="0.0" width="343" height="99.5"/>
+                                                </pickerView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="jsb-g7-YSR" secondAttribute="bottom" id="JwS-dB-fi3"/>
+                                                <constraint firstAttribute="trailing" secondItem="jsb-g7-YSR" secondAttribute="trailing" constant="16" id="QRB-mT-cTy"/>
+                                                <constraint firstItem="jsb-g7-YSR" firstAttribute="centerX" secondItem="eF5-AZ-xUA" secondAttribute="centerX" id="RSZ-8I-dQf"/>
+                                                <constraint firstItem="jsb-g7-YSR" firstAttribute="centerY" secondItem="eF5-AZ-xUA" secondAttribute="centerY" id="Xxb-mf-nb8"/>
+                                                <constraint firstItem="jsb-g7-YSR" firstAttribute="leading" secondItem="eF5-AZ-xUA" secondAttribute="leading" constant="16" id="ZLr-kY-SPp"/>
+                                                <constraint firstItem="jsb-g7-YSR" firstAttribute="top" secondItem="eF5-AZ-xUA" secondAttribute="top" id="e1O-AL-g1J"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection headerTitle="When:" id="slt-7N-k05">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" tag="2" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="cd6-ic-KPy">
-                                        <rect key="frame" x="0.0" y="307.5" width="375" height="100"/>
+                                        <rect key="frame" x="0.0" y="446.5" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cd6-ic-KPy" id="EuI-Xp-1KT">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
@@ -158,32 +184,6 @@
                                                     <integer key="value" value="6"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="Distance:" id="eBp-Gb-7t5">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" tag="2" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="DaL-rw-mwC">
-                                        <rect key="frame" x="0.0" y="446.5" width="375" height="100"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DaL-rw-mwC" id="eF5-AZ-xUA">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jsb-g7-YSR">
-                                                    <rect key="frame" x="16" y="0.0" width="343" height="99.5"/>
-                                                </pickerView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="jsb-g7-YSR" secondAttribute="bottom" id="JwS-dB-fi3"/>
-                                                <constraint firstAttribute="trailing" secondItem="jsb-g7-YSR" secondAttribute="trailing" constant="16" id="QRB-mT-cTy"/>
-                                                <constraint firstItem="jsb-g7-YSR" firstAttribute="centerX" secondItem="eF5-AZ-xUA" secondAttribute="centerX" id="RSZ-8I-dQf"/>
-                                                <constraint firstItem="jsb-g7-YSR" firstAttribute="centerY" secondItem="eF5-AZ-xUA" secondAttribute="centerY" id="Xxb-mf-nb8"/>
-                                                <constraint firstItem="jsb-g7-YSR" firstAttribute="leading" secondItem="eF5-AZ-xUA" secondAttribute="leading" constant="16" id="ZLr-kY-SPp"/>
-                                                <constraint firstItem="jsb-g7-YSR" firstAttribute="top" secondItem="eF5-AZ-xUA" secondAttribute="top" id="e1O-AL-g1J"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
@@ -238,6 +238,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="addActivityIcon" width="25" height="25"/>
+        <image name="addActivityIcon" width="40" height="40"/>
     </resources>
 </document>
