@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SvR-AX-mFV">
-    <device id="retina5_9" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SvR-AX-mFV">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,17 +15,17 @@
             <objects>
                 <viewController title="History" id="Pm5-4h-AlW" customClass="ActivityHistoryViewController" customModule="ADVNTR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G2q-Bg-IGr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="83p-yi-gbu">
-                                <rect key="frame" x="16" y="145" width="343" height="577"/>
+                                <rect key="frame" x="16" y="145" width="343" height="432"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QeY-ap-oUI" userLabel="Run">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="181.66666666666666"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="133.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultRun" translatesAutoresizingMaskIntoConstraints="NO" id="a6r-Hj-smI">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="181.66666666666666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="133.5"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="5"/>
@@ -33,15 +33,15 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RUN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gQ-Nj-H6G">
-                                                <rect key="frame" x="8" y="8" width="327" height="171.66666666666666"/>
-                                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="120"/>
+                                                <rect key="frame" x="8" y="8" width="327" height="123.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="130"/>
                                                 <color key="textColor" white="1" alpha="0.69877860915492962" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                                 <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.42077464788732394" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <size key="shadowOffset" width="1" height="1"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rj4-DD-FJl">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="181.66666666666666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="133.5"/>
                                                 <connections>
                                                     <action selector="runButtonTapped:" destination="Pm5-4h-AlW" eventType="touchUpInside" id="amT-tB-2Bj"/>
                                                     <segue destination="lYs-Rg-45t" kind="show" identifier="toRunDetails" id="aGz-zK-VcG"/>
@@ -65,10 +65,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gp-em-mk9" userLabel="Hike">
-                                        <rect key="frame" x="0.0" y="197.66666666666669" width="343" height="181.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="149.5" width="343" height="133"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="philippe-toupet-319821-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="III-10-0ri">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="181.66666666666666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="133"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="5"/>
@@ -76,15 +76,16 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HIKE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIC-8X-h2W">
-                                                <rect key="frame" x="8" y="8" width="327" height="165.66666666666666"/>
-                                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="120"/>
+                                                <rect key="frame" x="8" y="8" width="327" height="117"/>
+                                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="130"/>
                                                 <color key="textColor" white="1" alpha="0.69877860920000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                                 <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.42077464790000002" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <size key="shadowOffset" width="1" height="1"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TdH-Cb-5AC">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="181.66666666666666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="133"/>
+                                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="18"/>
                                                 <connections>
                                                     <action selector="hikeButtonTapped:" destination="Pm5-4h-AlW" eventType="touchUpInside" id="F5q-TX-1Cd"/>
                                                     <segue destination="lYs-Rg-45t" kind="show" identifier="toHikeDetails" id="T9s-GR-pBy"/>
@@ -108,10 +109,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BwF-7b-Kd7" userLabel="Bike">
-                                        <rect key="frame" x="0.0" y="395.33333333333337" width="343" height="181.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="298.5" width="343" height="133.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="daniel-frank-645862-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="G9E-vL-B3e">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="181.66666666666666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="133.5"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="5"/>
@@ -119,15 +120,15 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BIKE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyK-Ur-LXa">
-                                                <rect key="frame" x="8" y="8" width="327" height="165.66666666666666"/>
-                                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="120"/>
+                                                <rect key="frame" x="8" y="8" width="327" height="117.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="120"/>
                                                 <color key="textColor" white="1" alpha="0.69877860920000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                                 <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.42077464790000002" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <size key="shadowOffset" width="1" height="1"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6T-yd-pEX">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="181.66666666666666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="133.5"/>
                                                 <connections>
                                                     <action selector="bikeButtonTapped:" destination="Pm5-4h-AlW" eventType="touchUpInside" id="OFk-UY-lGv"/>
                                                     <segue destination="lYs-Rg-45t" kind="show" identifier="toBikeDetails" id="PWZ-w3-ODy"/>
@@ -186,7 +187,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Iud-Bz-jMg">
-                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.022426237309644659" green="0.022426237309644659" blue="0.022426237309644659" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -194,7 +195,7 @@
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
-                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="26"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="27"/>
                             <color key="textColor" red="0.95756662436548223" green="0.95756662436548223" blue="0.95756662436548223" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
@@ -211,7 +212,7 @@
     <resources>
         <image name="DefaultRun" width="2001" height="2500"/>
         <image name="daniel-frank-645862-unsplash" width="4608" height="3456"/>
-        <image name="historyIcon" width="60" height="60"/>
+        <image name="historyIcon" width="40" height="40"/>
         <image name="philippe-toupet-319821-unsplash" width="6065" height="4048"/>
     </resources>
     <inferredMetricsTieBreakers>

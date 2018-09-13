@@ -23,7 +23,7 @@ class CountdownViewController: UIViewController {
     }
     
     func setupCountdownTimer() {
-        countdownTimer.labelFont = UIFont(name: "Avenir Next", size: 50.0)
+        countdownTimer.labelFont = UIFont(name: "System", size: 50.0)
         countdownTimer.labelTextColor = UIColor.white
         countdownTimer.timerFinishingText = "Go!"
         countdownTimer.lineWidth = 4
