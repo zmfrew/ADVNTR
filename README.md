@@ -37,7 +37,7 @@
 <br>
 
 ## Known issues
-- N/A
+- Manual Sign In missing a back button. Needs a re-lunch to access the other settings after opening signin.
 
 <br>
 <br>
