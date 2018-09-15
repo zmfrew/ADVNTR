@@ -16,7 +16,7 @@ class StoreReviewManager {
     
     // MARK: - Properties
     let totalActivities = UserController.shared.user.totalActivityCount ?? 0
-    let minimumActivityCount = 3
+    let minimumActivityCount = 5
     
     // MARK: - Methods
     func showReview() {
