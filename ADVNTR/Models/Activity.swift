@@ -99,5 +99,6 @@ struct Activity {
             createdAtKey: createdAt
         ]
     }
+    
 }
 
