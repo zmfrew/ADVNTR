@@ -12,18 +12,22 @@ class SettingsTableViewController: UITableViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var unitsOfMeasureButton: UIButton!
+    @IBOutlet weak var appVersionLabel: UILabel!
     
     // MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        unitsOfMeasureButton.setTitle(UserController.shared.user.defaultUnits?.capitalized ?? "Imperial", for: .normal)
+        unitsOfMeasureButton.setTitle(UserController.shared.user.defaultUnits?.capitalized ?? "Imperial", for: UIControlState())
+        appVersionLabel.text = GetAppVersion.getVersion()
     }
     
     // MARK: - Actions
     @IBAction func unitsOfMeasureButtonTapped(_ sender: UIButton) {
         UserController.shared.toggleDefaultUnits()
-        unitsOfMeasureButton.setTitle(UserController.shared.user.defaultUnits?.capitalized ?? "Metric", for: .normal)
-        self.loadViewIfNeeded()
+        unitsOfMeasureButton.setTitle(UserController.shared.user.defaultUnits?.capitalized ?? "Metric", for: UIControlState())
+        DispatchQueue.main.async {
+            self.loadViewIfNeeded()
+        }
     }
     
 }
