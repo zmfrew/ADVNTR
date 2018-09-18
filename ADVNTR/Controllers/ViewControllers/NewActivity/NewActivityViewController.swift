@@ -294,7 +294,7 @@ class NewActivityViewController: UIViewController, TwicketSegmentedControlDelega
     }
     
     func saveNewWorkout() {
-        
+        startButton.isUserInteractionEnabled = false
         let message = MessageController.shared.createSuccessfulAddSnapShotAlertWith(title: "Saving Workout", description: "Saving your workout details and route!")
         SwiftEntryKit.display(entry: message.0, using: message.1)
         
@@ -328,6 +328,7 @@ class NewActivityViewController: UIViewController, TwicketSegmentedControlDelega
                                 // Executed right after the entry has been dismissed
                                 self.resetViews()
                                 self.hideInitialViews()
+                                self.startButton.isUserInteractionEnabled = true
                                 if !isAnonymousUser {
                                     DispatchQueue.main.async {
                                         self.tabBarController?.selectedIndex = 1
