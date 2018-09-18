@@ -58,6 +58,7 @@ class MessageController {
         attributes.roundCorners = .all(radius: 8.0)
         attributes.screenBackground = .visualEffect(style: UIBlurEffectStyle.light)
         attributes.entryBackground = .color(color: UIColor.alertGreen)
+        attributes.entryInteraction = .absorbTouches
         
         // Set the title and its style.
         let titleLabelStyle = EKProperty.LabelStyle.init(font: UIFont.alertTitle!, color: UIColor.lightWhite)
