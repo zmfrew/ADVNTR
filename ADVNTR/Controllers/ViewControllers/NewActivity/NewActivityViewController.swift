@@ -126,7 +126,7 @@ class NewActivityViewController: UIViewController, TwicketSegmentedControlDelega
         stopButton.isHidden = true
         invalidateTimers()
         
-        if locationList.count >= 1 && (Double(self.durationInSeconds) / self.distance.value) >= 0 {
+        if locationList.count >= 1 && (Double(self.durationInSeconds) / self.distance.value) > 0 {
             let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
             let mapSize = MKMapSize(width: polyline.boundingMapRect.size.width + 32, height: polyline.boundingMapRect.size.height + 32)
             let region = MKCoordinateRegionForMapRect(MKMapRect(origin: polyline.boundingMapRect.origin, size: mapSize))
