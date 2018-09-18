@@ -126,7 +126,7 @@ class NewActivityViewController: UIViewController, TwicketSegmentedControlDelega
         stopButton.isHidden = true
         invalidateTimers()
         
-        if locationList.count >= 1 && (Double(self.durationInSeconds) / self.distance.value) >= 0 {
+        if locationList.count >= 1 && self.durationInSeconds >= 1 && distance.value >= 1 {
             let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
             let mapSize = MKMapSize(width: polyline.boundingMapRect.size.width + 32, height: polyline.boundingMapRect.size.height + 32)
             let region = MKCoordinateRegionForMapRect(MKMapRect(origin: polyline.boundingMapRect.origin, size: mapSize))
@@ -307,7 +307,6 @@ class NewActivityViewController: UIViewController, TwicketSegmentedControlDelega
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             
-            
             self.takeSnapShot { (success) in
                 if success {
                     
@@ -321,6 +320,8 @@ class NewActivityViewController: UIViewController, TwicketSegmentedControlDelega
                     ActivityController.shared.saveActivity(type: activityType, name: name, distance: Int(self.distance.value), averageSpeed: averageSpeed, elevationChange: Int(self.elevationChange.rounded()), timestamp: (self.currentDate?.stringValue(from: self.currentDate!))!, duration: self.durationInSeconds, image: activitySnapshotImage!) { (success, activityUID) in
                         
                         if success {
+                            self.startButton.isEnabled = false
+                            
                             self.resetLocalProperties()
                             guard let isAnonymousUser = Auth.auth().currentUser?.isAnonymous else { return }
                             
@@ -338,6 +339,7 @@ class NewActivityViewController: UIViewController, TwicketSegmentedControlDelega
                                         self.performSegue(withIdentifier: "toLoginScreen", sender: self)
                                     }
                                 }
+                                self.startButton.isEnabled = true
                             }
                         } else {
                             print("Failed to save Activity.")
