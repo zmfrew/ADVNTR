@@ -12,11 +12,13 @@ class SettingsTableViewController: UITableViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var unitsOfMeasureButton: UIButton!
+    @IBOutlet weak var appVersionLabel: UILabel!
     
     // MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         unitsOfMeasureButton.setTitle(UserController.shared.user.defaultUnits?.capitalized ?? "Imperial", for: .normal)
+        appVersionLabel.text = GetAppVersion.getVersion()
     }
     
     // MARK: - Actions

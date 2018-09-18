@@ -10,6 +10,8 @@
 		3E09374F212F63B5003BA862 /* AddCustomActivity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E09374E212F63B5003BA862 /* AddCustomActivity.storyboard */; };
 		3E093751212F6B49003BA862 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E093750212F6B49003BA862 /* ForgotPasswordViewController.swift */; };
 		3E093753212F6B7A003BA862 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E093752212F6B7A003BA862 /* SignUpViewController.swift */; };
+		3E1CBB4121513BFA0066AFEB /* GetAppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1CBB4021513BFA0066AFEB /* GetAppVersion.swift */; };
+		3E1CBB4321513DD90066AFEB /* CurrentVersionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1CBB4221513DD90066AFEB /* CurrentVersionTableViewCell.swift */; };
 		3E45285F21305C31003E892E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45285E21305C30003E892E /* SignInViewController.swift */; };
 		3E4528612130676C003E892E /* AddCustomActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4528602130676C003E892E /* AddCustomActivityTableViewController.swift */; };
 		3E7FFF6F2135B68100E3554E /* SelectedActivityDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FFF6E2135B68100E3554E /* SelectedActivityDetailsTableViewController.swift */; };
@@ -57,6 +59,8 @@
 		3E09374E212F63B5003BA862 /* AddCustomActivity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddCustomActivity.storyboard; sourceTree = "<group>"; };
 		3E093750212F6B49003BA862 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		3E093752212F6B7A003BA862 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		3E1CBB4021513BFA0066AFEB /* GetAppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppVersion.swift; sourceTree = "<group>"; };
+		3E1CBB4221513DD90066AFEB /* CurrentVersionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentVersionTableViewCell.swift; sourceTree = "<group>"; };
 		3E45285E21305C30003E892E /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		3E4528602130676C003E892E /* AddCustomActivityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomActivityTableViewController.swift; sourceTree = "<group>"; };
 		3E7FFF6E2135B68100E3554E /* SelectedActivityDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedActivityDetailsTableViewController.swift; sourceTree = "<group>"; };
@@ -292,6 +296,7 @@
 				B62687D8212E56EB00FC5D58 /* ActivityUnitConverter.swift */,
 				B69D6720212F417B007A3A92 /* DateFormatter.swift */,
 				EF0A6C8A213464DF00BCE182 /* StyleGuide.swift */,
+				3E1CBB4021513BFA0066AFEB /* GetAppVersion.swift */,
 			);
 			path = Formatters;
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				B6C74FC6212B84F600331D01 /* ActivityHistoryTableViewCell.swift */,
+				3E1CBB4221513DD90066AFEB /* CurrentVersionTableViewCell.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -526,9 +532,11 @@
 				3EA20912212E315900750A5D /* AppVersionDetailsViewController.swift in Sources */,
 				3E7FFF6F2135B68100E3554E /* SelectedActivityDetailsTableViewController.swift in Sources */,
 				3EA2090E212E2FF100750A5D /* CreditsViewController.swift in Sources */,
+				3E1CBB4121513BFA0066AFEB /* GetAppVersion.swift in Sources */,
 				3E4528612130676C003E892E /* AddCustomActivityTableViewController.swift in Sources */,
 				B6C74FAF212B83AB00331D01 /* Activity.swift in Sources */,
 				B62687D7212E28FB00FC5D58 /* Double+Rounding.swift in Sources */,
+				3E1CBB4321513DD90066AFEB /* CurrentVersionTableViewCell.swift in Sources */,
 				B614238821349B6B009E4814 /* StoreReviewManager.swift in Sources */,
 				B62687D9212E56EB00FC5D58 /* ActivityUnitConverter.swift in Sources */,
 				EF0A6C89213464B700BCE182 /* MessageController.swift in Sources */,
