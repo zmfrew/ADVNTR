@@ -9,7 +9,7 @@
 <br>
 
 
-<a href="https://www.appstore.com" style="text-decoration: none;">ADVNTR</a> is a fitness app for both budding and experienced adventurists. Track vital statistics for each run, bike ride or hike, compare your pace and record your route to share with friends or refer to when you're trying to remember your favorite activities. Designed for iOS 12 and available now on the App Store.
+<a href="https://www.appstore.com" style="text-decoration: none;">ADVNTR</a> is a fitness app for both budding and experienced adventurists. Track vital statistics for each run, bike ride or hike, compare your pace and record your route to share with friends or refer to when you're trying to remember your favorite activities. Designed for iOS 12 and available now on the <a href="https://itunes.apple.com/us/app/advntr/id1434766069?ls=1&mt=8">App Store</a>.
 
 <a href="https://itunes.apple.com/us/app/advntr/id1434766069?mt=8" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/assets/shared/badges/en-us/appstore-lrg.svg) no-repeat;width:135px;height:40px;"></a>
 
