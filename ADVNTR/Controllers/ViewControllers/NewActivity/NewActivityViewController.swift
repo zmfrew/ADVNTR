@@ -129,7 +129,7 @@ class NewActivityViewController: UIViewController, TwicketSegmentedControlDelega
         if locationList.count >= 1 && self.durationInSeconds >= 1 && distance.value >= 1 {
             let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
             let mapSize = MKMapSize(width: polyline.boundingMapRect.size.width + 32, height: polyline.boundingMapRect.size.height + 32)
-            let region = MKCoordinateRegionForMapRect(MKMapRect(origin: polyline.boundingMapRect.origin, size: mapSize))
+            let region = MKCoordinateRegion.init(MKMapRect(origin: polyline.boundingMapRect.origin, size: mapSize))
             
             mapView.setVisibleMapRect(polyline.boundingMapRect, animated: true)
             mapView.setRegion(region, animated: true)
@@ -281,8 +281,8 @@ class NewActivityViewController: UIViewController, TwicketSegmentedControlDelega
         let alert = UIAlertController(title: "Your location services are disabled for this application.", message: "Please go to settings and enable location services to track your activities.", preferredStyle: .alert)
         let enableAction = UIAlertAction(title: "Go to Settings", style: .default) { (_) in
             if !CLLocationManager.locationServicesEnabled() {
-                if let appSettings = URL(string: UIApplicationOpenSettingsURLString) {
-                    UIApplication.shared.open(appSettings, options: [:], completionHandler: nil)
+                if let appSettings = URL(string: UIApplication.openSettingsURLString) {
+                    UIApplication.shared.open(appSettings, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
                 }
             }
         }
@@ -366,7 +366,7 @@ class NewActivityViewController: UIViewController, TwicketSegmentedControlDelega
     }
 
     // Draws the polyline from the user's path onto the snapshot taken of the mapview.
-    func drawLineOnImage(snapshot: MKMapSnapshot) -> UIImage {
+    func drawLineOnImage(snapshot: MKMapSnapshotter.Snapshot) -> UIImage {
         let image = snapshot.image
         UIGraphicsBeginImageContextWithOptions(self.activitySnapshotImageView.frame.size, true, 0)
 
@@ -461,7 +461,7 @@ extension NewActivityViewController: CLLocationManagerDelegate {
                 elevationChange += abs(Double(newLocation.altitude))
                 let locationCoordinates = locationList.compactMap { $0.coordinate }
                 let polyline = MKPolyline(coordinates: locationCoordinates, count: locationCoordinates.count)
-                mapView.add(polyline)
+                mapView.addOverlay(polyline)
             }
             
             locationList.append(newLocation)
@@ -522,3 +522,8 @@ extension MKMapView {
     }
 }
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
+}

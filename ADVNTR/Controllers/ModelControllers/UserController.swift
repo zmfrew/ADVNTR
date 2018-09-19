@@ -136,7 +136,7 @@ class UserController {
                 // Firebase Database dictionary.
                 let profileImageRef = self.profileImageReference.child("\(result.user.uid)/profilePhoto/photo.jpg")
                 guard let defaultProfileImage = UIImage(named: "defaultProfile") else { completion(false, nil) ; return }
-                guard let imageData = UIImageJPEGRepresentation(defaultProfileImage, 0.1) else { completion(false, nil) ; return }
+                guard let imageData = defaultProfileImage.jpegData(compressionQuality: 0.1) else { completion(false, nil) ; return }
                 
                 profileImageRef.putData(imageData, metadata: nil) { (metadata, error) in
                     if let error = error {
@@ -242,7 +242,7 @@ class UserController {
                     // Firebase Database dictionary.
                     let profileImageRef = self.profileImageReference.child("\(uid)/profilePhoto/photo.jpg")
                     guard let photo = photo else { completion(false) ; return }
-                    guard let photoData = UIImageJPEGRepresentation(photo, 0.1) else { completion(false) ; return }
+                    guard let photoData = photo.jpegData(compressionQuality: 0.1) else { completion(false) ; return }
                     
                     profileImageRef.putData(photoData, metadata: nil) { (metadata, error) in
                         if let error = error {
