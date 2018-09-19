@@ -112,7 +112,7 @@ class AddCustomActivityTableViewController: UITableViewController, TwicketSegmen
         let title = "\(timeOfDay) - \(activityType)"
         activityTitleTextField.placeholder = title
         activityTitleTextField.attributedPlaceholder = NSAttributedString(string: title,
-                                                                                     attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+                                                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
     
     // MARK: - Actions
@@ -326,7 +326,7 @@ extension AddCustomActivityTableViewController: UIPickerViewDelegate {
                 return NSAttributedString(string: "")
             }
         }
-        return NSAttributedString(string: string, attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        return NSAttributedString(string: string, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
 }
 

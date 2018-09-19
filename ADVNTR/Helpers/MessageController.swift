@@ -25,7 +25,7 @@ class MessageController {
         attributes.positionConstraints.maxSize = .init(width: .ratio(value: 0.7), height: .intrinsic)
         attributes.hapticFeedbackType = .success
         attributes.roundCorners = .all(radius: 8.0)
-        attributes.screenBackground = .visualEffect(style: UIBlurEffectStyle.light)
+        attributes.screenBackground = .visualEffect(style: UIBlurEffect.Style.light)
         attributes.entryBackground = .color(color: UIColor.alertGreen)
         
         // Set the title and its style.
@@ -56,7 +56,7 @@ class MessageController {
         attributes.positionConstraints.maxSize = .init(width: .ratio(value: 0.7), height: .intrinsic)
         attributes.hapticFeedbackType = .success
         attributes.roundCorners = .all(radius: 8.0)
-        attributes.screenBackground = .visualEffect(style: UIBlurEffectStyle.light)
+        attributes.screenBackground = .visualEffect(style: UIBlurEffect.Style.light)
         attributes.entryBackground = .color(color: UIColor.alertGreen)
         attributes.entryInteraction = .absorbTouches
         
@@ -88,7 +88,7 @@ class MessageController {
         attributes.positionConstraints.maxSize = .init(width: .ratio(value: 0.7), height: .intrinsic)
         attributes.hapticFeedbackType = .error
         attributes.roundCorners = .all(radius: 8.0)
-        attributes.screenBackground = .visualEffect(style: UIBlurEffectStyle.dark)
+        attributes.screenBackground = .visualEffect(style: UIBlurEffect.Style.dark)
         attributes.entryBackground = .color(color: UIColor.alertRed)
         
         var titleLabelStyle = EKProperty.LabelStyle.init(font: UIFont.alertTitle!, color: UIColor.lightWhite)
