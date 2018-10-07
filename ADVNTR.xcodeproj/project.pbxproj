@@ -15,6 +15,7 @@
 		3E45285F21305C31003E892E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45285E21305C30003E892E /* SignInViewController.swift */; };
 		3E4528612130676C003E892E /* AddCustomActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4528602130676C003E892E /* AddCustomActivityTableViewController.swift */; };
 		3E7FFF6F2135B68100E3554E /* SelectedActivityDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FFF6E2135B68100E3554E /* SelectedActivityDetailsTableViewController.swift */; };
+		3E9D1730216AAC7E00257E2A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E9D172F216AAC7E00257E2A /* MapKit.framework */; };
 		3EA20906212E184500750A5D /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA20905212E184500750A5D /* Settings.storyboard */; };
 		3EA20908212E2EFB00750A5D /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA20907212E2EFB00750A5D /* SettingsTableViewController.swift */; };
 		3EA2090A212E2F6F00750A5D /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA20909212E2F6F00750A5D /* TermsOfServiceViewController.swift */; };
@@ -64,6 +65,7 @@
 		3E45285E21305C30003E892E /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		3E4528602130676C003E892E /* AddCustomActivityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomActivityTableViewController.swift; sourceTree = "<group>"; };
 		3E7FFF6E2135B68100E3554E /* SelectedActivityDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedActivityDetailsTableViewController.swift; sourceTree = "<group>"; };
+		3E9D172F216AAC7E00257E2A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3EA20905212E184500750A5D /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		3EA20907212E2EFB00750A5D /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		3EA20909212E2F6F00750A5D /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E9D1730216AAC7E00257E2A /* MapKit.framework in Frameworks */,
 				A257D0FA1C8D5CF727AFE0AB /* Pods_ADVNTR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -124,6 +127,7 @@
 		0F336CF020A0A5054731AF0D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3E9D172F216AAC7E00257E2A /* MapKit.framework */,
 				563D539FA125C3178E952DBA /* Pods_ADVNTR.framework */,
 			);
 			name = Frameworks;
@@ -392,8 +396,14 @@
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1000;
 						SystemCapabilities = {
+							com.apple.ApplePay = {
+								enabled = 0;
+							};
 							com.apple.InAppPurchase = {
 								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
 							};
 							com.apple.Push = {
 								enabled = 1;
