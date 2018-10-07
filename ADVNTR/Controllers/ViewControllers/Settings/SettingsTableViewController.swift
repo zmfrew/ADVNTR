@@ -17,14 +17,14 @@ class SettingsTableViewController: UITableViewController {
     // MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        unitsOfMeasureButton.setTitle(UserController.shared.user.defaultUnits?.capitalized ?? "Imperial", for: UIControlState())
+        unitsOfMeasureButton.setTitle(UserController.shared.user.defaultUnits?.capitalized ?? "Imperial", for: UIControl.State())
         appVersionLabel.text = GetAppVersion.getVersion()
     }
     
     // MARK: - Actions
     @IBAction func unitsOfMeasureButtonTapped(_ sender: UIButton) {
         UserController.shared.toggleDefaultUnits()
-        unitsOfMeasureButton.setTitle(UserController.shared.user.defaultUnits?.capitalized ?? "Metric", for: UIControlState())
+        unitsOfMeasureButton.setTitle(UserController.shared.user.defaultUnits?.capitalized ?? "Metric", for: UIControl.State())
         DispatchQueue.main.async {
             self.loadViewIfNeeded()
         }
