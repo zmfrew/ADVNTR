@@ -163,7 +163,9 @@ class UserController {
         }
     }
     
+    
     func resetPasswordForUserWith(email: String, completion: @escaping (Bool, Error?) -> Void) {
+        
         Auth.auth().sendPasswordReset(withEmail: email) { (error) in
             if let error = error {
                 print("Error saving activity image map view to Firebase Storage: \(error)")
